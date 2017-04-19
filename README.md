@@ -1,4 +1,6 @@
 ## DSL
+An example of the DSL is given below-
+
 Network {
 	alpha 0.005
 	epochs 150
