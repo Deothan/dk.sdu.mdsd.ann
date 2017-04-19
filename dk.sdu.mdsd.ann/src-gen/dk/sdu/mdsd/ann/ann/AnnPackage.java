@@ -253,13 +253,78 @@ public interface AnnPackage extends EPackage
   int LEARNING_RULE = 5;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LEARNING_RULE__NAME = 0;
+
+  /**
    * The number of structural features of the '<em>Learning Rule</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LEARNING_RULE_FEATURE_COUNT = 0;
+  int LEARNING_RULE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.SigmoidImpl <em>Sigmoid</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.SigmoidImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSigmoid()
+   * @generated
+   */
+  int SIGMOID = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGMOID__NAME = LEARNING_RULE__NAME;
+
+  /**
+   * The number of structural features of the '<em>Sigmoid</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGMOID_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ThresholdImpl <em>Threshold</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.ThresholdImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getThreshold()
+   * @generated
+   */
+  int THRESHOLD = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THRESHOLD__NAME = LEARNING_RULE__NAME;
+
+  /**
+   * The number of structural features of the '<em>Threshold</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THRESHOLD_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.
@@ -269,7 +334,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCustom()
    * @generated
    */
-  int CUSTOM = 6;
+  int CUSTOM = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -278,7 +343,7 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CUSTOM__NAME = LEARNING_RULE_FEATURE_COUNT + 0;
+  int CUSTOM__NAME = LEARNING_RULE__NAME;
 
   /**
    * The feature id for the '<em><b>Function</b></em>' attribute.
@@ -287,7 +352,7 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CUSTOM__FUNCTION = LEARNING_RULE_FEATURE_COUNT + 1;
+  int CUSTOM__FUNCTION = LEARNING_RULE_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Custom</em>' class.
@@ -296,7 +361,7 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CUSTOM_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 2;
+  int CUSTOM_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 1;
 
 
   /**
@@ -437,6 +502,37 @@ public interface AnnPackage extends EPackage
   EClass getLearningRule();
 
   /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.LearningRule#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see dk.sdu.mdsd.ann.ann.LearningRule#getName()
+   * @see #getLearningRule()
+   * @generated
+   */
+  EAttribute getLearningRule_Name();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Sigmoid <em>Sigmoid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sigmoid</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Sigmoid
+   * @generated
+   */
+  EClass getSigmoid();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Threshold <em>Threshold</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Threshold</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Threshold
+   * @generated
+   */
+  EClass getThreshold();
+
+  /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Custom <em>Custom</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -445,17 +541,6 @@ public interface AnnPackage extends EPackage
    * @generated
    */
   EClass getCustom();
-
-  /**
-   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Custom#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Custom#getName()
-   * @see #getCustom()
-   * @generated
-   */
-  EAttribute getCustom_Name();
 
   /**
    * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Custom#getFunction <em>Function</em>}'.
@@ -608,6 +693,34 @@ public interface AnnPackage extends EPackage
     EClass LEARNING_RULE = eINSTANCE.getLearningRule();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LEARNING_RULE__NAME = eINSTANCE.getLearningRule_Name();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.SigmoidImpl <em>Sigmoid</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.SigmoidImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSigmoid()
+     * @generated
+     */
+    EClass SIGMOID = eINSTANCE.getSigmoid();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ThresholdImpl <em>Threshold</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.ThresholdImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getThreshold()
+     * @generated
+     */
+    EClass THRESHOLD = eINSTANCE.getThreshold();
+
+    /**
      * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -616,14 +729,6 @@ public interface AnnPackage extends EPackage
      * @generated
      */
     EClass CUSTOM = eINSTANCE.getCustom();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CUSTOM__NAME = eINSTANCE.getCustom_Name();
 
     /**
      * The meta object literal for the '<em><b>Function</b></em>' attribute feature.

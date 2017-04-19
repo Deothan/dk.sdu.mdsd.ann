@@ -78,6 +78,24 @@ public interface AnnFactory extends EFactory
   LearningRule createLearningRule();
 
   /**
+   * Returns a new object of class '<em>Sigmoid</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sigmoid</em>'.
+   * @generated
+   */
+  Sigmoid createSigmoid();
+
+  /**
+   * Returns a new object of class '<em>Threshold</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Threshold</em>'.
+   * @generated
+   */
+  Threshold createThreshold();
+
+  /**
    * Returns a new object of class '<em>Custom</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -476,16 +476,18 @@ ruleLearningRule returns [EObject current=null]
 		{
 			newCompositeNode(grammarAccess.getLearningRuleAccess().getSigmoidParserRuleCall_0());
 		}
-		ruleSigmoid
+		this_Sigmoid_0=ruleSigmoid
 		{
+			$current = $this_Sigmoid_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
 			newCompositeNode(grammarAccess.getLearningRuleAccess().getThresholdParserRuleCall_1());
 		}
-		ruleThreshold
+		this_Threshold_1=ruleThreshold
 		{
+			$current = $this_Threshold_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -501,47 +503,77 @@ ruleLearningRule returns [EObject current=null]
 ;
 
 // Entry rule entryRuleSigmoid
-entryRuleSigmoid returns [String current=null]:
+entryRuleSigmoid returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getSigmoidRule()); }
 	iv_ruleSigmoid=ruleSigmoid
-	{ $current=$iv_ruleSigmoid.current.getText(); }
+	{ $current=$iv_ruleSigmoid.current; }
 	EOF;
 
 // Rule Sigmoid
-ruleSigmoid returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+ruleSigmoid returns [EObject current=null]
 @init {
 	enterRule();
 }
 @after {
 	leaveRule();
 }:
-	kw='sigmoid'
-	{
-		$current.merge(kw);
-		newLeafNode(kw, grammarAccess.getSigmoidAccess().getSigmoidKeyword());
-	}
+	(
+		otherlv_0='sigmoid'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSigmoidAccess().getSigmoidKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0='sigmoid'
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getSigmoidAccess().getNameSigmoidKeyword_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSigmoidRule());
+					}
+					setWithLastConsumed($current, "name", lv_name_1_0, "sigmoid");
+				}
+			)
+		)
+	)
 ;
 
 // Entry rule entryRuleThreshold
-entryRuleThreshold returns [String current=null]:
+entryRuleThreshold returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getThresholdRule()); }
 	iv_ruleThreshold=ruleThreshold
-	{ $current=$iv_ruleThreshold.current.getText(); }
+	{ $current=$iv_ruleThreshold.current; }
 	EOF;
 
 // Rule Threshold
-ruleThreshold returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+ruleThreshold returns [EObject current=null]
 @init {
 	enterRule();
 }
 @after {
 	leaveRule();
 }:
-	kw='threshold'
-	{
-		$current.merge(kw);
-		newLeafNode(kw, grammarAccess.getThresholdAccess().getThresholdKeyword());
-	}
+	(
+		otherlv_0='threshold'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getThresholdAccess().getThresholdKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0='threshold'
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getThresholdAccess().getNameThresholdKeyword_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getThresholdRule());
+					}
+					setWithLastConsumed($current, "name", lv_name_1_0, "threshold");
+				}
+			)
+		)
+	)
 ;
 
 // Entry rule entryRuleCustom

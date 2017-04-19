@@ -29,45 +29,68 @@ class AnnGenerator extends AbstractGenerator {
 	}
 	
 	def CharSequence generateNetwork(ANNModel model) '''
-		public class «model.name» {
-			private double alpha = «model.alpha»;
-			private int epochs = «model.epochs»;
-			
-			public «model.name»() {
-			
-			}
-			
-			public double getAlpha() {
-				return this.alpha;
-			}
-			
-			public void setAlpha(double alpha) {
-				this.alpha = alpha;
-			}
-			
-			public int getEpochs() {
-				return this.epochs;
-			}
-			
-			public void setEpochs(int epochs) {
-				this.epochs = epochs;
-			}
-			
+	import java.util.*;
+
+	public class «model.name» {
+		private double alpha = «model.alpha»;
+		private int epochs = «model.epochs»;
+		private List<Double> layers;
+		private List<String> transfers;
+		
+		public «model.name»() {
+			layers = new ArrayList<>();
+			transfers = new ArrayList<>();
+			init();			
+		}
+		
+		public Double[] getLayers() {
+			return (Double[])this.layers.toArray();
+		}
+		
+		public String[] getTransfers() {
+			return (String[])this.transfers.toArray();
+		}
+		
+		public void addLayerWithTransfer(double size, String transfer) {
+			this.layers.add(size);
+			this.transfers.add(transfer);
+		}
+		
+		public double getAlpha() {
+			return this.alpha;
+		}
+		
+		public void setAlpha(double alpha) {
+			this.alpha = alpha;
+		}
+		
+		public int getEpochs() {
+			return this.epochs;
+		}
+		
+		public void setEpochs(int epochs) {
+			this.epochs = epochs;
+		}
+		
+		private void init(){
 			«FOR l: model.layer»
 			«l.generateLayer»
 			«ENDFOR»
 		}
+	}
 	'''
 	
 	def dispatch generateLayer(Hidden layer) '''
-	
+		addLayerWithTransfer(«layer.size», «layer.l_rule.name»);
+		
 	'''
 	
 	def dispatch generateLayer(Input layer) '''
-	
+		addLayerWithTransfer(«layer.size», "");
 	'''
 		
 	def dispatch generateLayer(Output layer) '''
-	
+		addLayerWithTransfer(«layer.size», «layer.l_rule.name»);
+
 	'''
 }

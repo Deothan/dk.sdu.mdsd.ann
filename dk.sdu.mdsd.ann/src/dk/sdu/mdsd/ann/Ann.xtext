@@ -40,11 +40,11 @@ LearningRule:
 ;
 
 Sigmoid:
-	'sigmoid'
+	'sigmoid' name='sigmoid'
 ;
 
 Threshold:
-	'threshold'
+	'threshold' name='threshold'
 ;
 
 Custom:

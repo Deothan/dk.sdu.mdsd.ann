@@ -71,6 +71,8 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
       case AnnPackage.INPUT: return createInput();
       case AnnPackage.OUTPUT: return createOutput();
       case AnnPackage.LEARNING_RULE: return createLearningRule();
+      case AnnPackage.SIGMOID: return createSigmoid();
+      case AnnPackage.THRESHOLD: return createThreshold();
       case AnnPackage.CUSTOM: return createCustom();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -141,6 +143,28 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
   {
     LearningRuleImpl learningRule = new LearningRuleImpl();
     return learningRule;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Sigmoid createSigmoid()
+  {
+    SigmoidImpl sigmoid = new SigmoidImpl();
+    return sigmoid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Threshold createThreshold()
+  {
+    ThresholdImpl threshold = new ThresholdImpl();
+    return threshold;
   }
 
   /**

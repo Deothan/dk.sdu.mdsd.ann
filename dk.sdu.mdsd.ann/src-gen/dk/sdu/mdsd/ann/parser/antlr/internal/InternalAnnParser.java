@@ -1049,9 +1049,13 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLearningRule"
-    // InternalAnn.g:468:1: ruleLearningRule returns [EObject current=null] : ( ruleSigmoid | ruleThreshold | this_Custom_2= ruleCustom ) ;
+    // InternalAnn.g:468:1: ruleLearningRule returns [EObject current=null] : (this_Sigmoid_0= ruleSigmoid | this_Threshold_1= ruleThreshold | this_Custom_2= ruleCustom ) ;
     public final EObject ruleLearningRule() throws RecognitionException {
         EObject current = null;
+
+        EObject this_Sigmoid_0 = null;
+
+        EObject this_Threshold_1 = null;
 
         EObject this_Custom_2 = null;
 
@@ -1060,10 +1064,10 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAnn.g:474:2: ( ( ruleSigmoid | ruleThreshold | this_Custom_2= ruleCustom ) )
-            // InternalAnn.g:475:2: ( ruleSigmoid | ruleThreshold | this_Custom_2= ruleCustom )
+            // InternalAnn.g:474:2: ( (this_Sigmoid_0= ruleSigmoid | this_Threshold_1= ruleThreshold | this_Custom_2= ruleCustom ) )
+            // InternalAnn.g:475:2: (this_Sigmoid_0= ruleSigmoid | this_Threshold_1= ruleThreshold | this_Custom_2= ruleCustom )
             {
-            // InternalAnn.g:475:2: ( ruleSigmoid | ruleThreshold | this_Custom_2= ruleCustom )
+            // InternalAnn.g:475:2: (this_Sigmoid_0= ruleSigmoid | this_Threshold_1= ruleThreshold | this_Custom_2= ruleCustom )
             int alt3=3;
             switch ( input.LA(1) ) {
             case 21:
@@ -1090,41 +1094,43 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
             switch (alt3) {
                 case 1 :
-                    // InternalAnn.g:476:3: ruleSigmoid
+                    // InternalAnn.g:476:3: this_Sigmoid_0= ruleSigmoid
                     {
 
                     			newCompositeNode(grammarAccess.getLearningRuleAccess().getSigmoidParserRuleCall_0());
                     		
                     pushFollow(FOLLOW_2);
-                    ruleSigmoid();
+                    this_Sigmoid_0=ruleSigmoid();
 
                     state._fsp--;
 
 
+                    			current = this_Sigmoid_0;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 2 :
-                    // InternalAnn.g:484:3: ruleThreshold
+                    // InternalAnn.g:485:3: this_Threshold_1= ruleThreshold
                     {
 
                     			newCompositeNode(grammarAccess.getLearningRuleAccess().getThresholdParserRuleCall_1());
                     		
                     pushFollow(FOLLOW_2);
-                    ruleThreshold();
+                    this_Threshold_1=ruleThreshold();
 
                     state._fsp--;
 
 
+                    			current = this_Threshold_1;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 3 :
-                    // InternalAnn.g:492:3: this_Custom_2= ruleCustom
+                    // InternalAnn.g:494:3: this_Custom_2= ruleCustom
                     {
 
                     			newCompositeNode(grammarAccess.getLearningRuleAccess().getCustomParserRuleCall_2());
@@ -1164,16 +1170,16 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSigmoid"
-    // InternalAnn.g:504:1: entryRuleSigmoid returns [String current=null] : iv_ruleSigmoid= ruleSigmoid EOF ;
-    public final String entryRuleSigmoid() throws RecognitionException {
-        String current = null;
+    // InternalAnn.g:506:1: entryRuleSigmoid returns [EObject current=null] : iv_ruleSigmoid= ruleSigmoid EOF ;
+    public final EObject entryRuleSigmoid() throws RecognitionException {
+        EObject current = null;
 
-        AntlrDatatypeRuleToken iv_ruleSigmoid = null;
+        EObject iv_ruleSigmoid = null;
 
 
         try {
-            // InternalAnn.g:504:47: (iv_ruleSigmoid= ruleSigmoid EOF )
-            // InternalAnn.g:505:2: iv_ruleSigmoid= ruleSigmoid EOF
+            // InternalAnn.g:506:48: (iv_ruleSigmoid= ruleSigmoid EOF )
+            // InternalAnn.g:507:2: iv_ruleSigmoid= ruleSigmoid EOF
             {
              newCompositeNode(grammarAccess.getSigmoidRule()); 
             pushFollow(FOLLOW_1);
@@ -1181,7 +1187,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
             state._fsp--;
 
-             current =iv_ruleSigmoid.getText(); 
+             current =iv_ruleSigmoid; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1200,24 +1206,52 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSigmoid"
-    // InternalAnn.g:511:1: ruleSigmoid returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'sigmoid' ;
-    public final AntlrDatatypeRuleToken ruleSigmoid() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+    // InternalAnn.g:513:1: ruleSigmoid returns [EObject current=null] : (otherlv_0= 'sigmoid' ( (lv_name_1_0= 'sigmoid' ) ) ) ;
+    public final EObject ruleSigmoid() throws RecognitionException {
+        EObject current = null;
 
-        Token kw=null;
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalAnn.g:517:2: (kw= 'sigmoid' )
-            // InternalAnn.g:518:2: kw= 'sigmoid'
+            // InternalAnn.g:519:2: ( (otherlv_0= 'sigmoid' ( (lv_name_1_0= 'sigmoid' ) ) ) )
+            // InternalAnn.g:520:2: (otherlv_0= 'sigmoid' ( (lv_name_1_0= 'sigmoid' ) ) )
             {
-            kw=(Token)match(input,21,FOLLOW_2); 
+            // InternalAnn.g:520:2: (otherlv_0= 'sigmoid' ( (lv_name_1_0= 'sigmoid' ) ) )
+            // InternalAnn.g:521:3: otherlv_0= 'sigmoid' ( (lv_name_1_0= 'sigmoid' ) )
+            {
+            otherlv_0=(Token)match(input,21,FOLLOW_14); 
 
-            		current.merge(kw);
-            		newLeafNode(kw, grammarAccess.getSigmoidAccess().getSigmoidKeyword());
-            	
+            			newLeafNode(otherlv_0, grammarAccess.getSigmoidAccess().getSigmoidKeyword_0());
+            		
+            // InternalAnn.g:525:3: ( (lv_name_1_0= 'sigmoid' ) )
+            // InternalAnn.g:526:4: (lv_name_1_0= 'sigmoid' )
+            {
+            // InternalAnn.g:526:4: (lv_name_1_0= 'sigmoid' )
+            // InternalAnn.g:527:5: lv_name_1_0= 'sigmoid'
+            {
+            lv_name_1_0=(Token)match(input,21,FOLLOW_2); 
+
+            					newLeafNode(lv_name_1_0, grammarAccess.getSigmoidAccess().getNameSigmoidKeyword_1_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getSigmoidRule());
+            					}
+            					setWithLastConsumed(current, "name", lv_name_1_0, "sigmoid");
+            				
+
+            }
+
+
+            }
+
+
+            }
+
 
             }
 
@@ -1238,16 +1272,16 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleThreshold"
-    // InternalAnn.g:526:1: entryRuleThreshold returns [String current=null] : iv_ruleThreshold= ruleThreshold EOF ;
-    public final String entryRuleThreshold() throws RecognitionException {
-        String current = null;
+    // InternalAnn.g:543:1: entryRuleThreshold returns [EObject current=null] : iv_ruleThreshold= ruleThreshold EOF ;
+    public final EObject entryRuleThreshold() throws RecognitionException {
+        EObject current = null;
 
-        AntlrDatatypeRuleToken iv_ruleThreshold = null;
+        EObject iv_ruleThreshold = null;
 
 
         try {
-            // InternalAnn.g:526:49: (iv_ruleThreshold= ruleThreshold EOF )
-            // InternalAnn.g:527:2: iv_ruleThreshold= ruleThreshold EOF
+            // InternalAnn.g:543:50: (iv_ruleThreshold= ruleThreshold EOF )
+            // InternalAnn.g:544:2: iv_ruleThreshold= ruleThreshold EOF
             {
              newCompositeNode(grammarAccess.getThresholdRule()); 
             pushFollow(FOLLOW_1);
@@ -1255,7 +1289,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
             state._fsp--;
 
-             current =iv_ruleThreshold.getText(); 
+             current =iv_ruleThreshold; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1274,24 +1308,52 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleThreshold"
-    // InternalAnn.g:533:1: ruleThreshold returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'threshold' ;
-    public final AntlrDatatypeRuleToken ruleThreshold() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+    // InternalAnn.g:550:1: ruleThreshold returns [EObject current=null] : (otherlv_0= 'threshold' ( (lv_name_1_0= 'threshold' ) ) ) ;
+    public final EObject ruleThreshold() throws RecognitionException {
+        EObject current = null;
 
-        Token kw=null;
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalAnn.g:539:2: (kw= 'threshold' )
-            // InternalAnn.g:540:2: kw= 'threshold'
+            // InternalAnn.g:556:2: ( (otherlv_0= 'threshold' ( (lv_name_1_0= 'threshold' ) ) ) )
+            // InternalAnn.g:557:2: (otherlv_0= 'threshold' ( (lv_name_1_0= 'threshold' ) ) )
             {
-            kw=(Token)match(input,22,FOLLOW_2); 
+            // InternalAnn.g:557:2: (otherlv_0= 'threshold' ( (lv_name_1_0= 'threshold' ) ) )
+            // InternalAnn.g:558:3: otherlv_0= 'threshold' ( (lv_name_1_0= 'threshold' ) )
+            {
+            otherlv_0=(Token)match(input,22,FOLLOW_15); 
 
-            		current.merge(kw);
-            		newLeafNode(kw, grammarAccess.getThresholdAccess().getThresholdKeyword());
-            	
+            			newLeafNode(otherlv_0, grammarAccess.getThresholdAccess().getThresholdKeyword_0());
+            		
+            // InternalAnn.g:562:3: ( (lv_name_1_0= 'threshold' ) )
+            // InternalAnn.g:563:4: (lv_name_1_0= 'threshold' )
+            {
+            // InternalAnn.g:563:4: (lv_name_1_0= 'threshold' )
+            // InternalAnn.g:564:5: lv_name_1_0= 'threshold'
+            {
+            lv_name_1_0=(Token)match(input,22,FOLLOW_2); 
+
+            					newLeafNode(lv_name_1_0, grammarAccess.getThresholdAccess().getNameThresholdKeyword_1_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getThresholdRule());
+            					}
+            					setWithLastConsumed(current, "name", lv_name_1_0, "threshold");
+            				
+
+            }
+
+
+            }
+
+
+            }
+
 
             }
 
@@ -1312,7 +1374,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCustom"
-    // InternalAnn.g:548:1: entryRuleCustom returns [EObject current=null] : iv_ruleCustom= ruleCustom EOF ;
+    // InternalAnn.g:580:1: entryRuleCustom returns [EObject current=null] : iv_ruleCustom= ruleCustom EOF ;
     public final EObject entryRuleCustom() throws RecognitionException {
         EObject current = null;
 
@@ -1320,8 +1382,8 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAnn.g:548:47: (iv_ruleCustom= ruleCustom EOF )
-            // InternalAnn.g:549:2: iv_ruleCustom= ruleCustom EOF
+            // InternalAnn.g:580:47: (iv_ruleCustom= ruleCustom EOF )
+            // InternalAnn.g:581:2: iv_ruleCustom= ruleCustom EOF
             {
              newCompositeNode(grammarAccess.getCustomRule()); 
             pushFollow(FOLLOW_1);
@@ -1348,7 +1410,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCustom"
-    // InternalAnn.g:555:1: ruleCustom returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' ) ;
+    // InternalAnn.g:587:1: ruleCustom returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' ) ;
     public final EObject ruleCustom() throws RecognitionException {
         EObject current = null;
 
@@ -1361,17 +1423,17 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAnn.g:561:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' ) )
-            // InternalAnn.g:562:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' )
+            // InternalAnn.g:593:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' ) )
+            // InternalAnn.g:594:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' )
             {
-            // InternalAnn.g:562:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' )
-            // InternalAnn.g:563:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}'
+            // InternalAnn.g:594:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' )
+            // InternalAnn.g:595:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}'
             {
-            // InternalAnn.g:563:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalAnn.g:564:4: (lv_name_0_0= RULE_ID )
+            // InternalAnn.g:595:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalAnn.g:596:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalAnn.g:564:4: (lv_name_0_0= RULE_ID )
-            // InternalAnn.g:565:5: lv_name_0_0= RULE_ID
+            // InternalAnn.g:596:4: (lv_name_0_0= RULE_ID )
+            // InternalAnn.g:597:5: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_3); 
 
@@ -1393,15 +1455,15 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FOLLOW_14); 
+            otherlv_1=(Token)match(input,11,FOLLOW_16); 
 
             			newLeafNode(otherlv_1, grammarAccess.getCustomAccess().getLeftCurlyBracketKeyword_1());
             		
-            // InternalAnn.g:585:3: ( (lv_function_2_0= RULE_ID ) )
-            // InternalAnn.g:586:4: (lv_function_2_0= RULE_ID )
+            // InternalAnn.g:617:3: ( (lv_function_2_0= RULE_ID ) )
+            // InternalAnn.g:618:4: (lv_function_2_0= RULE_ID )
             {
-            // InternalAnn.g:586:4: (lv_function_2_0= RULE_ID )
-            // InternalAnn.g:587:5: lv_function_2_0= RULE_ID
+            // InternalAnn.g:618:4: (lv_function_2_0= RULE_ID )
+            // InternalAnn.g:619:5: lv_function_2_0= RULE_ID
             {
             lv_function_2_0=(Token)match(input,RULE_ID,FOLLOW_13); 
 
@@ -1466,6 +1528,8 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000600010L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000010L});
 
 }

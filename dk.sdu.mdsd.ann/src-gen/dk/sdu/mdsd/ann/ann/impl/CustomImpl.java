@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl#getName <em>Name</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl#getFunction <em>Function</em>}</li>
  * </ul>
  *
@@ -28,26 +27,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class CustomImpl extends LearningRuleImpl implements Custom
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getFunction() <em>Function</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -94,29 +73,6 @@ public class CustomImpl extends LearningRuleImpl implements Custom
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.CUSTOM__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getFunction()
   {
     return function;
@@ -145,8 +101,6 @@ public class CustomImpl extends LearningRuleImpl implements Custom
   {
     switch (featureID)
     {
-      case AnnPackage.CUSTOM__NAME:
-        return getName();
       case AnnPackage.CUSTOM__FUNCTION:
         return getFunction();
     }
@@ -163,9 +117,6 @@ public class CustomImpl extends LearningRuleImpl implements Custom
   {
     switch (featureID)
     {
-      case AnnPackage.CUSTOM__NAME:
-        setName((String)newValue);
-        return;
       case AnnPackage.CUSTOM__FUNCTION:
         setFunction((String)newValue);
         return;
@@ -183,9 +134,6 @@ public class CustomImpl extends LearningRuleImpl implements Custom
   {
     switch (featureID)
     {
-      case AnnPackage.CUSTOM__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case AnnPackage.CUSTOM__FUNCTION:
         setFunction(FUNCTION_EDEFAULT);
         return;
@@ -203,8 +151,6 @@ public class CustomImpl extends LearningRuleImpl implements Custom
   {
     switch (featureID)
     {
-      case AnnPackage.CUSTOM__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AnnPackage.CUSTOM__FUNCTION:
         return FUNCTION_EDEFAULT == null ? function != null : !FUNCTION_EDEFAULT.equals(function);
     }
@@ -222,9 +168,7 @@ public class CustomImpl extends LearningRuleImpl implements Custom
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", function: ");
+    result.append(" (function: ");
     result.append(function);
     result.append(')');
     return result.toString();

@@ -118,6 +118,22 @@ public class AnnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AnnPackage.SIGMOID:
+      {
+        Sigmoid sigmoid = (Sigmoid)theEObject;
+        T result = caseSigmoid(sigmoid);
+        if (result == null) result = caseLearningRule(sigmoid);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AnnPackage.THRESHOLD:
+      {
+        Threshold threshold = (Threshold)theEObject;
+        T result = caseThreshold(threshold);
+        if (result == null) result = caseLearningRule(threshold);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AnnPackage.CUSTOM:
       {
         Custom custom = (Custom)theEObject;
@@ -222,6 +238,38 @@ public class AnnSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLearningRule(LearningRule object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sigmoid</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sigmoid</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSigmoid(Sigmoid object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Threshold</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Threshold</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseThreshold(Threshold object)
   {
     return null;
   }

@@ -11,9 +11,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -21,44 +18,17 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class AnnSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected AnnGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_LearningRule_SigmoidParserRuleCall_0_or_ThresholdParserRuleCall_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (AnnGrammarAccess) access;
-		match_LearningRule_SigmoidParserRuleCall_0_or_ThresholdParserRuleCall_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getLearningRuleAccess().getSigmoidParserRuleCall_0()), new TokenAlias(false, false, grammarAccess.getLearningRuleAccess().getThresholdParserRuleCall_1()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getSigmoidRule())
-			return getSigmoidToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getThresholdRule())
-			return getThresholdToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * Sigmoid:
-	 * 	'sigmoid'
-	 * ;
-	 */
-	protected String getSigmoidToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "sigmoid";
-	}
-	
-	/**
-	 * Threshold:
-	 * 	'threshold'
-	 * ;
-	 */
-	protected String getThresholdToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "threshold";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -66,21 +36,8 @@ public class AnnSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_LearningRule_SigmoidParserRuleCall_0_or_ThresholdParserRuleCall_1.equals(syntax))
-				emit_LearningRule_SigmoidParserRuleCall_0_or_ThresholdParserRuleCall_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     Sigmoid | Threshold
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 */
-	protected void emit_LearningRule_SigmoidParserRuleCall_0_or_ThresholdParserRuleCall_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

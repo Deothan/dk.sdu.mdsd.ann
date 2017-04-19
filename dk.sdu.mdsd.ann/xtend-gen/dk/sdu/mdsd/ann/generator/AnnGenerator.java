@@ -42,6 +42,9 @@ public class AnnGenerator extends AbstractGenerator {
   
   public CharSequence generateNetwork(final ANNModel model) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import java.util.*;");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("public class ");
     String _name = model.getName();
     _builder.append(_name);
@@ -60,6 +63,12 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
+    _builder.append("private List<Double> layers;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private List<String> transfers;");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public ");
@@ -67,7 +76,50 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append(_name_1, "\t");
     _builder.append("() {");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("layers = new ArrayList<>();");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("transfers = new ArrayList<>();");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("init();\t\t\t");
+    _builder.newLine();
     _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public Double[] getLayers() {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return (Double[])this.layers.toArray();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public String[] getTransfers() {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return (String[])this.transfers.toArray();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public void addLayerWithTransfer(double size, String transfer) {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("this.layers.add(size);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("this.transfers.add(transfer);");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -118,15 +170,21 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private void init(){");
+    _builder.newLine();
     {
       EList<Layer> _layer = model.getLayer();
       for(final Layer l : _layer) {
-        _builder.append("\t");
+        _builder.append("\t\t");
         CharSequence _generateLayer = this.generateLayer(l);
-        _builder.append(_generateLayer, "\t");
+        _builder.append(_generateLayer, "\t\t");
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder;
@@ -134,21 +192,38 @@ public class AnnGenerator extends AbstractGenerator {
   
   protected CharSequence _generateLayer(final Hidden layer) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\t");
+    _builder.append("addLayerWithTransfer(");
+    int _size = layer.getSize();
+    _builder.append(_size);
+    _builder.append(", ");
+    String _name = layer.getL_rule().getName();
+    _builder.append(_name);
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     return _builder;
   }
   
   protected CharSequence _generateLayer(final Input layer) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\t");
-    _builder.newLine();
+    _builder.append("addLayerWithTransfer(");
+    int _size = layer.getSize();
+    _builder.append(_size);
+    _builder.append(", \"\");");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
   protected CharSequence _generateLayer(final Output layer) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\t");
+    _builder.append("addLayerWithTransfer(");
+    int _size = layer.getSize();
+    _builder.append(_size);
+    _builder.append(", ");
+    String _name = layer.getL_rule().getName();
+    _builder.append(_name);
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     return _builder;
   }

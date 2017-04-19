@@ -10,6 +10,8 @@ import dk.sdu.mdsd.ann.ann.Custom;
 import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Output;
+import dk.sdu.mdsd.ann.ann.Sigmoid;
+import dk.sdu.mdsd.ann.ann.Threshold;
 import dk.sdu.mdsd.ann.services.AnnGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -51,6 +53,12 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case AnnPackage.OUTPUT:
 				sequence_Output(context, (Output) semanticObject); 
 				return; 
+			case AnnPackage.SIGMOID:
+				sequence_Sigmoid(context, (Sigmoid) semanticObject); 
+				return; 
+			case AnnPackage.THRESHOLD:
+				sequence_Threshold(context, (Threshold) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -78,8 +86,8 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Custom(ISerializationContext context, Custom semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CUSTOM__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__NAME));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.LEARNING_RULE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.LEARNING_RULE__NAME));
 			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CUSTOM__FUNCTION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__FUNCTION));
 		}
@@ -149,6 +157,44 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getOutputAccess().getSizeINTTerminalRuleCall_3_0(), semanticObject.getSize());
 		feeder.accept(grammarAccess.getOutputAccess().getL_ruleLearningRuleParserRuleCall_5_0(), semanticObject.getL_rule());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LearningRule returns Sigmoid
+	 *     Sigmoid returns Sigmoid
+	 *
+	 * Constraint:
+	 *     name='sigmoid'
+	 */
+	protected void sequence_Sigmoid(ISerializationContext context, Sigmoid semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.LEARNING_RULE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.LEARNING_RULE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSigmoidAccess().getNameSigmoidKeyword_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LearningRule returns Threshold
+	 *     Threshold returns Threshold
+	 *
+	 * Constraint:
+	 *     name='threshold'
+	 */
+	protected void sequence_Threshold(ISerializationContext context, Threshold semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.LEARNING_RULE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.LEARNING_RULE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getThresholdAccess().getNameThresholdKeyword_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

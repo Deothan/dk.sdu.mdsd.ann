@@ -12,6 +12,8 @@ import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Layer;
 import dk.sdu.mdsd.ann.ann.LearningRule;
 import dk.sdu.mdsd.ann.ann.Output;
+import dk.sdu.mdsd.ann.ann.Sigmoid;
+import dk.sdu.mdsd.ann.ann.Threshold;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -69,6 +71,20 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * @generated
    */
   private EClass learningRuleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sigmoidEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass thresholdEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -275,6 +291,36 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getLearningRule_Name()
+  {
+    return (EAttribute)learningRuleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSigmoid()
+  {
+    return sigmoidEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getThreshold()
+  {
+    return thresholdEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCustom()
   {
     return customEClass;
@@ -285,19 +331,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCustom_Name()
-  {
-    return (EAttribute)customEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getCustom_Function()
   {
-    return (EAttribute)customEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)customEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -348,9 +384,13 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     createEReference(outputEClass, OUTPUT__LRULE);
 
     learningRuleEClass = createEClass(LEARNING_RULE);
+    createEAttribute(learningRuleEClass, LEARNING_RULE__NAME);
+
+    sigmoidEClass = createEClass(SIGMOID);
+
+    thresholdEClass = createEClass(THRESHOLD);
 
     customEClass = createEClass(CUSTOM);
-    createEAttribute(customEClass, CUSTOM__NAME);
     createEAttribute(customEClass, CUSTOM__FUNCTION);
   }
 
@@ -386,6 +426,8 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     hiddenEClass.getESuperTypes().add(this.getLayer());
     inputEClass.getESuperTypes().add(this.getLayer());
     outputEClass.getESuperTypes().add(this.getLayer());
+    sigmoidEClass.getESuperTypes().add(this.getLearningRule());
+    thresholdEClass.getESuperTypes().add(this.getLearningRule());
     customEClass.getESuperTypes().add(this.getLearningRule());
 
     // Initialize classes and features; add operations and parameters
@@ -407,9 +449,13 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     initEReference(getOutput_L_rule(), this.getLearningRule(), null, "l_rule", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(learningRuleEClass, LearningRule.class, "LearningRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLearningRule_Name(), ecorePackage.getEString(), "name", null, 0, 1, LearningRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sigmoidEClass, Sigmoid.class, "Sigmoid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(thresholdEClass, Threshold.class, "Threshold", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(customEClass, Custom.class, "Custom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCustom_Name(), ecorePackage.getEString(), "name", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCustom_Function(), ecorePackage.getEString(), "function", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
