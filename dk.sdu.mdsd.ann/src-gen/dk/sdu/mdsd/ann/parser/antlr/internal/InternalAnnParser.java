@@ -1388,11 +1388,11 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCustom"
-    // InternalAnn.g:575:1: ruleCustom returns [EObject current=null] : ( ( (lv_rule_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' ) ;
+    // InternalAnn.g:575:1: ruleCustom returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' ) ;
     public final EObject ruleCustom() throws RecognitionException {
         EObject current = null;
 
-        Token lv_rule_0_0=null;
+        Token lv_name_0_0=null;
         Token otherlv_1=null;
         Token lv_function_2_0=null;
         Token otherlv_3=null;
@@ -1401,21 +1401,21 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAnn.g:581:2: ( ( ( (lv_rule_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' ) )
-            // InternalAnn.g:582:2: ( ( (lv_rule_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' )
+            // InternalAnn.g:581:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' ) )
+            // InternalAnn.g:582:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' )
             {
-            // InternalAnn.g:582:2: ( ( (lv_rule_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' )
-            // InternalAnn.g:583:3: ( (lv_rule_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}'
+            // InternalAnn.g:582:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' )
+            // InternalAnn.g:583:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}'
             {
-            // InternalAnn.g:583:3: ( (lv_rule_0_0= RULE_ID ) )
-            // InternalAnn.g:584:4: (lv_rule_0_0= RULE_ID )
+            // InternalAnn.g:583:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalAnn.g:584:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalAnn.g:584:4: (lv_rule_0_0= RULE_ID )
-            // InternalAnn.g:585:5: lv_rule_0_0= RULE_ID
+            // InternalAnn.g:584:4: (lv_name_0_0= RULE_ID )
+            // InternalAnn.g:585:5: lv_name_0_0= RULE_ID
             {
-            lv_rule_0_0=(Token)match(input,RULE_ID,FOLLOW_3); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_3); 
 
-            					newLeafNode(lv_rule_0_0, grammarAccess.getCustomAccess().getRuleIDTerminalRuleCall_0_0());
+            					newLeafNode(lv_name_0_0, grammarAccess.getCustomAccess().getNameIDTerminalRuleCall_0_0());
             				
 
             					if (current==null) {
@@ -1423,8 +1423,8 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
             					}
             					setWithLastConsumed(
             						current,
-            						"rule",
-            						lv_rule_0_0,
+            						"name",
+            						lv_name_0_0,
             						"org.eclipse.xtext.common.Terminals.ID");
             				
 

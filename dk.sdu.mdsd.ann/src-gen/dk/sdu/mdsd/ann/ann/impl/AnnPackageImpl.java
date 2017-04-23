@@ -291,9 +291,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLearningRule_Rule()
+  public EClass getSigmoid()
   {
-    return (EAttribute)learningRuleEClass.getEStructuralFeatures().get(0);
+    return sigmoidEClass;
   }
 
   /**
@@ -301,9 +301,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSigmoid()
+  public EAttribute getSigmoid_Rule()
   {
-    return sigmoidEClass;
+    return (EAttribute)sigmoidEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -321,6 +321,16 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getThreshold_Rule()
+  {
+    return (EAttribute)thresholdEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCustom()
   {
     return customEClass;
@@ -331,9 +341,19 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCustom_Function()
+  public EAttribute getCustom_Name()
   {
     return (EAttribute)customEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCustom_Function()
+  {
+    return (EAttribute)customEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -384,13 +404,15 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     createEReference(outputEClass, OUTPUT__LRULE);
 
     learningRuleEClass = createEClass(LEARNING_RULE);
-    createEAttribute(learningRuleEClass, LEARNING_RULE__RULE);
 
     sigmoidEClass = createEClass(SIGMOID);
+    createEAttribute(sigmoidEClass, SIGMOID__RULE);
 
     thresholdEClass = createEClass(THRESHOLD);
+    createEAttribute(thresholdEClass, THRESHOLD__RULE);
 
     customEClass = createEClass(CUSTOM);
+    createEAttribute(customEClass, CUSTOM__NAME);
     createEAttribute(customEClass, CUSTOM__FUNCTION);
   }
 
@@ -449,13 +471,15 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     initEReference(getOutput_L_rule(), this.getLearningRule(), null, "l_rule", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(learningRuleEClass, LearningRule.class, "LearningRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLearningRule_Rule(), ecorePackage.getEString(), "rule", null, 0, 1, LearningRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sigmoidEClass, Sigmoid.class, "Sigmoid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSigmoid_Rule(), ecorePackage.getEString(), "rule", null, 0, 1, Sigmoid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(thresholdEClass, Threshold.class, "Threshold", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getThreshold_Rule(), ecorePackage.getEString(), "rule", null, 0, 1, Threshold.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(customEClass, Custom.class, "Custom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCustom_Name(), ecorePackage.getEString(), "name", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCustom_Function(), ecorePackage.getEString(), "function", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource

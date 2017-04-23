@@ -1188,9 +1188,9 @@ rule__Custom__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getCustomAccess().getRuleAssignment_0()); }
-	(rule__Custom__RuleAssignment_0)
-	{ after(grammarAccess.getCustomAccess().getRuleAssignment_0()); }
+	{ before(grammarAccess.getCustomAccess().getNameAssignment_0()); }
+	(rule__Custom__NameAssignment_0)
+	{ after(grammarAccess.getCustomAccess().getNameAssignment_0()); }
 )
 ;
 finally {
@@ -1451,15 +1451,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Custom__RuleAssignment_0
+rule__Custom__NameAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getCustomAccess().getRuleIDTerminalRuleCall_0_0()); }
+		{ before(grammarAccess.getCustomAccess().getNameIDTerminalRuleCall_0_0()); }
 		RULE_ID
-		{ after(grammarAccess.getCustomAccess().getRuleIDTerminalRuleCall_0_0()); }
+		{ after(grammarAccess.getCustomAccess().getNameIDTerminalRuleCall_0_0()); }
 	)
 ;
 finally {

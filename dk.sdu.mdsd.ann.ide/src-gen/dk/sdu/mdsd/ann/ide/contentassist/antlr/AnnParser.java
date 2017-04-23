@@ -50,7 +50,7 @@ public class AnnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOutputAccess().getL_ruleAssignment_5(), "rule__Output__L_ruleAssignment_5");
 					put(grammarAccess.getSigmoidAccess().getRuleAssignment(), "rule__Sigmoid__RuleAssignment");
 					put(grammarAccess.getThresholdAccess().getRuleAssignment(), "rule__Threshold__RuleAssignment");
-					put(grammarAccess.getCustomAccess().getRuleAssignment_0(), "rule__Custom__RuleAssignment_0");
+					put(grammarAccess.getCustomAccess().getNameAssignment_0(), "rule__Custom__NameAssignment_0");
 					put(grammarAccess.getCustomAccess().getFunctionAssignment_2(), "rule__Custom__FunctionAssignment_2");
 				}
 			};

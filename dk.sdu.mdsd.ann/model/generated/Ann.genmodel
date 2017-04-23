@@ -22,12 +22,15 @@
     <genClasses ecoreClass="Ann.ecore#//Output">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Output/l_rule"/>
     </genClasses>
-    <genClasses ecoreClass="Ann.ecore#//LearningRule">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//LearningRule/rule"/>
+    <genClasses ecoreClass="Ann.ecore#//LearningRule"/>
+    <genClasses ecoreClass="Ann.ecore#//Sigmoid">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Sigmoid/rule"/>
     </genClasses>
-    <genClasses ecoreClass="Ann.ecore#//Sigmoid"/>
-    <genClasses ecoreClass="Ann.ecore#//Threshold"/>
+    <genClasses ecoreClass="Ann.ecore#//Threshold">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Threshold/rule"/>
+    </genClasses>
     <genClasses ecoreClass="Ann.ecore#//Custom">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Custom/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Custom/function"/>
     </genClasses>
   </genPackages>

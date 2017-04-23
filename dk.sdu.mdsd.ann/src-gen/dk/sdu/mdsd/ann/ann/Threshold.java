@@ -9,6 +9,12 @@ package dk.sdu.mdsd.ann.ann;
  * A representation of the model object '<em><b>Threshold</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.Threshold#getRule <em>Rule</em>}</li>
+ * </ul>
  *
  * @see dk.sdu.mdsd.ann.ann.AnnPackage#getThreshold()
  * @model
@@ -16,4 +22,30 @@ package dk.sdu.mdsd.ann.ann;
  */
 public interface Threshold extends LearningRule
 {
+  /**
+   * Returns the value of the '<em><b>Rule</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Rule</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Rule</em>' attribute.
+   * @see #setRule(String)
+   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getThreshold_Rule()
+   * @model
+   * @generated
+   */
+  String getRule();
+
+  /**
+   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.Threshold#getRule <em>Rule</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Rule</em>' attribute.
+   * @see #getRule()
+   * @generated
+   */
+  void setRule(String value);
+
 } // Threshold

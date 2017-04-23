@@ -48,6 +48,6 @@ Threshold:
 ;
 
 Custom:
-	rule=ID '{'
+	name=ID '{'
 	function=ID '}'
 ;

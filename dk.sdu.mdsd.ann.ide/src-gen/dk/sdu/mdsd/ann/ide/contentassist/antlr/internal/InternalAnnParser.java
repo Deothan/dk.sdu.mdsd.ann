@@ -3461,31 +3461,31 @@ public class InternalAnnParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Custom__Group__0__Impl"
-    // InternalAnn.g:1185:1: rule__Custom__Group__0__Impl : ( ( rule__Custom__RuleAssignment_0 ) ) ;
+    // InternalAnn.g:1185:1: rule__Custom__Group__0__Impl : ( ( rule__Custom__NameAssignment_0 ) ) ;
     public final void rule__Custom__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnn.g:1189:1: ( ( ( rule__Custom__RuleAssignment_0 ) ) )
-            // InternalAnn.g:1190:1: ( ( rule__Custom__RuleAssignment_0 ) )
+            // InternalAnn.g:1189:1: ( ( ( rule__Custom__NameAssignment_0 ) ) )
+            // InternalAnn.g:1190:1: ( ( rule__Custom__NameAssignment_0 ) )
             {
-            // InternalAnn.g:1190:1: ( ( rule__Custom__RuleAssignment_0 ) )
-            // InternalAnn.g:1191:2: ( rule__Custom__RuleAssignment_0 )
+            // InternalAnn.g:1190:1: ( ( rule__Custom__NameAssignment_0 ) )
+            // InternalAnn.g:1191:2: ( rule__Custom__NameAssignment_0 )
             {
-             before(grammarAccess.getCustomAccess().getRuleAssignment_0()); 
-            // InternalAnn.g:1192:2: ( rule__Custom__RuleAssignment_0 )
-            // InternalAnn.g:1192:3: rule__Custom__RuleAssignment_0
+             before(grammarAccess.getCustomAccess().getNameAssignment_0()); 
+            // InternalAnn.g:1192:2: ( rule__Custom__NameAssignment_0 )
+            // InternalAnn.g:1192:3: rule__Custom__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
-            rule__Custom__RuleAssignment_0();
+            rule__Custom__NameAssignment_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getCustomAccess().getRuleAssignment_0()); 
+             after(grammarAccess.getCustomAccess().getNameAssignment_0()); 
 
             }
 
@@ -4176,9 +4176,9 @@ public class InternalAnnParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Threshold__RuleAssignment"
 
 
-    // $ANTLR start "rule__Custom__RuleAssignment_0"
-    // InternalAnn.g:1454:1: rule__Custom__RuleAssignment_0 : ( RULE_ID ) ;
-    public final void rule__Custom__RuleAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__Custom__NameAssignment_0"
+    // InternalAnn.g:1454:1: rule__Custom__NameAssignment_0 : ( RULE_ID ) ;
+    public final void rule__Custom__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -4189,9 +4189,9 @@ public class InternalAnnParser extends AbstractInternalContentAssistParser {
             // InternalAnn.g:1459:2: ( RULE_ID )
             // InternalAnn.g:1460:3: RULE_ID
             {
-             before(grammarAccess.getCustomAccess().getRuleIDTerminalRuleCall_0_0()); 
+             before(grammarAccess.getCustomAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getCustomAccess().getRuleIDTerminalRuleCall_0_0()); 
+             after(grammarAccess.getCustomAccess().getNameIDTerminalRuleCall_0_0()); 
 
             }
 
@@ -4210,7 +4210,7 @@ public class InternalAnnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Custom__RuleAssignment_0"
+    // $ANTLR end "rule__Custom__NameAssignment_0"
 
 
     // $ANTLR start "rule__Custom__FunctionAssignment_2"

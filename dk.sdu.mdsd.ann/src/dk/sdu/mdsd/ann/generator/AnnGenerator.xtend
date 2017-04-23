@@ -11,7 +11,6 @@ import dk.sdu.mdsd.ann.ann.ANNModel
 import dk.sdu.mdsd.ann.ann.Hidden
 import dk.sdu.mdsd.ann.ann.Input
 import dk.sdu.mdsd.ann.ann.Output
-import dk.sdu.mdsd.ann.ann.LearningRule
 import dk.sdu.mdsd.ann.ann.Sigmoid
 import dk.sdu.mdsd.ann.ann.Threshold
 import dk.sdu.mdsd.ann.ann.Custom
@@ -44,7 +43,7 @@ class AnnGenerator extends AbstractGenerator {
 		public «model.name»() {
 			layers = new ArrayList<>();
 			transfers = new ArrayList<>();
-			init();			
+			init();
 		}
 		
 		public Double[] getLayers() {
@@ -85,7 +84,7 @@ class AnnGenerator extends AbstractGenerator {
 	'''
 	
 	def dispatch generateLayer(Hidden layer) '''
-		addLayerWithTransfer(«layer.size», «layer.l_rule.generateRule»);		
+		addLayerWithTransfer(«layer.size», «layer.l_rule.generateRule»);
 	'''
 	
 	def dispatch generateLayer(Input layer) '''
@@ -97,14 +96,11 @@ class AnnGenerator extends AbstractGenerator {
 
 	'''
 	
-		
 	def dispatch generateRule(Sigmoid rule)'''new Sigmoid()'''
 		
 	
 	def dispatch generateRule(Threshold rule)'''new Threshold()'''
 		
 	
-	def dispatch generateRule(Custom rule)'''new «rule.rule»()'''
-		
-	
+	def dispatch generateRule(Custom rule)'''new «rule.name»()'''	
 }

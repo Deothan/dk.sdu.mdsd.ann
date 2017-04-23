@@ -87,7 +87,7 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append("transfers = new ArrayList<>();");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("init();\t\t\t");
+    _builder.append("init();");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -202,7 +202,7 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append(", ");
     CharSequence _generateRule = this.generateRule(layer.getL_rule());
     _builder.append(_generateRule);
-    _builder.append(");\t\t");
+    _builder.append(");");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -246,8 +246,8 @@ public class AnnGenerator extends AbstractGenerator {
   protected CharSequence _generateRule(final Custom rule) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("new ");
-    String _rule = rule.getRule();
-    _builder.append(_rule);
+    String _name = rule.getName();
+    _builder.append(_name);
     _builder.append("()");
     return _builder;
   }
