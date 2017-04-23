@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dk.sdu.mdsd.ann.ann.LearningRule#getName <em>Name</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.LearningRule#getRule <em>Rule</em>}</li>
  * </ul>
  *
  * @see dk.sdu.mdsd.ann.ann.AnnPackage#getLearningRule()
@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface LearningRule extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Rule</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Rule</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getLearningRule_Name()
+   * @return the value of the '<em>Rule</em>' attribute.
+   * @see #setRule(String)
+   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getLearningRule_Rule()
    * @model
    * @generated
    */
-  String getName();
+  String getRule();
 
   /**
-   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.LearningRule#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.LearningRule#getRule <em>Rule</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Rule</em>' attribute.
+   * @see #getRule()
    * @generated
    */
-  void setName(String value);
+  void setRule(String value);
 
 } // LearningRule

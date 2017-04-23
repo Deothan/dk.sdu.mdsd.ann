@@ -518,23 +518,17 @@ ruleSigmoid returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='sigmoid'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getSigmoidAccess().getSigmoidKeyword_0());
-		}
 		(
-			(
-				lv_name_1_0='sigmoid'
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getSigmoidAccess().getNameSigmoidKeyword_1_0());
+			lv_rule_0_0='sigmoid'
+			{
+				newLeafNode(lv_rule_0_0, grammarAccess.getSigmoidAccess().getRuleSigmoidKeyword_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getSigmoidRule());
 				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSigmoidRule());
-					}
-					setWithLastConsumed($current, "name", lv_name_1_0, "sigmoid");
-				}
-			)
+				setWithLastConsumed($current, "rule", lv_rule_0_0, "sigmoid");
+			}
 		)
 	)
 ;
@@ -555,23 +549,17 @@ ruleThreshold returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='threshold'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getThresholdAccess().getThresholdKeyword_0());
-		}
 		(
-			(
-				lv_name_1_0='threshold'
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getThresholdAccess().getNameThresholdKeyword_1_0());
+			lv_rule_0_0='threshold'
+			{
+				newLeafNode(lv_rule_0_0, grammarAccess.getThresholdAccess().getRuleThresholdKeyword_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getThresholdRule());
 				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getThresholdRule());
-					}
-					setWithLastConsumed($current, "name", lv_name_1_0, "threshold");
-				}
-			)
+				setWithLastConsumed($current, "rule", lv_rule_0_0, "threshold");
+			}
 		)
 	)
 ;
@@ -594,9 +582,9 @@ ruleCustom returns [EObject current=null]
 	(
 		(
 			(
-				lv_name_0_0=RULE_ID
+				lv_rule_0_0=RULE_ID
 				{
-					newLeafNode(lv_name_0_0, grammarAccess.getCustomAccess().getNameIDTerminalRuleCall_0_0());
+					newLeafNode(lv_rule_0_0, grammarAccess.getCustomAccess().getRuleIDTerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
@@ -604,8 +592,8 @@ ruleCustom returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"name",
-						lv_name_0_0,
+						"rule",
+						lv_rule_0_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)

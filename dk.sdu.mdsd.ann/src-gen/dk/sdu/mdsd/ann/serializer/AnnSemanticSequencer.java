@@ -82,17 +82,17 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Custom returns Custom
 	 *
 	 * Constraint:
-	 *     (name=ID function=ID)
+	 *     (rule=ID function=ID)
 	 */
 	protected void sequence_Custom(ISerializationContext context, Custom semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.LEARNING_RULE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.LEARNING_RULE__NAME));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.LEARNING_RULE__RULE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.LEARNING_RULE__RULE));
 			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CUSTOM__FUNCTION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__FUNCTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCustomAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCustomAccess().getRuleIDTerminalRuleCall_0_0(), semanticObject.getRule());
 		feeder.accept(grammarAccess.getCustomAccess().getFunctionIDTerminalRuleCall_2_0(), semanticObject.getFunction());
 		feeder.finish();
 	}
@@ -167,15 +167,15 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Sigmoid returns Sigmoid
 	 *
 	 * Constraint:
-	 *     name='sigmoid'
+	 *     rule='sigmoid'
 	 */
 	protected void sequence_Sigmoid(ISerializationContext context, Sigmoid semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.LEARNING_RULE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.LEARNING_RULE__NAME));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.LEARNING_RULE__RULE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.LEARNING_RULE__RULE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSigmoidAccess().getNameSigmoidKeyword_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getSigmoidAccess().getRuleSigmoidKeyword_0(), semanticObject.getRule());
 		feeder.finish();
 	}
 	
@@ -186,15 +186,15 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Threshold returns Threshold
 	 *
 	 * Constraint:
-	 *     name='threshold'
+	 *     rule='threshold'
 	 */
 	protected void sequence_Threshold(ISerializationContext context, Threshold semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.LEARNING_RULE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.LEARNING_RULE__NAME));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.LEARNING_RULE__RULE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.LEARNING_RULE__RULE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getThresholdAccess().getNameThresholdKeyword_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getThresholdAccess().getRuleThresholdKeyword_0(), semanticObject.getRule());
 		feeder.finish();
 	}
 	

@@ -5,10 +5,14 @@ package dk.sdu.mdsd.ann.generator;
 
 import com.google.common.collect.Iterators;
 import dk.sdu.mdsd.ann.ann.ANNModel;
+import dk.sdu.mdsd.ann.ann.Custom;
 import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Layer;
+import dk.sdu.mdsd.ann.ann.LearningRule;
 import dk.sdu.mdsd.ann.ann.Output;
+import dk.sdu.mdsd.ann.ann.Sigmoid;
+import dk.sdu.mdsd.ann.ann.Threshold;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -196,11 +200,10 @@ public class AnnGenerator extends AbstractGenerator {
     int _size = layer.getSize();
     _builder.append(_size);
     _builder.append(", ");
-    String _name = layer.getL_rule().getName();
-    _builder.append(_name);
-    _builder.append(");");
+    CharSequence _generateRule = this.generateRule(layer.getL_rule());
+    _builder.append(_generateRule);
+    _builder.append(");\t\t");
     _builder.newLineIfNotEmpty();
-    _builder.newLine();
     return _builder;
   }
   
@@ -220,11 +223,32 @@ public class AnnGenerator extends AbstractGenerator {
     int _size = layer.getSize();
     _builder.append(_size);
     _builder.append(", ");
-    String _name = layer.getL_rule().getName();
-    _builder.append(_name);
+    CharSequence _generateRule = this.generateRule(layer.getL_rule());
+    _builder.append(_generateRule);
     _builder.append(");");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _generateRule(final Sigmoid rule) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new Sigmoid()");
+    return _builder;
+  }
+  
+  protected CharSequence _generateRule(final Threshold rule) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new Threshold()");
+    return _builder;
+  }
+  
+  protected CharSequence _generateRule(final Custom rule) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new ");
+    String _rule = rule.getRule();
+    _builder.append(_rule);
+    _builder.append("()");
     return _builder;
   }
   
@@ -238,6 +262,19 @@ public class AnnGenerator extends AbstractGenerator {
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(layer).toString());
+    }
+  }
+  
+  public CharSequence generateRule(final LearningRule rule) {
+    if (rule instanceof Custom) {
+      return _generateRule((Custom)rule);
+    } else if (rule instanceof Sigmoid) {
+      return _generateRule((Sigmoid)rule);
+    } else if (rule instanceof Threshold) {
+      return _generateRule((Threshold)rule);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(rule).toString());
     }
   }
 }

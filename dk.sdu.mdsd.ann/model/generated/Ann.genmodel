@@ -23,7 +23,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Output/l_rule"/>
     </genClasses>
     <genClasses ecoreClass="Ann.ecore#//LearningRule">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//LearningRule/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//LearningRule/rule"/>
     </genClasses>
     <genClasses ecoreClass="Ann.ecore#//Sigmoid"/>
     <genClasses ecoreClass="Ann.ecore#//Threshold"/>

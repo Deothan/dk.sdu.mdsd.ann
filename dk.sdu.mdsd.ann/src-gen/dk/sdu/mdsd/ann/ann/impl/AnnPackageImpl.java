@@ -291,7 +291,7 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLearningRule_Name()
+  public EAttribute getLearningRule_Rule()
   {
     return (EAttribute)learningRuleEClass.getEStructuralFeatures().get(0);
   }
@@ -384,7 +384,7 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     createEReference(outputEClass, OUTPUT__LRULE);
 
     learningRuleEClass = createEClass(LEARNING_RULE);
-    createEAttribute(learningRuleEClass, LEARNING_RULE__NAME);
+    createEAttribute(learningRuleEClass, LEARNING_RULE__RULE);
 
     sigmoidEClass = createEClass(SIGMOID);
 
@@ -449,7 +449,7 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     initEReference(getOutput_L_rule(), this.getLearningRule(), null, "l_rule", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(learningRuleEClass, LearningRule.class, "LearningRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLearningRule_Name(), ecorePackage.getEString(), "name", null, 0, 1, LearningRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLearningRule_Rule(), ecorePackage.getEString(), "rule", null, 0, 1, LearningRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sigmoidEClass, Sigmoid.class, "Sigmoid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

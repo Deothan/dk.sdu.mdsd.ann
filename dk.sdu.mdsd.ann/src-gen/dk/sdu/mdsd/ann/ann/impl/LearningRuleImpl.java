@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dk.sdu.mdsd.ann.ann.impl.LearningRuleImpl#getName <em>Name</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.LearningRuleImpl#getRule <em>Rule</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +29,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class LearningRuleImpl extends MinimalEObjectImpl.Container implements LearningRule
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getRule() <em>Rule</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getRule()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String RULE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getRule() <em>Rule</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getRule()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String rule = RULE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +74,9 @@ public class LearningRuleImpl extends MinimalEObjectImpl.Container implements Le
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public String getRule()
   {
-    return name;
+    return rule;
   }
 
   /**
@@ -84,12 +84,12 @@ public class LearningRuleImpl extends MinimalEObjectImpl.Container implements Le
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setRule(String newRule)
   {
-    String oldName = name;
-    name = newName;
+    String oldRule = rule;
+    rule = newRule;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.LEARNING_RULE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.LEARNING_RULE__RULE, oldRule, rule));
   }
 
   /**
@@ -102,8 +102,8 @@ public class LearningRuleImpl extends MinimalEObjectImpl.Container implements Le
   {
     switch (featureID)
     {
-      case AnnPackage.LEARNING_RULE__NAME:
-        return getName();
+      case AnnPackage.LEARNING_RULE__RULE:
+        return getRule();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +118,8 @@ public class LearningRuleImpl extends MinimalEObjectImpl.Container implements Le
   {
     switch (featureID)
     {
-      case AnnPackage.LEARNING_RULE__NAME:
-        setName((String)newValue);
+      case AnnPackage.LEARNING_RULE__RULE:
+        setRule((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +135,8 @@ public class LearningRuleImpl extends MinimalEObjectImpl.Container implements Le
   {
     switch (featureID)
     {
-      case AnnPackage.LEARNING_RULE__NAME:
-        setName(NAME_EDEFAULT);
+      case AnnPackage.LEARNING_RULE__RULE:
+        setRule(RULE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class LearningRuleImpl extends MinimalEObjectImpl.Container implements Le
   {
     switch (featureID)
     {
-      case AnnPackage.LEARNING_RULE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case AnnPackage.LEARNING_RULE__RULE:
+        return RULE_EDEFAULT == null ? rule != null : !RULE_EDEFAULT.equals(rule);
     }
     return super.eIsSet(featureID);
   }
@@ -169,8 +169,8 @@ public class LearningRuleImpl extends MinimalEObjectImpl.Container implements Le
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (rule: ");
+    result.append(rule);
     result.append(')');
     return result.toString();
   }
