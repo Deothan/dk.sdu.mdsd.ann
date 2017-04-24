@@ -42,6 +42,22 @@ public class AnnGenerator extends AbstractGenerator {
     String _name = m.getName();
     String _plus = (_name + ".java");
     access2.generateFile(_plus, this.generateNetwork(m));
+    access2.generateFile("ITransfer.java", this.generateITransfer());
+  }
+  
+  public CharSequence generateITransfer() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public interface ITransfer {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("double transfer(double x);");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("double derivative(double x);");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
   
   public CharSequence generateNetwork(final ANNModel model) {

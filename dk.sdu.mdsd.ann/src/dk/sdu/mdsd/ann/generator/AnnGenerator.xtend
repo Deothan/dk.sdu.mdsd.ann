@@ -21,15 +21,22 @@ import dk.sdu.mdsd.ann.ann.Stub
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class AnnGenerator extends AbstractGenerator {
-
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.filter(typeof(ANNModel)).forEach[generateANNFile(fsa, resource)]
 	}
 	
 	def generateANNFile(ANNModel m, IFileSystemAccess2 access2, Resource resource) {
 		access2.generateFile(m.name+".java", m.generateNetwork)
-	
+		access2.generateFile("ITransfer.java", generateITransfer())
 	}
+	
+	def generateITransfer() '''
+	public interface ITransfer {
+		double transfer(double x);
+		double derivative(double x);
+	}
+	'''
 	
 	def CharSequence generateNetwork(ANNModel model) '''
 	import java.util.*;

@@ -39,7 +39,10 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//ANNModel:
-		//	name=ID '{' 'alpha' alpha=DECIMAL 'epochs' epochs=INT Layer+=Layer+ '}';
+		//	name=ID '{'
+		//	'alpha' alpha=DECIMAL
+		//	'epochs' epochs=INT
+		//	Layer+=Layer+ '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//name=ID '{' 'alpha' alpha=DECIMAL 'epochs' epochs=INT Layer+=Layer+ '}'
@@ -141,7 +144,9 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Hidden:
-		//	'hidden' '{' 'size' size=INT 'learningRule' l_rule=LearningRule '}';
+		//	'hidden' '{'
+		//	'size' size=INT
+		//	'learningRule' l_rule=LearningRule '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'hidden' '{' 'size' size=INT 'learningRule' l_rule=LearningRule '}'
@@ -185,7 +190,8 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Input:
-		//	'in' '{' 'size' size=INT '}';
+		//	'in' '{'
+		//	'size' size=INT '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'in' '{' 'size' size=INT '}'
@@ -223,7 +229,9 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Output:
-		//	'out' '{' 'size' size=INT 'learningRule' l_rule=LearningRule '}';
+		//	'out' '{'
+		//	'size' size=INT
+		//	'learningRule' l_rule=LearningRule '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'out' '{' 'size' size=INT 'learningRule' l_rule=LearningRule '}'
@@ -339,7 +347,9 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Custom:
-		//	name=ID '(x)' '{' 'function' '=' function=ID 'derivative' '=' derivative=ID '}';
+		//	name=ID '(x)' '{'
+		//	'function' '=' function=ID
+		//	'derivative' '=' derivative=ID '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//name=ID '(x)' '{' 'function' '=' function=ID 'derivative' '=' derivative=ID '}'
@@ -446,7 +456,10 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//ANNModel:
-	//	name=ID '{' 'alpha' alpha=DECIMAL 'epochs' epochs=INT Layer+=Layer+ '}';
+	//	name=ID '{'
+	//	'alpha' alpha=DECIMAL
+	//	'epochs' epochs=INT
+	//	Layer+=Layer+ '}';
 	public ANNModelElements getANNModelAccess() {
 		return pANNModel;
 	}
@@ -476,7 +489,9 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Hidden:
-	//	'hidden' '{' 'size' size=INT 'learningRule' l_rule=LearningRule '}';
+	//	'hidden' '{'
+	//	'size' size=INT
+	//	'learningRule' l_rule=LearningRule '}';
 	public HiddenElements getHiddenAccess() {
 		return pHidden;
 	}
@@ -486,7 +501,8 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Input:
-	//	'in' '{' 'size' size=INT '}';
+	//	'in' '{'
+	//	'size' size=INT '}';
 	public InputElements getInputAccess() {
 		return pInput;
 	}
@@ -496,7 +512,9 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Output:
-	//	'out' '{' 'size' size=INT 'learningRule' l_rule=LearningRule '}';
+	//	'out' '{'
+	//	'size' size=INT
+	//	'learningRule' l_rule=LearningRule '}';
 	public OutputElements getOutputAccess() {
 		return pOutput;
 	}
@@ -536,7 +554,9 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Custom:
-	//	name=ID '(x)' '{' 'function' '=' function=ID 'derivative' '=' derivative=ID '}';
+	//	name=ID '(x)' '{'
+	//	'function' '=' function=ID
+	//	'derivative' '=' derivative=ID '}';
 	public CustomElements getCustomAccess() {
 		return pCustom;
 	}
