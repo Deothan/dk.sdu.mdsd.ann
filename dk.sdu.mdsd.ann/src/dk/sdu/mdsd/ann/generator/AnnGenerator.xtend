@@ -35,6 +35,7 @@ class AnnGenerator extends AbstractGenerator {
 	def generateANNFile(ANNModel m, IFileSystemAccess2 access2, Resource resource) {
 		access2.generateFile(m.name+".java", m.generateNetwork)
 		access2.generateFile("ITransfer.java", generateITransfer())
+		access2.generateFile("Sigmoid.java", generateSigmoid())
 	}
 	
 	def generateCustomFunctionFile(Custom c, IFileSystemAccess2 access2, Resource resource) {
@@ -45,6 +46,17 @@ class AnnGenerator extends AbstractGenerator {
 	public interface ITransfer {
 		double transfer(double x);
 		double derivative(double x);
+	}
+	'''
+	
+	def generateSigmoid() '''
+	public class Sigmoid implements ITransfer {
+		public double transfer(double x){
+				return (1 / (1 + Math.exp(x)));		
+			}
+		public double derivative(double x){
+				return x*(1-x);
+			}
 	}
 	'''
 	
