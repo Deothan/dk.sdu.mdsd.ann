@@ -14,6 +14,11 @@ import dk.sdu.mdsd.ann.ann.Output
 import dk.sdu.mdsd.ann.ann.Sigmoid
 import dk.sdu.mdsd.ann.ann.Custom
 import dk.sdu.mdsd.ann.ann.Stub
+import dk.sdu.mdsd.ann.ann.Multi
+import dk.sdu.mdsd.ann.ann.Add
+import dk.sdu.mdsd.ann.ann.NumberLiteral
+import dk.sdu.mdsd.ann.ann.Sub
+import dk.sdu.mdsd.ann.ann.Div
 
 /**
  * Generates code from your model files on save.
@@ -24,11 +29,16 @@ class AnnGenerator extends AbstractGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.filter(typeof(ANNModel)).forEach[generateANNFile(fsa, resource)]
+		resource.allContents.filter(typeof(Custom)).forEach[generateCustomFunctionFile(fsa, resource)]
 	}
 	
 	def generateANNFile(ANNModel m, IFileSystemAccess2 access2, Resource resource) {
 		access2.generateFile(m.name+".java", m.generateNetwork)
 		access2.generateFile("ITransfer.java", generateITransfer())
+	}
+	
+	def generateCustomFunctionFile(Custom c, IFileSystemAccess2 access2, Resource resource) {
+		access2.generateFile(c.name + ".java", c.generateCustomFunction)
 	}
 	
 	def generateITransfer() '''
@@ -90,6 +100,38 @@ class AnnGenerator extends AbstractGenerator {
 	}
 	'''
 	
+	def CharSequence generateCustomFunction(Custom customFunction) '''
+	import java.util.*;
+	import java.lang.Math.*;
+	
+	public class «customFunction.name» implements ITransfer {
+		
+		public double transfer(double x){
+			
+			return «customFunction.generateCustomExp»;
+		
+		}
+		public double derivative(double x){
+		
+			return 0.0;
+		}
+	}
+	'''
+	
+	def generateCustomExp(Custom custom) '''
+		«custom.exp.generateExp»
+	'''
+		
+	def dispatch CharSequence generateExp(Add exp) '''(«exp.left.generateExp»+«exp.right.generateExp»)'''
+	
+	def dispatch CharSequence generateExp(Sub exp) '''(«exp.left.generateExp»-«exp.right.generateExp»)'''
+	
+	def dispatch CharSequence generateExp(Multi exp) '''(«exp.left.generateExp»*«exp.right.generateExp»)'''
+	
+	def dispatch CharSequence generateExp(Div exp) '''(«exp.left.generateExp»/«exp.right.generateExp»)'''
+	
+	def dispatch CharSequence generateExp(NumberLiteral exp) '''«exp.value»'''
+	
 	def dispatch generateLayer(Hidden layer) '''
 		addLayerWithTransfer(«layer.size», «layer.l_rule.generateRule»);
 	'''
@@ -109,5 +151,6 @@ class AnnGenerator extends AbstractGenerator {
 	def dispatch generateRule(Stub rule)'''new «rule.name»()'''
 		
 	
-	def dispatch generateRule(Custom rule)'''new «rule.name»()'''	
+	def dispatch generateRule(Custom rule)'''new «rule.name»()'''
+	
 }

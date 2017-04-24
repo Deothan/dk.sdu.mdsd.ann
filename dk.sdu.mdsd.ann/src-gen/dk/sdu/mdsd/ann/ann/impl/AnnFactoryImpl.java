@@ -74,6 +74,12 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
       case AnnPackage.SIGMOID: return createSigmoid();
       case AnnPackage.STUB: return createStub();
       case AnnPackage.CUSTOM: return createCustom();
+      case AnnPackage.EXPRESSION: return createExpression();
+      case AnnPackage.NUMBER_LITERAL: return createNumberLiteral();
+      case AnnPackage.ADD: return createAdd();
+      case AnnPackage.SUB: return createSub();
+      case AnnPackage.MULTI: return createMulti();
+      case AnnPackage.DIV: return createDiv();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -176,6 +182,72 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
   {
     CustomImpl custom = new CustomImpl();
     return custom;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NumberLiteral createNumberLiteral()
+  {
+    NumberLiteralImpl numberLiteral = new NumberLiteralImpl();
+    return numberLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Add createAdd()
+  {
+    AddImpl add = new AddImpl();
+    return add;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Sub createSub()
+  {
+    SubImpl sub = new SubImpl();
+    return sub;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Multi createMulti()
+  {
+    MultiImpl multi = new MultiImpl();
+    return multi;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Div createDiv()
+  {
+    DivImpl div = new DivImpl();
+    return div;
   }
 
   /**

@@ -14,8 +14,7 @@ package dk.sdu.mdsd.ann.ann;
  * </p>
  * <ul>
  *   <li>{@link dk.sdu.mdsd.ann.ann.Custom#getName <em>Name</em>}</li>
- *   <li>{@link dk.sdu.mdsd.ann.ann.Custom#getFunction <em>Function</em>}</li>
- *   <li>{@link dk.sdu.mdsd.ann.ann.Custom#getDerivative <em>Derivative</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.Custom#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @see dk.sdu.mdsd.ann.ann.AnnPackage#getCustom()
@@ -51,55 +50,29 @@ public interface Custom extends LearningRule
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Function</b></em>' attribute.
+   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Function</em>' attribute isn't clear,
+   * If the meaning of the '<em>Exp</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Function</em>' attribute.
-   * @see #setFunction(String)
-   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getCustom_Function()
-   * @model
+   * @return the value of the '<em>Exp</em>' containment reference.
+   * @see #setExp(Expression)
+   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getCustom_Exp()
+   * @model containment="true"
    * @generated
    */
-  String getFunction();
+  Expression getExp();
 
   /**
-   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.Custom#getFunction <em>Function</em>}' attribute.
+   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.Custom#getExp <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Function</em>' attribute.
-   * @see #getFunction()
+   * @param value the new value of the '<em>Exp</em>' containment reference.
+   * @see #getExp()
    * @generated
    */
-  void setFunction(String value);
-
-  /**
-   * Returns the value of the '<em><b>Derivative</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Derivative</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Derivative</em>' attribute.
-   * @see #setDerivative(String)
-   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getCustom_Derivative()
-   * @model
-   * @generated
-   */
-  String getDerivative();
-
-  /**
-   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.Custom#getDerivative <em>Derivative</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Derivative</em>' attribute.
-   * @see #getDerivative()
-   * @generated
-   */
-  void setDerivative(String value);
+  void setExp(Expression value);
 
 } // Custom

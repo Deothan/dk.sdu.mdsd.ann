@@ -33,6 +33,7 @@ public class AnnParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getLayerAccess().getAlternatives(), "rule__Layer__Alternatives");
 					put(grammarAccess.getLearningRuleAccess().getAlternatives(), "rule__LearningRule__Alternatives");
+					put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 					put(grammarAccess.getANNModelAccess().getGroup(), "rule__ANNModel__Group__0");
 					put(grammarAccess.getDECIMALAccess().getGroup(), "rule__DECIMAL__Group__0");
 					put(grammarAccess.getHiddenAccess().getGroup(), "rule__Hidden__Group__0");
@@ -40,6 +41,15 @@ public class AnnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOutputAccess().getGroup(), "rule__Output__Group__0");
 					put(grammarAccess.getStubAccess().getGroup(), "rule__Stub__Group__0");
 					put(grammarAccess.getCustomAccess().getGroup(), "rule__Custom__Group__0");
+					put(grammarAccess.getExpressionAccess().getGroup(), "rule__Expression__Group__0");
+					put(grammarAccess.getExpressionAccess().getGroup_1(), "rule__Expression__Group_1__0");
+					put(grammarAccess.getSubstractionAccess().getGroup(), "rule__Substraction__Group__0");
+					put(grammarAccess.getSubstractionAccess().getGroup_1(), "rule__Substraction__Group_1__0");
+					put(grammarAccess.getMultiplicationAccess().getGroup(), "rule__Multiplication__Group__0");
+					put(grammarAccess.getMultiplicationAccess().getGroup_1(), "rule__Multiplication__Group_1__0");
+					put(grammarAccess.getDivisionAccess().getGroup(), "rule__Division__Group__0");
+					put(grammarAccess.getDivisionAccess().getGroup_1(), "rule__Division__Group_1__0");
+					put(grammarAccess.getPrimaryAccess().getGroup_1(), "rule__Primary__Group_1__0");
 					put(grammarAccess.getANNModelAccess().getNameAssignment_0(), "rule__ANNModel__NameAssignment_0");
 					put(grammarAccess.getANNModelAccess().getAlphaAssignment_3(), "rule__ANNModel__AlphaAssignment_3");
 					put(grammarAccess.getANNModelAccess().getEpochsAssignment_5(), "rule__ANNModel__EpochsAssignment_5");
@@ -53,8 +63,12 @@ public class AnnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStubAccess().getRuleAssignment_0(), "rule__Stub__RuleAssignment_0");
 					put(grammarAccess.getStubAccess().getNameAssignment_1(), "rule__Stub__NameAssignment_1");
 					put(grammarAccess.getCustomAccess().getNameAssignment_0(), "rule__Custom__NameAssignment_0");
-					put(grammarAccess.getCustomAccess().getFunctionAssignment_5(), "rule__Custom__FunctionAssignment_5");
-					put(grammarAccess.getCustomAccess().getDerivativeAssignment_8(), "rule__Custom__DerivativeAssignment_8");
+					put(grammarAccess.getCustomAccess().getExpAssignment_4(), "rule__Custom__ExpAssignment_4");
+					put(grammarAccess.getExpressionAccess().getRightAssignment_1_2(), "rule__Expression__RightAssignment_1_2");
+					put(grammarAccess.getSubstractionAccess().getRightAssignment_1_2(), "rule__Substraction__RightAssignment_1_2");
+					put(grammarAccess.getMultiplicationAccess().getRightAssignment_1_2(), "rule__Multiplication__RightAssignment_1_2");
+					put(grammarAccess.getDivisionAccess().getRightAssignment_1_2(), "rule__Division__RightAssignment_1_2");
+					put(grammarAccess.getNumberLiteralAccess().getValueAssignment(), "rule__NumberLiteral__ValueAssignment");
 				}
 			};
 		}

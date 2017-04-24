@@ -5,13 +5,18 @@ package dk.sdu.mdsd.ann.serializer;
 
 import com.google.inject.Inject;
 import dk.sdu.mdsd.ann.ann.ANNModel;
+import dk.sdu.mdsd.ann.ann.Add;
 import dk.sdu.mdsd.ann.ann.AnnPackage;
 import dk.sdu.mdsd.ann.ann.Custom;
+import dk.sdu.mdsd.ann.ann.Div;
 import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
+import dk.sdu.mdsd.ann.ann.Multi;
+import dk.sdu.mdsd.ann.ann.NumberLiteral;
 import dk.sdu.mdsd.ann.ann.Output;
 import dk.sdu.mdsd.ann.ann.Sigmoid;
 import dk.sdu.mdsd.ann.ann.Stub;
+import dk.sdu.mdsd.ann.ann.Sub;
 import dk.sdu.mdsd.ann.services.AnnGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -41,14 +46,26 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case AnnPackage.ANN_MODEL:
 				sequence_ANNModel(context, (ANNModel) semanticObject); 
 				return; 
+			case AnnPackage.ADD:
+				sequence_Expression(context, (Add) semanticObject); 
+				return; 
 			case AnnPackage.CUSTOM:
 				sequence_Custom(context, (Custom) semanticObject); 
+				return; 
+			case AnnPackage.DIV:
+				sequence_Division(context, (Div) semanticObject); 
 				return; 
 			case AnnPackage.HIDDEN:
 				sequence_Hidden(context, (Hidden) semanticObject); 
 				return; 
 			case AnnPackage.INPUT:
 				sequence_Input(context, (Input) semanticObject); 
+				return; 
+			case AnnPackage.MULTI:
+				sequence_Multiplication(context, (Multi) semanticObject); 
+				return; 
+			case AnnPackage.NUMBER_LITERAL:
+				sequence_NumberLiteral(context, (NumberLiteral) semanticObject); 
 				return; 
 			case AnnPackage.OUTPUT:
 				sequence_Output(context, (Output) semanticObject); 
@@ -58,6 +75,9 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case AnnPackage.STUB:
 				sequence_Stub(context, (Stub) semanticObject); 
+				return; 
+			case AnnPackage.SUB:
+				sequence_Substraction(context, (Sub) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -82,21 +102,76 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Custom returns Custom
 	 *
 	 * Constraint:
-	 *     (name=ID function=ID derivative=ID)
+	 *     (name=ID exp=Expression)
 	 */
 	protected void sequence_Custom(ISerializationContext context, Custom semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CUSTOM__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__NAME));
-			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CUSTOM__FUNCTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__FUNCTION));
-			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CUSTOM__DERIVATIVE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__DERIVATIVE));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CUSTOM__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__EXP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getCustomAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCustomAccess().getFunctionIDTerminalRuleCall_5_0(), semanticObject.getFunction());
-		feeder.accept(grammarAccess.getCustomAccess().getDerivativeIDTerminalRuleCall_8_0(), semanticObject.getDerivative());
+		feeder.accept(grammarAccess.getCustomAccess().getExpExpressionParserRuleCall_4_0(), semanticObject.getExp());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns Div
+	 *     Expression.Add_1_0 returns Div
+	 *     Substraction returns Div
+	 *     Substraction.Sub_1_0 returns Div
+	 *     Multiplication returns Div
+	 *     Multiplication.Multi_1_0 returns Div
+	 *     Division returns Div
+	 *     Division.Div_1_0 returns Div
+	 *     Primary returns Div
+	 *
+	 * Constraint:
+	 *     (left=Division_Div_1_0 right=Primary)
+	 */
+	protected void sequence_Division(ISerializationContext context, Div semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.DIV__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.DIV__LEFT));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.DIV__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.DIV__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDivisionAccess().getDivLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getDivisionAccess().getRightPrimaryParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns Add
+	 *     Expression.Add_1_0 returns Add
+	 *     Substraction returns Add
+	 *     Substraction.Sub_1_0 returns Add
+	 *     Multiplication returns Add
+	 *     Multiplication.Multi_1_0 returns Add
+	 *     Division returns Add
+	 *     Division.Div_1_0 returns Add
+	 *     Primary returns Add
+	 *
+	 * Constraint:
+	 *     (left=Expression_Add_1_0 right=Substraction)
+	 */
+	protected void sequence_Expression(ISerializationContext context, Add semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.ADD__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.ADD__LEFT));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.ADD__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.ADD__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpressionAccess().getAddLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpressionAccess().getRightSubstractionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -138,6 +213,62 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getInputAccess().getSizeINTTerminalRuleCall_3_0(), semanticObject.getSize());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns Multi
+	 *     Expression.Add_1_0 returns Multi
+	 *     Substraction returns Multi
+	 *     Substraction.Sub_1_0 returns Multi
+	 *     Multiplication returns Multi
+	 *     Multiplication.Multi_1_0 returns Multi
+	 *     Division returns Multi
+	 *     Division.Div_1_0 returns Multi
+	 *     Primary returns Multi
+	 *
+	 * Constraint:
+	 *     (left=Multiplication_Multi_1_0 right=Division)
+	 */
+	protected void sequence_Multiplication(ISerializationContext context, Multi semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.MULTI__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.MULTI__LEFT));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.MULTI__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.MULTI__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMultiplicationAccess().getMultiLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getMultiplicationAccess().getRightDivisionParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns NumberLiteral
+	 *     Expression.Add_1_0 returns NumberLiteral
+	 *     Substraction returns NumberLiteral
+	 *     Substraction.Sub_1_0 returns NumberLiteral
+	 *     Multiplication returns NumberLiteral
+	 *     Multiplication.Multi_1_0 returns NumberLiteral
+	 *     Division returns NumberLiteral
+	 *     Division.Div_1_0 returns NumberLiteral
+	 *     Primary returns NumberLiteral
+	 *     NumberLiteral returns NumberLiteral
+	 *
+	 * Constraint:
+	 *     value=DECIMAL
+	 */
+	protected void sequence_NumberLiteral(ISerializationContext context, NumberLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.NUMBER_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.NUMBER_LITERAL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNumberLiteralAccess().getValueDECIMALParserRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -201,6 +332,35 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getStubAccess().getRuleStubKeyword_0_0(), semanticObject.getRule());
 		feeder.accept(grammarAccess.getStubAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns Sub
+	 *     Expression.Add_1_0 returns Sub
+	 *     Substraction returns Sub
+	 *     Substraction.Sub_1_0 returns Sub
+	 *     Multiplication returns Sub
+	 *     Multiplication.Multi_1_0 returns Sub
+	 *     Division returns Sub
+	 *     Division.Div_1_0 returns Sub
+	 *     Primary returns Sub
+	 *
+	 * Constraint:
+	 *     (left=Substraction_Sub_1_0 right=Multiplication)
+	 */
+	protected void sequence_Substraction(ISerializationContext context, Sub semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.SUB__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.SUB__LEFT));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.SUB__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.SUB__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSubstractionAccess().getSubLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getSubstractionAccess().getRightMultiplicationParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	

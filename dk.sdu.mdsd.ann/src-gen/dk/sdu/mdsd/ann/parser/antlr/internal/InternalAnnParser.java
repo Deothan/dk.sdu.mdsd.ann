@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAnnParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'{'", "'alpha'", "'epochs'", "'}'", "'.'", "'hidden'", "'size'", "'learningRule'", "'in'", "'out'", "'sigmoid'", "'stub'", "'(x)'", "'function'", "'='", "'derivative'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'{'", "'alpha'", "'epochs'", "'}'", "'.'", "'hidden'", "'size'", "'learningRule'", "'in'", "'out'", "'sigmoid'", "'stub'", "'function'", "'='", "'+'", "'-'", "'*'", "'/'", "'('", "')'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -35,11 +35,15 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int T__30=30;
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
     public static final int T__26=26;
+    public static final int T__27=27;
+    public static final int T__28=28;
     public static final int RULE_INT=5;
+    public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
@@ -1425,7 +1429,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCustom"
-    // InternalAnn.g:595:1: ruleCustom returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(x)' otherlv_2= '{' otherlv_3= 'function' otherlv_4= '=' ( (lv_function_5_0= RULE_ID ) ) otherlv_6= 'derivative' otherlv_7= '=' ( (lv_derivative_8_0= RULE_ID ) ) otherlv_9= '}' ) ;
+    // InternalAnn.g:595:1: ruleCustom returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' otherlv_2= 'function' otherlv_3= '=' ( (lv_exp_4_0= ruleExpression ) ) otherlv_5= '}' ) ;
     public final EObject ruleCustom() throws RecognitionException {
         EObject current = null;
 
@@ -1433,22 +1437,19 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
         Token otherlv_1=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
-        Token otherlv_4=null;
-        Token lv_function_5_0=null;
-        Token otherlv_6=null;
-        Token otherlv_7=null;
-        Token lv_derivative_8_0=null;
-        Token otherlv_9=null;
+        Token otherlv_5=null;
+        EObject lv_exp_4_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalAnn.g:601:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(x)' otherlv_2= '{' otherlv_3= 'function' otherlv_4= '=' ( (lv_function_5_0= RULE_ID ) ) otherlv_6= 'derivative' otherlv_7= '=' ( (lv_derivative_8_0= RULE_ID ) ) otherlv_9= '}' ) )
-            // InternalAnn.g:602:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(x)' otherlv_2= '{' otherlv_3= 'function' otherlv_4= '=' ( (lv_function_5_0= RULE_ID ) ) otherlv_6= 'derivative' otherlv_7= '=' ( (lv_derivative_8_0= RULE_ID ) ) otherlv_9= '}' )
+            // InternalAnn.g:601:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' otherlv_2= 'function' otherlv_3= '=' ( (lv_exp_4_0= ruleExpression ) ) otherlv_5= '}' ) )
+            // InternalAnn.g:602:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' otherlv_2= 'function' otherlv_3= '=' ( (lv_exp_4_0= ruleExpression ) ) otherlv_5= '}' )
             {
-            // InternalAnn.g:602:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(x)' otherlv_2= '{' otherlv_3= 'function' otherlv_4= '=' ( (lv_function_5_0= RULE_ID ) ) otherlv_6= 'derivative' otherlv_7= '=' ( (lv_derivative_8_0= RULE_ID ) ) otherlv_9= '}' )
-            // InternalAnn.g:603:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(x)' otherlv_2= '{' otherlv_3= 'function' otherlv_4= '=' ( (lv_function_5_0= RULE_ID ) ) otherlv_6= 'derivative' otherlv_7= '=' ( (lv_derivative_8_0= RULE_ID ) ) otherlv_9= '}'
+            // InternalAnn.g:602:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' otherlv_2= 'function' otherlv_3= '=' ( (lv_exp_4_0= ruleExpression ) ) otherlv_5= '}' )
+            // InternalAnn.g:603:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' otherlv_2= 'function' otherlv_3= '=' ( (lv_exp_4_0= ruleExpression ) ) otherlv_5= '}'
             {
             // InternalAnn.g:603:3: ( (lv_name_0_0= RULE_ID ) )
             // InternalAnn.g:604:4: (lv_name_0_0= RULE_ID )
@@ -1456,7 +1457,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
             // InternalAnn.g:604:4: (lv_name_0_0= RULE_ID )
             // InternalAnn.g:605:5: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_15); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_3); 
 
             					newLeafNode(lv_name_0_0, grammarAccess.getCustomAccess().getNameIDTerminalRuleCall_0_0());
             				
@@ -1476,41 +1477,42 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,23,FOLLOW_3); 
+            otherlv_1=(Token)match(input,11,FOLLOW_15); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getCustomAccess().getXKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getCustomAccess().getLeftCurlyBracketKeyword_1());
             		
-            otherlv_2=(Token)match(input,11,FOLLOW_16); 
+            otherlv_2=(Token)match(input,23,FOLLOW_16); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getCustomAccess().getLeftCurlyBracketKeyword_2());
+            			newLeafNode(otherlv_2, grammarAccess.getCustomAccess().getFunctionKeyword_2());
             		
             otherlv_3=(Token)match(input,24,FOLLOW_17); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getCustomAccess().getFunctionKeyword_3());
+            			newLeafNode(otherlv_3, grammarAccess.getCustomAccess().getEqualsSignKeyword_3());
             		
-            otherlv_4=(Token)match(input,25,FOLLOW_14); 
-
-            			newLeafNode(otherlv_4, grammarAccess.getCustomAccess().getEqualsSignKeyword_4());
-            		
-            // InternalAnn.g:637:3: ( (lv_function_5_0= RULE_ID ) )
-            // InternalAnn.g:638:4: (lv_function_5_0= RULE_ID )
+            // InternalAnn.g:633:3: ( (lv_exp_4_0= ruleExpression ) )
+            // InternalAnn.g:634:4: (lv_exp_4_0= ruleExpression )
             {
-            // InternalAnn.g:638:4: (lv_function_5_0= RULE_ID )
-            // InternalAnn.g:639:5: lv_function_5_0= RULE_ID
+            // InternalAnn.g:634:4: (lv_exp_4_0= ruleExpression )
+            // InternalAnn.g:635:5: lv_exp_4_0= ruleExpression
             {
-            lv_function_5_0=(Token)match(input,RULE_ID,FOLLOW_18); 
 
-            					newLeafNode(lv_function_5_0, grammarAccess.getCustomAccess().getFunctionIDTerminalRuleCall_5_0());
+            					newCompositeNode(grammarAccess.getCustomAccess().getExpExpressionParserRuleCall_4_0());
             				
+            pushFollow(FOLLOW_13);
+            lv_exp_4_0=ruleExpression();
+
+            state._fsp--;
+
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getCustomRule());
+            						current = createModelElementForParent(grammarAccess.getCustomRule());
             					}
-            					setWithLastConsumed(
+            					set(
             						current,
-            						"function",
-            						lv_function_5_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
+            						"exp",
+            						lv_exp_4_0,
+            						"dk.sdu.mdsd.ann.Ann.Expression");
+            					afterParserOrEnumRuleCall();
             				
 
             }
@@ -1518,43 +1520,9 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,26,FOLLOW_17); 
+            otherlv_5=(Token)match(input,14,FOLLOW_2); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getCustomAccess().getDerivativeKeyword_6());
-            		
-            otherlv_7=(Token)match(input,25,FOLLOW_14); 
-
-            			newLeafNode(otherlv_7, grammarAccess.getCustomAccess().getEqualsSignKeyword_7());
-            		
-            // InternalAnn.g:663:3: ( (lv_derivative_8_0= RULE_ID ) )
-            // InternalAnn.g:664:4: (lv_derivative_8_0= RULE_ID )
-            {
-            // InternalAnn.g:664:4: (lv_derivative_8_0= RULE_ID )
-            // InternalAnn.g:665:5: lv_derivative_8_0= RULE_ID
-            {
-            lv_derivative_8_0=(Token)match(input,RULE_ID,FOLLOW_13); 
-
-            					newLeafNode(lv_derivative_8_0, grammarAccess.getCustomAccess().getDerivativeIDTerminalRuleCall_8_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getCustomRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"derivative",
-            						lv_derivative_8_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
-            				
-
-            }
-
-
-            }
-
-            otherlv_9=(Token)match(input,14,FOLLOW_2); 
-
-            			newLeafNode(otherlv_9, grammarAccess.getCustomAccess().getRightCurlyBracketKeyword_9());
+            			newLeafNode(otherlv_5, grammarAccess.getCustomAccess().getRightCurlyBracketKeyword_5());
             		
 
             }
@@ -1577,6 +1545,895 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleCustom"
 
+
+    // $ANTLR start "entryRuleExpression"
+    // InternalAnn.g:660:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
+    public final EObject entryRuleExpression() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression = null;
+
+
+        try {
+            // InternalAnn.g:660:51: (iv_ruleExpression= ruleExpression EOF )
+            // InternalAnn.g:661:2: iv_ruleExpression= ruleExpression EOF
+            {
+             newCompositeNode(grammarAccess.getExpressionRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression=ruleExpression();
+
+            state._fsp--;
+
+             current =iv_ruleExpression; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression"
+
+
+    // $ANTLR start "ruleExpression"
+    // InternalAnn.g:667:1: ruleExpression returns [EObject current=null] : (this_Substraction_0= ruleSubstraction ( () otherlv_2= '+' ( (lv_right_3_0= ruleSubstraction ) ) )* ) ;
+    public final EObject ruleExpression() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        EObject this_Substraction_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalAnn.g:673:2: ( (this_Substraction_0= ruleSubstraction ( () otherlv_2= '+' ( (lv_right_3_0= ruleSubstraction ) ) )* ) )
+            // InternalAnn.g:674:2: (this_Substraction_0= ruleSubstraction ( () otherlv_2= '+' ( (lv_right_3_0= ruleSubstraction ) ) )* )
+            {
+            // InternalAnn.g:674:2: (this_Substraction_0= ruleSubstraction ( () otherlv_2= '+' ( (lv_right_3_0= ruleSubstraction ) ) )* )
+            // InternalAnn.g:675:3: this_Substraction_0= ruleSubstraction ( () otherlv_2= '+' ( (lv_right_3_0= ruleSubstraction ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getExpressionAccess().getSubstractionParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_18);
+            this_Substraction_0=ruleSubstraction();
+
+            state._fsp--;
+
+
+            			current = this_Substraction_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalAnn.g:683:3: ( () otherlv_2= '+' ( (lv_right_3_0= ruleSubstraction ) ) )*
+            loop4:
+            do {
+                int alt4=2;
+                int LA4_0 = input.LA(1);
+
+                if ( (LA4_0==25) ) {
+                    alt4=1;
+                }
+
+
+                switch (alt4) {
+            	case 1 :
+            	    // InternalAnn.g:684:4: () otherlv_2= '+' ( (lv_right_3_0= ruleSubstraction ) )
+            	    {
+            	    // InternalAnn.g:684:4: ()
+            	    // InternalAnn.g:685:5: 
+            	    {
+
+            	    					current = forceCreateModelElementAndSet(
+            	    						grammarAccess.getExpressionAccess().getAddLeftAction_1_0(),
+            	    						current);
+            	    				
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,25,FOLLOW_17); 
+
+            	    				newLeafNode(otherlv_2, grammarAccess.getExpressionAccess().getPlusSignKeyword_1_1());
+            	    			
+            	    // InternalAnn.g:695:4: ( (lv_right_3_0= ruleSubstraction ) )
+            	    // InternalAnn.g:696:5: (lv_right_3_0= ruleSubstraction )
+            	    {
+            	    // InternalAnn.g:696:5: (lv_right_3_0= ruleSubstraction )
+            	    // InternalAnn.g:697:6: lv_right_3_0= ruleSubstraction
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getExpressionAccess().getRightSubstractionParserRuleCall_1_2_0());
+            	    					
+            	    pushFollow(FOLLOW_18);
+            	    lv_right_3_0=ruleSubstraction();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getExpressionRule());
+            	    						}
+            	    						set(
+            	    							current,
+            	    							"right",
+            	    							lv_right_3_0,
+            	    							"dk.sdu.mdsd.ann.Ann.Substraction");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop4;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression"
+
+
+    // $ANTLR start "entryRuleSubstraction"
+    // InternalAnn.g:719:1: entryRuleSubstraction returns [EObject current=null] : iv_ruleSubstraction= ruleSubstraction EOF ;
+    public final EObject entryRuleSubstraction() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleSubstraction = null;
+
+
+        try {
+            // InternalAnn.g:719:53: (iv_ruleSubstraction= ruleSubstraction EOF )
+            // InternalAnn.g:720:2: iv_ruleSubstraction= ruleSubstraction EOF
+            {
+             newCompositeNode(grammarAccess.getSubstractionRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleSubstraction=ruleSubstraction();
+
+            state._fsp--;
+
+             current =iv_ruleSubstraction; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSubstraction"
+
+
+    // $ANTLR start "ruleSubstraction"
+    // InternalAnn.g:726:1: ruleSubstraction returns [EObject current=null] : (this_Multiplication_0= ruleMultiplication ( () otherlv_2= '-' ( (lv_right_3_0= ruleMultiplication ) ) )* ) ;
+    public final EObject ruleSubstraction() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        EObject this_Multiplication_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalAnn.g:732:2: ( (this_Multiplication_0= ruleMultiplication ( () otherlv_2= '-' ( (lv_right_3_0= ruleMultiplication ) ) )* ) )
+            // InternalAnn.g:733:2: (this_Multiplication_0= ruleMultiplication ( () otherlv_2= '-' ( (lv_right_3_0= ruleMultiplication ) ) )* )
+            {
+            // InternalAnn.g:733:2: (this_Multiplication_0= ruleMultiplication ( () otherlv_2= '-' ( (lv_right_3_0= ruleMultiplication ) ) )* )
+            // InternalAnn.g:734:3: this_Multiplication_0= ruleMultiplication ( () otherlv_2= '-' ( (lv_right_3_0= ruleMultiplication ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getSubstractionAccess().getMultiplicationParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_19);
+            this_Multiplication_0=ruleMultiplication();
+
+            state._fsp--;
+
+
+            			current = this_Multiplication_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalAnn.g:742:3: ( () otherlv_2= '-' ( (lv_right_3_0= ruleMultiplication ) ) )*
+            loop5:
+            do {
+                int alt5=2;
+                int LA5_0 = input.LA(1);
+
+                if ( (LA5_0==26) ) {
+                    alt5=1;
+                }
+
+
+                switch (alt5) {
+            	case 1 :
+            	    // InternalAnn.g:743:4: () otherlv_2= '-' ( (lv_right_3_0= ruleMultiplication ) )
+            	    {
+            	    // InternalAnn.g:743:4: ()
+            	    // InternalAnn.g:744:5: 
+            	    {
+
+            	    					current = forceCreateModelElementAndSet(
+            	    						grammarAccess.getSubstractionAccess().getSubLeftAction_1_0(),
+            	    						current);
+            	    				
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,26,FOLLOW_17); 
+
+            	    				newLeafNode(otherlv_2, grammarAccess.getSubstractionAccess().getHyphenMinusKeyword_1_1());
+            	    			
+            	    // InternalAnn.g:754:4: ( (lv_right_3_0= ruleMultiplication ) )
+            	    // InternalAnn.g:755:5: (lv_right_3_0= ruleMultiplication )
+            	    {
+            	    // InternalAnn.g:755:5: (lv_right_3_0= ruleMultiplication )
+            	    // InternalAnn.g:756:6: lv_right_3_0= ruleMultiplication
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getSubstractionAccess().getRightMultiplicationParserRuleCall_1_2_0());
+            	    					
+            	    pushFollow(FOLLOW_19);
+            	    lv_right_3_0=ruleMultiplication();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getSubstractionRule());
+            	    						}
+            	    						set(
+            	    							current,
+            	    							"right",
+            	    							lv_right_3_0,
+            	    							"dk.sdu.mdsd.ann.Ann.Multiplication");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop5;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleSubstraction"
+
+
+    // $ANTLR start "entryRuleMultiplication"
+    // InternalAnn.g:778:1: entryRuleMultiplication returns [EObject current=null] : iv_ruleMultiplication= ruleMultiplication EOF ;
+    public final EObject entryRuleMultiplication() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleMultiplication = null;
+
+
+        try {
+            // InternalAnn.g:778:55: (iv_ruleMultiplication= ruleMultiplication EOF )
+            // InternalAnn.g:779:2: iv_ruleMultiplication= ruleMultiplication EOF
+            {
+             newCompositeNode(grammarAccess.getMultiplicationRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleMultiplication=ruleMultiplication();
+
+            state._fsp--;
+
+             current =iv_ruleMultiplication; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleMultiplication"
+
+
+    // $ANTLR start "ruleMultiplication"
+    // InternalAnn.g:785:1: ruleMultiplication returns [EObject current=null] : (this_Division_0= ruleDivision ( () otherlv_2= '*' ( (lv_right_3_0= ruleDivision ) ) )* ) ;
+    public final EObject ruleMultiplication() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        EObject this_Division_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalAnn.g:791:2: ( (this_Division_0= ruleDivision ( () otherlv_2= '*' ( (lv_right_3_0= ruleDivision ) ) )* ) )
+            // InternalAnn.g:792:2: (this_Division_0= ruleDivision ( () otherlv_2= '*' ( (lv_right_3_0= ruleDivision ) ) )* )
+            {
+            // InternalAnn.g:792:2: (this_Division_0= ruleDivision ( () otherlv_2= '*' ( (lv_right_3_0= ruleDivision ) ) )* )
+            // InternalAnn.g:793:3: this_Division_0= ruleDivision ( () otherlv_2= '*' ( (lv_right_3_0= ruleDivision ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getMultiplicationAccess().getDivisionParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_20);
+            this_Division_0=ruleDivision();
+
+            state._fsp--;
+
+
+            			current = this_Division_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalAnn.g:801:3: ( () otherlv_2= '*' ( (lv_right_3_0= ruleDivision ) ) )*
+            loop6:
+            do {
+                int alt6=2;
+                int LA6_0 = input.LA(1);
+
+                if ( (LA6_0==27) ) {
+                    alt6=1;
+                }
+
+
+                switch (alt6) {
+            	case 1 :
+            	    // InternalAnn.g:802:4: () otherlv_2= '*' ( (lv_right_3_0= ruleDivision ) )
+            	    {
+            	    // InternalAnn.g:802:4: ()
+            	    // InternalAnn.g:803:5: 
+            	    {
+
+            	    					current = forceCreateModelElementAndSet(
+            	    						grammarAccess.getMultiplicationAccess().getMultiLeftAction_1_0(),
+            	    						current);
+            	    				
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,27,FOLLOW_17); 
+
+            	    				newLeafNode(otherlv_2, grammarAccess.getMultiplicationAccess().getAsteriskKeyword_1_1());
+            	    			
+            	    // InternalAnn.g:813:4: ( (lv_right_3_0= ruleDivision ) )
+            	    // InternalAnn.g:814:5: (lv_right_3_0= ruleDivision )
+            	    {
+            	    // InternalAnn.g:814:5: (lv_right_3_0= ruleDivision )
+            	    // InternalAnn.g:815:6: lv_right_3_0= ruleDivision
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getMultiplicationAccess().getRightDivisionParserRuleCall_1_2_0());
+            	    					
+            	    pushFollow(FOLLOW_20);
+            	    lv_right_3_0=ruleDivision();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getMultiplicationRule());
+            	    						}
+            	    						set(
+            	    							current,
+            	    							"right",
+            	    							lv_right_3_0,
+            	    							"dk.sdu.mdsd.ann.Ann.Division");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop6;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleMultiplication"
+
+
+    // $ANTLR start "entryRuleDivision"
+    // InternalAnn.g:837:1: entryRuleDivision returns [EObject current=null] : iv_ruleDivision= ruleDivision EOF ;
+    public final EObject entryRuleDivision() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleDivision = null;
+
+
+        try {
+            // InternalAnn.g:837:49: (iv_ruleDivision= ruleDivision EOF )
+            // InternalAnn.g:838:2: iv_ruleDivision= ruleDivision EOF
+            {
+             newCompositeNode(grammarAccess.getDivisionRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleDivision=ruleDivision();
+
+            state._fsp--;
+
+             current =iv_ruleDivision; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleDivision"
+
+
+    // $ANTLR start "ruleDivision"
+    // InternalAnn.g:844:1: ruleDivision returns [EObject current=null] : (this_Primary_0= rulePrimary ( () otherlv_2= '/' ( (lv_right_3_0= rulePrimary ) ) )* ) ;
+    public final EObject ruleDivision() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        EObject this_Primary_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalAnn.g:850:2: ( (this_Primary_0= rulePrimary ( () otherlv_2= '/' ( (lv_right_3_0= rulePrimary ) ) )* ) )
+            // InternalAnn.g:851:2: (this_Primary_0= rulePrimary ( () otherlv_2= '/' ( (lv_right_3_0= rulePrimary ) ) )* )
+            {
+            // InternalAnn.g:851:2: (this_Primary_0= rulePrimary ( () otherlv_2= '/' ( (lv_right_3_0= rulePrimary ) ) )* )
+            // InternalAnn.g:852:3: this_Primary_0= rulePrimary ( () otherlv_2= '/' ( (lv_right_3_0= rulePrimary ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getDivisionAccess().getPrimaryParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_21);
+            this_Primary_0=rulePrimary();
+
+            state._fsp--;
+
+
+            			current = this_Primary_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalAnn.g:860:3: ( () otherlv_2= '/' ( (lv_right_3_0= rulePrimary ) ) )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( (LA7_0==28) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // InternalAnn.g:861:4: () otherlv_2= '/' ( (lv_right_3_0= rulePrimary ) )
+            	    {
+            	    // InternalAnn.g:861:4: ()
+            	    // InternalAnn.g:862:5: 
+            	    {
+
+            	    					current = forceCreateModelElementAndSet(
+            	    						grammarAccess.getDivisionAccess().getDivLeftAction_1_0(),
+            	    						current);
+            	    				
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,28,FOLLOW_17); 
+
+            	    				newLeafNode(otherlv_2, grammarAccess.getDivisionAccess().getSolidusKeyword_1_1());
+            	    			
+            	    // InternalAnn.g:872:4: ( (lv_right_3_0= rulePrimary ) )
+            	    // InternalAnn.g:873:5: (lv_right_3_0= rulePrimary )
+            	    {
+            	    // InternalAnn.g:873:5: (lv_right_3_0= rulePrimary )
+            	    // InternalAnn.g:874:6: lv_right_3_0= rulePrimary
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getDivisionAccess().getRightPrimaryParserRuleCall_1_2_0());
+            	    					
+            	    pushFollow(FOLLOW_21);
+            	    lv_right_3_0=rulePrimary();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getDivisionRule());
+            	    						}
+            	    						set(
+            	    							current,
+            	    							"right",
+            	    							lv_right_3_0,
+            	    							"dk.sdu.mdsd.ann.Ann.Primary");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleDivision"
+
+
+    // $ANTLR start "entryRulePrimary"
+    // InternalAnn.g:896:1: entryRulePrimary returns [EObject current=null] : iv_rulePrimary= rulePrimary EOF ;
+    public final EObject entryRulePrimary() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_rulePrimary = null;
+
+
+        try {
+            // InternalAnn.g:896:48: (iv_rulePrimary= rulePrimary EOF )
+            // InternalAnn.g:897:2: iv_rulePrimary= rulePrimary EOF
+            {
+             newCompositeNode(grammarAccess.getPrimaryRule()); 
+            pushFollow(FOLLOW_1);
+            iv_rulePrimary=rulePrimary();
+
+            state._fsp--;
+
+             current =iv_rulePrimary; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRulePrimary"
+
+
+    // $ANTLR start "rulePrimary"
+    // InternalAnn.g:903:1: rulePrimary returns [EObject current=null] : (this_NumberLiteral_0= ruleNumberLiteral | (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' ) ) ;
+    public final EObject rulePrimary() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        EObject this_NumberLiteral_0 = null;
+
+        EObject this_Expression_2 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalAnn.g:909:2: ( (this_NumberLiteral_0= ruleNumberLiteral | (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' ) ) )
+            // InternalAnn.g:910:2: (this_NumberLiteral_0= ruleNumberLiteral | (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' ) )
+            {
+            // InternalAnn.g:910:2: (this_NumberLiteral_0= ruleNumberLiteral | (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' ) )
+            int alt8=2;
+            int LA8_0 = input.LA(1);
+
+            if ( (LA8_0==RULE_INT) ) {
+                alt8=1;
+            }
+            else if ( (LA8_0==29) ) {
+                alt8=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 8, 0, input);
+
+                throw nvae;
+            }
+            switch (alt8) {
+                case 1 :
+                    // InternalAnn.g:911:3: this_NumberLiteral_0= ruleNumberLiteral
+                    {
+
+                    			newCompositeNode(grammarAccess.getPrimaryAccess().getNumberLiteralParserRuleCall_0());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_NumberLiteral_0=ruleNumberLiteral();
+
+                    state._fsp--;
+
+
+                    			current = this_NumberLiteral_0;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalAnn.g:920:3: (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' )
+                    {
+                    // InternalAnn.g:920:3: (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' )
+                    // InternalAnn.g:921:4: otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')'
+                    {
+                    otherlv_1=(Token)match(input,29,FOLLOW_17); 
+
+                    				newLeafNode(otherlv_1, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_1_0());
+                    			
+
+                    				newCompositeNode(grammarAccess.getPrimaryAccess().getExpressionParserRuleCall_1_1());
+                    			
+                    pushFollow(FOLLOW_22);
+                    this_Expression_2=ruleExpression();
+
+                    state._fsp--;
+
+
+                    				current = this_Expression_2;
+                    				afterParserOrEnumRuleCall();
+                    			
+                    otherlv_3=(Token)match(input,30,FOLLOW_2); 
+
+                    				newLeafNode(otherlv_3, grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_1_2());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "rulePrimary"
+
+
+    // $ANTLR start "entryRuleNumberLiteral"
+    // InternalAnn.g:942:1: entryRuleNumberLiteral returns [EObject current=null] : iv_ruleNumberLiteral= ruleNumberLiteral EOF ;
+    public final EObject entryRuleNumberLiteral() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleNumberLiteral = null;
+
+
+        try {
+            // InternalAnn.g:942:54: (iv_ruleNumberLiteral= ruleNumberLiteral EOF )
+            // InternalAnn.g:943:2: iv_ruleNumberLiteral= ruleNumberLiteral EOF
+            {
+             newCompositeNode(grammarAccess.getNumberLiteralRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleNumberLiteral=ruleNumberLiteral();
+
+            state._fsp--;
+
+             current =iv_ruleNumberLiteral; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleNumberLiteral"
+
+
+    // $ANTLR start "ruleNumberLiteral"
+    // InternalAnn.g:949:1: ruleNumberLiteral returns [EObject current=null] : ( (lv_value_0_0= ruleDECIMAL ) ) ;
+    public final EObject ruleNumberLiteral() throws RecognitionException {
+        EObject current = null;
+
+        AntlrDatatypeRuleToken lv_value_0_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalAnn.g:955:2: ( ( (lv_value_0_0= ruleDECIMAL ) ) )
+            // InternalAnn.g:956:2: ( (lv_value_0_0= ruleDECIMAL ) )
+            {
+            // InternalAnn.g:956:2: ( (lv_value_0_0= ruleDECIMAL ) )
+            // InternalAnn.g:957:3: (lv_value_0_0= ruleDECIMAL )
+            {
+            // InternalAnn.g:957:3: (lv_value_0_0= ruleDECIMAL )
+            // InternalAnn.g:958:4: lv_value_0_0= ruleDECIMAL
+            {
+
+            				newCompositeNode(grammarAccess.getNumberLiteralAccess().getValueDECIMALParserRuleCall_0());
+            			
+            pushFollow(FOLLOW_2);
+            lv_value_0_0=ruleDECIMAL();
+
+            state._fsp--;
+
+
+            				if (current==null) {
+            					current = createModelElementForParent(grammarAccess.getNumberLiteralRule());
+            				}
+            				set(
+            					current,
+            					"value",
+            					lv_value_0_0,
+            					"dk.sdu.mdsd.ann.Ann.DECIMAL");
+            				afterParserOrEnumRuleCall();
+            			
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleNumberLiteral"
+
     // Delegated rules
 
 
@@ -1598,7 +2455,11 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000020000020L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000002000002L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000008000002L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000040000000L});
 
 }

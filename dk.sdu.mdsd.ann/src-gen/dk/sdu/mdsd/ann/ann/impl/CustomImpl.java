@@ -5,10 +5,13 @@ package dk.sdu.mdsd.ann.ann.impl;
 
 import dk.sdu.mdsd.ann.ann.AnnPackage;
 import dk.sdu.mdsd.ann.ann.Custom;
+import dk.sdu.mdsd.ann.ann.Expression;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -21,8 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl#getName <em>Name</em>}</li>
- *   <li>{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl#getFunction <em>Function</em>}</li>
- *   <li>{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl#getDerivative <em>Derivative</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,44 +52,14 @@ public class CustomImpl extends LearningRuleImpl implements Custom
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getFunction() <em>Function</em>}' attribute.
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFunction()
+   * @see #getExp()
    * @generated
    * @ordered
    */
-  protected static final String FUNCTION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getFunction() <em>Function</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFunction()
-   * @generated
-   * @ordered
-   */
-  protected String function = FUNCTION_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDerivative() <em>Derivative</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDerivative()
-   * @generated
-   * @ordered
-   */
-  protected static final String DERIVATIVE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDerivative() <em>Derivative</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDerivative()
-   * @generated
-   * @ordered
-   */
-  protected String derivative = DERIVATIVE_EDEFAULT;
+  protected Expression exp;
 
   /**
    * <!-- begin-user-doc -->
@@ -138,9 +110,9 @@ public class CustomImpl extends LearningRuleImpl implements Custom
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getFunction()
+  public Expression getExp()
   {
-    return function;
+    return exp;
   }
 
   /**
@@ -148,12 +120,16 @@ public class CustomImpl extends LearningRuleImpl implements Custom
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFunction(String newFunction)
+  public NotificationChain basicSetExp(Expression newExp, NotificationChain msgs)
   {
-    String oldFunction = function;
-    function = newFunction;
+    Expression oldExp = exp;
+    exp = newExp;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.CUSTOM__FUNCTION, oldFunction, function));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnnPackage.CUSTOM__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -161,9 +137,20 @@ public class CustomImpl extends LearningRuleImpl implements Custom
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDerivative()
+  public void setExp(Expression newExp)
   {
-    return derivative;
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AnnPackage.CUSTOM__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AnnPackage.CUSTOM__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.CUSTOM__EXP, newExp, newExp));
   }
 
   /**
@@ -171,12 +158,15 @@ public class CustomImpl extends LearningRuleImpl implements Custom
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDerivative(String newDerivative)
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldDerivative = derivative;
-    derivative = newDerivative;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.CUSTOM__DERIVATIVE, oldDerivative, derivative));
+    switch (featureID)
+    {
+      case AnnPackage.CUSTOM__EXP:
+        return basicSetExp(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -191,10 +181,8 @@ public class CustomImpl extends LearningRuleImpl implements Custom
     {
       case AnnPackage.CUSTOM__NAME:
         return getName();
-      case AnnPackage.CUSTOM__FUNCTION:
-        return getFunction();
-      case AnnPackage.CUSTOM__DERIVATIVE:
-        return getDerivative();
+      case AnnPackage.CUSTOM__EXP:
+        return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -212,11 +200,8 @@ public class CustomImpl extends LearningRuleImpl implements Custom
       case AnnPackage.CUSTOM__NAME:
         setName((String)newValue);
         return;
-      case AnnPackage.CUSTOM__FUNCTION:
-        setFunction((String)newValue);
-        return;
-      case AnnPackage.CUSTOM__DERIVATIVE:
-        setDerivative((String)newValue);
+      case AnnPackage.CUSTOM__EXP:
+        setExp((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +220,8 @@ public class CustomImpl extends LearningRuleImpl implements Custom
       case AnnPackage.CUSTOM__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case AnnPackage.CUSTOM__FUNCTION:
-        setFunction(FUNCTION_EDEFAULT);
-        return;
-      case AnnPackage.CUSTOM__DERIVATIVE:
-        setDerivative(DERIVATIVE_EDEFAULT);
+      case AnnPackage.CUSTOM__EXP:
+        setExp((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -257,10 +239,8 @@ public class CustomImpl extends LearningRuleImpl implements Custom
     {
       case AnnPackage.CUSTOM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case AnnPackage.CUSTOM__FUNCTION:
-        return FUNCTION_EDEFAULT == null ? function != null : !FUNCTION_EDEFAULT.equals(function);
-      case AnnPackage.CUSTOM__DERIVATIVE:
-        return DERIVATIVE_EDEFAULT == null ? derivative != null : !DERIVATIVE_EDEFAULT.equals(derivative);
+      case AnnPackage.CUSTOM__EXP:
+        return exp != null;
     }
     return super.eIsSet(featureID);
   }
@@ -278,10 +258,6 @@ public class CustomImpl extends LearningRuleImpl implements Custom
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", function: ");
-    result.append(function);
-    result.append(", derivative: ");
-    result.append(derivative);
     result.append(')');
     return result.toString();
   }

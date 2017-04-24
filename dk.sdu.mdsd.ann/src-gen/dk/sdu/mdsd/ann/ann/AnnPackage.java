@@ -346,22 +346,13 @@ public interface AnnPackage extends EPackage
   int CUSTOM__NAME = LEARNING_RULE_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Function</b></em>' attribute.
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CUSTOM__FUNCTION = LEARNING_RULE_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Derivative</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CUSTOM__DERIVATIVE = LEARNING_RULE_FEATURE_COUNT + 2;
+  int CUSTOM__EXP = LEARNING_RULE_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Custom</em>' class.
@@ -370,7 +361,202 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CUSTOM_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 3;
+  int CUSTOM_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.ExpressionImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSION = 9;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.NumberLiteralImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getNumberLiteral()
+   * @generated
+   */
+  int NUMBER_LITERAL = 10;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Number Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.AddImpl <em>Add</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.AddImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getAdd()
+   * @generated
+   */
+  int ADD = 11;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Add</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.SubImpl <em>Sub</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.SubImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSub()
+   * @generated
+   */
+  int SUB = 12;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Sub</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.MultiImpl <em>Multi</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.MultiImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getMulti()
+   * @generated
+   */
+  int MULTI = 13;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTI__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTI__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Multi</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTI_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.DivImpl <em>Div</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.DivImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getDiv()
+   * @generated
+   */
+  int DIV = 14;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Div</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 
   /**
@@ -585,26 +771,174 @@ public interface AnnPackage extends EPackage
   EAttribute getCustom_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Custom#getFunction <em>Function</em>}'.
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Custom#getExp <em>Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Function</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Custom#getFunction()
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Custom#getExp()
    * @see #getCustom()
    * @generated
    */
-  EAttribute getCustom_Function();
+  EReference getCustom_Exp();
 
   /**
-   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Custom#getDerivative <em>Derivative</em>}'.
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Derivative</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Custom#getDerivative()
-   * @see #getCustom()
+   * @return the meta object for class '<em>Expression</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Expression
    * @generated
    */
-  EAttribute getCustom_Derivative();
+  EClass getExpression();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.NumberLiteral <em>Number Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Number Literal</em>'.
+   * @see dk.sdu.mdsd.ann.ann.NumberLiteral
+   * @generated
+   */
+  EClass getNumberLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.NumberLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see dk.sdu.mdsd.ann.ann.NumberLiteral#getValue()
+   * @see #getNumberLiteral()
+   * @generated
+   */
+  EAttribute getNumberLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Add <em>Add</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Add</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Add
+   * @generated
+   */
+  EClass getAdd();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Add#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Add#getLeft()
+   * @see #getAdd()
+   * @generated
+   */
+  EReference getAdd_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Add#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Add#getRight()
+   * @see #getAdd()
+   * @generated
+   */
+  EReference getAdd_Right();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Sub <em>Sub</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sub</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Sub
+   * @generated
+   */
+  EClass getSub();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Sub#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Sub#getLeft()
+   * @see #getSub()
+   * @generated
+   */
+  EReference getSub_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Sub#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Sub#getRight()
+   * @see #getSub()
+   * @generated
+   */
+  EReference getSub_Right();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Multi <em>Multi</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Multi</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Multi
+   * @generated
+   */
+  EClass getMulti();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Multi#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Multi#getLeft()
+   * @see #getMulti()
+   * @generated
+   */
+  EReference getMulti_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Multi#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Multi#getRight()
+   * @see #getMulti()
+   * @generated
+   */
+  EReference getMulti_Right();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Div <em>Div</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Div</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Div
+   * @generated
+   */
+  EClass getDiv();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Div#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Div#getLeft()
+   * @see #getDiv()
+   * @generated
+   */
+  EReference getDiv_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Div#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Div#getRight()
+   * @see #getDiv()
+   * @generated
+   */
+  EReference getDiv_Right();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -808,20 +1142,144 @@ public interface AnnPackage extends EPackage
     EAttribute CUSTOM__NAME = eINSTANCE.getCustom_Name();
 
     /**
-     * The meta object literal for the '<em><b>Function</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CUSTOM__FUNCTION = eINSTANCE.getCustom_Function();
+    EReference CUSTOM__EXP = eINSTANCE.getCustom_Exp();
 
     /**
-     * The meta object literal for the '<em><b>Derivative</b></em>' attribute feature.
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ExpressionImpl <em>Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.ExpressionImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getExpression()
+     * @generated
+     */
+    EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.NumberLiteralImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getNumberLiteral()
+     * @generated
+     */
+    EClass NUMBER_LITERAL = eINSTANCE.getNumberLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CUSTOM__DERIVATIVE = eINSTANCE.getCustom_Derivative();
+    EAttribute NUMBER_LITERAL__VALUE = eINSTANCE.getNumberLiteral_Value();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.AddImpl <em>Add</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.AddImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getAdd()
+     * @generated
+     */
+    EClass ADD = eINSTANCE.getAdd();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ADD__LEFT = eINSTANCE.getAdd_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ADD__RIGHT = eINSTANCE.getAdd_Right();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.SubImpl <em>Sub</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.SubImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSub()
+     * @generated
+     */
+    EClass SUB = eINSTANCE.getSub();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUB__LEFT = eINSTANCE.getSub_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUB__RIGHT = eINSTANCE.getSub_Right();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.MultiImpl <em>Multi</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.MultiImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getMulti()
+     * @generated
+     */
+    EClass MULTI = eINSTANCE.getMulti();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MULTI__LEFT = eINSTANCE.getMulti_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MULTI__RIGHT = eINSTANCE.getMulti_Right();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.DivImpl <em>Div</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.DivImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getDiv()
+     * @generated
+     */
+    EClass DIV = eINSTANCE.getDiv();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIV__LEFT = eINSTANCE.getDiv_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIV__RIGHT = eINSTANCE.getDiv_Right();
 
   }
 

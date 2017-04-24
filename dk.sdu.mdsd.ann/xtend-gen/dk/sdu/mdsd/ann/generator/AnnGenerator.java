@@ -5,14 +5,20 @@ package dk.sdu.mdsd.ann.generator;
 
 import com.google.common.collect.Iterators;
 import dk.sdu.mdsd.ann.ann.ANNModel;
+import dk.sdu.mdsd.ann.ann.Add;
 import dk.sdu.mdsd.ann.ann.Custom;
+import dk.sdu.mdsd.ann.ann.Div;
+import dk.sdu.mdsd.ann.ann.Expression;
 import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Layer;
 import dk.sdu.mdsd.ann.ann.LearningRule;
+import dk.sdu.mdsd.ann.ann.Multi;
+import dk.sdu.mdsd.ann.ann.NumberLiteral;
 import dk.sdu.mdsd.ann.ann.Output;
 import dk.sdu.mdsd.ann.ann.Sigmoid;
 import dk.sdu.mdsd.ann.ann.Stub;
+import dk.sdu.mdsd.ann.ann.Sub;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -36,6 +42,10 @@ public class AnnGenerator extends AbstractGenerator {
       this.generateANNFile(it, fsa, resource);
     };
     IteratorExtensions.<ANNModel>forEach(Iterators.<ANNModel>filter(resource.getAllContents(), ANNModel.class), _function);
+    final Procedure1<Custom> _function_1 = (Custom it) -> {
+      this.generateCustomFunctionFile(it, fsa, resource);
+    };
+    IteratorExtensions.<Custom>forEach(Iterators.<Custom>filter(resource.getAllContents(), Custom.class), _function_1);
   }
   
   public void generateANNFile(final ANNModel m, final IFileSystemAccess2 access2, final Resource resource) {
@@ -43,6 +53,12 @@ public class AnnGenerator extends AbstractGenerator {
     String _plus = (_name + ".java");
     access2.generateFile(_plus, this.generateNetwork(m));
     access2.generateFile("ITransfer.java", this.generateITransfer());
+  }
+  
+  public void generateCustomFunctionFile(final Custom c, final IFileSystemAccess2 access2, final Resource resource) {
+    String _name = c.getName();
+    String _plus = (_name + ".java");
+    access2.generateFile(_plus, this.generateCustomFunction(c));
   }
   
   public CharSequence generateITransfer() {
@@ -210,6 +226,115 @@ public class AnnGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  public CharSequence generateCustomFunction(final Custom customFunction) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import java.util.*;");
+    _builder.newLine();
+    _builder.append("import java.lang.Math.*;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class ");
+    String _name = customFunction.getName();
+    _builder.append(_name);
+    _builder.append(" implements ITransfer {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public double transfer(double x){");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return ");
+    CharSequence _generateCustomExp = this.generateCustomExp(customFunction);
+    _builder.append(_generateCustomExp, "\t\t");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public double derivative(double x){");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return 0.0;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateCustomExp(final Custom custom) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateExp = this.generateExp(custom.getExp());
+    _builder.append(_generateExp);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _generateExp(final Add exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    CharSequence _generateExp = this.generateExp(exp.getLeft());
+    _builder.append(_generateExp);
+    _builder.append("+");
+    CharSequence _generateExp_1 = this.generateExp(exp.getRight());
+    _builder.append(_generateExp_1);
+    _builder.append(")");
+    return _builder;
+  }
+  
+  protected CharSequence _generateExp(final Sub exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    CharSequence _generateExp = this.generateExp(exp.getLeft());
+    _builder.append(_generateExp);
+    _builder.append("-");
+    CharSequence _generateExp_1 = this.generateExp(exp.getRight());
+    _builder.append(_generateExp_1);
+    _builder.append(")");
+    return _builder;
+  }
+  
+  protected CharSequence _generateExp(final Multi exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    CharSequence _generateExp = this.generateExp(exp.getLeft());
+    _builder.append(_generateExp);
+    _builder.append("*");
+    CharSequence _generateExp_1 = this.generateExp(exp.getRight());
+    _builder.append(_generateExp_1);
+    _builder.append(")");
+    return _builder;
+  }
+  
+  protected CharSequence _generateExp(final Div exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    CharSequence _generateExp = this.generateExp(exp.getLeft());
+    _builder.append(_generateExp);
+    _builder.append("/");
+    CharSequence _generateExp_1 = this.generateExp(exp.getRight());
+    _builder.append(_generateExp_1);
+    _builder.append(")");
+    return _builder;
+  }
+  
+  protected CharSequence _generateExp(final NumberLiteral exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _value = exp.getValue();
+    _builder.append(_value);
+    return _builder;
+  }
+  
   protected CharSequence _generateLayer(final Hidden layer) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("addLayerWithTransfer(");
@@ -269,6 +394,23 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append(_name);
     _builder.append("()");
     return _builder;
+  }
+  
+  public CharSequence generateExp(final Expression exp) {
+    if (exp instanceof Add) {
+      return _generateExp((Add)exp);
+    } else if (exp instanceof Div) {
+      return _generateExp((Div)exp);
+    } else if (exp instanceof Multi) {
+      return _generateExp((Multi)exp);
+    } else if (exp instanceof NumberLiteral) {
+      return _generateExp((NumberLiteral)exp);
+    } else if (exp instanceof Sub) {
+      return _generateExp((Sub)exp);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(exp).toString());
+    }
   }
   
   public CharSequence generateLayer(final Layer layer) {

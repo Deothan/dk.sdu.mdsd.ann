@@ -32,8 +32,27 @@
     </genClasses>
     <genClasses ecoreClass="Ann.ecore#//Custom">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Custom/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Custom/function"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Custom/derivative"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Custom/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Expression"/>
+    <genClasses ecoreClass="Ann.ecore#//NumberLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//NumberLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Add">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Add/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Add/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Sub">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Sub/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Sub/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Multi">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Multi/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Multi/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Div">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Div/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Div/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

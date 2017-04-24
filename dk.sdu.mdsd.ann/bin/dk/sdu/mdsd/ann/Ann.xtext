@@ -48,7 +48,30 @@ Stub:
 ;
 
 Custom:
-	name=ID '(x)' '{'
-	'function' '=' function=ID 
-	'derivative' '=' derivative=ID '}'
+	name=ID '{'
+	'function' '=' exp=Expression '}'
+;
+
+Expression:
+	Substraction ({Add.left = current} '+' right = Substraction)*
+;
+
+Substraction returns Expression:
+	Multiplication ({Sub.left = current} '-' right = Multiplication)*
+;
+
+Multiplication returns Expression:
+	Division ({Multi.left = current} '*' right = Division)*
+;
+
+Division returns Expression:
+	Primary ({Div.left = current} '/' right = Primary)*
+;
+
+Primary returns Expression:
+	NumberLiteral | '(' Expression ')'
+;
+
+NumberLiteral:
+	value = DECIMAL
 ;
