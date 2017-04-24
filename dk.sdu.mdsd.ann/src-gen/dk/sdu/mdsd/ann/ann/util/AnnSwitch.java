@@ -126,11 +126,11 @@ public class AnnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AnnPackage.THRESHOLD:
+      case AnnPackage.STUB:
       {
-        Threshold threshold = (Threshold)theEObject;
-        T result = caseThreshold(threshold);
-        if (result == null) result = caseLearningRule(threshold);
+        Stub stub = (Stub)theEObject;
+        T result = caseStub(stub);
+        if (result == null) result = caseLearningRule(stub);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -259,17 +259,17 @@ public class AnnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Threshold</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Stub</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Threshold</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Stub</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseThreshold(Threshold object)
+  public T caseStub(Stub object)
   {
     return null;
   }

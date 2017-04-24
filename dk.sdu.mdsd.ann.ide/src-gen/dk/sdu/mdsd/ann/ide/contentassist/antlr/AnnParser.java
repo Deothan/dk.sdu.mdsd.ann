@@ -38,6 +38,7 @@ public class AnnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getHiddenAccess().getGroup(), "rule__Hidden__Group__0");
 					put(grammarAccess.getInputAccess().getGroup(), "rule__Input__Group__0");
 					put(grammarAccess.getOutputAccess().getGroup(), "rule__Output__Group__0");
+					put(grammarAccess.getStubAccess().getGroup(), "rule__Stub__Group__0");
 					put(grammarAccess.getCustomAccess().getGroup(), "rule__Custom__Group__0");
 					put(grammarAccess.getANNModelAccess().getNameAssignment_0(), "rule__ANNModel__NameAssignment_0");
 					put(grammarAccess.getANNModelAccess().getAlphaAssignment_3(), "rule__ANNModel__AlphaAssignment_3");
@@ -49,9 +50,11 @@ public class AnnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOutputAccess().getSizeAssignment_3(), "rule__Output__SizeAssignment_3");
 					put(grammarAccess.getOutputAccess().getL_ruleAssignment_5(), "rule__Output__L_ruleAssignment_5");
 					put(grammarAccess.getSigmoidAccess().getRuleAssignment(), "rule__Sigmoid__RuleAssignment");
-					put(grammarAccess.getThresholdAccess().getRuleAssignment(), "rule__Threshold__RuleAssignment");
+					put(grammarAccess.getStubAccess().getRuleAssignment_0(), "rule__Stub__RuleAssignment_0");
+					put(grammarAccess.getStubAccess().getNameAssignment_1(), "rule__Stub__NameAssignment_1");
 					put(grammarAccess.getCustomAccess().getNameAssignment_0(), "rule__Custom__NameAssignment_0");
-					put(grammarAccess.getCustomAccess().getFunctionAssignment_2(), "rule__Custom__FunctionAssignment_2");
+					put(grammarAccess.getCustomAccess().getFunctionAssignment_5(), "rule__Custom__FunctionAssignment_5");
+					put(grammarAccess.getCustomAccess().getDerivativeAssignment_8(), "rule__Custom__DerivativeAssignment_8");
 				}
 			};
 		}

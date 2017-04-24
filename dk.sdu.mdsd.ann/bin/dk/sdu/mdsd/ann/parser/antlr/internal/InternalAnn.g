@@ -483,11 +483,11 @@ ruleLearningRule returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getLearningRuleAccess().getThresholdParserRuleCall_1());
+			newCompositeNode(grammarAccess.getLearningRuleAccess().getStubParserRuleCall_1());
 		}
-		this_Threshold_1=ruleThreshold
+		this_Stub_1=ruleStub
 		{
-			$current = $this_Threshold_1.current;
+			$current = $this_Stub_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -533,15 +533,15 @@ ruleSigmoid returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleThreshold
-entryRuleThreshold returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getThresholdRule()); }
-	iv_ruleThreshold=ruleThreshold
-	{ $current=$iv_ruleThreshold.current; }
+// Entry rule entryRuleStub
+entryRuleStub returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getStubRule()); }
+	iv_ruleStub=ruleStub
+	{ $current=$iv_ruleStub.current; }
 	EOF;
 
-// Rule Threshold
-ruleThreshold returns [EObject current=null]
+// Rule Stub
+ruleStub returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -550,16 +550,36 @@ ruleThreshold returns [EObject current=null]
 }:
 	(
 		(
-			lv_rule_0_0='threshold'
-			{
-				newLeafNode(lv_rule_0_0, grammarAccess.getThresholdAccess().getRuleThresholdKeyword_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getThresholdRule());
+			(
+				lv_rule_0_0='stub'
+				{
+					newLeafNode(lv_rule_0_0, grammarAccess.getStubAccess().getRuleStubKeyword_0_0());
 				}
-				setWithLastConsumed($current, "rule", lv_rule_0_0, "threshold");
-			}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getStubRule());
+					}
+					setWithLastConsumed($current, "rule", lv_rule_0_0, "stub");
+				}
+			)
+		)
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getStubAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getStubRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
 		)
 	)
 ;
@@ -598,15 +618,27 @@ ruleCustom returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_1='{'
+		otherlv_1='(x)'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getCustomAccess().getLeftCurlyBracketKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getCustomAccess().getXKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getCustomAccess().getLeftCurlyBracketKeyword_2());
+		}
+		otherlv_3='function'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getCustomAccess().getFunctionKeyword_3());
+		}
+		otherlv_4='='
+		{
+			newLeafNode(otherlv_4, grammarAccess.getCustomAccess().getEqualsSignKeyword_4());
 		}
 		(
 			(
-				lv_function_2_0=RULE_ID
+				lv_function_5_0=RULE_ID
 				{
-					newLeafNode(lv_function_2_0, grammarAccess.getCustomAccess().getFunctionIDTerminalRuleCall_2_0());
+					newLeafNode(lv_function_5_0, grammarAccess.getCustomAccess().getFunctionIDTerminalRuleCall_5_0());
 				}
 				{
 					if ($current==null) {
@@ -615,14 +647,40 @@ ruleCustom returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"function",
-						lv_function_2_0,
+						lv_function_5_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
-		otherlv_3='}'
+		otherlv_6='derivative'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getCustomAccess().getRightCurlyBracketKeyword_3());
+			newLeafNode(otherlv_6, grammarAccess.getCustomAccess().getDerivativeKeyword_6());
+		}
+		otherlv_7='='
+		{
+			newLeafNode(otherlv_7, grammarAccess.getCustomAccess().getEqualsSignKeyword_7());
+		}
+		(
+			(
+				lv_derivative_8_0=RULE_ID
+				{
+					newLeafNode(lv_derivative_8_0, grammarAccess.getCustomAccess().getDerivativeIDTerminalRuleCall_8_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCustomRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"derivative",
+						lv_derivative_8_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_9='}'
+		{
+			newLeafNode(otherlv_9, grammarAccess.getCustomAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;

@@ -1,13 +1,17 @@
+'(x)'=21
 '.'=15
+'='=23
 'alpha'=12
+'derivative'=24
 'epochs'=13
+'function'=22
 'hidden'=16
 'in'=19
 'learningRule'=18
 'out'=20
-'sigmoid'=21
+'sigmoid'=25
 'size'=17
-'threshold'=22
+'stub'=26
 '{'=11
 '}'=14
 RULE_ANY_OTHER=10
@@ -29,3 +33,7 @@ T__19=19
 T__20=20
 T__21=21
 T__22=22
+T__23=23
+T__24=24
+T__25=25
+T__26=26

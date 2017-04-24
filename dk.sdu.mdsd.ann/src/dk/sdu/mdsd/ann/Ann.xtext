@@ -36,18 +36,19 @@ Output:
 ;
 
 LearningRule:
-	Sigmoid | Threshold | Custom
+	Sigmoid | Stub | Custom
 ;
 
 Sigmoid:
 	rule='sigmoid'
 ;
 
-Threshold:
-	rule='threshold'
+Stub:
+	rule='stub' name=ID
 ;
 
 Custom:
-	name=ID '{'
-	function=ID '}'
+	name=ID '(x)' '{'
+	'function' '=' function=ID 
+	'derivative' '=' derivative=ID '}'
 ;

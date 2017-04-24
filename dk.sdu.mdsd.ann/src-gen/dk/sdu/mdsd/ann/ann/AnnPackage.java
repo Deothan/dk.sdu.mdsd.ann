@@ -290,14 +290,14 @@ public interface AnnPackage extends EPackage
   int SIGMOID_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ThresholdImpl <em>Threshold</em>}' class.
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.StubImpl <em>Stub</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.ann.ann.impl.ThresholdImpl
-   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getThreshold()
+   * @see dk.sdu.mdsd.ann.ann.impl.StubImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getStub()
    * @generated
    */
-  int THRESHOLD = 7;
+  int STUB = 7;
 
   /**
    * The feature id for the '<em><b>Rule</b></em>' attribute.
@@ -306,16 +306,25 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int THRESHOLD__RULE = LEARNING_RULE_FEATURE_COUNT + 0;
+  int STUB__RULE = LEARNING_RULE_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Threshold</em>' class.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int THRESHOLD_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 1;
+  int STUB__NAME = LEARNING_RULE_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Stub</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STUB_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.
@@ -346,13 +355,22 @@ public interface AnnPackage extends EPackage
   int CUSTOM__FUNCTION = LEARNING_RULE_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Derivative</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CUSTOM__DERIVATIVE = LEARNING_RULE_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Custom</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CUSTOM_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 2;
+  int CUSTOM_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 3;
 
 
   /**
@@ -514,25 +532,36 @@ public interface AnnPackage extends EPackage
   EAttribute getSigmoid_Rule();
 
   /**
-   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Threshold <em>Threshold</em>}'.
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Stub <em>Stub</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Threshold</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Threshold
+   * @return the meta object for class '<em>Stub</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Stub
    * @generated
    */
-  EClass getThreshold();
+  EClass getStub();
 
   /**
-   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Threshold#getRule <em>Rule</em>}'.
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Stub#getRule <em>Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Rule</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Threshold#getRule()
-   * @see #getThreshold()
+   * @see dk.sdu.mdsd.ann.ann.Stub#getRule()
+   * @see #getStub()
    * @generated
    */
-  EAttribute getThreshold_Rule();
+  EAttribute getStub_Rule();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Stub#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Stub#getName()
+   * @see #getStub()
+   * @generated
+   */
+  EAttribute getStub_Name();
 
   /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Custom <em>Custom</em>}'.
@@ -565,6 +594,17 @@ public interface AnnPackage extends EPackage
    * @generated
    */
   EAttribute getCustom_Function();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Custom#getDerivative <em>Derivative</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Derivative</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Custom#getDerivative()
+   * @see #getCustom()
+   * @generated
+   */
+  EAttribute getCustom_Derivative();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -724,14 +764,14 @@ public interface AnnPackage extends EPackage
     EAttribute SIGMOID__RULE = eINSTANCE.getSigmoid_Rule();
 
     /**
-     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ThresholdImpl <em>Threshold</em>}' class.
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.StubImpl <em>Stub</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see dk.sdu.mdsd.ann.ann.impl.ThresholdImpl
-     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getThreshold()
+     * @see dk.sdu.mdsd.ann.ann.impl.StubImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getStub()
      * @generated
      */
-    EClass THRESHOLD = eINSTANCE.getThreshold();
+    EClass STUB = eINSTANCE.getStub();
 
     /**
      * The meta object literal for the '<em><b>Rule</b></em>' attribute feature.
@@ -739,7 +779,15 @@ public interface AnnPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute THRESHOLD__RULE = eINSTANCE.getThreshold_Rule();
+    EAttribute STUB__RULE = eINSTANCE.getStub_Rule();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STUB__NAME = eINSTANCE.getStub_Name();
 
     /**
      * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.
@@ -766,6 +814,14 @@ public interface AnnPackage extends EPackage
      * @generated
      */
     EAttribute CUSTOM__FUNCTION = eINSTANCE.getCustom_Function();
+
+    /**
+     * The meta object literal for the '<em><b>Derivative</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CUSTOM__DERIVATIVE = eINSTANCE.getCustom_Derivative();
 
   }
 

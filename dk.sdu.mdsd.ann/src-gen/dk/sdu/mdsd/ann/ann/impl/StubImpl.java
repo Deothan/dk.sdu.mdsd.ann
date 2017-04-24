@@ -4,7 +4,7 @@
 package dk.sdu.mdsd.ann.ann.impl;
 
 import dk.sdu.mdsd.ann.ann.AnnPackage;
-import dk.sdu.mdsd.ann.ann.Threshold;
+import dk.sdu.mdsd.ann.ann.Stub;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,18 +14,19 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Threshold</b></em>'.
+ * An implementation of the model object '<em><b>Stub</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ThresholdImpl#getRule <em>Rule</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.StubImpl#getRule <em>Rule</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.StubImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ThresholdImpl extends LearningRuleImpl implements Threshold
+public class StubImpl extends LearningRuleImpl implements Stub
 {
   /**
    * The default value of the '{@link #getRule() <em>Rule</em>}' attribute.
@@ -48,11 +49,31 @@ public class ThresholdImpl extends LearningRuleImpl implements Threshold
   protected String rule = RULE_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ThresholdImpl()
+  protected StubImpl()
   {
     super();
   }
@@ -65,7 +86,7 @@ public class ThresholdImpl extends LearningRuleImpl implements Threshold
   @Override
   protected EClass eStaticClass()
   {
-    return AnnPackage.Literals.THRESHOLD;
+    return AnnPackage.Literals.STUB;
   }
 
   /**
@@ -88,7 +109,30 @@ public class ThresholdImpl extends LearningRuleImpl implements Threshold
     String oldRule = rule;
     rule = newRule;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.THRESHOLD__RULE, oldRule, rule));
+      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.STUB__RULE, oldRule, rule));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.STUB__NAME, oldName, name));
   }
 
   /**
@@ -101,8 +145,10 @@ public class ThresholdImpl extends LearningRuleImpl implements Threshold
   {
     switch (featureID)
     {
-      case AnnPackage.THRESHOLD__RULE:
+      case AnnPackage.STUB__RULE:
         return getRule();
+      case AnnPackage.STUB__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +163,11 @@ public class ThresholdImpl extends LearningRuleImpl implements Threshold
   {
     switch (featureID)
     {
-      case AnnPackage.THRESHOLD__RULE:
+      case AnnPackage.STUB__RULE:
         setRule((String)newValue);
+        return;
+      case AnnPackage.STUB__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +183,11 @@ public class ThresholdImpl extends LearningRuleImpl implements Threshold
   {
     switch (featureID)
     {
-      case AnnPackage.THRESHOLD__RULE:
+      case AnnPackage.STUB__RULE:
         setRule(RULE_EDEFAULT);
+        return;
+      case AnnPackage.STUB__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +203,10 @@ public class ThresholdImpl extends LearningRuleImpl implements Threshold
   {
     switch (featureID)
     {
-      case AnnPackage.THRESHOLD__RULE:
+      case AnnPackage.STUB__RULE:
         return RULE_EDEFAULT == null ? rule != null : !RULE_EDEFAULT.equals(rule);
+      case AnnPackage.STUB__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -170,8 +224,10 @@ public class ThresholdImpl extends LearningRuleImpl implements Threshold
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (rule: ");
     result.append(rule);
+    result.append(", name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }
 
-} //ThresholdImpl
+} //StubImpl

@@ -15,6 +15,7 @@ package dk.sdu.mdsd.ann.ann;
  * <ul>
  *   <li>{@link dk.sdu.mdsd.ann.ann.Custom#getName <em>Name</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.Custom#getFunction <em>Function</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.Custom#getDerivative <em>Derivative</em>}</li>
  * </ul>
  *
  * @see dk.sdu.mdsd.ann.ann.AnnPackage#getCustom()
@@ -74,5 +75,31 @@ public interface Custom extends LearningRule
    * @generated
    */
   void setFunction(String value);
+
+  /**
+   * Returns the value of the '<em><b>Derivative</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Derivative</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Derivative</em>' attribute.
+   * @see #setDerivative(String)
+   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getCustom_Derivative()
+   * @model
+   * @generated
+   */
+  String getDerivative();
+
+  /**
+   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.Custom#getDerivative <em>Derivative</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Derivative</em>' attribute.
+   * @see #getDerivative()
+   * @generated
+   */
+  void setDerivative(String value);
 
 } // Custom

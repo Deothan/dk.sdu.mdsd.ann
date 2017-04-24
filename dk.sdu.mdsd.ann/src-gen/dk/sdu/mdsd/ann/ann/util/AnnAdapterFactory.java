@@ -111,9 +111,9 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
         return createSigmoidAdapter();
       }
       @Override
-      public Adapter caseThreshold(Threshold object)
+      public Adapter caseStub(Stub object)
       {
-        return createThresholdAdapter();
+        return createStubAdapter();
       }
       @Override
       public Adapter caseCustom(Custom object)
@@ -248,16 +248,16 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Threshold <em>Threshold</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Stub <em>Stub</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mdsd.ann.ann.Threshold
+   * @see dk.sdu.mdsd.ann.ann.Stub
    * @generated
    */
-  public Adapter createThresholdAdapter()
+  public Adapter createStubAdapter()
   {
     return null;
   }

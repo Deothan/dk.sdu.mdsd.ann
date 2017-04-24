@@ -26,12 +26,14 @@
     <genClasses ecoreClass="Ann.ecore#//Sigmoid">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Sigmoid/rule"/>
     </genClasses>
-    <genClasses ecoreClass="Ann.ecore#//Threshold">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Threshold/rule"/>
+    <genClasses ecoreClass="Ann.ecore#//Stub">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Stub/rule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Stub/name"/>
     </genClasses>
     <genClasses ecoreClass="Ann.ecore#//Custom">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Custom/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Custom/function"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Custom/derivative"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

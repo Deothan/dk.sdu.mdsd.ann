@@ -12,8 +12,8 @@ import dk.sdu.mdsd.ann.ann.Hidden
 import dk.sdu.mdsd.ann.ann.Input
 import dk.sdu.mdsd.ann.ann.Output
 import dk.sdu.mdsd.ann.ann.Sigmoid
-import dk.sdu.mdsd.ann.ann.Threshold
 import dk.sdu.mdsd.ann.ann.Custom
+import dk.sdu.mdsd.ann.ann.Stub
 
 /**
  * Generates code from your model files on save.
@@ -54,7 +54,7 @@ class AnnGenerator extends AbstractGenerator {
 			return (String[])this.transfers.toArray();
 		}
 		
-		public void addLayerWithTransfer(double size, String transfer) {
+		public void addLayerWithTransfer(double size, ITransfer transfer) {
 			this.layers.add(size);
 			this.transfers.add(transfer);
 		}
@@ -99,7 +99,7 @@ class AnnGenerator extends AbstractGenerator {
 	def dispatch generateRule(Sigmoid rule)'''new Sigmoid()'''
 		
 	
-	def dispatch generateRule(Threshold rule)'''new Threshold()'''
+	def dispatch generateRule(Stub rule)'''new «rule.name»()'''
 		
 	
 	def dispatch generateRule(Custom rule)'''new «rule.name»()'''	

@@ -87,13 +87,13 @@ public interface AnnFactory extends EFactory
   Sigmoid createSigmoid();
 
   /**
-   * Returns a new object of class '<em>Threshold</em>'.
+   * Returns a new object of class '<em>Stub</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Threshold</em>'.
+   * @return a new object of class '<em>Stub</em>'.
    * @generated
    */
-  Threshold createThreshold();
+  Stub createStub();
 
   /**
    * Returns a new object of class '<em>Custom</em>'.

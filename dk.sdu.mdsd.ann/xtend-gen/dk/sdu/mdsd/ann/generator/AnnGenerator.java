@@ -12,7 +12,7 @@ import dk.sdu.mdsd.ann.ann.Layer;
 import dk.sdu.mdsd.ann.ann.LearningRule;
 import dk.sdu.mdsd.ann.ann.Output;
 import dk.sdu.mdsd.ann.ann.Sigmoid;
-import dk.sdu.mdsd.ann.ann.Threshold;
+import dk.sdu.mdsd.ann.ann.Stub;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -117,7 +117,7 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public void addLayerWithTransfer(double size, String transfer) {");
+    _builder.append("public void addLayerWithTransfer(double size, ITransfer transfer) {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("this.layers.add(size);");
@@ -237,9 +237,12 @@ public class AnnGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  protected CharSequence _generateRule(final Threshold rule) {
+  protected CharSequence _generateRule(final Stub rule) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("new Threshold()");
+    _builder.append("new ");
+    String _name = rule.getName();
+    _builder.append(_name);
+    _builder.append("()");
     return _builder;
   }
   
@@ -270,8 +273,8 @@ public class AnnGenerator extends AbstractGenerator {
       return _generateRule((Custom)rule);
     } else if (rule instanceof Sigmoid) {
       return _generateRule((Sigmoid)rule);
-    } else if (rule instanceof Threshold) {
-      return _generateRule((Threshold)rule);
+    } else if (rule instanceof Stub) {
+      return _generateRule((Stub)rule);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(rule).toString());

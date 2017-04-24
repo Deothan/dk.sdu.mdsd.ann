@@ -11,7 +11,7 @@ import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Output;
 import dk.sdu.mdsd.ann.ann.Sigmoid;
-import dk.sdu.mdsd.ann.ann.Threshold;
+import dk.sdu.mdsd.ann.ann.Stub;
 import dk.sdu.mdsd.ann.services.AnnGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -56,8 +56,8 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case AnnPackage.SIGMOID:
 				sequence_Sigmoid(context, (Sigmoid) semanticObject); 
 				return; 
-			case AnnPackage.THRESHOLD:
-				sequence_Threshold(context, (Threshold) semanticObject); 
+			case AnnPackage.STUB:
+				sequence_Stub(context, (Stub) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -82,7 +82,7 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Custom returns Custom
 	 *
 	 * Constraint:
-	 *     (name=ID function=ID)
+	 *     (name=ID function=ID derivative=ID)
 	 */
 	protected void sequence_Custom(ISerializationContext context, Custom semanticObject) {
 		if (errorAcceptor != null) {
@@ -90,10 +90,13 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__NAME));
 			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CUSTOM__FUNCTION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__FUNCTION));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CUSTOM__DERIVATIVE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__DERIVATIVE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getCustomAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCustomAccess().getFunctionIDTerminalRuleCall_2_0(), semanticObject.getFunction());
+		feeder.accept(grammarAccess.getCustomAccess().getFunctionIDTerminalRuleCall_5_0(), semanticObject.getFunction());
+		feeder.accept(grammarAccess.getCustomAccess().getDerivativeIDTerminalRuleCall_8_0(), semanticObject.getDerivative());
 		feeder.finish();
 	}
 	
@@ -182,19 +185,22 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     LearningRule returns Threshold
-	 *     Threshold returns Threshold
+	 *     LearningRule returns Stub
+	 *     Stub returns Stub
 	 *
 	 * Constraint:
-	 *     rule='threshold'
+	 *     (rule='stub' name=ID)
 	 */
-	protected void sequence_Threshold(ISerializationContext context, Threshold semanticObject) {
+	protected void sequence_Stub(ISerializationContext context, Stub semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.THRESHOLD__RULE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.THRESHOLD__RULE));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.STUB__RULE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.STUB__RULE));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.STUB__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.STUB__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getThresholdAccess().getRuleThresholdKeyword_0(), semanticObject.getRule());
+		feeder.accept(grammarAccess.getStubAccess().getRuleStubKeyword_0_0(), semanticObject.getRule());
+		feeder.accept(grammarAccess.getStubAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

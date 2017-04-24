@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAnnParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'{'", "'alpha'", "'epochs'", "'}'", "'.'", "'hidden'", "'size'", "'learningRule'", "'in'", "'out'", "'sigmoid'", "'threshold'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'{'", "'alpha'", "'epochs'", "'}'", "'.'", "'hidden'", "'size'", "'learningRule'", "'in'", "'out'", "'sigmoid'", "'stub'", "'(x)'", "'function'", "'='", "'derivative'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -38,9 +38,13 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
+    public static final int T__26=26;
     public static final int RULE_INT=5;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
+    public static final int T__23=23;
+    public static final int T__24=24;
+    public static final int T__25=25;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -1049,13 +1053,13 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLearningRule"
-    // InternalAnn.g:468:1: ruleLearningRule returns [EObject current=null] : (this_Sigmoid_0= ruleSigmoid | this_Threshold_1= ruleThreshold | this_Custom_2= ruleCustom ) ;
+    // InternalAnn.g:468:1: ruleLearningRule returns [EObject current=null] : (this_Sigmoid_0= ruleSigmoid | this_Stub_1= ruleStub | this_Custom_2= ruleCustom ) ;
     public final EObject ruleLearningRule() throws RecognitionException {
         EObject current = null;
 
         EObject this_Sigmoid_0 = null;
 
-        EObject this_Threshold_1 = null;
+        EObject this_Stub_1 = null;
 
         EObject this_Custom_2 = null;
 
@@ -1064,10 +1068,10 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAnn.g:474:2: ( (this_Sigmoid_0= ruleSigmoid | this_Threshold_1= ruleThreshold | this_Custom_2= ruleCustom ) )
-            // InternalAnn.g:475:2: (this_Sigmoid_0= ruleSigmoid | this_Threshold_1= ruleThreshold | this_Custom_2= ruleCustom )
+            // InternalAnn.g:474:2: ( (this_Sigmoid_0= ruleSigmoid | this_Stub_1= ruleStub | this_Custom_2= ruleCustom ) )
+            // InternalAnn.g:475:2: (this_Sigmoid_0= ruleSigmoid | this_Stub_1= ruleStub | this_Custom_2= ruleCustom )
             {
-            // InternalAnn.g:475:2: (this_Sigmoid_0= ruleSigmoid | this_Threshold_1= ruleThreshold | this_Custom_2= ruleCustom )
+            // InternalAnn.g:475:2: (this_Sigmoid_0= ruleSigmoid | this_Stub_1= ruleStub | this_Custom_2= ruleCustom )
             int alt3=3;
             switch ( input.LA(1) ) {
             case 21:
@@ -1112,18 +1116,18 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalAnn.g:485:3: this_Threshold_1= ruleThreshold
+                    // InternalAnn.g:485:3: this_Stub_1= ruleStub
                     {
 
-                    			newCompositeNode(grammarAccess.getLearningRuleAccess().getThresholdParserRuleCall_1());
+                    			newCompositeNode(grammarAccess.getLearningRuleAccess().getStubParserRuleCall_1());
                     		
                     pushFollow(FOLLOW_2);
-                    this_Threshold_1=ruleThreshold();
+                    this_Stub_1=ruleStub();
 
                     state._fsp--;
 
 
-                    			current = this_Threshold_1;
+                    			current = this_Stub_1;
                     			afterParserOrEnumRuleCall();
                     		
 
@@ -1260,25 +1264,25 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleSigmoid"
 
 
-    // $ANTLR start "entryRuleThreshold"
-    // InternalAnn.g:537:1: entryRuleThreshold returns [EObject current=null] : iv_ruleThreshold= ruleThreshold EOF ;
-    public final EObject entryRuleThreshold() throws RecognitionException {
+    // $ANTLR start "entryRuleStub"
+    // InternalAnn.g:537:1: entryRuleStub returns [EObject current=null] : iv_ruleStub= ruleStub EOF ;
+    public final EObject entryRuleStub() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleThreshold = null;
+        EObject iv_ruleStub = null;
 
 
         try {
-            // InternalAnn.g:537:50: (iv_ruleThreshold= ruleThreshold EOF )
-            // InternalAnn.g:538:2: iv_ruleThreshold= ruleThreshold EOF
+            // InternalAnn.g:537:45: (iv_ruleStub= ruleStub EOF )
+            // InternalAnn.g:538:2: iv_ruleStub= ruleStub EOF
             {
-             newCompositeNode(grammarAccess.getThresholdRule()); 
+             newCompositeNode(grammarAccess.getStubRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleThreshold=ruleThreshold();
+            iv_ruleStub=ruleStub();
 
             state._fsp--;
 
-             current =iv_ruleThreshold; 
+             current =iv_ruleStub; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1293,39 +1297,72 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleThreshold"
+    // $ANTLR end "entryRuleStub"
 
 
-    // $ANTLR start "ruleThreshold"
-    // InternalAnn.g:544:1: ruleThreshold returns [EObject current=null] : ( (lv_rule_0_0= 'threshold' ) ) ;
-    public final EObject ruleThreshold() throws RecognitionException {
+    // $ANTLR start "ruleStub"
+    // InternalAnn.g:544:1: ruleStub returns [EObject current=null] : ( ( (lv_rule_0_0= 'stub' ) ) ( (lv_name_1_0= RULE_ID ) ) ) ;
+    public final EObject ruleStub() throws RecognitionException {
         EObject current = null;
 
         Token lv_rule_0_0=null;
+        Token lv_name_1_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalAnn.g:550:2: ( ( (lv_rule_0_0= 'threshold' ) ) )
-            // InternalAnn.g:551:2: ( (lv_rule_0_0= 'threshold' ) )
+            // InternalAnn.g:550:2: ( ( ( (lv_rule_0_0= 'stub' ) ) ( (lv_name_1_0= RULE_ID ) ) ) )
+            // InternalAnn.g:551:2: ( ( (lv_rule_0_0= 'stub' ) ) ( (lv_name_1_0= RULE_ID ) ) )
             {
-            // InternalAnn.g:551:2: ( (lv_rule_0_0= 'threshold' ) )
-            // InternalAnn.g:552:3: (lv_rule_0_0= 'threshold' )
+            // InternalAnn.g:551:2: ( ( (lv_rule_0_0= 'stub' ) ) ( (lv_name_1_0= RULE_ID ) ) )
+            // InternalAnn.g:552:3: ( (lv_rule_0_0= 'stub' ) ) ( (lv_name_1_0= RULE_ID ) )
             {
-            // InternalAnn.g:552:3: (lv_rule_0_0= 'threshold' )
-            // InternalAnn.g:553:4: lv_rule_0_0= 'threshold'
+            // InternalAnn.g:552:3: ( (lv_rule_0_0= 'stub' ) )
+            // InternalAnn.g:553:4: (lv_rule_0_0= 'stub' )
             {
-            lv_rule_0_0=(Token)match(input,22,FOLLOW_2); 
+            // InternalAnn.g:553:4: (lv_rule_0_0= 'stub' )
+            // InternalAnn.g:554:5: lv_rule_0_0= 'stub'
+            {
+            lv_rule_0_0=(Token)match(input,22,FOLLOW_14); 
 
-            				newLeafNode(lv_rule_0_0, grammarAccess.getThresholdAccess().getRuleThresholdKeyword_0());
-            			
+            					newLeafNode(lv_rule_0_0, grammarAccess.getStubAccess().getRuleStubKeyword_0_0());
+            				
 
-            				if (current==null) {
-            					current = createModelElement(grammarAccess.getThresholdRule());
-            				}
-            				setWithLastConsumed(current, "rule", lv_rule_0_0, "threshold");
-            			
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getStubRule());
+            					}
+            					setWithLastConsumed(current, "rule", lv_rule_0_0, "stub");
+            				
+
+            }
+
+
+            }
+
+            // InternalAnn.g:566:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalAnn.g:567:4: (lv_name_1_0= RULE_ID )
+            {
+            // InternalAnn.g:567:4: (lv_name_1_0= RULE_ID )
+            // InternalAnn.g:568:5: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+
+            					newLeafNode(lv_name_1_0, grammarAccess.getStubAccess().getNameIDTerminalRuleCall_1_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getStubRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"name",
+            						lv_name_1_0,
+            						"org.eclipse.xtext.common.Terminals.ID");
+            				
+
+            }
+
 
             }
 
@@ -1348,11 +1385,11 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleThreshold"
+    // $ANTLR end "ruleStub"
 
 
     // $ANTLR start "entryRuleCustom"
-    // InternalAnn.g:568:1: entryRuleCustom returns [EObject current=null] : iv_ruleCustom= ruleCustom EOF ;
+    // InternalAnn.g:588:1: entryRuleCustom returns [EObject current=null] : iv_ruleCustom= ruleCustom EOF ;
     public final EObject entryRuleCustom() throws RecognitionException {
         EObject current = null;
 
@@ -1360,8 +1397,8 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAnn.g:568:47: (iv_ruleCustom= ruleCustom EOF )
-            // InternalAnn.g:569:2: iv_ruleCustom= ruleCustom EOF
+            // InternalAnn.g:588:47: (iv_ruleCustom= ruleCustom EOF )
+            // InternalAnn.g:589:2: iv_ruleCustom= ruleCustom EOF
             {
              newCompositeNode(grammarAccess.getCustomRule()); 
             pushFollow(FOLLOW_1);
@@ -1388,32 +1425,38 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCustom"
-    // InternalAnn.g:575:1: ruleCustom returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' ) ;
+    // InternalAnn.g:595:1: ruleCustom returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(x)' otherlv_2= '{' otherlv_3= 'function' otherlv_4= '=' ( (lv_function_5_0= RULE_ID ) ) otherlv_6= 'derivative' otherlv_7= '=' ( (lv_derivative_8_0= RULE_ID ) ) otherlv_9= '}' ) ;
     public final EObject ruleCustom() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_0_0=null;
         Token otherlv_1=null;
-        Token lv_function_2_0=null;
+        Token otherlv_2=null;
         Token otherlv_3=null;
+        Token otherlv_4=null;
+        Token lv_function_5_0=null;
+        Token otherlv_6=null;
+        Token otherlv_7=null;
+        Token lv_derivative_8_0=null;
+        Token otherlv_9=null;
 
 
         	enterRule();
 
         try {
-            // InternalAnn.g:581:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' ) )
-            // InternalAnn.g:582:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' )
+            // InternalAnn.g:601:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(x)' otherlv_2= '{' otherlv_3= 'function' otherlv_4= '=' ( (lv_function_5_0= RULE_ID ) ) otherlv_6= 'derivative' otherlv_7= '=' ( (lv_derivative_8_0= RULE_ID ) ) otherlv_9= '}' ) )
+            // InternalAnn.g:602:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(x)' otherlv_2= '{' otherlv_3= 'function' otherlv_4= '=' ( (lv_function_5_0= RULE_ID ) ) otherlv_6= 'derivative' otherlv_7= '=' ( (lv_derivative_8_0= RULE_ID ) ) otherlv_9= '}' )
             {
-            // InternalAnn.g:582:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}' )
-            // InternalAnn.g:583:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_function_2_0= RULE_ID ) ) otherlv_3= '}'
+            // InternalAnn.g:602:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(x)' otherlv_2= '{' otherlv_3= 'function' otherlv_4= '=' ( (lv_function_5_0= RULE_ID ) ) otherlv_6= 'derivative' otherlv_7= '=' ( (lv_derivative_8_0= RULE_ID ) ) otherlv_9= '}' )
+            // InternalAnn.g:603:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(x)' otherlv_2= '{' otherlv_3= 'function' otherlv_4= '=' ( (lv_function_5_0= RULE_ID ) ) otherlv_6= 'derivative' otherlv_7= '=' ( (lv_derivative_8_0= RULE_ID ) ) otherlv_9= '}'
             {
-            // InternalAnn.g:583:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalAnn.g:584:4: (lv_name_0_0= RULE_ID )
+            // InternalAnn.g:603:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalAnn.g:604:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalAnn.g:584:4: (lv_name_0_0= RULE_ID )
-            // InternalAnn.g:585:5: lv_name_0_0= RULE_ID
+            // InternalAnn.g:604:4: (lv_name_0_0= RULE_ID )
+            // InternalAnn.g:605:5: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_3); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_15); 
 
             					newLeafNode(lv_name_0_0, grammarAccess.getCustomAccess().getNameIDTerminalRuleCall_0_0());
             				
@@ -1433,19 +1476,31 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FOLLOW_14); 
+            otherlv_1=(Token)match(input,23,FOLLOW_3); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getCustomAccess().getLeftCurlyBracketKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getCustomAccess().getXKeyword_1());
             		
-            // InternalAnn.g:605:3: ( (lv_function_2_0= RULE_ID ) )
-            // InternalAnn.g:606:4: (lv_function_2_0= RULE_ID )
-            {
-            // InternalAnn.g:606:4: (lv_function_2_0= RULE_ID )
-            // InternalAnn.g:607:5: lv_function_2_0= RULE_ID
-            {
-            lv_function_2_0=(Token)match(input,RULE_ID,FOLLOW_13); 
+            otherlv_2=(Token)match(input,11,FOLLOW_16); 
 
-            					newLeafNode(lv_function_2_0, grammarAccess.getCustomAccess().getFunctionIDTerminalRuleCall_2_0());
+            			newLeafNode(otherlv_2, grammarAccess.getCustomAccess().getLeftCurlyBracketKeyword_2());
+            		
+            otherlv_3=(Token)match(input,24,FOLLOW_17); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getCustomAccess().getFunctionKeyword_3());
+            		
+            otherlv_4=(Token)match(input,25,FOLLOW_14); 
+
+            			newLeafNode(otherlv_4, grammarAccess.getCustomAccess().getEqualsSignKeyword_4());
+            		
+            // InternalAnn.g:637:3: ( (lv_function_5_0= RULE_ID ) )
+            // InternalAnn.g:638:4: (lv_function_5_0= RULE_ID )
+            {
+            // InternalAnn.g:638:4: (lv_function_5_0= RULE_ID )
+            // InternalAnn.g:639:5: lv_function_5_0= RULE_ID
+            {
+            lv_function_5_0=(Token)match(input,RULE_ID,FOLLOW_18); 
+
+            					newLeafNode(lv_function_5_0, grammarAccess.getCustomAccess().getFunctionIDTerminalRuleCall_5_0());
             				
 
             					if (current==null) {
@@ -1454,7 +1509,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
             					setWithLastConsumed(
             						current,
             						"function",
-            						lv_function_2_0,
+            						lv_function_5_0,
             						"org.eclipse.xtext.common.Terminals.ID");
             				
 
@@ -1463,9 +1518,43 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,14,FOLLOW_2); 
+            otherlv_6=(Token)match(input,26,FOLLOW_17); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getCustomAccess().getRightCurlyBracketKeyword_3());
+            			newLeafNode(otherlv_6, grammarAccess.getCustomAccess().getDerivativeKeyword_6());
+            		
+            otherlv_7=(Token)match(input,25,FOLLOW_14); 
+
+            			newLeafNode(otherlv_7, grammarAccess.getCustomAccess().getEqualsSignKeyword_7());
+            		
+            // InternalAnn.g:663:3: ( (lv_derivative_8_0= RULE_ID ) )
+            // InternalAnn.g:664:4: (lv_derivative_8_0= RULE_ID )
+            {
+            // InternalAnn.g:664:4: (lv_derivative_8_0= RULE_ID )
+            // InternalAnn.g:665:5: lv_derivative_8_0= RULE_ID
+            {
+            lv_derivative_8_0=(Token)match(input,RULE_ID,FOLLOW_13); 
+
+            					newLeafNode(lv_derivative_8_0, grammarAccess.getCustomAccess().getDerivativeIDTerminalRuleCall_8_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getCustomRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"derivative",
+            						lv_derivative_8_0,
+            						"org.eclipse.xtext.common.Terminals.ID");
+            				
+
+            }
+
+
+            }
+
+            otherlv_9=(Token)match(input,14,FOLLOW_2); 
+
+            			newLeafNode(otherlv_9, grammarAccess.getCustomAccess().getRightCurlyBracketKeyword_9());
             		
 
             }
@@ -1507,5 +1596,9 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000600010L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000004000000L});
 
 }
