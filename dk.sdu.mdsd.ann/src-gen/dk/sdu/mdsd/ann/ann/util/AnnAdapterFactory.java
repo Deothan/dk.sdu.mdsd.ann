@@ -126,6 +126,11 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
+      public Adapter caseLetter(Letter object)
+      {
+        return createLetterAdapter();
+      }
+      @Override
       public Adapter caseNumberLiteral(NumberLiteral object)
       {
         return createNumberLiteralAdapter();
@@ -318,6 +323,21 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Letter <em>Letter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.ann.ann.Letter
+   * @generated
+   */
+  public Adapter createLetterAdapter()
   {
     return null;
   }

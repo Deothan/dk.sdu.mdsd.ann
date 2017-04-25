@@ -75,6 +75,7 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
       case AnnPackage.STUB: return createStub();
       case AnnPackage.CUSTOM: return createCustom();
       case AnnPackage.EXPRESSION: return createExpression();
+      case AnnPackage.LETTER: return createLetter();
       case AnnPackage.NUMBER_LITERAL: return createNumberLiteral();
       case AnnPackage.ADD: return createAdd();
       case AnnPackage.SUB: return createSub();
@@ -193,6 +194,17 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Letter createLetter()
+  {
+    LetterImpl letter = new LetterImpl();
+    return letter;
   }
 
   /**

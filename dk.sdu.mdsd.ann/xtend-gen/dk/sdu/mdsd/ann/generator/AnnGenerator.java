@@ -13,6 +13,7 @@ import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Layer;
 import dk.sdu.mdsd.ann.ann.LearningRule;
+import dk.sdu.mdsd.ann.ann.Letter;
 import dk.sdu.mdsd.ann.ann.Multi;
 import dk.sdu.mdsd.ann.ann.NumberLiteral;
 import dk.sdu.mdsd.ann.ann.Output;
@@ -207,7 +208,7 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("private void init(){");
+    _builder.append("private void init() {");
     _builder.newLine();
     {
       EList<Layer> _layer = model.getLayer();
@@ -241,29 +242,24 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public double transfer(double x){");
-    _builder.newLine();
-    _builder.append("\t\t");
+    _builder.append("public double transfer(double x) {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("return ");
     CharSequence _generateCustomExp = this.generateCustomExp(customFunction);
     _builder.append(_generateCustomExp, "\t\t");
-    _builder.append(";");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public double derivative(double x){");
-    _builder.newLine();
-    _builder.append("\t");
+    _builder.append("public double derivative(double x) {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("return 0.0;");
-    _builder.newLine();
+    _builder.append("return ");
+    CharSequence _generateCustomDer = this.generateCustomDer(customFunction);
+    _builder.append(_generateCustomDer, "\t\t");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
@@ -276,6 +272,16 @@ public class AnnGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _generateExp = this.generateExp(custom.getExp());
     _builder.append(_generateExp);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateCustomDer(final Custom custom) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _generateExp = this.generateExp(custom.getDer());
+    _builder.append(_generateExp);
+    _builder.append(";");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -329,6 +335,13 @@ public class AnnGenerator extends AbstractGenerator {
   }
   
   protected CharSequence _generateExp(final NumberLiteral exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _value = exp.getValue();
+    _builder.append(_value);
+    return _builder;
+  }
+  
+  protected CharSequence _generateExp(final Letter exp) {
     StringConcatenation _builder = new StringConcatenation();
     String _value = exp.getValue();
     _builder.append(_value);
@@ -401,6 +414,8 @@ public class AnnGenerator extends AbstractGenerator {
       return _generateExp((Add)exp);
     } else if (exp instanceof Div) {
       return _generateExp((Div)exp);
+    } else if (exp instanceof Letter) {
+      return _generateExp((Letter)exp);
     } else if (exp instanceof Multi) {
       return _generateExp((Multi)exp);
     } else if (exp instanceof NumberLiteral) {

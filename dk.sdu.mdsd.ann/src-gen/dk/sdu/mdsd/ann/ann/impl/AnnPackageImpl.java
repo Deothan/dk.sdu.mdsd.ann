@@ -14,6 +14,7 @@ import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Layer;
 import dk.sdu.mdsd.ann.ann.LearningRule;
+import dk.sdu.mdsd.ann.ann.Letter;
 import dk.sdu.mdsd.ann.ann.Multi;
 import dk.sdu.mdsd.ann.ann.NumberLiteral;
 import dk.sdu.mdsd.ann.ann.Output;
@@ -105,6 +106,13 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * @generated
    */
   private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass letterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -419,9 +427,39 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getCustom_Der()
+  {
+    return (EReference)customEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExpression()
   {
     return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLetter()
+  {
+    return letterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLetter_Value()
+  {
+    return (EAttribute)letterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -623,8 +661,12 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     customEClass = createEClass(CUSTOM);
     createEAttribute(customEClass, CUSTOM__NAME);
     createEReference(customEClass, CUSTOM__EXP);
+    createEReference(customEClass, CUSTOM__DER);
 
     expressionEClass = createEClass(EXPRESSION);
+
+    letterEClass = createEClass(LETTER);
+    createEAttribute(letterEClass, LETTER__VALUE);
 
     numberLiteralEClass = createEClass(NUMBER_LITERAL);
     createEAttribute(numberLiteralEClass, NUMBER_LITERAL__VALUE);
@@ -681,6 +723,7 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     sigmoidEClass.getESuperTypes().add(this.getLearningRule());
     stubEClass.getESuperTypes().add(this.getLearningRule());
     customEClass.getESuperTypes().add(this.getLearningRule());
+    letterEClass.getESuperTypes().add(this.getExpression());
     numberLiteralEClass.getESuperTypes().add(this.getExpression());
     addEClass.getESuperTypes().add(this.getExpression());
     subEClass.getESuperTypes().add(this.getExpression());
@@ -717,8 +760,12 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     initEClass(customEClass, Custom.class, "Custom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCustom_Name(), ecorePackage.getEString(), "name", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCustom_Exp(), this.getExpression(), null, "exp", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCustom_Der(), this.getExpression(), null, "der", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(letterEClass, Letter.class, "Letter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLetter_Value(), ecorePackage.getEString(), "value", null, 0, 1, Letter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(numberLiteralEClass, NumberLiteral.class, "NumberLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNumberLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, NumberLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

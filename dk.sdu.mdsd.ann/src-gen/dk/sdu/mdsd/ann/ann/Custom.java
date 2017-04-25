@@ -15,6 +15,7 @@ package dk.sdu.mdsd.ann.ann;
  * <ul>
  *   <li>{@link dk.sdu.mdsd.ann.ann.Custom#getName <em>Name</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.Custom#getExp <em>Exp</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.Custom#getDer <em>Der</em>}</li>
  * </ul>
  *
  * @see dk.sdu.mdsd.ann.ann.AnnPackage#getCustom()
@@ -74,5 +75,31 @@ public interface Custom extends LearningRule
    * @generated
    */
   void setExp(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Der</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Der</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Der</em>' containment reference.
+   * @see #setDer(Expression)
+   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getCustom_Der()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getDer();
+
+  /**
+   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.Custom#getDer <em>Der</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Der</em>' containment reference.
+   * @see #getDer()
+   * @generated
+   */
+  void setDer(Expression value);
 
 } // Custom

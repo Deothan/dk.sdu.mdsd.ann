@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl#getName <em>Name</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl#getExp <em>Exp</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl#getDer <em>Der</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +61,16 @@ public class CustomImpl extends LearningRuleImpl implements Custom
    * @ordered
    */
   protected Expression exp;
+
+  /**
+   * The cached value of the '{@link #getDer() <em>Der</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDer()
+   * @generated
+   * @ordered
+   */
+  protected Expression der;
 
   /**
    * <!-- begin-user-doc -->
@@ -158,6 +169,54 @@ public class CustomImpl extends LearningRuleImpl implements Custom
    * <!-- end-user-doc -->
    * @generated
    */
+  public Expression getDer()
+  {
+    return der;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDer(Expression newDer, NotificationChain msgs)
+  {
+    Expression oldDer = der;
+    der = newDer;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnnPackage.CUSTOM__DER, oldDer, newDer);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDer(Expression newDer)
+  {
+    if (newDer != der)
+    {
+      NotificationChain msgs = null;
+      if (der != null)
+        msgs = ((InternalEObject)der).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AnnPackage.CUSTOM__DER, null, msgs);
+      if (newDer != null)
+        msgs = ((InternalEObject)newDer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AnnPackage.CUSTOM__DER, null, msgs);
+      msgs = basicSetDer(newDer, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.CUSTOM__DER, newDer, newDer));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -165,6 +224,8 @@ public class CustomImpl extends LearningRuleImpl implements Custom
     {
       case AnnPackage.CUSTOM__EXP:
         return basicSetExp(null, msgs);
+      case AnnPackage.CUSTOM__DER:
+        return basicSetDer(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -183,6 +244,8 @@ public class CustomImpl extends LearningRuleImpl implements Custom
         return getName();
       case AnnPackage.CUSTOM__EXP:
         return getExp();
+      case AnnPackage.CUSTOM__DER:
+        return getDer();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -202,6 +265,9 @@ public class CustomImpl extends LearningRuleImpl implements Custom
         return;
       case AnnPackage.CUSTOM__EXP:
         setExp((Expression)newValue);
+        return;
+      case AnnPackage.CUSTOM__DER:
+        setDer((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -223,6 +289,9 @@ public class CustomImpl extends LearningRuleImpl implements Custom
       case AnnPackage.CUSTOM__EXP:
         setExp((Expression)null);
         return;
+      case AnnPackage.CUSTOM__DER:
+        setDer((Expression)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -241,6 +310,8 @@ public class CustomImpl extends LearningRuleImpl implements Custom
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AnnPackage.CUSTOM__EXP:
         return exp != null;
+      case AnnPackage.CUSTOM__DER:
+        return der != null;
     }
     return super.eIsSet(featureID);
   }

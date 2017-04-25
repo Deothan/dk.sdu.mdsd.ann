@@ -11,6 +11,7 @@ import dk.sdu.mdsd.ann.ann.Custom;
 import dk.sdu.mdsd.ann.ann.Div;
 import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
+import dk.sdu.mdsd.ann.ann.Letter;
 import dk.sdu.mdsd.ann.ann.Multi;
 import dk.sdu.mdsd.ann.ann.NumberLiteral;
 import dk.sdu.mdsd.ann.ann.Output;
@@ -61,6 +62,9 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case AnnPackage.INPUT:
 				sequence_Input(context, (Input) semanticObject); 
 				return; 
+			case AnnPackage.LETTER:
+				sequence_Letter(context, (Letter) semanticObject); 
+				return; 
 			case AnnPackage.MULTI:
 				sequence_Multiplication(context, (Multi) semanticObject); 
 				return; 
@@ -102,7 +106,7 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Custom returns Custom
 	 *
 	 * Constraint:
-	 *     (name=ID exp=Expression)
+	 *     (name=ID exp=Expression der=Expression)
 	 */
 	protected void sequence_Custom(ISerializationContext context, Custom semanticObject) {
 		if (errorAcceptor != null) {
@@ -110,10 +114,13 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__NAME));
 			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CUSTOM__EXP) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__EXP));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CUSTOM__DER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CUSTOM__DER));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getCustomAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getCustomAccess().getExpExpressionParserRuleCall_4_0(), semanticObject.getExp());
+		feeder.accept(grammarAccess.getCustomAccess().getDerExpressionParserRuleCall_7_0(), semanticObject.getDer());
 		feeder.finish();
 	}
 	
@@ -213,6 +220,33 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getInputAccess().getSizeINTTerminalRuleCall_3_0(), semanticObject.getSize());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns Letter
+	 *     Expression.Add_1_0 returns Letter
+	 *     Substraction returns Letter
+	 *     Substraction.Sub_1_0 returns Letter
+	 *     Multiplication returns Letter
+	 *     Multiplication.Multi_1_0 returns Letter
+	 *     Division returns Letter
+	 *     Division.Div_1_0 returns Letter
+	 *     Primary returns Letter
+	 *     Letter returns Letter
+	 *
+	 * Constraint:
+	 *     value='x'
+	 */
+	protected void sequence_Letter(ISerializationContext context, Letter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.LETTER__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.LETTER__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLetterAccess().getValueXKeyword_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

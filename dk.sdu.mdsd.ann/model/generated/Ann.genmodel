@@ -33,8 +33,12 @@
     <genClasses ecoreClass="Ann.ecore#//Custom">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Custom/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Custom/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Custom/der"/>
     </genClasses>
     <genClasses ecoreClass="Ann.ecore#//Expression"/>
+    <genClasses ecoreClass="Ann.ecore#//Letter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Letter/value"/>
+    </genClasses>
     <genClasses ecoreClass="Ann.ecore#//NumberLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//NumberLiteral/value"/>
     </genClasses>

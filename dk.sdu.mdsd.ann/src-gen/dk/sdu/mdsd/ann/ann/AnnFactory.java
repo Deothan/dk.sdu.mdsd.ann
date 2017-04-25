@@ -114,6 +114,15 @@ public interface AnnFactory extends EFactory
   Expression createExpression();
 
   /**
+   * Returns a new object of class '<em>Letter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Letter</em>'.
+   * @generated
+   */
+  Letter createLetter();
+
+  /**
    * Returns a new object of class '<em>Number Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

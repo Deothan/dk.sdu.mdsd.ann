@@ -340,14 +340,19 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cExpAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cExpExpressionParserRuleCall_4_0 = (RuleCall)cExpAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cDerivativeKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cDerAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cDerExpressionParserRuleCall_7_0 = (RuleCall)cDerAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Custom:
 		//	name=ID '{'
-		//	'function' '=' exp=Expression '}';
+		//	'function' '=' exp=Expression
+		//	'derivative' '=' der=Expression '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID '{' 'function' '=' exp=Expression '}'
+		//name=ID '{' 'function' '=' exp=Expression 'derivative' '=' der=Expression '}'
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -371,8 +376,20 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getExpExpressionParserRuleCall_4_0() { return cExpExpressionParserRuleCall_4_0; }
 		
+		//'derivative'
+		public Keyword getDerivativeKeyword_5() { return cDerivativeKeyword_5; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
+		
+		//der=Expression
+		public Assignment getDerAssignment_7() { return cDerAssignment_7; }
+		
+		//Expression
+		public RuleCall getDerExpressionParserRuleCall_7_0() { return cDerExpressionParserRuleCall_7_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Expression");
@@ -518,32 +535,51 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Primary");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cNumberLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cExpressionParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final RuleCall cLetterParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final RuleCall cExpressionParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
 		//Primary Expression:
-		//	NumberLiteral | '(' Expression ')';
+		//	NumberLiteral | Letter | '(' Expression ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//NumberLiteral | '(' Expression ')'
+		//NumberLiteral | Letter | '(' Expression ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//NumberLiteral
 		public RuleCall getNumberLiteralParserRuleCall_0() { return cNumberLiteralParserRuleCall_0; }
 		
+		//Letter
+		public RuleCall getLetterParserRuleCall_1() { return cLetterParserRuleCall_1; }
+		
 		//'(' Expression ')'
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
 		
 		//Expression
-		public RuleCall getExpressionParserRuleCall_1_1() { return cExpressionParserRuleCall_1_1; }
+		public RuleCall getExpressionParserRuleCall_2_1() { return cExpressionParserRuleCall_2_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_1_2() { return cRightParenthesisKeyword_1_2; }
+		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
+	}
+	public class LetterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Letter");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final Keyword cValueXKeyword_0 = (Keyword)cValueAssignment.eContents().get(0);
+		
+		//Letter:
+		//	value="x";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value="x"
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//"x"
+		public Keyword getValueXKeyword_0() { return cValueXKeyword_0; }
 	}
 	public class NumberLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.NumberLiteral");
@@ -577,6 +613,7 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	private final MultiplicationElements pMultiplication;
 	private final DivisionElements pDivision;
 	private final PrimaryElements pPrimary;
+	private final LetterElements pLetter;
 	private final NumberLiteralElements pNumberLiteral;
 	
 	private final Grammar grammar;
@@ -603,6 +640,7 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMultiplication = new MultiplicationElements();
 		this.pDivision = new DivisionElements();
 		this.pPrimary = new PrimaryElements();
+		this.pLetter = new LetterElements();
 		this.pNumberLiteral = new NumberLiteralElements();
 	}
 	
@@ -733,7 +771,8 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Custom:
 	//	name=ID '{'
-	//	'function' '=' exp=Expression '}';
+	//	'function' '=' exp=Expression
+	//	'derivative' '=' der=Expression '}';
 	public CustomElements getCustomAccess() {
 		return pCustom;
 	}
@@ -783,13 +822,23 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Primary Expression:
-	//	NumberLiteral | '(' Expression ')';
+	//	NumberLiteral | Letter | '(' Expression ')';
 	public PrimaryElements getPrimaryAccess() {
 		return pPrimary;
 	}
 	
 	public ParserRule getPrimaryRule() {
 		return getPrimaryAccess().getRule();
+	}
+	
+	//Letter:
+	//	value="x";
+	public LetterElements getLetterAccess() {
+		return pLetter;
+	}
+	
+	public ParserRule getLetterRule() {
+		return getLetterAccess().getRule();
 	}
 	
 	//NumberLiteral:

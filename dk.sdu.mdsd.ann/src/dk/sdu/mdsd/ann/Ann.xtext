@@ -49,7 +49,8 @@ Stub:
 
 Custom:
 	name=ID '{'
-	'function' '=' exp=Expression '}'
+	'function' '=' exp=Expression
+	'derivative' '=' der=Expression '}'
 ;
 
 Expression:
@@ -69,7 +70,11 @@ Division returns Expression:
 ;
 
 Primary returns Expression:
-	NumberLiteral | '(' Expression ')'
+	NumberLiteral | Letter | '(' Expression ')'
+;
+
+Letter:
+	value = "x"
 ;
 
 NumberLiteral:

@@ -19,6 +19,7 @@ import dk.sdu.mdsd.ann.ann.Add
 import dk.sdu.mdsd.ann.ann.NumberLiteral
 import dk.sdu.mdsd.ann.ann.Sub
 import dk.sdu.mdsd.ann.ann.Div
+import dk.sdu.mdsd.ann.ann.Letter
 
 /**
  * Generates code from your model files on save.
@@ -92,7 +93,7 @@ class AnnGenerator extends AbstractGenerator {
 			this.epochs = epochs;
 		}
 		
-		private void init(){
+		private void init() {
 			«FOR l: model.layer»
 			«l.generateLayer»
 			«ENDFOR»
@@ -106,20 +107,21 @@ class AnnGenerator extends AbstractGenerator {
 	
 	public class «customFunction.name» implements ITransfer {
 		
-		public double transfer(double x){
-			
-			return «customFunction.generateCustomExp»;
-		
+		public double transfer(double x) {
+			return «customFunction.generateCustomExp»
 		}
-		public double derivative(double x){
-		
-			return 0.0;
+		public double derivative(double x) {
+			return «customFunction.generateCustomDer»
 		}
 	}
 	'''
 	
 	def generateCustomExp(Custom custom) '''
-		«custom.exp.generateExp»
+		«custom.exp.generateExp»;
+	'''
+	
+	def generateCustomDer(Custom custom) '''
+		«custom.der.generateExp»;
 	'''
 		
 	def dispatch CharSequence generateExp(Add exp) '''(«exp.left.generateExp»+«exp.right.generateExp»)'''
@@ -131,6 +133,8 @@ class AnnGenerator extends AbstractGenerator {
 	def dispatch CharSequence generateExp(Div exp) '''(«exp.left.generateExp»/«exp.right.generateExp»)'''
 	
 	def dispatch CharSequence generateExp(NumberLiteral exp) '''«exp.value»'''
+	
+	def dispatch CharSequence generateExp(Letter exp) '''«exp.value»'''
 	
 	def dispatch generateLayer(Hidden layer) '''
 		addLayerWithTransfer(«layer.size», «layer.l_rule.generateRule»);

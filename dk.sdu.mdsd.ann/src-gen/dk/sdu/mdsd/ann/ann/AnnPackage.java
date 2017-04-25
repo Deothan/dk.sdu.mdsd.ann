@@ -355,13 +355,22 @@ public interface AnnPackage extends EPackage
   int CUSTOM__EXP = LEARNING_RULE_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Der</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CUSTOM__DER = LEARNING_RULE_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Custom</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CUSTOM_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 2;
+  int CUSTOM_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -383,6 +392,34 @@ public interface AnnPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.LetterImpl <em>Letter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.LetterImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getLetter()
+   * @generated
+   */
+  int LETTER = 10;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LETTER__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Letter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LETTER_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -390,7 +427,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getNumberLiteral()
    * @generated
    */
-  int NUMBER_LITERAL = 10;
+  int NUMBER_LITERAL = 11;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -418,7 +455,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getAdd()
    * @generated
    */
-  int ADD = 11;
+  int ADD = 12;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -455,7 +492,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSub()
    * @generated
    */
-  int SUB = 12;
+  int SUB = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -492,7 +529,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getMulti()
    * @generated
    */
-  int MULTI = 13;
+  int MULTI = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -529,7 +566,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getDiv()
    * @generated
    */
-  int DIV = 14;
+  int DIV = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -782,6 +819,17 @@ public interface AnnPackage extends EPackage
   EReference getCustom_Exp();
 
   /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Custom#getDer <em>Der</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Der</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Custom#getDer()
+   * @see #getCustom()
+   * @generated
+   */
+  EReference getCustom_Der();
+
+  /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -790,6 +838,27 @@ public interface AnnPackage extends EPackage
    * @generated
    */
   EClass getExpression();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Letter <em>Letter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Letter</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Letter
+   * @generated
+   */
+  EClass getLetter();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Letter#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Letter#getValue()
+   * @see #getLetter()
+   * @generated
+   */
+  EAttribute getLetter_Value();
 
   /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.NumberLiteral <em>Number Literal</em>}'.
@@ -1150,6 +1219,14 @@ public interface AnnPackage extends EPackage
     EReference CUSTOM__EXP = eINSTANCE.getCustom_Exp();
 
     /**
+     * The meta object literal for the '<em><b>Der</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CUSTOM__DER = eINSTANCE.getCustom_Der();
+
+    /**
      * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1158,6 +1235,24 @@ public interface AnnPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.LetterImpl <em>Letter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.LetterImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getLetter()
+     * @generated
+     */
+    EClass LETTER = eINSTANCE.getLetter();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LETTER__VALUE = eINSTANCE.getLetter_Value();
 
     /**
      * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.NumberLiteralImpl <em>Number Literal</em>}' class.

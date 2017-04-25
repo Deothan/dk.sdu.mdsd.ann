@@ -149,6 +149,14 @@ public class AnnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AnnPackage.LETTER:
+      {
+        Letter letter = (Letter)theEObject;
+        T result = caseLetter(letter);
+        if (result == null) result = caseExpression(letter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AnnPackage.NUMBER_LITERAL:
       {
         NumberLiteral numberLiteral = (NumberLiteral)theEObject;
@@ -349,6 +357,22 @@ public class AnnSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Letter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Letter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLetter(Letter object)
   {
     return null;
   }
