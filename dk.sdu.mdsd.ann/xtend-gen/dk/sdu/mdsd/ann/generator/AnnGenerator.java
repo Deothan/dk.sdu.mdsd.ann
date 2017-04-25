@@ -54,6 +54,7 @@ public class AnnGenerator extends AbstractGenerator {
     String _plus = (_name + ".java");
     access2.generateFile(_plus, this.generateNetwork(m));
     access2.generateFile("ITransfer.java", this.generateITransfer());
+    access2.generateFile("Sigmoid.java", this.generateSigmoid());
   }
   
   public void generateCustomFunctionFile(final Custom c, final IFileSystemAccess2 access2, final Resource resource) {
@@ -71,6 +72,33 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("double derivative(double x);");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateSigmoid() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public class Sigmoid implements ITransfer {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public double transfer(double x){");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("return (1 / (1 + Math.exp(x)));\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public double derivative(double x){");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("return x*(1-x);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
