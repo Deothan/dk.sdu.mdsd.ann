@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.LetterImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.LetterImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -27,6 +28,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class LetterImpl extends ExpressionImpl implements Letter
 {
+  /**
+   * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperator()
+   * @generated
+   * @ordered
+   */
+  protected static final String OPERATOR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperator()
+   * @generated
+   * @ordered
+   */
+  protected String operator = OPERATOR_EDEFAULT;
+
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -73,6 +94,29 @@ public class LetterImpl extends ExpressionImpl implements Letter
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getOperator()
+  {
+    return operator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOperator(String newOperator)
+  {
+    String oldOperator = operator;
+    operator = newOperator;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.LETTER__OPERATOR, oldOperator, operator));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getValue()
   {
     return value;
@@ -101,6 +145,8 @@ public class LetterImpl extends ExpressionImpl implements Letter
   {
     switch (featureID)
     {
+      case AnnPackage.LETTER__OPERATOR:
+        return getOperator();
       case AnnPackage.LETTER__VALUE:
         return getValue();
     }
@@ -117,6 +163,9 @@ public class LetterImpl extends ExpressionImpl implements Letter
   {
     switch (featureID)
     {
+      case AnnPackage.LETTER__OPERATOR:
+        setOperator((String)newValue);
+        return;
       case AnnPackage.LETTER__VALUE:
         setValue((String)newValue);
         return;
@@ -134,6 +183,9 @@ public class LetterImpl extends ExpressionImpl implements Letter
   {
     switch (featureID)
     {
+      case AnnPackage.LETTER__OPERATOR:
+        setOperator(OPERATOR_EDEFAULT);
+        return;
       case AnnPackage.LETTER__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
@@ -151,6 +203,8 @@ public class LetterImpl extends ExpressionImpl implements Letter
   {
     switch (featureID)
     {
+      case AnnPackage.LETTER__OPERATOR:
+        return OPERATOR_EDEFAULT == null ? operator != null : !OPERATOR_EDEFAULT.equals(operator);
       case AnnPackage.LETTER__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
@@ -168,7 +222,9 @@ public class LetterImpl extends ExpressionImpl implements Letter
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
+    result.append(" (operator: ");
+    result.append(operator);
+    result.append(", value: ");
     result.append(value);
     result.append(')');
     return result.toString();

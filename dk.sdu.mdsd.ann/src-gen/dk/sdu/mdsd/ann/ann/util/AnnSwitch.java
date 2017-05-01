@@ -3,7 +3,28 @@
  */
 package dk.sdu.mdsd.ann.ann.util;
 
-import dk.sdu.mdsd.ann.ann.*;
+import dk.sdu.mdsd.ann.ann.ANNModel;
+import dk.sdu.mdsd.ann.ann.Activation;
+import dk.sdu.mdsd.ann.ann.AnnPackage;
+import dk.sdu.mdsd.ann.ann.Cos;
+import dk.sdu.mdsd.ann.ann.Custom;
+import dk.sdu.mdsd.ann.ann.Euler;
+import dk.sdu.mdsd.ann.ann.Expression;
+import dk.sdu.mdsd.ann.ann.External;
+import dk.sdu.mdsd.ann.ann.Fac;
+import dk.sdu.mdsd.ann.ann.Hidden;
+import dk.sdu.mdsd.ann.ann.Input;
+import dk.sdu.mdsd.ann.ann.Layer;
+import dk.sdu.mdsd.ann.ann.Letter;
+import dk.sdu.mdsd.ann.ann.NLog;
+import dk.sdu.mdsd.ann.ann.NumberLiteral;
+import dk.sdu.mdsd.ann.ann.Output;
+import dk.sdu.mdsd.ann.ann.Part;
+import dk.sdu.mdsd.ann.ann.Power;
+import dk.sdu.mdsd.ann.ann.Sigmoid;
+import dk.sdu.mdsd.ann.ann.Sin;
+import dk.sdu.mdsd.ann.ann.Sqrt;
+import dk.sdu.mdsd.ann.ann.Tansig;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -118,14 +139,6 @@ public class AnnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AnnPackage.CUSTOM:
-      {
-        Custom custom = (Custom)theEObject;
-        T result = caseCustom(custom);
-        if (result == null) result = caseActivation(custom);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AnnPackage.EXTERNAL:
       {
         External external = (External)theEObject;
@@ -150,10 +163,80 @@ public class AnnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AnnPackage.CUSTOM:
+      {
+        Custom custom = (Custom)theEObject;
+        T result = caseCustom(custom);
+        if (result == null) result = caseActivation(custom);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AnnPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AnnPackage.MATH:
+      {
+        dk.sdu.mdsd.ann.ann.Math math = (dk.sdu.mdsd.ann.ann.Math)theEObject;
+        T result = caseMath(math);
+        if (result == null) result = caseExpression(math);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AnnPackage.EULER:
+      {
+        Euler euler = (Euler)theEObject;
+        T result = caseEuler(euler);
+        if (result == null) result = caseMath(euler);
+        if (result == null) result = caseExpression(euler);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AnnPackage.NLOG:
+      {
+        NLog nLog = (NLog)theEObject;
+        T result = caseNLog(nLog);
+        if (result == null) result = caseMath(nLog);
+        if (result == null) result = caseExpression(nLog);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AnnPackage.SIN:
+      {
+        Sin sin = (Sin)theEObject;
+        T result = caseSin(sin);
+        if (result == null) result = caseMath(sin);
+        if (result == null) result = caseExpression(sin);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AnnPackage.COS:
+      {
+        Cos cos = (Cos)theEObject;
+        T result = caseCos(cos);
+        if (result == null) result = caseMath(cos);
+        if (result == null) result = caseExpression(cos);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AnnPackage.SQRT:
+      {
+        Sqrt sqrt = (Sqrt)theEObject;
+        T result = caseSqrt(sqrt);
+        if (result == null) result = caseMath(sqrt);
+        if (result == null) result = caseExpression(sqrt);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AnnPackage.POWER:
+      {
+        Power power = (Power)theEObject;
+        T result = casePower(power);
+        if (result == null) result = caseMath(power);
+        if (result == null) result = caseExpression(power);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -173,35 +256,19 @@ public class AnnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AnnPackage.ADD:
+      case AnnPackage.PART:
       {
-        Add add = (Add)theEObject;
-        T result = caseAdd(add);
-        if (result == null) result = caseExpression(add);
+        Part part = (Part)theEObject;
+        T result = casePart(part);
+        if (result == null) result = caseExpression(part);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AnnPackage.SUB:
+      case AnnPackage.FAC:
       {
-        Sub sub = (Sub)theEObject;
-        T result = caseSub(sub);
-        if (result == null) result = caseExpression(sub);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AnnPackage.MULTI:
-      {
-        Multi multi = (Multi)theEObject;
-        T result = caseMulti(multi);
-        if (result == null) result = caseExpression(multi);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AnnPackage.DIV:
-      {
-        Div div = (Div)theEObject;
-        T result = caseDiv(div);
-        if (result == null) result = caseExpression(div);
+        Fac fac = (Fac)theEObject;
+        T result = caseFac(fac);
+        if (result == null) result = caseExpression(fac);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -306,22 +373,6 @@ public class AnnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Custom</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Custom</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCustom(Custom object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>External</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -370,6 +421,22 @@ public class AnnSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Custom</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Custom</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCustom(Custom object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -381,6 +448,118 @@ public class AnnSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Math</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Math</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMath(dk.sdu.mdsd.ann.ann.Math object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Euler</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Euler</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEuler(Euler object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>NLog</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>NLog</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNLog(NLog object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sin</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sin</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSin(Sin object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Cos</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Cos</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCos(Cos object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sqrt</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sqrt</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSqrt(Sqrt object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Power</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Power</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePower(Power object)
   {
     return null;
   }
@@ -418,65 +597,33 @@ public class AnnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Add</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Part</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Add</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Part</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAdd(Add object)
+  public T casePart(Part object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Sub</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Fac</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sub</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Fac</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSub(Sub object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Multi</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multi</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMulti(Multi object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Div</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Div</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDiv(Div object)
+  public T caseFac(Fac object)
   {
     return null;
   }

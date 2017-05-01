@@ -5,22 +5,26 @@ package dk.sdu.mdsd.ann.ann.impl;
 
 import dk.sdu.mdsd.ann.ann.ANNModel;
 import dk.sdu.mdsd.ann.ann.Activation;
-import dk.sdu.mdsd.ann.ann.Add;
 import dk.sdu.mdsd.ann.ann.AnnFactory;
 import dk.sdu.mdsd.ann.ann.AnnPackage;
+import dk.sdu.mdsd.ann.ann.Cos;
 import dk.sdu.mdsd.ann.ann.Custom;
-import dk.sdu.mdsd.ann.ann.Div;
+import dk.sdu.mdsd.ann.ann.Euler;
 import dk.sdu.mdsd.ann.ann.Expression;
 import dk.sdu.mdsd.ann.ann.External;
+import dk.sdu.mdsd.ann.ann.Fac;
 import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Layer;
 import dk.sdu.mdsd.ann.ann.Letter;
-import dk.sdu.mdsd.ann.ann.Multi;
+import dk.sdu.mdsd.ann.ann.NLog;
 import dk.sdu.mdsd.ann.ann.NumberLiteral;
 import dk.sdu.mdsd.ann.ann.Output;
+import dk.sdu.mdsd.ann.ann.Part;
+import dk.sdu.mdsd.ann.ann.Power;
 import dk.sdu.mdsd.ann.ann.Sigmoid;
-import dk.sdu.mdsd.ann.ann.Sub;
+import dk.sdu.mdsd.ann.ann.Sin;
+import dk.sdu.mdsd.ann.ann.Sqrt;
 import dk.sdu.mdsd.ann.ann.Tansig;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -85,13 +89,6 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass customEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass externalEClass = null;
 
   /**
@@ -113,7 +110,63 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass customEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mathEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass eulerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nLogEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sinEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass cosEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sqrtEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass powerEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -134,28 +187,14 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass addEClass = null;
+  private EClass partEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass subEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass multiEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass divEClass = null;
+  private EClass facEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -375,36 +414,6 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getCustom()
-  {
-    return customEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCustom_Exp()
-  {
-    return (EReference)customEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCustom_Der()
-  {
-    return (EReference)customEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getExternal()
   {
     return externalEClass;
@@ -455,9 +464,179 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getCustom()
+  {
+    return customEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCustom_Exp()
+  {
+    return (EReference)customEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCustom_Der()
+  {
+    return (EReference)customEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExpression()
   {
     return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMath()
+  {
+    return mathEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEuler()
+  {
+    return eulerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEuler_Value()
+  {
+    return (EReference)eulerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNLog()
+  {
+    return nLogEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNLog_Value()
+  {
+    return (EReference)nLogEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSin()
+  {
+    return sinEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSin_Value()
+  {
+    return (EReference)sinEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCos()
+  {
+    return cosEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCos_Value()
+  {
+    return (EReference)cosEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSqrt()
+  {
+    return sqrtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSqrt_Value()
+  {
+    return (EReference)sqrtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPower()
+  {
+    return powerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPower_Base()
+  {
+    return (EReference)powerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPower_Exponent()
+  {
+    return (EReference)powerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -475,9 +654,19 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLetter_Value()
+  public EAttribute getLetter_Operator()
   {
     return (EAttribute)letterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLetter_Value()
+  {
+    return (EAttribute)letterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -495,7 +684,7 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getNumberLiteral_Value()
+  public EAttribute getNumberLiteral_Operator()
   {
     return (EAttribute)numberLiteralEClass.getEStructuralFeatures().get(0);
   }
@@ -505,9 +694,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAdd()
+  public EAttribute getNumberLiteral_Value()
   {
-    return addEClass;
+    return (EAttribute)numberLiteralEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -515,9 +704,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAdd_Left()
+  public EClass getPart()
   {
-    return (EReference)addEClass.getEStructuralFeatures().get(0);
+    return partEClass;
   }
 
   /**
@@ -525,9 +714,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAdd_Right()
+  public EReference getPart_Left()
   {
-    return (EReference)addEClass.getEStructuralFeatures().get(1);
+    return (EReference)partEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -535,9 +724,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSub()
+  public EAttribute getPart_Operator()
   {
-    return subEClass;
+    return (EAttribute)partEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -545,9 +734,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSub_Left()
+  public EReference getPart_Right()
   {
-    return (EReference)subEClass.getEStructuralFeatures().get(0);
+    return (EReference)partEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -555,9 +744,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSub_Right()
+  public EClass getFac()
   {
-    return (EReference)subEClass.getEStructuralFeatures().get(1);
+    return facEClass;
   }
 
   /**
@@ -565,9 +754,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMulti()
+  public EReference getFac_Left()
   {
-    return multiEClass;
+    return (EReference)facEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -575,9 +764,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMulti_Left()
+  public EAttribute getFac_Operator()
   {
-    return (EReference)multiEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)facEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -585,39 +774,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMulti_Right()
+  public EReference getFac_Right()
   {
-    return (EReference)multiEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDiv()
-  {
-    return divEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDiv_Left()
-  {
-    return (EReference)divEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDiv_Right()
-  {
-    return (EReference)divEClass.getEStructuralFeatures().get(1);
+    return (EReference)facEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -671,10 +830,6 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     activationEClass = createEClass(ACTIVATION);
     createEAttribute(activationEClass, ACTIVATION__NAME);
 
-    customEClass = createEClass(CUSTOM);
-    createEReference(customEClass, CUSTOM__EXP);
-    createEReference(customEClass, CUSTOM__DER);
-
     externalEClass = createEClass(EXTERNAL);
 
     sigmoidEClass = createEClass(SIGMOID);
@@ -683,29 +838,50 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     tansigEClass = createEClass(TANSIG);
     createEAttribute(tansigEClass, TANSIG__RULE);
 
+    customEClass = createEClass(CUSTOM);
+    createEReference(customEClass, CUSTOM__EXP);
+    createEReference(customEClass, CUSTOM__DER);
+
     expressionEClass = createEClass(EXPRESSION);
 
+    mathEClass = createEClass(MATH);
+
+    eulerEClass = createEClass(EULER);
+    createEReference(eulerEClass, EULER__VALUE);
+
+    nLogEClass = createEClass(NLOG);
+    createEReference(nLogEClass, NLOG__VALUE);
+
+    sinEClass = createEClass(SIN);
+    createEReference(sinEClass, SIN__VALUE);
+
+    cosEClass = createEClass(COS);
+    createEReference(cosEClass, COS__VALUE);
+
+    sqrtEClass = createEClass(SQRT);
+    createEReference(sqrtEClass, SQRT__VALUE);
+
+    powerEClass = createEClass(POWER);
+    createEReference(powerEClass, POWER__BASE);
+    createEReference(powerEClass, POWER__EXPONENT);
+
     letterEClass = createEClass(LETTER);
+    createEAttribute(letterEClass, LETTER__OPERATOR);
     createEAttribute(letterEClass, LETTER__VALUE);
 
     numberLiteralEClass = createEClass(NUMBER_LITERAL);
+    createEAttribute(numberLiteralEClass, NUMBER_LITERAL__OPERATOR);
     createEAttribute(numberLiteralEClass, NUMBER_LITERAL__VALUE);
 
-    addEClass = createEClass(ADD);
-    createEReference(addEClass, ADD__LEFT);
-    createEReference(addEClass, ADD__RIGHT);
+    partEClass = createEClass(PART);
+    createEReference(partEClass, PART__LEFT);
+    createEAttribute(partEClass, PART__OPERATOR);
+    createEReference(partEClass, PART__RIGHT);
 
-    subEClass = createEClass(SUB);
-    createEReference(subEClass, SUB__LEFT);
-    createEReference(subEClass, SUB__RIGHT);
-
-    multiEClass = createEClass(MULTI);
-    createEReference(multiEClass, MULTI__LEFT);
-    createEReference(multiEClass, MULTI__RIGHT);
-
-    divEClass = createEClass(DIV);
-    createEReference(divEClass, DIV__LEFT);
-    createEReference(divEClass, DIV__RIGHT);
+    facEClass = createEClass(FAC);
+    createEReference(facEClass, FAC__LEFT);
+    createEAttribute(facEClass, FAC__OPERATOR);
+    createEReference(facEClass, FAC__RIGHT);
   }
 
   /**
@@ -740,16 +916,21 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     hiddenEClass.getESuperTypes().add(this.getLayer());
     inputEClass.getESuperTypes().add(this.getLayer());
     outputEClass.getESuperTypes().add(this.getLayer());
-    customEClass.getESuperTypes().add(this.getActivation());
     externalEClass.getESuperTypes().add(this.getActivation());
     sigmoidEClass.getESuperTypes().add(this.getActivation());
     tansigEClass.getESuperTypes().add(this.getActivation());
+    customEClass.getESuperTypes().add(this.getActivation());
+    mathEClass.getESuperTypes().add(this.getExpression());
+    eulerEClass.getESuperTypes().add(this.getMath());
+    nLogEClass.getESuperTypes().add(this.getMath());
+    sinEClass.getESuperTypes().add(this.getMath());
+    cosEClass.getESuperTypes().add(this.getMath());
+    sqrtEClass.getESuperTypes().add(this.getMath());
+    powerEClass.getESuperTypes().add(this.getMath());
     letterEClass.getESuperTypes().add(this.getExpression());
     numberLiteralEClass.getESuperTypes().add(this.getExpression());
-    addEClass.getESuperTypes().add(this.getExpression());
-    subEClass.getESuperTypes().add(this.getExpression());
-    multiEClass.getESuperTypes().add(this.getExpression());
-    divEClass.getESuperTypes().add(this.getExpression());
+    partEClass.getESuperTypes().add(this.getExpression());
+    facEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(annModelEClass, ANNModel.class, "ANNModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -773,10 +954,6 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     initEClass(activationEClass, Activation.class, "Activation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getActivation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Activation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(customEClass, Custom.class, "Custom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCustom_Exp(), this.getExpression(), null, "exp", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCustom_Der(), this.getExpression(), null, "der", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(externalEClass, External.class, "External", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(sigmoidEClass, Sigmoid.class, "Sigmoid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -785,29 +962,50 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     initEClass(tansigEClass, Tansig.class, "Tansig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTansig_Rule(), ecorePackage.getEString(), "rule", null, 0, 1, Tansig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(customEClass, Custom.class, "Custom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCustom_Exp(), this.getExpression(), null, "exp", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCustom_Der(), this.getExpression(), null, "der", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(mathEClass, dk.sdu.mdsd.ann.ann.Math.class, "Math", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(eulerEClass, Euler.class, "Euler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEuler_Value(), this.getExpression(), null, "value", null, 0, 1, Euler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(nLogEClass, NLog.class, "NLog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNLog_Value(), this.getExpression(), null, "value", null, 0, 1, NLog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sinEClass, Sin.class, "Sin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSin_Value(), this.getExpression(), null, "value", null, 0, 1, Sin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(cosEClass, Cos.class, "Cos", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCos_Value(), this.getExpression(), null, "value", null, 0, 1, Cos.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sqrtEClass, Sqrt.class, "Sqrt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSqrt_Value(), this.getExpression(), null, "value", null, 0, 1, Sqrt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(powerEClass, Power.class, "Power", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPower_Base(), this.getExpression(), null, "base", null, 0, 1, Power.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPower_Exponent(), this.getExpression(), null, "exponent", null, 0, 1, Power.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(letterEClass, Letter.class, "Letter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLetter_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, Letter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLetter_Value(), ecorePackage.getEString(), "value", null, 0, 1, Letter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(numberLiteralEClass, NumberLiteral.class, "NumberLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNumberLiteral_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, NumberLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNumberLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, NumberLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(addEClass, Add.class, "Add", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAdd_Left(), this.getExpression(), null, "left", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAdd_Right(), this.getExpression(), null, "right", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(partEClass, Part.class, "Part", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPart_Left(), this.getExpression(), null, "left", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPart_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPart_Right(), this.getExpression(), null, "right", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(subEClass, Sub.class, "Sub", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSub_Left(), this.getExpression(), null, "left", null, 0, 1, Sub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSub_Right(), this.getExpression(), null, "right", null, 0, 1, Sub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(multiEClass, Multi.class, "Multi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMulti_Left(), this.getExpression(), null, "left", null, 0, 1, Multi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMulti_Right(), this.getExpression(), null, "right", null, 0, 1, Multi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(divEClass, Div.class, "Div", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDiv_Left(), this.getExpression(), null, "left", null, 0, 1, Div.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDiv_Right(), this.getExpression(), null, "right", null, 0, 1, Div.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(facEClass, Fac.class, "Fac", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFac_Left(), this.getExpression(), null, "left", null, 0, 1, Fac.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFac_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, Fac.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFac_Right(), this.getExpression(), null, "right", null, 0, 1, Fac.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

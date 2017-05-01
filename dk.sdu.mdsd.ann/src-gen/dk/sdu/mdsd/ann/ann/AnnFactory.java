@@ -78,15 +78,6 @@ public interface AnnFactory extends EFactory
   Activation createActivation();
 
   /**
-   * Returns a new object of class '<em>Custom</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Custom</em>'.
-   * @generated
-   */
-  Custom createCustom();
-
-  /**
    * Returns a new object of class '<em>External</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -114,6 +105,15 @@ public interface AnnFactory extends EFactory
   Tansig createTansig();
 
   /**
+   * Returns a new object of class '<em>Custom</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Custom</em>'.
+   * @generated
+   */
+  Custom createCustom();
+
+  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -121,6 +121,69 @@ public interface AnnFactory extends EFactory
    * @generated
    */
   Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Math</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Math</em>'.
+   * @generated
+   */
+  Math createMath();
+
+  /**
+   * Returns a new object of class '<em>Euler</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Euler</em>'.
+   * @generated
+   */
+  Euler createEuler();
+
+  /**
+   * Returns a new object of class '<em>NLog</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>NLog</em>'.
+   * @generated
+   */
+  NLog createNLog();
+
+  /**
+   * Returns a new object of class '<em>Sin</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sin</em>'.
+   * @generated
+   */
+  Sin createSin();
+
+  /**
+   * Returns a new object of class '<em>Cos</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Cos</em>'.
+   * @generated
+   */
+  Cos createCos();
+
+  /**
+   * Returns a new object of class '<em>Sqrt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sqrt</em>'.
+   * @generated
+   */
+  Sqrt createSqrt();
+
+  /**
+   * Returns a new object of class '<em>Power</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Power</em>'.
+   * @generated
+   */
+  Power createPower();
 
   /**
    * Returns a new object of class '<em>Letter</em>'.
@@ -141,40 +204,22 @@ public interface AnnFactory extends EFactory
   NumberLiteral createNumberLiteral();
 
   /**
-   * Returns a new object of class '<em>Add</em>'.
+   * Returns a new object of class '<em>Part</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Add</em>'.
+   * @return a new object of class '<em>Part</em>'.
    * @generated
    */
-  Add createAdd();
+  Part createPart();
 
   /**
-   * Returns a new object of class '<em>Sub</em>'.
+   * Returns a new object of class '<em>Fac</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sub</em>'.
+   * @return a new object of class '<em>Fac</em>'.
    * @generated
    */
-  Sub createSub();
-
-  /**
-   * Returns a new object of class '<em>Multi</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Multi</em>'.
-   * @generated
-   */
-  Multi createMulti();
-
-  /**
-   * Returns a new object of class '<em>Div</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Div</em>'.
-   * @generated
-   */
-  Div createDiv();
+  Fac createFac();
 
   /**
    * Returns the package supported by this factory.

@@ -26,10 +26,6 @@
     <genClasses ecoreClass="Ann.ecore#//Activation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Activation/name"/>
     </genClasses>
-    <genClasses ecoreClass="Ann.ecore#//Custom">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Custom/exp"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Custom/der"/>
-    </genClasses>
     <genClasses ecoreClass="Ann.ecore#//External"/>
     <genClasses ecoreClass="Ann.ecore#//Sigmoid">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Sigmoid/rule"/>
@@ -37,28 +33,48 @@
     <genClasses ecoreClass="Ann.ecore#//Tansig">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Tansig/rule"/>
     </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Custom">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Custom/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Custom/der"/>
+    </genClasses>
     <genClasses ecoreClass="Ann.ecore#//Expression"/>
+    <genClasses ecoreClass="Ann.ecore#//Math"/>
+    <genClasses ecoreClass="Ann.ecore#//Euler">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Euler/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//NLog">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//NLog/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Sin">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Sin/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Cos">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Cos/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Sqrt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Sqrt/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Power">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Power/base"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Power/exponent"/>
+    </genClasses>
     <genClasses ecoreClass="Ann.ecore#//Letter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Letter/operator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Letter/value"/>
     </genClasses>
     <genClasses ecoreClass="Ann.ecore#//NumberLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//NumberLiteral/operator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//NumberLiteral/value"/>
     </genClasses>
-    <genClasses ecoreClass="Ann.ecore#//Add">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Add/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Add/right"/>
+    <genClasses ecoreClass="Ann.ecore#//Part">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Part/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Part/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Part/right"/>
     </genClasses>
-    <genClasses ecoreClass="Ann.ecore#//Sub">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Sub/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Sub/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Ann.ecore#//Multi">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Multi/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Multi/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Ann.ecore#//Div">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Div/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Div/right"/>
+    <genClasses ecoreClass="Ann.ecore#//Fac">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Fac/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Fac/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Fac/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -12,12 +12,16 @@ import dk.sdu.mdsd.ann.ann.Hidden
 import dk.sdu.mdsd.ann.ann.Input
 import dk.sdu.mdsd.ann.ann.Output
 import dk.sdu.mdsd.ann.ann.Custom
-import dk.sdu.mdsd.ann.ann.Multi
-import dk.sdu.mdsd.ann.ann.Add
 import dk.sdu.mdsd.ann.ann.NumberLiteral
-import dk.sdu.mdsd.ann.ann.Sub
-import dk.sdu.mdsd.ann.ann.Div
 import dk.sdu.mdsd.ann.ann.Letter
+import dk.sdu.mdsd.ann.ann.Fac
+import dk.sdu.mdsd.ann.ann.Part
+import dk.sdu.mdsd.ann.ann.Euler
+import dk.sdu.mdsd.ann.ann.NLog
+import dk.sdu.mdsd.ann.ann.Sin
+import dk.sdu.mdsd.ann.ann.Cos
+import dk.sdu.mdsd.ann.ann.Power
+import dk.sdu.mdsd.ann.ann.Sqrt
 import dk.sdu.mdsd.ann.ann.External
 import dk.sdu.mdsd.ann.ann.Sigmoid
 import dk.sdu.mdsd.ann.ann.Tansig
@@ -338,17 +342,25 @@ class AnnGenerator extends AbstractGenerator {
 		«custom.der.generateExp»;
 	'''
 		
-	def dispatch CharSequence generateExp(Add exp) '''(«exp.left.generateExp»+«exp.right.generateExp»)'''
+	def dispatch CharSequence generateExp(Part exp) '''(«exp.left.generateExp»«exp.operator»«exp.right.generateExp»)'''
 	
-	def dispatch CharSequence generateExp(Sub exp) '''(«exp.left.generateExp»-«exp.right.generateExp»)'''
+	def dispatch CharSequence generateExp(Fac exp) '''(«exp.left.generateExp»«exp.operator»«exp.right.generateExp»)'''
 	
-	def dispatch CharSequence generateExp(Multi exp) '''(«exp.left.generateExp»*«exp.right.generateExp»)'''
+	def dispatch CharSequence generateExp(NumberLiteral exp) '''«exp.operator»«exp.value»'''
 	
-	def dispatch CharSequence generateExp(Div exp) '''(«exp.left.generateExp»/«exp.right.generateExp»)'''
+	def dispatch CharSequence generateExp(Euler exp) '''Math.exp(«exp.value.generateExp»)'''
 	
-	def dispatch CharSequence generateExp(NumberLiteral exp) '''«exp.value»'''
+	def dispatch CharSequence generateExp(NLog exp) '''Math.log(«exp.value.generateExp»)'''
 	
-	def dispatch CharSequence generateExp(Letter exp) '''«exp.value»'''
+	def dispatch CharSequence generateExp(Sin exp) '''Math.sin(«exp.value.generateExp»)'''
+	
+	def dispatch CharSequence generateExp(Cos exp) '''Math.cos(«exp.value.generateExp»)'''
+	
+	def dispatch CharSequence generateExp(Sqrt exp) '''Math.cos(«exp.value.generateExp»)'''
+	
+	def dispatch CharSequence generateExp(Power exp) '''Math.pow(«exp.base.generateExp», «exp.exponent.generateExp»)'''
+	
+	def dispatch CharSequence generateExp(Letter exp) '''«exp.operator»«exp.value»'''
 	
 	def dispatch generateLayer(Hidden layer) '''
 		addLayerWithTransfer(«layer.size», «layer.l_rule.generateRule»);

@@ -40,12 +40,6 @@ Activation:
 	Sigmoid | Tansig | External | Custom
 ;
 
-Custom:
-	name=ID '(x)''{'
-	'function' '=' exp=Expression
-	'derivative' '=' der=Expression '}'
-;
-
 External:
 	name=ID 'external'
 ;
@@ -58,30 +52,66 @@ Tansig:
 	name=ID rule='tansig'
 ;
 
+Custom:
+	name=ID '(x)''{'
+	'function' '=' exp=Expression
+	'derivative' '=' der=Expression '}'
+;
+
 Expression:
-	Substraction ({Add.left = current} '+' right = Substraction)*
+	Factor ({Part.left = current} operator = PartOperator right = Factor)*
 ;
 
-Substraction returns Expression:
-	Multiplication ({Sub.left = current} '-' right = Multiplication)*
-;
-
-Multiplication returns Expression:
-	Division ({Multi.left = current} '*' right = Division)*
-;
-
-Division returns Expression:
-	Primary ({Div.left = current} '/' right = Primary)*
+Factor returns Expression:
+	Primary ({Fac.left = current} operator = FactorOperator right = Primary)*
 ;
 
 Primary returns Expression:
-	NumberLiteral | Letter | '(' Expression ')'
+	NumberLiteral | Letter | '(' Expression ')' | Math
+;
+
+Math:
+	Euler | NLog | Sin | Cos | Sqrt | Power
+;
+
+Euler:
+	'e(' value = Expression ')'
+;
+
+NLog:
+	'nlog(' value = Expression ')'
+;
+
+Sin:
+	'sin(' value = Expression ')'
+;
+
+Cos:
+	'cos(' value = Expression ')'
+;
+
+Sqrt:
+	'sqrt(' value = Expression ')'
+;
+
+Power:
+	'pow('base = Expression ',' exponent = Expression ')'
 ;
 
 Letter:
+	operator = PartOperator?
 	value = "x"
 ;
 
+PartOperator:
+	'+' | '-'
+;
+
+FactorOperator:
+	'*' | '/'
+;
+
 NumberLiteral:
+	operator = PartOperator?
 	value = DECIMAL
 ;

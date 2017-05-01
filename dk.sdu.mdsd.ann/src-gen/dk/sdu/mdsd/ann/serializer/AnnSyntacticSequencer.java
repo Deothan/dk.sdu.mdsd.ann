@@ -55,12 +55,17 @@ public class AnnSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'cos(' value=Expression
+	 *     (rule start) (ambiguity) 'e(' value=Expression
+	 *     (rule start) (ambiguity) 'nlog(' value=Expression
+	 *     (rule start) (ambiguity) 'pow(' base=Expression
+	 *     (rule start) (ambiguity) 'sin(' value=Expression
+	 *     (rule start) (ambiguity) 'sqrt(' value=Expression
+	 *     (rule start) (ambiguity) operator=PartOperator
 	 *     (rule start) (ambiguity) value='x'
 	 *     (rule start) (ambiguity) value=DECIMAL
-	 *     (rule start) (ambiguity) {Add.left=}
-	 *     (rule start) (ambiguity) {Div.left=}
-	 *     (rule start) (ambiguity) {Multi.left=}
-	 *     (rule start) (ambiguity) {Sub.left=}
+	 *     (rule start) (ambiguity) {Fac.left=}
+	 *     (rule start) (ambiguity) {Part.left=}
 	 */
 	protected void emit_Primary_LeftParenthesisKeyword_2_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -71,10 +76,8 @@ public class AnnSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) {Add.left=}
-	 *     (rule start) (ambiguity) {Div.left=}
-	 *     (rule start) (ambiguity) {Multi.left=}
-	 *     (rule start) (ambiguity) {Sub.left=}
+	 *     (rule start) (ambiguity) {Fac.left=}
+	 *     (rule start) (ambiguity) {Part.left=}
 	 */
 	protected void emit_Primary_LeftParenthesisKeyword_2_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

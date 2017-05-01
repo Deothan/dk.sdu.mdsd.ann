@@ -3,7 +3,29 @@
  */
 package dk.sdu.mdsd.ann.ann.impl;
 
-import dk.sdu.mdsd.ann.ann.*;
+import dk.sdu.mdsd.ann.ann.ANNModel;
+import dk.sdu.mdsd.ann.ann.Activation;
+import dk.sdu.mdsd.ann.ann.AnnFactory;
+import dk.sdu.mdsd.ann.ann.AnnPackage;
+import dk.sdu.mdsd.ann.ann.Cos;
+import dk.sdu.mdsd.ann.ann.Custom;
+import dk.sdu.mdsd.ann.ann.Euler;
+import dk.sdu.mdsd.ann.ann.Expression;
+import dk.sdu.mdsd.ann.ann.External;
+import dk.sdu.mdsd.ann.ann.Fac;
+import dk.sdu.mdsd.ann.ann.Hidden;
+import dk.sdu.mdsd.ann.ann.Input;
+import dk.sdu.mdsd.ann.ann.Layer;
+import dk.sdu.mdsd.ann.ann.Letter;
+import dk.sdu.mdsd.ann.ann.NLog;
+import dk.sdu.mdsd.ann.ann.NumberLiteral;
+import dk.sdu.mdsd.ann.ann.Output;
+import dk.sdu.mdsd.ann.ann.Part;
+import dk.sdu.mdsd.ann.ann.Power;
+import dk.sdu.mdsd.ann.ann.Sigmoid;
+import dk.sdu.mdsd.ann.ann.Sin;
+import dk.sdu.mdsd.ann.ann.Sqrt;
+import dk.sdu.mdsd.ann.ann.Tansig;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -71,17 +93,22 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
       case AnnPackage.INPUT: return createInput();
       case AnnPackage.OUTPUT: return createOutput();
       case AnnPackage.ACTIVATION: return createActivation();
-      case AnnPackage.CUSTOM: return createCustom();
       case AnnPackage.EXTERNAL: return createExternal();
       case AnnPackage.SIGMOID: return createSigmoid();
       case AnnPackage.TANSIG: return createTansig();
+      case AnnPackage.CUSTOM: return createCustom();
       case AnnPackage.EXPRESSION: return createExpression();
+      case AnnPackage.MATH: return createMath();
+      case AnnPackage.EULER: return createEuler();
+      case AnnPackage.NLOG: return createNLog();
+      case AnnPackage.SIN: return createSin();
+      case AnnPackage.COS: return createCos();
+      case AnnPackage.SQRT: return createSqrt();
+      case AnnPackage.POWER: return createPower();
       case AnnPackage.LETTER: return createLetter();
       case AnnPackage.NUMBER_LITERAL: return createNumberLiteral();
-      case AnnPackage.ADD: return createAdd();
-      case AnnPackage.SUB: return createSub();
-      case AnnPackage.MULTI: return createMulti();
-      case AnnPackage.DIV: return createDiv();
+      case AnnPackage.PART: return createPart();
+      case AnnPackage.FAC: return createFac();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -158,17 +185,6 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Custom createCustom()
-  {
-    CustomImpl custom = new CustomImpl();
-    return custom;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public External createExternal()
   {
     ExternalImpl external = new ExternalImpl();
@@ -202,10 +218,98 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Custom createCustom()
+  {
+    CustomImpl custom = new CustomImpl();
+    return custom;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Expression createExpression()
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public dk.sdu.mdsd.ann.ann.Math createMath()
+  {
+    MathImpl math = new MathImpl();
+    return math;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Euler createEuler()
+  {
+    EulerImpl euler = new EulerImpl();
+    return euler;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NLog createNLog()
+  {
+    NLogImpl nLog = new NLogImpl();
+    return nLog;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Sin createSin()
+  {
+    SinImpl sin = new SinImpl();
+    return sin;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Cos createCos()
+  {
+    CosImpl cos = new CosImpl();
+    return cos;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Sqrt createSqrt()
+  {
+    SqrtImpl sqrt = new SqrtImpl();
+    return sqrt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Power createPower()
+  {
+    PowerImpl power = new PowerImpl();
+    return power;
   }
 
   /**
@@ -235,10 +339,10 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Add createAdd()
+  public Part createPart()
   {
-    AddImpl add = new AddImpl();
-    return add;
+    PartImpl part = new PartImpl();
+    return part;
   }
 
   /**
@@ -246,32 +350,10 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Sub createSub()
+  public Fac createFac()
   {
-    SubImpl sub = new SubImpl();
-    return sub;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Multi createMulti()
-  {
-    MultiImpl multi = new MultiImpl();
-    return multi;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Div createDiv()
-  {
-    DivImpl div = new DivImpl();
-    return div;
+    FacImpl fac = new FacImpl();
+    return fac;
   }
 
   /**

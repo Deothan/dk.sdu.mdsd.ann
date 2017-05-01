@@ -280,6 +280,108 @@ public interface AnnPackage extends EPackage
   int ACTIVATION_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ExternalImpl <em>External</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.ExternalImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getExternal()
+   * @generated
+   */
+  int EXTERNAL = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL__NAME = ACTIVATION__NAME;
+
+  /**
+   * The number of structural features of the '<em>External</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_FEATURE_COUNT = ACTIVATION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.SigmoidImpl <em>Sigmoid</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.SigmoidImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSigmoid()
+   * @generated
+   */
+  int SIGMOID = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGMOID__NAME = ACTIVATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Rule</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGMOID__RULE = ACTIVATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Sigmoid</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGMOID_FEATURE_COUNT = ACTIVATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.TansigImpl <em>Tansig</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.TansigImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getTansig()
+   * @generated
+   */
+  int TANSIG = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TANSIG__NAME = ACTIVATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Rule</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TANSIG__RULE = ACTIVATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Tansig</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TANSIG_FEATURE_COUNT = ACTIVATION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -287,7 +389,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCustom()
    * @generated
    */
-  int CUSTOM = 6;
+  int CUSTOM = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -326,108 +428,6 @@ public interface AnnPackage extends EPackage
   int CUSTOM_FEATURE_COUNT = ACTIVATION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ExternalImpl <em>External</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.ann.ann.impl.ExternalImpl
-   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getExternal()
-   * @generated
-   */
-  int EXTERNAL = 7;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXTERNAL__NAME = ACTIVATION__NAME;
-
-  /**
-   * The number of structural features of the '<em>External</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXTERNAL_FEATURE_COUNT = ACTIVATION_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.SigmoidImpl <em>Sigmoid</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.ann.ann.impl.SigmoidImpl
-   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSigmoid()
-   * @generated
-   */
-  int SIGMOID = 8;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIGMOID__NAME = ACTIVATION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Rule</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIGMOID__RULE = ACTIVATION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Sigmoid</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIGMOID_FEATURE_COUNT = ACTIVATION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.TansigImpl <em>Tansig</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.ann.ann.impl.TansigImpl
-   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getTansig()
-   * @generated
-   */
-  int TANSIG = 9;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TANSIG__NAME = ACTIVATION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Rule</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TANSIG__RULE = ACTIVATION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Tansig</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TANSIG_FEATURE_COUNT = ACTIVATION_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ExpressionImpl <em>Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -447,6 +447,202 @@ public interface AnnPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.MathImpl <em>Math</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.MathImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getMath()
+   * @generated
+   */
+  int MATH = 11;
+
+  /**
+   * The number of structural features of the '<em>Math</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MATH_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.EulerImpl <em>Euler</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.EulerImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getEuler()
+   * @generated
+   */
+  int EULER = 12;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EULER__VALUE = MATH_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Euler</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EULER_FEATURE_COUNT = MATH_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.NLogImpl <em>NLog</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.NLogImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getNLog()
+   * @generated
+   */
+  int NLOG = 13;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NLOG__VALUE = MATH_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>NLog</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NLOG_FEATURE_COUNT = MATH_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.SinImpl <em>Sin</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.SinImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSin()
+   * @generated
+   */
+  int SIN = 14;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIN__VALUE = MATH_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Sin</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIN_FEATURE_COUNT = MATH_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.CosImpl <em>Cos</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.CosImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCos()
+   * @generated
+   */
+  int COS = 15;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COS__VALUE = MATH_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Cos</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COS_FEATURE_COUNT = MATH_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.SqrtImpl <em>Sqrt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.SqrtImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSqrt()
+   * @generated
+   */
+  int SQRT = 16;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SQRT__VALUE = MATH_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Sqrt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SQRT_FEATURE_COUNT = MATH_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.PowerImpl <em>Power</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.PowerImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getPower()
+   * @generated
+   */
+  int POWER = 17;
+
+  /**
+   * The feature id for the '<em><b>Base</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POWER__BASE = MATH_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Exponent</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POWER__EXPONENT = MATH_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Power</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POWER_FEATURE_COUNT = MATH_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.LetterImpl <em>Letter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -454,7 +650,16 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getLetter()
    * @generated
    */
-  int LETTER = 11;
+  int LETTER = 18;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LETTER__OPERATOR = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -463,7 +668,7 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LETTER__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+  int LETTER__VALUE = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Letter</em>' class.
@@ -472,7 +677,7 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LETTER_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int LETTER_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
@@ -482,7 +687,16 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getNumberLiteral()
    * @generated
    */
-  int NUMBER_LITERAL = 12;
+  int NUMBER_LITERAL = 19;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_LITERAL__OPERATOR = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -491,7 +705,7 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NUMBER_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+  int NUMBER_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Number Literal</em>' class.
@@ -500,54 +714,17 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NUMBER_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int NUMBER_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.AddImpl <em>Add</em>}' class.
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.PartImpl <em>Part</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.ann.ann.impl.AddImpl
-   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getAdd()
+   * @see dk.sdu.mdsd.ann.ann.impl.PartImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getPart()
    * @generated
    */
-  int ADD = 13;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ADD__LEFT = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ADD__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Add</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ADD_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.SubImpl <em>Sub</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.ann.ann.impl.SubImpl
-   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSub()
-   * @generated
-   */
-  int SUB = 14;
+  int PART = 20;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -556,7 +733,16 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SUB__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+  int PART__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART__OPERATOR = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -565,26 +751,26 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SUB__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+  int PART__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Sub</em>' class.
+   * The number of structural features of the '<em>Part</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUB_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int PART_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.MultiImpl <em>Multi</em>}' class.
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.FacImpl <em>Fac</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.ann.ann.impl.MultiImpl
-   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getMulti()
+   * @see dk.sdu.mdsd.ann.ann.impl.FacImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getFac()
    * @generated
    */
-  int MULTI = 15;
+  int FAC = 21;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -593,7 +779,16 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MULTI__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+  int FAC__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FAC__OPERATOR = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -602,53 +797,16 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MULTI__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+  int FAC__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Multi</em>' class.
+   * The number of structural features of the '<em>Fac</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTI_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.DivImpl <em>Div</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.ann.ann.impl.DivImpl
-   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getDiv()
-   * @generated
-   */
-  int DIV = 16;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIV__LEFT = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIV__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Div</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIV_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int FAC_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
 
   /**
@@ -811,38 +969,6 @@ public interface AnnPackage extends EPackage
   EAttribute getActivation_Name();
 
   /**
-   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Custom <em>Custom</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Custom</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Custom
-   * @generated
-   */
-  EClass getCustom();
-
-  /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Custom#getExp <em>Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Custom#getExp()
-   * @see #getCustom()
-   * @generated
-   */
-  EReference getCustom_Exp();
-
-  /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Custom#getDer <em>Der</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Der</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Custom#getDer()
-   * @see #getCustom()
-   * @generated
-   */
-  EReference getCustom_Der();
-
-  /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.External <em>External</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -895,6 +1021,38 @@ public interface AnnPackage extends EPackage
   EAttribute getTansig_Rule();
 
   /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Custom <em>Custom</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Custom</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Custom
+   * @generated
+   */
+  EClass getCustom();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Custom#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Custom#getExp()
+   * @see #getCustom()
+   * @generated
+   */
+  EReference getCustom_Exp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Custom#getDer <em>Der</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Der</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Custom#getDer()
+   * @see #getCustom()
+   * @generated
+   */
+  EReference getCustom_Der();
+
+  /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -905,6 +1063,153 @@ public interface AnnPackage extends EPackage
   EClass getExpression();
 
   /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Math <em>Math</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Math</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Math
+   * @generated
+   */
+  EClass getMath();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Euler <em>Euler</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Euler</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Euler
+   * @generated
+   */
+  EClass getEuler();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Euler#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Euler#getValue()
+   * @see #getEuler()
+   * @generated
+   */
+  EReference getEuler_Value();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.NLog <em>NLog</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>NLog</em>'.
+   * @see dk.sdu.mdsd.ann.ann.NLog
+   * @generated
+   */
+  EClass getNLog();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.NLog#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see dk.sdu.mdsd.ann.ann.NLog#getValue()
+   * @see #getNLog()
+   * @generated
+   */
+  EReference getNLog_Value();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Sin <em>Sin</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sin</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Sin
+   * @generated
+   */
+  EClass getSin();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Sin#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Sin#getValue()
+   * @see #getSin()
+   * @generated
+   */
+  EReference getSin_Value();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Cos <em>Cos</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Cos</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Cos
+   * @generated
+   */
+  EClass getCos();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Cos#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Cos#getValue()
+   * @see #getCos()
+   * @generated
+   */
+  EReference getCos_Value();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Sqrt <em>Sqrt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sqrt</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Sqrt
+   * @generated
+   */
+  EClass getSqrt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Sqrt#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Sqrt#getValue()
+   * @see #getSqrt()
+   * @generated
+   */
+  EReference getSqrt_Value();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Power <em>Power</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Power</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Power
+   * @generated
+   */
+  EClass getPower();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Power#getBase <em>Base</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Base</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Power#getBase()
+   * @see #getPower()
+   * @generated
+   */
+  EReference getPower_Base();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Power#getExponent <em>Exponent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exponent</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Power#getExponent()
+   * @see #getPower()
+   * @generated
+   */
+  EReference getPower_Exponent();
+
+  /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Letter <em>Letter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -913,6 +1218,17 @@ public interface AnnPackage extends EPackage
    * @generated
    */
   EClass getLetter();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Letter#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Letter#getOperator()
+   * @see #getLetter()
+   * @generated
+   */
+  EAttribute getLetter_Operator();
 
   /**
    * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Letter#getValue <em>Value</em>}'.
@@ -936,6 +1252,17 @@ public interface AnnPackage extends EPackage
   EClass getNumberLiteral();
 
   /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.NumberLiteral#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see dk.sdu.mdsd.ann.ann.NumberLiteral#getOperator()
+   * @see #getNumberLiteral()
+   * @generated
+   */
+  EAttribute getNumberLiteral_Operator();
+
+  /**
    * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.NumberLiteral#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -947,132 +1274,90 @@ public interface AnnPackage extends EPackage
   EAttribute getNumberLiteral_Value();
 
   /**
-   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Add <em>Add</em>}'.
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Part <em>Part</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Add</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Add
+   * @return the meta object for class '<em>Part</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Part
    * @generated
    */
-  EClass getAdd();
+  EClass getPart();
 
   /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Add#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Part#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Add#getLeft()
-   * @see #getAdd()
+   * @see dk.sdu.mdsd.ann.ann.Part#getLeft()
+   * @see #getPart()
    * @generated
    */
-  EReference getAdd_Left();
+  EReference getPart_Left();
 
   /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Add#getRight <em>Right</em>}'.
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Part#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Part#getOperator()
+   * @see #getPart()
+   * @generated
+   */
+  EAttribute getPart_Operator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Part#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Add#getRight()
-   * @see #getAdd()
+   * @see dk.sdu.mdsd.ann.ann.Part#getRight()
+   * @see #getPart()
    * @generated
    */
-  EReference getAdd_Right();
+  EReference getPart_Right();
 
   /**
-   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Sub <em>Sub</em>}'.
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Fac <em>Fac</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Sub</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Sub
+   * @return the meta object for class '<em>Fac</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Fac
    * @generated
    */
-  EClass getSub();
+  EClass getFac();
 
   /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Sub#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Fac#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Sub#getLeft()
-   * @see #getSub()
+   * @see dk.sdu.mdsd.ann.ann.Fac#getLeft()
+   * @see #getFac()
    * @generated
    */
-  EReference getSub_Left();
+  EReference getFac_Left();
 
   /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Sub#getRight <em>Right</em>}'.
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Fac#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Fac#getOperator()
+   * @see #getFac()
+   * @generated
+   */
+  EAttribute getFac_Operator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Fac#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Sub#getRight()
-   * @see #getSub()
+   * @see dk.sdu.mdsd.ann.ann.Fac#getRight()
+   * @see #getFac()
    * @generated
    */
-  EReference getSub_Right();
-
-  /**
-   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Multi <em>Multi</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Multi</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Multi
-   * @generated
-   */
-  EClass getMulti();
-
-  /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Multi#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Multi#getLeft()
-   * @see #getMulti()
-   * @generated
-   */
-  EReference getMulti_Left();
-
-  /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Multi#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Multi#getRight()
-   * @see #getMulti()
-   * @generated
-   */
-  EReference getMulti_Right();
-
-  /**
-   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Div <em>Div</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Div</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Div
-   * @generated
-   */
-  EClass getDiv();
-
-  /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Div#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Div#getLeft()
-   * @see #getDiv()
-   * @generated
-   */
-  EReference getDiv_Left();
-
-  /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Div#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Div#getRight()
-   * @see #getDiv()
-   * @generated
-   */
-  EReference getDiv_Right();
+  EReference getFac_Right();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1230,32 +1515,6 @@ public interface AnnPackage extends EPackage
     EAttribute ACTIVATION__NAME = eINSTANCE.getActivation_Name();
 
     /**
-     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see dk.sdu.mdsd.ann.ann.impl.CustomImpl
-     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCustom()
-     * @generated
-     */
-    EClass CUSTOM = eINSTANCE.getCustom();
-
-    /**
-     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CUSTOM__EXP = eINSTANCE.getCustom_Exp();
-
-    /**
-     * The meta object literal for the '<em><b>Der</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CUSTOM__DER = eINSTANCE.getCustom_Der();
-
-    /**
      * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ExternalImpl <em>External</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1302,6 +1561,32 @@ public interface AnnPackage extends EPackage
     EAttribute TANSIG__RULE = eINSTANCE.getTansig_Rule();
 
     /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.CustomImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCustom()
+     * @generated
+     */
+    EClass CUSTOM = eINSTANCE.getCustom();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CUSTOM__EXP = eINSTANCE.getCustom_Exp();
+
+    /**
+     * The meta object literal for the '<em><b>Der</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CUSTOM__DER = eINSTANCE.getCustom_Der();
+
+    /**
      * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1312,6 +1597,132 @@ public interface AnnPackage extends EPackage
     EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.MathImpl <em>Math</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.MathImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getMath()
+     * @generated
+     */
+    EClass MATH = eINSTANCE.getMath();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.EulerImpl <em>Euler</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.EulerImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getEuler()
+     * @generated
+     */
+    EClass EULER = eINSTANCE.getEuler();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EULER__VALUE = eINSTANCE.getEuler_Value();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.NLogImpl <em>NLog</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.NLogImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getNLog()
+     * @generated
+     */
+    EClass NLOG = eINSTANCE.getNLog();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NLOG__VALUE = eINSTANCE.getNLog_Value();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.SinImpl <em>Sin</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.SinImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSin()
+     * @generated
+     */
+    EClass SIN = eINSTANCE.getSin();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIN__VALUE = eINSTANCE.getSin_Value();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.CosImpl <em>Cos</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.CosImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCos()
+     * @generated
+     */
+    EClass COS = eINSTANCE.getCos();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COS__VALUE = eINSTANCE.getCos_Value();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.SqrtImpl <em>Sqrt</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.SqrtImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSqrt()
+     * @generated
+     */
+    EClass SQRT = eINSTANCE.getSqrt();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SQRT__VALUE = eINSTANCE.getSqrt_Value();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.PowerImpl <em>Power</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.PowerImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getPower()
+     * @generated
+     */
+    EClass POWER = eINSTANCE.getPower();
+
+    /**
+     * The meta object literal for the '<em><b>Base</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POWER__BASE = eINSTANCE.getPower_Base();
+
+    /**
+     * The meta object literal for the '<em><b>Exponent</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POWER__EXPONENT = eINSTANCE.getPower_Exponent();
+
+    /**
      * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.LetterImpl <em>Letter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1320,6 +1731,14 @@ public interface AnnPackage extends EPackage
      * @generated
      */
     EClass LETTER = eINSTANCE.getLetter();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LETTER__OPERATOR = eINSTANCE.getLetter_Operator();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1340,6 +1759,14 @@ public interface AnnPackage extends EPackage
     EClass NUMBER_LITERAL = eINSTANCE.getNumberLiteral();
 
     /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NUMBER_LITERAL__OPERATOR = eINSTANCE.getNumberLiteral_Operator();
+
+    /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1348,14 +1775,14 @@ public interface AnnPackage extends EPackage
     EAttribute NUMBER_LITERAL__VALUE = eINSTANCE.getNumberLiteral_Value();
 
     /**
-     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.AddImpl <em>Add</em>}' class.
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.PartImpl <em>Part</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see dk.sdu.mdsd.ann.ann.impl.AddImpl
-     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getAdd()
+     * @see dk.sdu.mdsd.ann.ann.impl.PartImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getPart()
      * @generated
      */
-    EClass ADD = eINSTANCE.getAdd();
+    EClass PART = eINSTANCE.getPart();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1363,7 +1790,15 @@ public interface AnnPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ADD__LEFT = eINSTANCE.getAdd_Left();
+    EReference PART__LEFT = eINSTANCE.getPart_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PART__OPERATOR = eINSTANCE.getPart_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1371,17 +1806,17 @@ public interface AnnPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ADD__RIGHT = eINSTANCE.getAdd_Right();
+    EReference PART__RIGHT = eINSTANCE.getPart_Right();
 
     /**
-     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.SubImpl <em>Sub</em>}' class.
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.FacImpl <em>Fac</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see dk.sdu.mdsd.ann.ann.impl.SubImpl
-     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSub()
+     * @see dk.sdu.mdsd.ann.ann.impl.FacImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getFac()
      * @generated
      */
-    EClass SUB = eINSTANCE.getSub();
+    EClass FAC = eINSTANCE.getFac();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1389,7 +1824,15 @@ public interface AnnPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SUB__LEFT = eINSTANCE.getSub_Left();
+    EReference FAC__LEFT = eINSTANCE.getFac_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FAC__OPERATOR = eINSTANCE.getFac_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1397,59 +1840,7 @@ public interface AnnPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SUB__RIGHT = eINSTANCE.getSub_Right();
-
-    /**
-     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.MultiImpl <em>Multi</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see dk.sdu.mdsd.ann.ann.impl.MultiImpl
-     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getMulti()
-     * @generated
-     */
-    EClass MULTI = eINSTANCE.getMulti();
-
-    /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MULTI__LEFT = eINSTANCE.getMulti_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MULTI__RIGHT = eINSTANCE.getMulti_Right();
-
-    /**
-     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.DivImpl <em>Div</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see dk.sdu.mdsd.ann.ann.impl.DivImpl
-     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getDiv()
-     * @generated
-     */
-    EClass DIV = eINSTANCE.getDiv();
-
-    /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DIV__LEFT = eINSTANCE.getDiv_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DIV__RIGHT = eINSTANCE.getDiv_Right();
+    EReference FAC__RIGHT = eINSTANCE.getFac_Right();
 
   }
 

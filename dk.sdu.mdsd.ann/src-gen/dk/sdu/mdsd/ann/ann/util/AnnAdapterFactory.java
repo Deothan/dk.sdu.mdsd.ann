@@ -3,7 +3,28 @@
  */
 package dk.sdu.mdsd.ann.ann.util;
 
-import dk.sdu.mdsd.ann.ann.*;
+import dk.sdu.mdsd.ann.ann.ANNModel;
+import dk.sdu.mdsd.ann.ann.Activation;
+import dk.sdu.mdsd.ann.ann.AnnPackage;
+import dk.sdu.mdsd.ann.ann.Cos;
+import dk.sdu.mdsd.ann.ann.Custom;
+import dk.sdu.mdsd.ann.ann.Euler;
+import dk.sdu.mdsd.ann.ann.Expression;
+import dk.sdu.mdsd.ann.ann.External;
+import dk.sdu.mdsd.ann.ann.Fac;
+import dk.sdu.mdsd.ann.ann.Hidden;
+import dk.sdu.mdsd.ann.ann.Input;
+import dk.sdu.mdsd.ann.ann.Layer;
+import dk.sdu.mdsd.ann.ann.Letter;
+import dk.sdu.mdsd.ann.ann.NLog;
+import dk.sdu.mdsd.ann.ann.NumberLiteral;
+import dk.sdu.mdsd.ann.ann.Output;
+import dk.sdu.mdsd.ann.ann.Part;
+import dk.sdu.mdsd.ann.ann.Power;
+import dk.sdu.mdsd.ann.ann.Sigmoid;
+import dk.sdu.mdsd.ann.ann.Sin;
+import dk.sdu.mdsd.ann.ann.Sqrt;
+import dk.sdu.mdsd.ann.ann.Tansig;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -106,11 +127,6 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
         return createActivationAdapter();
       }
       @Override
-      public Adapter caseCustom(Custom object)
-      {
-        return createCustomAdapter();
-      }
-      @Override
       public Adapter caseExternal(External object)
       {
         return createExternalAdapter();
@@ -126,9 +142,49 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
         return createTansigAdapter();
       }
       @Override
+      public Adapter caseCustom(Custom object)
+      {
+        return createCustomAdapter();
+      }
+      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseMath(dk.sdu.mdsd.ann.ann.Math object)
+      {
+        return createMathAdapter();
+      }
+      @Override
+      public Adapter caseEuler(Euler object)
+      {
+        return createEulerAdapter();
+      }
+      @Override
+      public Adapter caseNLog(NLog object)
+      {
+        return createNLogAdapter();
+      }
+      @Override
+      public Adapter caseSin(Sin object)
+      {
+        return createSinAdapter();
+      }
+      @Override
+      public Adapter caseCos(Cos object)
+      {
+        return createCosAdapter();
+      }
+      @Override
+      public Adapter caseSqrt(Sqrt object)
+      {
+        return createSqrtAdapter();
+      }
+      @Override
+      public Adapter casePower(Power object)
+      {
+        return createPowerAdapter();
       }
       @Override
       public Adapter caseLetter(Letter object)
@@ -141,24 +197,14 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
         return createNumberLiteralAdapter();
       }
       @Override
-      public Adapter caseAdd(Add object)
+      public Adapter casePart(Part object)
       {
-        return createAddAdapter();
+        return createPartAdapter();
       }
       @Override
-      public Adapter caseSub(Sub object)
+      public Adapter caseFac(Fac object)
       {
-        return createSubAdapter();
-      }
-      @Override
-      public Adapter caseMulti(Multi object)
-      {
-        return createMultiAdapter();
-      }
-      @Override
-      public Adapter caseDiv(Div object)
-      {
-        return createDivAdapter();
+        return createFacAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -273,21 +319,6 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Custom <em>Custom</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see dk.sdu.mdsd.ann.ann.Custom
-   * @generated
-   */
-  public Adapter createCustomAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.External <em>External</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -333,6 +364,21 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Custom <em>Custom</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.ann.ann.Custom
+   * @generated
+   */
+  public Adapter createCustomAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -343,6 +389,111 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Math <em>Math</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.ann.ann.Math
+   * @generated
+   */
+  public Adapter createMathAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Euler <em>Euler</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.ann.ann.Euler
+   * @generated
+   */
+  public Adapter createEulerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.NLog <em>NLog</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.ann.ann.NLog
+   * @generated
+   */
+  public Adapter createNLogAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Sin <em>Sin</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.ann.ann.Sin
+   * @generated
+   */
+  public Adapter createSinAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Cos <em>Cos</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.ann.ann.Cos
+   * @generated
+   */
+  public Adapter createCosAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Sqrt <em>Sqrt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.ann.ann.Sqrt
+   * @generated
+   */
+  public Adapter createSqrtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Power <em>Power</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.ann.ann.Power
+   * @generated
+   */
+  public Adapter createPowerAdapter()
   {
     return null;
   }
@@ -378,61 +529,31 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Add <em>Add</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Part <em>Part</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mdsd.ann.ann.Add
+   * @see dk.sdu.mdsd.ann.ann.Part
    * @generated
    */
-  public Adapter createAddAdapter()
+  public Adapter createPartAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Sub <em>Sub</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Fac <em>Fac</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mdsd.ann.ann.Sub
+   * @see dk.sdu.mdsd.ann.ann.Fac
    * @generated
    */
-  public Adapter createSubAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Multi <em>Multi</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see dk.sdu.mdsd.ann.ann.Multi
-   * @generated
-   */
-  public Adapter createMultiAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Div <em>Div</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see dk.sdu.mdsd.ann.ann.Div
-   * @generated
-   */
-  public Adapter createDivAdapter()
+  public Adapter createFacAdapter()
   {
     return null;
   }
