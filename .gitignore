@@ -2,5 +2,6 @@
 /dk.sdu.mdsd.ann/src-gen/*
 /dk.sdu.mdsd.ann/xtend-gen/*
 /dk.sdu.mdsd.ann.ui/*
+/dk.sdu.mdsd.ann.ui.tests/*
 /dk.sdu.mdsd.ann.ide/*
-/dk.sdu.mdsd.ann.test/*
+/dk.sdu.mdsd.ann.tests/*
