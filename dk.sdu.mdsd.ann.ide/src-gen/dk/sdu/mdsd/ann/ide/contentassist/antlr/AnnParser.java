@@ -39,7 +39,7 @@ public class AnnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getHiddenAccess().getGroup(), "rule__Hidden__Group__0");
 					put(grammarAccess.getInputAccess().getGroup(), "rule__Input__Group__0");
 					put(grammarAccess.getOutputAccess().getGroup(), "rule__Output__Group__0");
-					put(grammarAccess.getStubAccess().getGroup(), "rule__Stub__Group__0");
+					put(grammarAccess.getExternalAccess().getGroup(), "rule__External__Group__0");
 					put(grammarAccess.getCustomAccess().getGroup(), "rule__Custom__Group__0");
 					put(grammarAccess.getExpressionAccess().getGroup(), "rule__Expression__Group__0");
 					put(grammarAccess.getExpressionAccess().getGroup_1(), "rule__Expression__Group_1__0");
@@ -60,11 +60,10 @@ public class AnnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOutputAccess().getSizeAssignment_3(), "rule__Output__SizeAssignment_3");
 					put(grammarAccess.getOutputAccess().getL_ruleAssignment_5(), "rule__Output__L_ruleAssignment_5");
 					put(grammarAccess.getSigmoidAccess().getRuleAssignment(), "rule__Sigmoid__RuleAssignment");
-					put(grammarAccess.getStubAccess().getRuleAssignment_0(), "rule__Stub__RuleAssignment_0");
-					put(grammarAccess.getStubAccess().getNameAssignment_1(), "rule__Stub__NameAssignment_1");
+					put(grammarAccess.getExternalAccess().getNameAssignment_0(), "rule__External__NameAssignment_0");
 					put(grammarAccess.getCustomAccess().getNameAssignment_0(), "rule__Custom__NameAssignment_0");
-					put(grammarAccess.getCustomAccess().getExpAssignment_4(), "rule__Custom__ExpAssignment_4");
-					put(grammarAccess.getCustomAccess().getDerAssignment_7(), "rule__Custom__DerAssignment_7");
+					put(grammarAccess.getCustomAccess().getExpAssignment_5(), "rule__Custom__ExpAssignment_5");
+					put(grammarAccess.getCustomAccess().getDerAssignment_8(), "rule__Custom__DerAssignment_8");
 					put(grammarAccess.getExpressionAccess().getRightAssignment_1_2(), "rule__Expression__RightAssignment_1_2");
 					put(grammarAccess.getSubstractionAccess().getRightAssignment_1_2(), "rule__Substraction__RightAssignment_1_2");
 					put(grammarAccess.getMultiplicationAccess().getRightAssignment_1_2(), "rule__Multiplication__RightAssignment_1_2");

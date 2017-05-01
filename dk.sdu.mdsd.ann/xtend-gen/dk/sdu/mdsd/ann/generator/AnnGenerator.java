@@ -9,6 +9,7 @@ import dk.sdu.mdsd.ann.ann.Add;
 import dk.sdu.mdsd.ann.ann.Custom;
 import dk.sdu.mdsd.ann.ann.Div;
 import dk.sdu.mdsd.ann.ann.Expression;
+import dk.sdu.mdsd.ann.ann.External;
 import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Layer;
@@ -18,7 +19,6 @@ import dk.sdu.mdsd.ann.ann.Multi;
 import dk.sdu.mdsd.ann.ann.NumberLiteral;
 import dk.sdu.mdsd.ann.ann.Output;
 import dk.sdu.mdsd.ann.ann.Sigmoid;
-import dk.sdu.mdsd.ann.ann.Stub;
 import dk.sdu.mdsd.ann.ann.Sub;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
@@ -29,6 +29,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -56,7 +57,8 @@ public class AnnGenerator extends AbstractGenerator {
     access2.generateFile("ITransfer.java", this.generateITransfer());
     access2.generateFile("Sigmoid.java", this.generateSigmoid());
     access2.generateFile("Helpers.java", this.generateHelpers());
-    access2.generateFile("JavaANN.java", this.generateJavaANN());
+    access2.generateFile("ANN.java", this.generateJavaANN());
+    access2.generateFile("ITransferFactory.java", this.generateITransferFactory(m, resource));
   }
   
   public void generateCustomFunctionFile(final Custom c, final IFileSystemAccess2 access2, final Resource resource) {
@@ -181,13 +183,7 @@ public class AnnGenerator extends AbstractGenerator {
   
   public CharSequence generateJavaANN() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import transfer.ITransfer;");
-    _builder.newLine();
-    _builder.append("import java.lang.reflect.Array;");
-    _builder.newLine();
     _builder.append("import java.util.ArrayList;");
-    _builder.newLine();
-    _builder.append("import java.util.Arrays;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("public class ANN {");
@@ -331,7 +327,7 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append("}");
     _builder.newLine();
     _builder.append("                ");
-    _builder.append("t[k] = transfers.get(i).tranfer(sum);");
+    _builder.append("t[k] = transfers.get(i).transfer(sum);");
     _builder.newLine();
     _builder.append("            ");
     _builder.append("}");
@@ -575,6 +571,43 @@ public class AnnGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  public CharSequence generateITransferFactory(final ANNModel model, final Resource resource) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public interface ITransferFactory {");
+    _builder.newLine();
+    {
+      EList<Layer> _layer = model.getLayer();
+      for(final Layer l : _layer) {
+        _builder.append("\t");
+        CharSequence _xifexpression = null;
+        if ((l instanceof Hidden)) {
+          CharSequence _xifexpression_1 = null;
+          LearningRule _l_rule = ((Hidden)l).getL_rule();
+          if ((_l_rule instanceof External)) {
+            LearningRule _l_rule_1 = ((Hidden)l).getL_rule();
+            _xifexpression_1 = this.generateGetLineForITransferFactory(((External) _l_rule_1));
+          }
+          _xifexpression = _xifexpression_1;
+        }
+        _builder.append(_xifexpression, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateGetLineForITransferFactory(final External ext) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("ITransfer get");
+    String _firstUpper = StringExtensions.toFirstUpper(ext.getName());
+    _builder.append(_firstUpper);
+    _builder.append("();");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
   public CharSequence generateNetwork(final ANNModel model) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import java.util.*;");
@@ -601,7 +634,7 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append("private List<Double> layers;");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("private List<String> transfers;");
+    _builder.append("private List<ITransfer> transfers;");
     _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
@@ -609,7 +642,7 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append("public ");
     String _name_1 = model.getName();
     _builder.append(_name_1, "\t");
-    _builder.append("() {");
+    _builder.append("(ITransferFactory factory) {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("layers = new ArrayList<>();");
@@ -618,7 +651,7 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append("transfers = new ArrayList<>();");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("init();");
+    _builder.append("init(factory);");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -650,10 +683,22 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append("public void addLayerWithTransfer(double size, ITransfer transfer) {");
     _builder.newLine();
     _builder.append("\t\t");
+    _builder.append("if(transfer == null) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
     _builder.append("this.layers.add(size);");
     _builder.newLine();
     _builder.append("\t\t");
+    _builder.append("} else {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("this.layers.add(size);");
+    _builder.newLine();
+    _builder.append("\t\t\t");
     _builder.append("this.transfers.add(transfer);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -705,7 +750,7 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("private void init() {");
+    _builder.append("private void init(ITransferFactory factory) {");
     _builder.newLine();
     {
       EList<Layer> _layer = model.getLayer();
@@ -726,11 +771,6 @@ public class AnnGenerator extends AbstractGenerator {
   
   public CharSequence generateCustomFunction(final Custom customFunction) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import java.util.*;");
-    _builder.newLine();
-    _builder.append("import java.lang.Math.*;");
-    _builder.newLine();
-    _builder.newLine();
     _builder.append("public class ");
     String _name = customFunction.getName();
     _builder.append(_name);
@@ -863,7 +903,7 @@ public class AnnGenerator extends AbstractGenerator {
     _builder.append("addLayerWithTransfer(");
     int _size = layer.getSize();
     _builder.append(_size);
-    _builder.append(", \"\");");
+    _builder.append(", null);");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -888,11 +928,11 @@ public class AnnGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  protected CharSequence _generateRule(final Stub rule) {
+  protected CharSequence _generateRule(final External rule) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("new ");
-    String _name = rule.getName();
-    _builder.append(_name);
+    _builder.append("factory.get");
+    String _firstUpper = StringExtensions.toFirstUpper(rule.getName());
+    _builder.append(_firstUpper);
     _builder.append("()");
     return _builder;
   }
@@ -941,10 +981,10 @@ public class AnnGenerator extends AbstractGenerator {
   public CharSequence generateRule(final LearningRule rule) {
     if (rule instanceof Custom) {
       return _generateRule((Custom)rule);
+    } else if (rule instanceof External) {
+      return _generateRule((External)rule);
     } else if (rule instanceof Sigmoid) {
       return _generateRule((Sigmoid)rule);
-    } else if (rule instanceof Stub) {
-      return _generateRule((Stub)rule);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(rule).toString());

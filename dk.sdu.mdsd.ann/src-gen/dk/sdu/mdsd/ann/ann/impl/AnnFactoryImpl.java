@@ -72,7 +72,7 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
       case AnnPackage.OUTPUT: return createOutput();
       case AnnPackage.LEARNING_RULE: return createLearningRule();
       case AnnPackage.SIGMOID: return createSigmoid();
-      case AnnPackage.STUB: return createStub();
+      case AnnPackage.EXTERNAL: return createExternal();
       case AnnPackage.CUSTOM: return createCustom();
       case AnnPackage.EXPRESSION: return createExpression();
       case AnnPackage.LETTER: return createLetter();
@@ -168,10 +168,10 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stub createStub()
+  public External createExternal()
   {
-    StubImpl stub = new StubImpl();
-    return stub;
+    ExternalImpl external = new ExternalImpl();
+    return external;
   }
 
   /**

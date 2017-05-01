@@ -126,11 +126,11 @@ public class AnnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AnnPackage.STUB:
+      case AnnPackage.EXTERNAL:
       {
-        Stub stub = (Stub)theEObject;
-        T result = caseStub(stub);
-        if (result == null) result = caseLearningRule(stub);
+        External external = (External)theEObject;
+        T result = caseExternal(external);
+        if (result == null) result = caseLearningRule(external);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -314,17 +314,17 @@ public class AnnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Stub</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>External</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Stub</em>'.
+   * @return the result of interpreting the object as an instance of '<em>External</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStub(Stub object)
+  public T caseExternal(External object)
   {
     return null;
   }

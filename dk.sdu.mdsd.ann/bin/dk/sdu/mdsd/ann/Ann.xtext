@@ -36,19 +36,19 @@ Output:
 ;
 
 LearningRule:
-	Sigmoid | Stub | Custom
+	Sigmoid | External | Custom
 ;
 
 Sigmoid:
 	rule='sigmoid'
 ;
 
-Stub:
-	rule='stub' name=ID
+External:
+	name=ID 'external'
 ;
 
 Custom:
-	name=ID '{'
+	name=ID '(x)''{'
 	'function' '=' exp=Expression
 	'derivative' '=' der=Expression '}'
 ;

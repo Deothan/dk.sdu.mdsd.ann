@@ -111,9 +111,9 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
         return createSigmoidAdapter();
       }
       @Override
-      public Adapter caseStub(Stub object)
+      public Adapter caseExternal(External object)
       {
-        return createStubAdapter();
+        return createExternalAdapter();
       }
       @Override
       public Adapter caseCustom(Custom object)
@@ -283,16 +283,16 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Stub <em>Stub</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.External <em>External</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mdsd.ann.ann.Stub
+   * @see dk.sdu.mdsd.ann.ann.External
    * @generated
    */
-  public Adapter createStubAdapter()
+  public Adapter createExternalAdapter()
   {
     return null;
   }

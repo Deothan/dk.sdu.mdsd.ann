@@ -290,23 +290,14 @@ public interface AnnPackage extends EPackage
   int SIGMOID_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.StubImpl <em>Stub</em>}' class.
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ExternalImpl <em>External</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.ann.ann.impl.StubImpl
-   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getStub()
+   * @see dk.sdu.mdsd.ann.ann.impl.ExternalImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getExternal()
    * @generated
    */
-  int STUB = 7;
-
-  /**
-   * The feature id for the '<em><b>Rule</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STUB__RULE = LEARNING_RULE_FEATURE_COUNT + 0;
+  int EXTERNAL = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -315,16 +306,16 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STUB__NAME = LEARNING_RULE_FEATURE_COUNT + 1;
+  int EXTERNAL__NAME = LEARNING_RULE_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Stub</em>' class.
+   * The number of structural features of the '<em>External</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STUB_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 2;
+  int EXTERNAL_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.
@@ -755,36 +746,25 @@ public interface AnnPackage extends EPackage
   EAttribute getSigmoid_Rule();
 
   /**
-   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Stub <em>Stub</em>}'.
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.External <em>External</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Stub</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Stub
+   * @return the meta object for class '<em>External</em>'.
+   * @see dk.sdu.mdsd.ann.ann.External
    * @generated
    */
-  EClass getStub();
+  EClass getExternal();
 
   /**
-   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Stub#getRule <em>Rule</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Rule</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Stub#getRule()
-   * @see #getStub()
-   * @generated
-   */
-  EAttribute getStub_Rule();
-
-  /**
-   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Stub#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.External#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Stub#getName()
-   * @see #getStub()
+   * @see dk.sdu.mdsd.ann.ann.External#getName()
+   * @see #getExternal()
    * @generated
    */
-  EAttribute getStub_Name();
+  EAttribute getExternal_Name();
 
   /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Custom <em>Custom</em>}'.
@@ -1167,22 +1147,14 @@ public interface AnnPackage extends EPackage
     EAttribute SIGMOID__RULE = eINSTANCE.getSigmoid_Rule();
 
     /**
-     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.StubImpl <em>Stub</em>}' class.
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ExternalImpl <em>External</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see dk.sdu.mdsd.ann.ann.impl.StubImpl
-     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getStub()
+     * @see dk.sdu.mdsd.ann.ann.impl.ExternalImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getExternal()
      * @generated
      */
-    EClass STUB = eINSTANCE.getStub();
-
-    /**
-     * The meta object literal for the '<em><b>Rule</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STUB__RULE = eINSTANCE.getStub_Rule();
+    EClass EXTERNAL = eINSTANCE.getExternal();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1190,7 +1162,7 @@ public interface AnnPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STUB__NAME = eINSTANCE.getStub_Name();
+    EAttribute EXTERNAL__NAME = eINSTANCE.getExternal_Name();
 
     /**
      * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.

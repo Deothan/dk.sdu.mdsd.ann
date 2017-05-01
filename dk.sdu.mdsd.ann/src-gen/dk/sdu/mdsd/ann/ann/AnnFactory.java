@@ -87,13 +87,13 @@ public interface AnnFactory extends EFactory
   Sigmoid createSigmoid();
 
   /**
-   * Returns a new object of class '<em>Stub</em>'.
+   * Returns a new object of class '<em>External</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Stub</em>'.
+   * @return a new object of class '<em>External</em>'.
    * @generated
    */
-  Stub createStub();
+  External createExternal();
 
   /**
    * Returns a new object of class '<em>Custom</em>'.

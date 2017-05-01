@@ -10,6 +10,7 @@ import dk.sdu.mdsd.ann.ann.AnnPackage;
 import dk.sdu.mdsd.ann.ann.Custom;
 import dk.sdu.mdsd.ann.ann.Div;
 import dk.sdu.mdsd.ann.ann.Expression;
+import dk.sdu.mdsd.ann.ann.External;
 import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Layer;
@@ -19,7 +20,6 @@ import dk.sdu.mdsd.ann.ann.Multi;
 import dk.sdu.mdsd.ann.ann.NumberLiteral;
 import dk.sdu.mdsd.ann.ann.Output;
 import dk.sdu.mdsd.ann.ann.Sigmoid;
-import dk.sdu.mdsd.ann.ann.Stub;
 import dk.sdu.mdsd.ann.ann.Sub;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -91,7 +91,7 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass stubEClass = null;
+  private EClass externalEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -367,9 +367,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getStub()
+  public EClass getExternal()
   {
-    return stubEClass;
+    return externalEClass;
   }
 
   /**
@@ -377,19 +377,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStub_Rule()
+  public EAttribute getExternal_Name()
   {
-    return (EAttribute)stubEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getStub_Name()
-  {
-    return (EAttribute)stubEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)externalEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -654,9 +644,8 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     sigmoidEClass = createEClass(SIGMOID);
     createEAttribute(sigmoidEClass, SIGMOID__RULE);
 
-    stubEClass = createEClass(STUB);
-    createEAttribute(stubEClass, STUB__RULE);
-    createEAttribute(stubEClass, STUB__NAME);
+    externalEClass = createEClass(EXTERNAL);
+    createEAttribute(externalEClass, EXTERNAL__NAME);
 
     customEClass = createEClass(CUSTOM);
     createEAttribute(customEClass, CUSTOM__NAME);
@@ -721,7 +710,7 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     inputEClass.getESuperTypes().add(this.getLayer());
     outputEClass.getESuperTypes().add(this.getLayer());
     sigmoidEClass.getESuperTypes().add(this.getLearningRule());
-    stubEClass.getESuperTypes().add(this.getLearningRule());
+    externalEClass.getESuperTypes().add(this.getLearningRule());
     customEClass.getESuperTypes().add(this.getLearningRule());
     letterEClass.getESuperTypes().add(this.getExpression());
     numberLiteralEClass.getESuperTypes().add(this.getExpression());
@@ -753,9 +742,8 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     initEClass(sigmoidEClass, Sigmoid.class, "Sigmoid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSigmoid_Rule(), ecorePackage.getEString(), "rule", null, 0, 1, Sigmoid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(stubEClass, Stub.class, "Stub", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStub_Rule(), ecorePackage.getEString(), "rule", null, 0, 1, Stub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStub_Name(), ecorePackage.getEString(), "name", null, 0, 1, Stub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(externalEClass, External.class, "External", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExternal_Name(), ecorePackage.getEString(), "name", null, 0, 1, External.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(customEClass, Custom.class, "Custom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCustom_Name(), ecorePackage.getEString(), "name", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -13,13 +13,13 @@ import dk.sdu.mdsd.ann.ann.Input
 import dk.sdu.mdsd.ann.ann.Output
 import dk.sdu.mdsd.ann.ann.Sigmoid
 import dk.sdu.mdsd.ann.ann.Custom
-import dk.sdu.mdsd.ann.ann.Stub
 import dk.sdu.mdsd.ann.ann.Multi
 import dk.sdu.mdsd.ann.ann.Add
 import dk.sdu.mdsd.ann.ann.NumberLiteral
 import dk.sdu.mdsd.ann.ann.Sub
 import dk.sdu.mdsd.ann.ann.Div
 import dk.sdu.mdsd.ann.ann.Letter
+import dk.sdu.mdsd.ann.ann.External
 
 /**
  * Generates code from your model files on save.
@@ -38,7 +38,8 @@ class AnnGenerator extends AbstractGenerator {
 		access2.generateFile("ITransfer.java", generateITransfer())
 		access2.generateFile("Sigmoid.java", generateSigmoid())
 		access2.generateFile("Helpers.java",generateHelpers())
-		access2.generateFile("JavaANN.java",generateJavaANN())
+		access2.generateFile("ANN.java",generateJavaANN())
+		access2.generateFile("ITransferFactory.java",m.generateITransferFactory(resource))
 	}
 	
 	def generateCustomFunctionFile(Custom c, IFileSystemAccess2 access2, Resource resource) {
@@ -90,10 +91,7 @@ class AnnGenerator extends AbstractGenerator {
 	'''
 	
 	def generateJavaANN() '''
-	import transfer.ITransfer;
-	import java.lang.reflect.Array;
 	import java.util.ArrayList;
-	import java.util.Arrays;
 
 	public class ANN {
 	    int[] l_size;
@@ -142,7 +140,7 @@ class AnnGenerator extends AbstractGenerator {
 	                for (int j = 0; j < tmp.length - 1; j++) {
 	                    sum += weights.get(i)[j][k] * tmp[j];
 	                }
-	                t[k] = transfers.get(i).tranfer(sum);
+	                t[k] = transfers.get(i).transfer(sum);
 	            }
 	            layers[i] = t;
 	            tmp = layers[i];
@@ -225,6 +223,22 @@ class AnnGenerator extends AbstractGenerator {
 	}
 	'''
 	
+	def CharSequence generateITransferFactory(ANNModel model, Resource resource) '''
+	public interface ITransferFactory {
+		«FOR l: model.layer»
+		«if(l instanceof Hidden){
+			if(l.l_rule instanceof External) {
+				(l.l_rule as External).generateGetLineForITransferFactory
+			}
+		}»
+		«ENDFOR»
+	}
+	'''
+	
+	def CharSequence generateGetLineForITransferFactory(External ext) '''
+		ITransfer get«ext.name.toFirstUpper»();
+	'''
+	
 	def CharSequence generateNetwork(ANNModel model) '''
 	import java.util.*;
 
@@ -232,12 +246,12 @@ class AnnGenerator extends AbstractGenerator {
 		private double alpha = «model.alpha»;
 		private int epochs = «model.epochs»;
 		private List<Double> layers;
-		private List<String> transfers;
+		private List<ITransfer> transfers;
 		
-		public «model.name»() {
+		public «model.name»(ITransferFactory factory) {
 			layers = new ArrayList<>();
 			transfers = new ArrayList<>();
-			init();
+			init(factory);
 		}
 		
 		public Double[] getLayers() {
@@ -249,8 +263,12 @@ class AnnGenerator extends AbstractGenerator {
 		}
 	
 		public void addLayerWithTransfer(double size, ITransfer transfer) {
-			this.layers.add(size);
-			this.transfers.add(transfer);
+			if(transfer == null) {
+				this.layers.add(size);
+			} else {
+				this.layers.add(size);
+				this.transfers.add(transfer);
+			}
 		}
 		
 		public double getAlpha() {
@@ -269,7 +287,7 @@ class AnnGenerator extends AbstractGenerator {
 			this.epochs = epochs;
 		}
 		
-		private void init() {
+		private void init(ITransferFactory factory) {
 			«FOR l: model.layer»
 			«l.generateLayer»
 			«ENDFOR»
@@ -278,9 +296,6 @@ class AnnGenerator extends AbstractGenerator {
 	'''
 	
 	def CharSequence generateCustomFunction(Custom customFunction) '''
-	import java.util.*;
-	import java.lang.Math.*;
-	
 	public class «customFunction.name» implements ITransfer {
 		
 		public double transfer(double x) {
@@ -317,7 +332,7 @@ class AnnGenerator extends AbstractGenerator {
 	'''
 	
 	def dispatch generateLayer(Input layer) '''
-		addLayerWithTransfer(«layer.size», "");
+		addLayerWithTransfer(«layer.size», null);
 	'''
 		
 	def dispatch generateLayer(Output layer) '''
@@ -328,7 +343,7 @@ class AnnGenerator extends AbstractGenerator {
 	def dispatch generateRule(Sigmoid rule)'''new Sigmoid()'''
 		
 	
-	def dispatch generateRule(Stub rule)'''new «rule.name»()'''
+	def dispatch generateRule(External rule)'''factory.get«rule.name.toFirstUpper»()''' 
 		
 	
 	def dispatch generateRule(Custom rule)'''new «rule.name»()'''
