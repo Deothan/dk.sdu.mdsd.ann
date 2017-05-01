@@ -2,40 +2,40 @@
 An example of the DSL is given below-
 
 	Network {
-		alpha 0.005
-		epochs 150
+ alpha 0.005
+ epochs 150
+ myFunc(x) {
+   function = 5.0 + 5.0
+   derivative = (5.0-6.0)/8.0*(4.0+4.0)
+  }
+  myFunc2(x) {
+   function = 5.0 + 5.0
+   derivative = (5.0-6.0)/8.0*(4.0+4.0)
+  }
+  StrongFunction external
+  SecretFunction external
+  sig sigmoid 
+  
+ in {
+  size 10
+ }
+ hidden {
+  size 4
+  activation SecretFunction
+ }
 
-		in {
-			size 10
-		}
+ hidden {
+  size 4
+  activation StrongFunction
+ }
 
-		hidden {
-			size 6
-			learningRule sigmoid
-		}
+ hidden {
+  size 3
+  activation myFunc
+ }
 
-
-		hidden {
-			size 4
-			learningRule SecretFunction external
-		}
-
-		hidden {
-			size 4
-			learningRule StrongFunction external
-		}
-
-		hidden {
-			size 3
-			learningRule myFunc(x) {
-				function = 5.0 + 5.0
-				derivative = (5.0-6.0)/8.0*(4.0+4.0)
-			}
-		}
-
-		out {
-			size 1
-			learningRule sigmoid
-		}
-	}
+ out {
+  size 1
+  activation sig
+ }
 }
