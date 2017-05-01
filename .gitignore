@@ -3,7 +3,11 @@
 /dk.sdu.mdsd.ann/bin/*
 /dk.sdu.mdsd.ann/src-gen/*
 /dk.sdu.mdsd.ann/xtend-gen/*
-/dk.sdu.mdsd.ann.ui/*
-/dk.sdu.mdsd.ann.ui.tests/*
-/dk.sdu.mdsd.ann.ide/*
-/dk.sdu.mdsd.ann.tests/*
+/dk.sdu.mdsd.ann.ui/bin/*
+/dk.sdu.mdsd.ann.ui/src-gen/*
+/dk.sdu.mdsd.ann.ui.tests/bin/*
+/dk.sdu.mdsd.ann.ui.tests/src-gen/*
+/dk.sdu.mdsd.ann.ide/bin/*
+/dk.sdu.mdsd.ann.ide/src-gen/*
+/dk.sdu.mdsd.ann.tests/bin*
+/dk.sdu.mdsd.ann.tests/src-gen*
