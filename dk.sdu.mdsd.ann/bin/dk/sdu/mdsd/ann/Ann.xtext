@@ -1,0 +1,82 @@
+grammar dk.sdu.mdsd.ann.Ann with org.eclipse.xtext.common.Terminals
+
+generate ann "http://www.sdu.dk/mdsd/ann/Ann"
+
+
+ANNModel:
+		name=ID '{' 
+			'alpha' alpha=DECIMAL 
+			'epochs' epochs=INT 
+			Layer+=Layer+  '}'
+;    
+
+DECIMAL:
+ INT '.' INT
+;
+
+Layer:
+	Hidden | Input | Output
+;
+	
+Hidden:
+	'hidden' '{' 
+		'size' size=INT
+		'learningRule' l_rule=LearningRule '}' 
+;
+
+Input:
+	'in' '{' 
+		'size' size=INT '}' 
+;
+
+Output:
+	'out' '{' 
+		'size' size=INT
+		'learningRule' l_rule=LearningRule '}' 
+;
+
+LearningRule:
+	Sigmoid | External | Custom
+;
+
+Sigmoid:
+	rule='sigmoid'
+;
+
+External:
+	name=ID  'external'
+;
+
+Custom:
+	name=ID '(x)''{'
+	'function' '=' exp=Expression
+	'derivative' '=' der=Expression '}'
+;
+
+Expression:
+	Substraction ({Add.left = current} '+' right = Substraction)*
+;
+
+Substraction returns Expression:
+	Multiplication ({Sub.left = current} '-' right = Multiplication)*
+;
+
+Multiplication returns Expression:
+	Division ({Multi.left = current} '*' right = Division)*
+;
+
+Division returns Expression:
+	Primary ({Div.left = current} '/' right = Primary)*
+;
+
+Primary returns Expression:
+	NumberLiteral | Letter | '(' Expression ')'
+;
+
+Letter:
+	value = "x"
+;
+
+NumberLiteral:
+	value = DECIMAL
+;
