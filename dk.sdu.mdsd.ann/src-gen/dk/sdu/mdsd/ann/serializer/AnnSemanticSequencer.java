@@ -360,7 +360,7 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     NumberLiteral returns NumberLiteral
 	 *
 	 * Constraint:
-	 *     (operator=PartOperator? value=DECIMAL)
+	 *     (operator=PartOperator? value=NumberTypes)
 	 */
 	protected void sequence_NumberLiteral(ISerializationContext context, NumberLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

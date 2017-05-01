@@ -113,5 +113,9 @@ FactorOperator:
 
 NumberLiteral:
 	operator = PartOperator?
-	value = DECIMAL
+	value = NumberTypes
+;
+
+NumberTypes:
+	DECIMAL | INT
 ;

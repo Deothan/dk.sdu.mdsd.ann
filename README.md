@@ -9,8 +9,8 @@ An example of the DSL is given below-
 			derivative = -7.0 + (5.0-6.0) / 8.0 * (4.0+4.0)
   		}
   		myFunc2(x) {
-   			function = (5.0 + 5.0) / sin(8.0) 
-			derivative = (5.0-6.0)/8.0*(4.0+4.0) + x
+   			function = (5 + 5) / sin(8) 
+			derivative = (5-6)/8*(4+4) + x 
   		}
   		StrongFunction external
   		SecretFunction external

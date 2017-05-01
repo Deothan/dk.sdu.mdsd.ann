@@ -674,6 +674,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleNumberTypes
+entryRuleNumberTypes
+:
+{ before(grammarAccess.getNumberTypesRule()); }
+	 ruleNumberTypes
+{ after(grammarAccess.getNumberTypesRule()); } 
+	 EOF 
+;
+
+// Rule NumberTypes
+ruleNumberTypes 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getNumberTypesAccess().getAlternatives()); }
+		(rule__NumberTypes__Alternatives)
+		{ after(grammarAccess.getNumberTypesAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Layer__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -848,6 +873,27 @@ rule__FactorOperator__Alternatives
 		{ before(grammarAccess.getFactorOperatorAccess().getSolidusKeyword_1()); }
 		'/'
 		{ after(grammarAccess.getFactorOperatorAccess().getSolidusKeyword_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NumberTypes__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getNumberTypesAccess().getDECIMALParserRuleCall_0()); }
+		ruleDECIMAL
+		{ after(grammarAccess.getNumberTypesAccess().getDECIMALParserRuleCall_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getNumberTypesAccess().getINTTerminalRuleCall_1()); }
+		RULE_INT
+		{ after(grammarAccess.getNumberTypesAccess().getINTTerminalRuleCall_1()); }
 	)
 ;
 finally {
@@ -3628,9 +3674,9 @@ rule__NumberLiteral__ValueAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getNumberLiteralAccess().getValueDECIMALParserRuleCall_1_0()); }
-		ruleDECIMAL
-		{ after(grammarAccess.getNumberLiteralAccess().getValueDECIMALParserRuleCall_1_0()); }
+		{ before(grammarAccess.getNumberLiteralAccess().getValueNumberTypesParserRuleCall_1_0()); }
+		ruleNumberTypes
+		{ after(grammarAccess.getNumberLiteralAccess().getValueNumberTypesParserRuleCall_1_0()); }
 	)
 ;
 finally {

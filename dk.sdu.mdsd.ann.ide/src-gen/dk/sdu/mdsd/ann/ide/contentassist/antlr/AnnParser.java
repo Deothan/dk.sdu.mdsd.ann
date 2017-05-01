@@ -37,6 +37,7 @@ public class AnnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMathAccess().getAlternatives(), "rule__Math__Alternatives");
 					put(grammarAccess.getPartOperatorAccess().getAlternatives(), "rule__PartOperator__Alternatives");
 					put(grammarAccess.getFactorOperatorAccess().getAlternatives(), "rule__FactorOperator__Alternatives");
+					put(grammarAccess.getNumberTypesAccess().getAlternatives(), "rule__NumberTypes__Alternatives");
 					put(grammarAccess.getANNModelAccess().getGroup(), "rule__ANNModel__Group__0");
 					put(grammarAccess.getDECIMALAccess().getGroup(), "rule__DECIMAL__Group__0");
 					put(grammarAccess.getHiddenAccess().getGroup(), "rule__Hidden__Group__0");

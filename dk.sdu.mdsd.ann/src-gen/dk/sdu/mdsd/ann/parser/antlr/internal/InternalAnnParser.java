@@ -1118,6 +1118,11 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
             if ( (LA4_0==RULE_ID) ) {
                 switch ( input.LA(2) ) {
+                case 21:
+                    {
+                    alt4=3;
+                    }
+                    break;
                 case 24:
                     {
                     alt4=4;
@@ -1131,11 +1136,6 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
                 case 23:
                     {
                     alt4=2;
-                    }
-                    break;
-                case 21:
-                    {
-                    alt4=3;
                     }
                     break;
                 default:
@@ -2247,11 +2247,11 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
                 {
                 int LA7_1 = input.LA(2);
 
-                if ( (LA7_1==RULE_INT) ) {
-                    alt7=1;
-                }
-                else if ( (LA7_1==37) ) {
+                if ( (LA7_1==37) ) {
                     alt7=2;
+                }
+                else if ( (LA7_1==RULE_INT) ) {
+                    alt7=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -2265,11 +2265,11 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
                 {
                 int LA7_2 = input.LA(2);
 
-                if ( (LA7_2==37) ) {
-                    alt7=2;
-                }
-                else if ( (LA7_2==RULE_INT) ) {
+                if ( (LA7_2==RULE_INT) ) {
                     alt7=1;
+                }
+                else if ( (LA7_2==37) ) {
+                    alt7=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -3792,7 +3792,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumberLiteral"
-    // InternalAnn.g:1470:1: ruleNumberLiteral returns [EObject current=null] : ( ( (lv_operator_0_0= rulePartOperator ) )? ( (lv_value_1_0= ruleDECIMAL ) ) ) ;
+    // InternalAnn.g:1470:1: ruleNumberLiteral returns [EObject current=null] : ( ( (lv_operator_0_0= rulePartOperator ) )? ( (lv_value_1_0= ruleNumberTypes ) ) ) ;
     public final EObject ruleNumberLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -3805,11 +3805,11 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAnn.g:1476:2: ( ( ( (lv_operator_0_0= rulePartOperator ) )? ( (lv_value_1_0= ruleDECIMAL ) ) ) )
-            // InternalAnn.g:1477:2: ( ( (lv_operator_0_0= rulePartOperator ) )? ( (lv_value_1_0= ruleDECIMAL ) ) )
+            // InternalAnn.g:1476:2: ( ( ( (lv_operator_0_0= rulePartOperator ) )? ( (lv_value_1_0= ruleNumberTypes ) ) ) )
+            // InternalAnn.g:1477:2: ( ( (lv_operator_0_0= rulePartOperator ) )? ( (lv_value_1_0= ruleNumberTypes ) ) )
             {
-            // InternalAnn.g:1477:2: ( ( (lv_operator_0_0= rulePartOperator ) )? ( (lv_value_1_0= ruleDECIMAL ) ) )
-            // InternalAnn.g:1478:3: ( (lv_operator_0_0= rulePartOperator ) )? ( (lv_value_1_0= ruleDECIMAL ) )
+            // InternalAnn.g:1477:2: ( ( (lv_operator_0_0= rulePartOperator ) )? ( (lv_value_1_0= ruleNumberTypes ) ) )
+            // InternalAnn.g:1478:3: ( (lv_operator_0_0= rulePartOperator ) )? ( (lv_value_1_0= ruleNumberTypes ) )
             {
             // InternalAnn.g:1478:3: ( (lv_operator_0_0= rulePartOperator ) )?
             int alt12=2;
@@ -3828,7 +3828,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
                     					newCompositeNode(grammarAccess.getNumberLiteralAccess().getOperatorPartOperatorParserRuleCall_0_0());
                     				
-                    pushFollow(FOLLOW_5);
+                    pushFollow(FOLLOW_27);
                     lv_operator_0_0=rulePartOperator();
 
                     state._fsp--;
@@ -3853,17 +3853,17 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAnn.g:1497:3: ( (lv_value_1_0= ruleDECIMAL ) )
-            // InternalAnn.g:1498:4: (lv_value_1_0= ruleDECIMAL )
+            // InternalAnn.g:1497:3: ( (lv_value_1_0= ruleNumberTypes ) )
+            // InternalAnn.g:1498:4: (lv_value_1_0= ruleNumberTypes )
             {
-            // InternalAnn.g:1498:4: (lv_value_1_0= ruleDECIMAL )
-            // InternalAnn.g:1499:5: lv_value_1_0= ruleDECIMAL
+            // InternalAnn.g:1498:4: (lv_value_1_0= ruleNumberTypes )
+            // InternalAnn.g:1499:5: lv_value_1_0= ruleNumberTypes
             {
 
-            					newCompositeNode(grammarAccess.getNumberLiteralAccess().getValueDECIMALParserRuleCall_1_0());
+            					newCompositeNode(grammarAccess.getNumberLiteralAccess().getValueNumberTypesParserRuleCall_1_0());
             				
             pushFollow(FOLLOW_2);
-            lv_value_1_0=ruleDECIMAL();
+            lv_value_1_0=ruleNumberTypes();
 
             state._fsp--;
 
@@ -3875,7 +3875,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
             						current,
             						"value",
             						lv_value_1_0,
-            						"dk.sdu.mdsd.ann.Ann.DECIMAL");
+            						"dk.sdu.mdsd.ann.Ann.NumberTypes");
             					afterParserOrEnumRuleCall();
             				
 
@@ -3904,6 +3904,140 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
         return current;
     }
     // $ANTLR end "ruleNumberLiteral"
+
+
+    // $ANTLR start "entryRuleNumberTypes"
+    // InternalAnn.g:1520:1: entryRuleNumberTypes returns [String current=null] : iv_ruleNumberTypes= ruleNumberTypes EOF ;
+    public final String entryRuleNumberTypes() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleNumberTypes = null;
+
+
+        try {
+            // InternalAnn.g:1520:51: (iv_ruleNumberTypes= ruleNumberTypes EOF )
+            // InternalAnn.g:1521:2: iv_ruleNumberTypes= ruleNumberTypes EOF
+            {
+             newCompositeNode(grammarAccess.getNumberTypesRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleNumberTypes=ruleNumberTypes();
+
+            state._fsp--;
+
+             current =iv_ruleNumberTypes.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleNumberTypes"
+
+
+    // $ANTLR start "ruleNumberTypes"
+    // InternalAnn.g:1527:1: ruleNumberTypes returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_DECIMAL_0= ruleDECIMAL | this_INT_1= RULE_INT ) ;
+    public final AntlrDatatypeRuleToken ruleNumberTypes() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_INT_1=null;
+        AntlrDatatypeRuleToken this_DECIMAL_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalAnn.g:1533:2: ( (this_DECIMAL_0= ruleDECIMAL | this_INT_1= RULE_INT ) )
+            // InternalAnn.g:1534:2: (this_DECIMAL_0= ruleDECIMAL | this_INT_1= RULE_INT )
+            {
+            // InternalAnn.g:1534:2: (this_DECIMAL_0= ruleDECIMAL | this_INT_1= RULE_INT )
+            int alt13=2;
+            int LA13_0 = input.LA(1);
+
+            if ( (LA13_0==RULE_INT) ) {
+                int LA13_1 = input.LA(2);
+
+                if ( (LA13_1==EOF||LA13_1==14||LA13_1==27||LA13_1==29||LA13_1==36||(LA13_1>=38 && LA13_1<=41)) ) {
+                    alt13=2;
+                }
+                else if ( (LA13_1==15) ) {
+                    alt13=1;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 13, 1, input);
+
+                    throw nvae;
+                }
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 13, 0, input);
+
+                throw nvae;
+            }
+            switch (alt13) {
+                case 1 :
+                    // InternalAnn.g:1535:3: this_DECIMAL_0= ruleDECIMAL
+                    {
+
+                    			newCompositeNode(grammarAccess.getNumberTypesAccess().getDECIMALParserRuleCall_0());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_DECIMAL_0=ruleDECIMAL();
+
+                    state._fsp--;
+
+
+                    			current.merge(this_DECIMAL_0);
+                    		
+
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalAnn.g:1546:3: this_INT_1= RULE_INT
+                    {
+                    this_INT_1=(Token)match(input,RULE_INT,FOLLOW_2); 
+
+                    			current.merge(this_INT_1);
+                    		
+
+                    			newLeafNode(this_INT_1, grammarAccess.getNumberTypesAccess().getINTTerminalRuleCall_1());
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleNumberTypes"
 
     // Delegated rules
 
@@ -3936,5 +4070,6 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000020000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x000000C000000020L});
 
 }

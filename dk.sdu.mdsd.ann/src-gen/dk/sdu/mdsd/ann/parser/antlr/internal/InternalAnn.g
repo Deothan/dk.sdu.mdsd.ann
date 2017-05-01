@@ -1497,9 +1497,9 @@ ruleNumberLiteral returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getNumberLiteralAccess().getValueDECIMALParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getNumberLiteralAccess().getValueNumberTypesParserRuleCall_1_0());
 				}
-				lv_value_1_0=ruleDECIMAL
+				lv_value_1_0=ruleNumberTypes
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getNumberLiteralRule());
@@ -1508,11 +1508,48 @@ ruleNumberLiteral returns [EObject current=null]
 						$current,
 						"value",
 						lv_value_1_0,
-						"dk.sdu.mdsd.ann.Ann.DECIMAL");
+						"dk.sdu.mdsd.ann.Ann.NumberTypes");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleNumberTypes
+entryRuleNumberTypes returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getNumberTypesRule()); }
+	iv_ruleNumberTypes=ruleNumberTypes
+	{ $current=$iv_ruleNumberTypes.current.getText(); }
+	EOF;
+
+// Rule NumberTypes
+ruleNumberTypes returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getNumberTypesAccess().getDECIMALParserRuleCall_0());
+		}
+		this_DECIMAL_0=ruleDECIMAL
+		{
+			$current.merge(this_DECIMAL_0);
+		}
+		{
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		this_INT_1=RULE_INT
+		{
+			$current.merge(this_INT_1);
+		}
+		{
+			newLeafNode(this_INT_1, grammarAccess.getNumberTypesAccess().getINTTerminalRuleCall_1());
+		}
 	)
 ;
 
