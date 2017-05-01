@@ -4,6 +4,7 @@
 package dk.sdu.mdsd.ann.ann.impl;
 
 import dk.sdu.mdsd.ann.ann.ANNModel;
+import dk.sdu.mdsd.ann.ann.Activation;
 import dk.sdu.mdsd.ann.ann.AnnPackage;
 import dk.sdu.mdsd.ann.ann.Layer;
 
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ANNModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ANNModelImpl#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ANNModelImpl#getEpochs <em>Epochs</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ANNModelImpl#getActivation <em>Activation</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ANNModelImpl#getLayer <em>Layer</em>}</li>
  * </ul>
  *
@@ -100,6 +102,16 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
    * @ordered
    */
   protected int epochs = EPOCHS_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getActivation() <em>Activation</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getActivation()
+   * @generated
+   * @ordered
+   */
+  protected EList<Activation> activation;
 
   /**
    * The cached value of the '{@link #getLayer() <em>Layer</em>}' containment reference list.
@@ -206,6 +218,20 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Activation> getActivation()
+  {
+    if (activation == null)
+    {
+      activation = new EObjectContainmentEList<Activation>(Activation.class, this, AnnPackage.ANN_MODEL__ACTIVATION);
+    }
+    return activation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Layer> getLayer()
   {
     if (layer == null)
@@ -225,6 +251,8 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
   {
     switch (featureID)
     {
+      case AnnPackage.ANN_MODEL__ACTIVATION:
+        return ((InternalEList<?>)getActivation()).basicRemove(otherEnd, msgs);
       case AnnPackage.ANN_MODEL__LAYER:
         return ((InternalEList<?>)getLayer()).basicRemove(otherEnd, msgs);
     }
@@ -247,6 +275,8 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
         return getAlpha();
       case AnnPackage.ANN_MODEL__EPOCHS:
         return getEpochs();
+      case AnnPackage.ANN_MODEL__ACTIVATION:
+        return getActivation();
       case AnnPackage.ANN_MODEL__LAYER:
         return getLayer();
     }
@@ -272,6 +302,10 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
         return;
       case AnnPackage.ANN_MODEL__EPOCHS:
         setEpochs((Integer)newValue);
+        return;
+      case AnnPackage.ANN_MODEL__ACTIVATION:
+        getActivation().clear();
+        getActivation().addAll((Collection<? extends Activation>)newValue);
         return;
       case AnnPackage.ANN_MODEL__LAYER:
         getLayer().clear();
@@ -300,6 +334,9 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
       case AnnPackage.ANN_MODEL__EPOCHS:
         setEpochs(EPOCHS_EDEFAULT);
         return;
+      case AnnPackage.ANN_MODEL__ACTIVATION:
+        getActivation().clear();
+        return;
       case AnnPackage.ANN_MODEL__LAYER:
         getLayer().clear();
         return;
@@ -323,6 +360,8 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
         return ALPHA_EDEFAULT == null ? alpha != null : !ALPHA_EDEFAULT.equals(alpha);
       case AnnPackage.ANN_MODEL__EPOCHS:
         return epochs != EPOCHS_EDEFAULT;
+      case AnnPackage.ANN_MODEL__ACTIVATION:
+        return activation != null && !activation.isEmpty();
       case AnnPackage.ANN_MODEL__LAYER:
         return layer != null && !layer.isEmpty();
     }

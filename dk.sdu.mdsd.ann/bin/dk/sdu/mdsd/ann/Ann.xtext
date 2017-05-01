@@ -7,7 +7,8 @@ ANNModel:
 		name=ID '{' 
 			'alpha' alpha=DECIMAL 
 			'epochs' epochs=INT 
-			Layer+=Layer+  '}'
+			Activation+=Activation*
+			Layer+=Layer* '}'
 ;    
 
 DECIMAL:
@@ -21,7 +22,7 @@ Layer:
 Hidden:
 	'hidden' '{' 
 		'size' size=INT
-		'learningRule' l_rule=LearningRule '}' 
+		'activation' l_rule= [Activation] '}' 
 ;
 
 Input:
@@ -32,25 +33,29 @@ Input:
 Output:
 	'out' '{' 
 		'size' size=INT
-		'learningRule' l_rule=LearningRule '}' 
+		'activation' l_rule= [Activation]'}' 
 ;
 
-LearningRule:
-	Sigmoid | External | Custom
-;
-
-Sigmoid:
-	rule='sigmoid'
-;
-
-External:
-	name=ID  'external'
+Activation:
+	Sigmoid | Tansig | External | Custom
 ;
 
 Custom:
 	name=ID '(x)''{'
 	'function' '=' exp=Expression
 	'derivative' '=' der=Expression '}'
+;
+
+External:
+	name=ID 'external'
+;
+
+Sigmoid:
+	name=ID rule='sigmoid'
+;
+
+Tansig:
+	name=ID rule='tansig'
 ;
 
 Expression:

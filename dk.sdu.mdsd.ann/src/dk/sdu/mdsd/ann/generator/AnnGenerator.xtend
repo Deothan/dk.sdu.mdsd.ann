@@ -11,7 +11,6 @@ import dk.sdu.mdsd.ann.ann.ANNModel
 import dk.sdu.mdsd.ann.ann.Hidden
 import dk.sdu.mdsd.ann.ann.Input
 import dk.sdu.mdsd.ann.ann.Output
-import dk.sdu.mdsd.ann.ann.Sigmoid
 import dk.sdu.mdsd.ann.ann.Custom
 import dk.sdu.mdsd.ann.ann.Multi
 import dk.sdu.mdsd.ann.ann.Add
@@ -20,6 +19,8 @@ import dk.sdu.mdsd.ann.ann.Sub
 import dk.sdu.mdsd.ann.ann.Div
 import dk.sdu.mdsd.ann.ann.Letter
 import dk.sdu.mdsd.ann.ann.External
+import dk.sdu.mdsd.ann.ann.Sigmoid
+import dk.sdu.mdsd.ann.ann.Tansig
 
 /**
  * Generates code from your model files on save.
@@ -31,12 +32,14 @@ class AnnGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.filter(typeof(ANNModel)).forEach[generateANNFile(fsa, resource)]
 		resource.allContents.filter(typeof(Custom)).forEach[generateCustomFunctionFile(fsa, resource)]
+		resource.allContents.filter(typeof(Sigmoid)).forEach[generateSigmoid(fsa)]
+		resource.allContents.filter(typeof(Tansig)).forEach[generateTansig(fsa)]
 	}
+	
 	
 	def generateANNFile(ANNModel m, IFileSystemAccess2 access2, Resource resource) {
 		access2.generateFile(m.name+".java", m.generateNetwork)
 		access2.generateFile("ITransfer.java", generateITransfer())
-		access2.generateFile("Sigmoid.java", generateSigmoid())
 		access2.generateFile("Helpers.java",generateHelpers())
 		access2.generateFile("ANN.java",generateJavaANN())
 		access2.generateFile("ITransferFactory.java",m.generateITransferFactory(resource))
@@ -45,8 +48,7 @@ class AnnGenerator extends AbstractGenerator {
 	def generateCustomFunctionFile(Custom c, IFileSystemAccess2 access2, Resource resource) {
 		access2.generateFile(c.name + ".java", c.generateCustomFunction)
 	}
-	
-	
+
 	def generateITransfer() '''
 	public interface ITransfer {
 		double transfer(double x);
@@ -54,6 +56,15 @@ class AnnGenerator extends AbstractGenerator {
 	}
 	'''
 	
+	def generateSigmoid(Sigmoid sig,IFileSystemAccess2 fsa ){
+		fsa.generateFile("Sigmoid.java", generateSigmoid())
+	}
+		
+	
+	def generateTansig(Tansig tan,IFileSystemAccess2 fsa) {
+		fsa.generateFile("Tansig.java", generateTansig())
+	}
+		
 	def generateSigmoid() '''
 	public class Sigmoid implements ITransfer {
 		public double transfer(double x){
@@ -64,6 +75,18 @@ class AnnGenerator extends AbstractGenerator {
 			}
 	}
 	'''
+	
+	def generateTansig() '''
+	public class Tansig implements ITransfer {
+		public double transfer(double x){
+				return 2/(1+Math.exp(-2*n))-1;
+			}
+		public double derivative(double x){
+				return 1-Math.pow(a,2);
+			}
+	}
+	'''
+	
 	def generateHelpers()'''
 	public class Helpers {
 	    public static double dot(double[] a, double[] b) {
@@ -340,12 +363,14 @@ class AnnGenerator extends AbstractGenerator {
 
 	'''
 	
-	def dispatch generateRule(Sigmoid rule)'''new Sigmoid()'''
+	def dispatch generateRule(Sigmoid rule)'''new «rule.rule»()'''
 		
+	def dispatch generateRule(Tansig rule)'''new «rule.rule»()'''
 	
 	def dispatch generateRule(External rule)'''factory.get«rule.name.toFirstUpper»()''' 
 		
 	
 	def dispatch generateRule(Custom rule)'''new «rule.name»()'''
+	
 	
 }

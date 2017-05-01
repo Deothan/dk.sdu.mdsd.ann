@@ -4,6 +4,7 @@
 package dk.sdu.mdsd.ann.ann.impl;
 
 import dk.sdu.mdsd.ann.ann.ANNModel;
+import dk.sdu.mdsd.ann.ann.Activation;
 import dk.sdu.mdsd.ann.ann.Add;
 import dk.sdu.mdsd.ann.ann.AnnFactory;
 import dk.sdu.mdsd.ann.ann.AnnPackage;
@@ -14,13 +15,13 @@ import dk.sdu.mdsd.ann.ann.External;
 import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Layer;
-import dk.sdu.mdsd.ann.ann.LearningRule;
 import dk.sdu.mdsd.ann.ann.Letter;
 import dk.sdu.mdsd.ann.ann.Multi;
 import dk.sdu.mdsd.ann.ann.NumberLiteral;
 import dk.sdu.mdsd.ann.ann.Output;
 import dk.sdu.mdsd.ann.ann.Sigmoid;
 import dk.sdu.mdsd.ann.ann.Sub;
+import dk.sdu.mdsd.ann.ann.Tansig;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -77,14 +78,14 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass learningRuleEClass = null;
+  private EClass activationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass sigmoidEClass = null;
+  private EClass customEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -98,7 +99,14 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass customEClass = null;
+  private EClass sigmoidEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass tansigEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -257,9 +265,19 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getANNModel_Layer()
+  public EReference getANNModel_Activation()
   {
     return (EReference)annModelEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getANNModel_Layer()
+  {
+    return (EReference)annModelEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -337,9 +355,59 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getLearningRule()
+  public EClass getActivation()
   {
-    return learningRuleEClass;
+    return activationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getActivation_Name()
+  {
+    return (EAttribute)activationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCustom()
+  {
+    return customEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCustom_Exp()
+  {
+    return (EReference)customEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCustom_Der()
+  {
+    return (EReference)customEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExternal()
+  {
+    return externalEClass;
   }
 
   /**
@@ -367,9 +435,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getExternal()
+  public EClass getTansig()
   {
-    return externalEClass;
+    return tansigEClass;
   }
 
   /**
@@ -377,49 +445,9 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getExternal_Name()
+  public EAttribute getTansig_Rule()
   {
-    return (EAttribute)externalEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getCustom()
-  {
-    return customEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getCustom_Name()
-  {
-    return (EAttribute)customEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCustom_Exp()
-  {
-    return (EReference)customEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCustom_Der()
-  {
-    return (EReference)customEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)tansigEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -626,6 +654,7 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     createEAttribute(annModelEClass, ANN_MODEL__NAME);
     createEAttribute(annModelEClass, ANN_MODEL__ALPHA);
     createEAttribute(annModelEClass, ANN_MODEL__EPOCHS);
+    createEReference(annModelEClass, ANN_MODEL__ACTIVATION);
     createEReference(annModelEClass, ANN_MODEL__LAYER);
 
     layerEClass = createEClass(LAYER);
@@ -639,18 +668,20 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     outputEClass = createEClass(OUTPUT);
     createEReference(outputEClass, OUTPUT__LRULE);
 
-    learningRuleEClass = createEClass(LEARNING_RULE);
+    activationEClass = createEClass(ACTIVATION);
+    createEAttribute(activationEClass, ACTIVATION__NAME);
+
+    customEClass = createEClass(CUSTOM);
+    createEReference(customEClass, CUSTOM__EXP);
+    createEReference(customEClass, CUSTOM__DER);
+
+    externalEClass = createEClass(EXTERNAL);
 
     sigmoidEClass = createEClass(SIGMOID);
     createEAttribute(sigmoidEClass, SIGMOID__RULE);
 
-    externalEClass = createEClass(EXTERNAL);
-    createEAttribute(externalEClass, EXTERNAL__NAME);
-
-    customEClass = createEClass(CUSTOM);
-    createEAttribute(customEClass, CUSTOM__NAME);
-    createEReference(customEClass, CUSTOM__EXP);
-    createEReference(customEClass, CUSTOM__DER);
+    tansigEClass = createEClass(TANSIG);
+    createEAttribute(tansigEClass, TANSIG__RULE);
 
     expressionEClass = createEClass(EXPRESSION);
 
@@ -709,9 +740,10 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     hiddenEClass.getESuperTypes().add(this.getLayer());
     inputEClass.getESuperTypes().add(this.getLayer());
     outputEClass.getESuperTypes().add(this.getLayer());
-    sigmoidEClass.getESuperTypes().add(this.getLearningRule());
-    externalEClass.getESuperTypes().add(this.getLearningRule());
-    customEClass.getESuperTypes().add(this.getLearningRule());
+    customEClass.getESuperTypes().add(this.getActivation());
+    externalEClass.getESuperTypes().add(this.getActivation());
+    sigmoidEClass.getESuperTypes().add(this.getActivation());
+    tansigEClass.getESuperTypes().add(this.getActivation());
     letterEClass.getESuperTypes().add(this.getExpression());
     numberLiteralEClass.getESuperTypes().add(this.getExpression());
     addEClass.getESuperTypes().add(this.getExpression());
@@ -724,31 +756,34 @@ public class AnnPackageImpl extends EPackageImpl implements AnnPackage
     initEAttribute(getANNModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, ANNModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getANNModel_Alpha(), ecorePackage.getEString(), "alpha", null, 0, 1, ANNModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getANNModel_Epochs(), ecorePackage.getEInt(), "epochs", null, 0, 1, ANNModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getANNModel_Activation(), this.getActivation(), null, "Activation", null, 0, -1, ANNModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getANNModel_Layer(), this.getLayer(), null, "Layer", null, 0, -1, ANNModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(layerEClass, Layer.class, "Layer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLayer_Size(), ecorePackage.getEInt(), "size", null, 0, 1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(hiddenEClass, Hidden.class, "Hidden", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getHidden_L_rule(), this.getLearningRule(), null, "l_rule", null, 0, 1, Hidden.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getHidden_L_rule(), this.getActivation(), null, "l_rule", null, 0, 1, Hidden.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inputEClass, Input.class, "Input", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(outputEClass, Output.class, "Output", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOutput_L_rule(), this.getLearningRule(), null, "l_rule", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOutput_L_rule(), this.getActivation(), null, "l_rule", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(learningRuleEClass, LearningRule.class, "LearningRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(activationEClass, Activation.class, "Activation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getActivation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Activation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(customEClass, Custom.class, "Custom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCustom_Exp(), this.getExpression(), null, "exp", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCustom_Der(), this.getExpression(), null, "der", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(externalEClass, External.class, "External", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(sigmoidEClass, Sigmoid.class, "Sigmoid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSigmoid_Rule(), ecorePackage.getEString(), "rule", null, 0, 1, Sigmoid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(externalEClass, External.class, "External", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getExternal_Name(), ecorePackage.getEString(), "name", null, 0, 1, External.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(customEClass, Custom.class, "Custom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCustom_Name(), ecorePackage.getEString(), "name", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCustom_Exp(), this.getExpression(), null, "exp", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCustom_Der(), this.getExpression(), null, "der", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(tansigEClass, Tansig.class, "Tansig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTansig_Rule(), ecorePackage.getEString(), "rule", null, 0, 1, Tansig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

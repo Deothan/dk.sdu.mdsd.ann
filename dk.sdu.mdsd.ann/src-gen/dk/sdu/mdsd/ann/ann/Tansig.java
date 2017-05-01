@@ -6,21 +6,21 @@ package dk.sdu.mdsd.ann.ann;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Sigmoid</b></em>'.
+ * A representation of the model object '<em><b>Tansig</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dk.sdu.mdsd.ann.ann.Sigmoid#getRule <em>Rule</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.Tansig#getRule <em>Rule</em>}</li>
  * </ul>
  *
- * @see dk.sdu.mdsd.ann.ann.AnnPackage#getSigmoid()
+ * @see dk.sdu.mdsd.ann.ann.AnnPackage#getTansig()
  * @model
  * @generated
  */
-public interface Sigmoid extends Activation
+public interface Tansig extends Activation
 {
   /**
    * Returns the value of the '<em><b>Rule</b></em>' attribute.
@@ -32,14 +32,14 @@ public interface Sigmoid extends Activation
    * <!-- end-user-doc -->
    * @return the value of the '<em>Rule</em>' attribute.
    * @see #setRule(String)
-   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getSigmoid_Rule()
+   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getTansig_Rule()
    * @model
    * @generated
    */
   String getRule();
 
   /**
-   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.Sigmoid#getRule <em>Rule</em>}' attribute.
+   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.Tansig#getRule <em>Rule</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Rule</em>' attribute.
@@ -48,4 +48,4 @@ public interface Sigmoid extends Activation
    */
   void setRule(String value);
 
-} // Sigmoid
+} // Tansig

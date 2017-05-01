@@ -3,48 +3,56 @@
  */
 package dk.sdu.mdsd.ann.ann.impl;
 
-import dk.sdu.mdsd.ann.ann.Activation;
 import dk.sdu.mdsd.ann.ann.AnnPackage;
-import dk.sdu.mdsd.ann.ann.Output;
+import dk.sdu.mdsd.ann.ann.Tansig;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Output</b></em>'.
+ * An implementation of the model object '<em><b>Tansig</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dk.sdu.mdsd.ann.ann.impl.OutputImpl#getL_rule <em>Lrule</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.TansigImpl#getRule <em>Rule</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OutputImpl extends LayerImpl implements Output
+public class TansigImpl extends ActivationImpl implements Tansig
 {
   /**
-   * The cached value of the '{@link #getL_rule() <em>Lrule</em>}' reference.
+   * The default value of the '{@link #getRule() <em>Rule</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getL_rule()
+   * @see #getRule()
    * @generated
    * @ordered
    */
-  protected Activation l_rule;
+  protected static final String RULE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getRule() <em>Rule</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRule()
+   * @generated
+   * @ordered
+   */
+  protected String rule = RULE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected OutputImpl()
+  protected TansigImpl()
   {
     super();
   }
@@ -57,7 +65,7 @@ public class OutputImpl extends LayerImpl implements Output
   @Override
   protected EClass eStaticClass()
   {
-    return AnnPackage.Literals.OUTPUT;
+    return AnnPackage.Literals.TANSIG;
   }
 
   /**
@@ -65,19 +73,9 @@ public class OutputImpl extends LayerImpl implements Output
    * <!-- end-user-doc -->
    * @generated
    */
-  public Activation getL_rule()
+  public String getRule()
   {
-    if (l_rule != null && l_rule.eIsProxy())
-    {
-      InternalEObject oldL_rule = (InternalEObject)l_rule;
-      l_rule = (Activation)eResolveProxy(oldL_rule);
-      if (l_rule != oldL_rule)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnnPackage.OUTPUT__LRULE, oldL_rule, l_rule));
-      }
-    }
-    return l_rule;
+    return rule;
   }
 
   /**
@@ -85,22 +83,12 @@ public class OutputImpl extends LayerImpl implements Output
    * <!-- end-user-doc -->
    * @generated
    */
-  public Activation basicGetL_rule()
+  public void setRule(String newRule)
   {
-    return l_rule;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setL_rule(Activation newL_rule)
-  {
-    Activation oldL_rule = l_rule;
-    l_rule = newL_rule;
+    String oldRule = rule;
+    rule = newRule;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.OUTPUT__LRULE, oldL_rule, l_rule));
+      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.TANSIG__RULE, oldRule, rule));
   }
 
   /**
@@ -113,9 +101,8 @@ public class OutputImpl extends LayerImpl implements Output
   {
     switch (featureID)
     {
-      case AnnPackage.OUTPUT__LRULE:
-        if (resolve) return getL_rule();
-        return basicGetL_rule();
+      case AnnPackage.TANSIG__RULE:
+        return getRule();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -130,8 +117,8 @@ public class OutputImpl extends LayerImpl implements Output
   {
     switch (featureID)
     {
-      case AnnPackage.OUTPUT__LRULE:
-        setL_rule((Activation)newValue);
+      case AnnPackage.TANSIG__RULE:
+        setRule((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -147,8 +134,8 @@ public class OutputImpl extends LayerImpl implements Output
   {
     switch (featureID)
     {
-      case AnnPackage.OUTPUT__LRULE:
-        setL_rule((Activation)null);
+      case AnnPackage.TANSIG__RULE:
+        setRule(RULE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -164,10 +151,27 @@ public class OutputImpl extends LayerImpl implements Output
   {
     switch (featureID)
     {
-      case AnnPackage.OUTPUT__LRULE:
-        return l_rule != null;
+      case AnnPackage.TANSIG__RULE:
+        return RULE_EDEFAULT == null ? rule != null : !RULE_EDEFAULT.equals(rule);
     }
     return super.eIsSet(featureID);
   }
 
-} //OutputImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (rule: ");
+    result.append(rule);
+    result.append(')');
+    return result.toString();
+  }
+
+} //TansigImpl

@@ -23,35 +23,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl#getName <em>Name</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl#getExp <em>Exp</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl#getDer <em>Der</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CustomImpl extends LearningRuleImpl implements Custom
+public class CustomImpl extends ActivationImpl implements Custom
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -91,29 +70,6 @@ public class CustomImpl extends LearningRuleImpl implements Custom
   protected EClass eStaticClass()
   {
     return AnnPackage.Literals.CUSTOM;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.CUSTOM__NAME, oldName, name));
   }
 
   /**
@@ -240,8 +196,6 @@ public class CustomImpl extends LearningRuleImpl implements Custom
   {
     switch (featureID)
     {
-      case AnnPackage.CUSTOM__NAME:
-        return getName();
       case AnnPackage.CUSTOM__EXP:
         return getExp();
       case AnnPackage.CUSTOM__DER:
@@ -260,9 +214,6 @@ public class CustomImpl extends LearningRuleImpl implements Custom
   {
     switch (featureID)
     {
-      case AnnPackage.CUSTOM__NAME:
-        setName((String)newValue);
-        return;
       case AnnPackage.CUSTOM__EXP:
         setExp((Expression)newValue);
         return;
@@ -283,9 +234,6 @@ public class CustomImpl extends LearningRuleImpl implements Custom
   {
     switch (featureID)
     {
-      case AnnPackage.CUSTOM__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case AnnPackage.CUSTOM__EXP:
         setExp((Expression)null);
         return;
@@ -306,31 +254,12 @@ public class CustomImpl extends LearningRuleImpl implements Custom
   {
     switch (featureID)
     {
-      case AnnPackage.CUSTOM__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AnnPackage.CUSTOM__EXP:
         return exp != null;
       case AnnPackage.CUSTOM__DER:
         return der != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //CustomImpl

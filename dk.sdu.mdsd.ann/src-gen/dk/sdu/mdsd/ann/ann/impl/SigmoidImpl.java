@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SigmoidImpl extends LearningRuleImpl implements Sigmoid
+public class SigmoidImpl extends ActivationImpl implements Sigmoid
 {
   /**
    * The default value of the '{@link #getRule() <em>Rule</em>}' attribute.

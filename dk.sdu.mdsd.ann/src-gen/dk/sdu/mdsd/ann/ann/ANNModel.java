@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link dk.sdu.mdsd.ann.ann.ANNModel#getName <em>Name</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.ANNModel#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.ANNModel#getEpochs <em>Epochs</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.ANNModel#getActivation <em>Activation</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.ANNModel#getLayer <em>Layer</em>}</li>
  * </ul>
  *
@@ -105,6 +106,22 @@ public interface ANNModel extends EObject
    * @generated
    */
   void setEpochs(int value);
+
+  /**
+   * Returns the value of the '<em><b>Activation</b></em>' containment reference list.
+   * The list contents are of type {@link dk.sdu.mdsd.ann.ann.Activation}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Activation</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Activation</em>' containment reference list.
+   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getANNModel_Activation()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Activation> getActivation();
 
   /**
    * Returns the value of the '<em><b>Layer</b></em>' containment reference list.

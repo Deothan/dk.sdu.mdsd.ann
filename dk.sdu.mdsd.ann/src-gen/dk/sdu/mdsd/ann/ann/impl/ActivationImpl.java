@@ -5,46 +5,55 @@ package dk.sdu.mdsd.ann.ann.impl;
 
 import dk.sdu.mdsd.ann.ann.Activation;
 import dk.sdu.mdsd.ann.ann.AnnPackage;
-import dk.sdu.mdsd.ann.ann.Output;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Output</b></em>'.
+ * An implementation of the model object '<em><b>Activation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dk.sdu.mdsd.ann.ann.impl.OutputImpl#getL_rule <em>Lrule</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ActivationImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OutputImpl extends LayerImpl implements Output
+public class ActivationImpl extends MinimalEObjectImpl.Container implements Activation
 {
   /**
-   * The cached value of the '{@link #getL_rule() <em>Lrule</em>}' reference.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getL_rule()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected Activation l_rule;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected OutputImpl()
+  protected ActivationImpl()
   {
     super();
   }
@@ -57,7 +66,7 @@ public class OutputImpl extends LayerImpl implements Output
   @Override
   protected EClass eStaticClass()
   {
-    return AnnPackage.Literals.OUTPUT;
+    return AnnPackage.Literals.ACTIVATION;
   }
 
   /**
@@ -65,19 +74,9 @@ public class OutputImpl extends LayerImpl implements Output
    * <!-- end-user-doc -->
    * @generated
    */
-  public Activation getL_rule()
+  public String getName()
   {
-    if (l_rule != null && l_rule.eIsProxy())
-    {
-      InternalEObject oldL_rule = (InternalEObject)l_rule;
-      l_rule = (Activation)eResolveProxy(oldL_rule);
-      if (l_rule != oldL_rule)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnnPackage.OUTPUT__LRULE, oldL_rule, l_rule));
-      }
-    }
-    return l_rule;
+    return name;
   }
 
   /**
@@ -85,22 +84,12 @@ public class OutputImpl extends LayerImpl implements Output
    * <!-- end-user-doc -->
    * @generated
    */
-  public Activation basicGetL_rule()
+  public void setName(String newName)
   {
-    return l_rule;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setL_rule(Activation newL_rule)
-  {
-    Activation oldL_rule = l_rule;
-    l_rule = newL_rule;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.OUTPUT__LRULE, oldL_rule, l_rule));
+      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.ACTIVATION__NAME, oldName, name));
   }
 
   /**
@@ -113,9 +102,8 @@ public class OutputImpl extends LayerImpl implements Output
   {
     switch (featureID)
     {
-      case AnnPackage.OUTPUT__LRULE:
-        if (resolve) return getL_rule();
-        return basicGetL_rule();
+      case AnnPackage.ACTIVATION__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -130,8 +118,8 @@ public class OutputImpl extends LayerImpl implements Output
   {
     switch (featureID)
     {
-      case AnnPackage.OUTPUT__LRULE:
-        setL_rule((Activation)newValue);
+      case AnnPackage.ACTIVATION__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -147,8 +135,8 @@ public class OutputImpl extends LayerImpl implements Output
   {
     switch (featureID)
     {
-      case AnnPackage.OUTPUT__LRULE:
-        setL_rule((Activation)null);
+      case AnnPackage.ACTIVATION__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -164,10 +152,27 @@ public class OutputImpl extends LayerImpl implements Output
   {
     switch (featureID)
     {
-      case AnnPackage.OUTPUT__LRULE:
-        return l_rule != null;
+      case AnnPackage.ACTIVATION__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
 
-} //OutputImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
+  }
+
+} //ActivationImpl

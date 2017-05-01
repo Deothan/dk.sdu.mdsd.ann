@@ -69,22 +69,22 @@ public interface AnnFactory extends EFactory
   Output createOutput();
 
   /**
-   * Returns a new object of class '<em>Learning Rule</em>'.
+   * Returns a new object of class '<em>Activation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Learning Rule</em>'.
+   * @return a new object of class '<em>Activation</em>'.
    * @generated
    */
-  LearningRule createLearningRule();
+  Activation createActivation();
 
   /**
-   * Returns a new object of class '<em>Sigmoid</em>'.
+   * Returns a new object of class '<em>Custom</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sigmoid</em>'.
+   * @return a new object of class '<em>Custom</em>'.
    * @generated
    */
-  Sigmoid createSigmoid();
+  Custom createCustom();
 
   /**
    * Returns a new object of class '<em>External</em>'.
@@ -96,13 +96,22 @@ public interface AnnFactory extends EFactory
   External createExternal();
 
   /**
-   * Returns a new object of class '<em>Custom</em>'.
+   * Returns a new object of class '<em>Sigmoid</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Custom</em>'.
+   * @return a new object of class '<em>Sigmoid</em>'.
    * @generated
    */
-  Custom createCustom();
+  Sigmoid createSigmoid();
+
+  /**
+   * Returns a new object of class '<em>Tansig</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tansig</em>'.
+   * @generated
+   */
+  Tansig createTansig();
 
   /**
    * Returns a new object of class '<em>Expression</em>'.

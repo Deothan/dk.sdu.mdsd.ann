@@ -111,26 +111,10 @@ public class AnnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AnnPackage.LEARNING_RULE:
+      case AnnPackage.ACTIVATION:
       {
-        LearningRule learningRule = (LearningRule)theEObject;
-        T result = caseLearningRule(learningRule);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AnnPackage.SIGMOID:
-      {
-        Sigmoid sigmoid = (Sigmoid)theEObject;
-        T result = caseSigmoid(sigmoid);
-        if (result == null) result = caseLearningRule(sigmoid);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AnnPackage.EXTERNAL:
-      {
-        External external = (External)theEObject;
-        T result = caseExternal(external);
-        if (result == null) result = caseLearningRule(external);
+        Activation activation = (Activation)theEObject;
+        T result = caseActivation(activation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -138,7 +122,31 @@ public class AnnSwitch<T> extends Switch<T>
       {
         Custom custom = (Custom)theEObject;
         T result = caseCustom(custom);
-        if (result == null) result = caseLearningRule(custom);
+        if (result == null) result = caseActivation(custom);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AnnPackage.EXTERNAL:
+      {
+        External external = (External)theEObject;
+        T result = caseExternal(external);
+        if (result == null) result = caseActivation(external);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AnnPackage.SIGMOID:
+      {
+        Sigmoid sigmoid = (Sigmoid)theEObject;
+        T result = caseSigmoid(sigmoid);
+        if (result == null) result = caseActivation(sigmoid);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AnnPackage.TANSIG:
+      {
+        Tansig tansig = (Tansig)theEObject;
+        T result = caseTansig(tansig);
+        if (result == null) result = caseActivation(tansig);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -282,33 +290,33 @@ public class AnnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Learning Rule</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Activation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Learning Rule</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Activation</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseLearningRule(LearningRule object)
+  public T caseActivation(Activation object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Sigmoid</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Custom</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sigmoid</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Custom</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSigmoid(Sigmoid object)
+  public T caseCustom(Custom object)
   {
     return null;
   }
@@ -330,17 +338,33 @@ public class AnnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Custom</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Sigmoid</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Custom</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Sigmoid</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCustom(Custom object)
+  public T caseSigmoid(Sigmoid object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tansig</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tansig</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTansig(Tansig object)
   {
     return null;
   }

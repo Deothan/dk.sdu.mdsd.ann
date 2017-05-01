@@ -5,6 +5,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alpha" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="epochs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Activation" upperBound="-1"
+        eType="#//Activation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Layer" upperBound="-1"
         eType="#//Layer" containment="true"/>
   </eClassifiers>
@@ -12,27 +14,27 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Hidden" eSuperTypes="#//Layer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="l_rule" eType="#//LearningRule"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l_rule" eType="#//Activation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Input" eSuperTypes="#//Layer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Output" eSuperTypes="#//Layer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="l_rule" eType="#//LearningRule"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l_rule" eType="#//Activation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LearningRule"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Sigmoid" eSuperTypes="#//LearningRule">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rule" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="External" eSuperTypes="#//LearningRule">
+  <eClassifiers xsi:type="ecore:EClass" name="Activation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Custom" eSuperTypes="#//LearningRule">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Custom" eSuperTypes="#//Activation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="der" eType="#//Expression"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="External" eSuperTypes="#//Activation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sigmoid" eSuperTypes="#//Activation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rule" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tansig" eSuperTypes="#//Activation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rule" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Letter" eSuperTypes="#//Expression">

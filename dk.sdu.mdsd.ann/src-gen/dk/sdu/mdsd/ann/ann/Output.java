@@ -23,29 +23,29 @@ package dk.sdu.mdsd.ann.ann;
 public interface Output extends Layer
 {
   /**
-   * Returns the value of the '<em><b>Lrule</b></em>' containment reference.
+   * Returns the value of the '<em><b>Lrule</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Lrule</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Lrule</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Lrule</em>' containment reference.
-   * @see #setL_rule(LearningRule)
+   * @return the value of the '<em>Lrule</em>' reference.
+   * @see #setL_rule(Activation)
    * @see dk.sdu.mdsd.ann.ann.AnnPackage#getOutput_L_rule()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  LearningRule getL_rule();
+  Activation getL_rule();
 
   /**
-   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.Output#getL_rule <em>Lrule</em>}' containment reference.
+   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.Output#getL_rule <em>Lrule</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Lrule</em>' containment reference.
+   * @param value the new value of the '<em>Lrule</em>' reference.
    * @see #getL_rule()
    * @generated
    */
-  void setL_rule(LearningRule value);
+  void setL_rule(Activation value);
 
 } // Output

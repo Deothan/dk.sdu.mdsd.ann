@@ -70,10 +70,11 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
       case AnnPackage.HIDDEN: return createHidden();
       case AnnPackage.INPUT: return createInput();
       case AnnPackage.OUTPUT: return createOutput();
-      case AnnPackage.LEARNING_RULE: return createLearningRule();
-      case AnnPackage.SIGMOID: return createSigmoid();
-      case AnnPackage.EXTERNAL: return createExternal();
+      case AnnPackage.ACTIVATION: return createActivation();
       case AnnPackage.CUSTOM: return createCustom();
+      case AnnPackage.EXTERNAL: return createExternal();
+      case AnnPackage.SIGMOID: return createSigmoid();
+      case AnnPackage.TANSIG: return createTansig();
       case AnnPackage.EXPRESSION: return createExpression();
       case AnnPackage.LETTER: return createLetter();
       case AnnPackage.NUMBER_LITERAL: return createNumberLiteral();
@@ -146,10 +147,10 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public LearningRule createLearningRule()
+  public Activation createActivation()
   {
-    LearningRuleImpl learningRule = new LearningRuleImpl();
-    return learningRule;
+    ActivationImpl activation = new ActivationImpl();
+    return activation;
   }
 
   /**
@@ -157,10 +158,10 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Sigmoid createSigmoid()
+  public Custom createCustom()
   {
-    SigmoidImpl sigmoid = new SigmoidImpl();
-    return sigmoid;
+    CustomImpl custom = new CustomImpl();
+    return custom;
   }
 
   /**
@@ -179,10 +180,21 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Custom createCustom()
+  public Sigmoid createSigmoid()
   {
-    CustomImpl custom = new CustomImpl();
-    return custom;
+    SigmoidImpl sigmoid = new SigmoidImpl();
+    return sigmoid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Tansig createTansig()
+  {
+    TansigImpl tansig = new TansigImpl();
+    return tansig;
   }
 
   /**

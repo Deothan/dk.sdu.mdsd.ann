@@ -101,14 +101,14 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
         return createOutputAdapter();
       }
       @Override
-      public Adapter caseLearningRule(LearningRule object)
+      public Adapter caseActivation(Activation object)
       {
-        return createLearningRuleAdapter();
+        return createActivationAdapter();
       }
       @Override
-      public Adapter caseSigmoid(Sigmoid object)
+      public Adapter caseCustom(Custom object)
       {
-        return createSigmoidAdapter();
+        return createCustomAdapter();
       }
       @Override
       public Adapter caseExternal(External object)
@@ -116,9 +116,14 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
         return createExternalAdapter();
       }
       @Override
-      public Adapter caseCustom(Custom object)
+      public Adapter caseSigmoid(Sigmoid object)
       {
-        return createCustomAdapter();
+        return createSigmoidAdapter();
+      }
+      @Override
+      public Adapter caseTansig(Tansig object)
+      {
+        return createTansigAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -253,31 +258,31 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.LearningRule <em>Learning Rule</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Activation <em>Activation</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mdsd.ann.ann.LearningRule
+   * @see dk.sdu.mdsd.ann.ann.Activation
    * @generated
    */
-  public Adapter createLearningRuleAdapter()
+  public Adapter createActivationAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Sigmoid <em>Sigmoid</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Custom <em>Custom</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mdsd.ann.ann.Sigmoid
+   * @see dk.sdu.mdsd.ann.ann.Custom
    * @generated
    */
-  public Adapter createSigmoidAdapter()
+  public Adapter createCustomAdapter()
   {
     return null;
   }
@@ -298,16 +303,31 @@ public class AnnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Custom <em>Custom</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Sigmoid <em>Sigmoid</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mdsd.ann.ann.Custom
+   * @see dk.sdu.mdsd.ann.ann.Sigmoid
    * @generated
    */
-  public Adapter createCustomAdapter()
+  public Adapter createSigmoidAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mdsd.ann.ann.Tansig <em>Tansig</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mdsd.ann.ann.Tansig
+   * @generated
+   */
+  public Adapter createTansigAdapter()
   {
     return null;
   }

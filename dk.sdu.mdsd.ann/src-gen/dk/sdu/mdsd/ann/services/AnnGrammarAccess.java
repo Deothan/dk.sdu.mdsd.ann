@@ -9,6 +9,7 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -35,18 +36,21 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEpochsKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cEpochsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cEpochsINTTerminalRuleCall_5_0 = (RuleCall)cEpochsAssignment_5.eContents().get(0);
-		private final Assignment cLayerAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cLayerLayerParserRuleCall_6_0 = (RuleCall)cLayerAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cActivationAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cActivationActivationParserRuleCall_6_0 = (RuleCall)cActivationAssignment_6.eContents().get(0);
+		private final Assignment cLayerAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cLayerLayerParserRuleCall_7_0 = (RuleCall)cLayerAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//ANNModel:
 		//	name=ID '{'
 		//	'alpha' alpha=DECIMAL
 		//	'epochs' epochs=INT
-		//	Layer+=Layer+ '}';
+		//	Activation+=Activation*
+		//	Layer+=Layer* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID '{' 'alpha' alpha=DECIMAL 'epochs' epochs=INT Layer+=Layer+ '}'
+		//name=ID '{' 'alpha' alpha=DECIMAL 'epochs' epochs=INT Activation+=Activation* Layer+=Layer* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -76,14 +80,20 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getEpochsINTTerminalRuleCall_5_0() { return cEpochsINTTerminalRuleCall_5_0; }
 		
-		//Layer+=Layer+
-		public Assignment getLayerAssignment_6() { return cLayerAssignment_6; }
+		//Activation+=Activation*
+		public Assignment getActivationAssignment_6() { return cActivationAssignment_6; }
+		
+		//Activation
+		public RuleCall getActivationActivationParserRuleCall_6_0() { return cActivationActivationParserRuleCall_6_0; }
+		
+		//Layer+=Layer*
+		public Assignment getLayerAssignment_7() { return cLayerAssignment_7; }
 		
 		//Layer
-		public RuleCall getLayerLayerParserRuleCall_6_0() { return cLayerLayerParserRuleCall_6_0; }
+		public RuleCall getLayerLayerParserRuleCall_7_0() { return cLayerLayerParserRuleCall_7_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class DECIMALElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.DECIMAL");
@@ -139,18 +149,19 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSizeKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cSizeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cSizeINTTerminalRuleCall_3_0 = (RuleCall)cSizeAssignment_3.eContents().get(0);
-		private final Keyword cLearningRuleKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cActivationKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cL_ruleAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cL_ruleLearningRuleParserRuleCall_5_0 = (RuleCall)cL_ruleAssignment_5.eContents().get(0);
+		private final CrossReference cL_ruleActivationCrossReference_5_0 = (CrossReference)cL_ruleAssignment_5.eContents().get(0);
+		private final RuleCall cL_ruleActivationIDTerminalRuleCall_5_0_1 = (RuleCall)cL_ruleActivationCrossReference_5_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Hidden:
 		//	'hidden' '{'
 		//	'size' size=INT
-		//	'learningRule' l_rule=LearningRule '}';
+		//	'activation' l_rule=[Activation] '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'hidden' '{' 'size' size=INT 'learningRule' l_rule=LearningRule '}'
+		//'hidden' '{' 'size' size=INT 'activation' l_rule=[Activation] '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'hidden'
@@ -168,14 +179,17 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getSizeINTTerminalRuleCall_3_0() { return cSizeINTTerminalRuleCall_3_0; }
 		
-		//'learningRule'
-		public Keyword getLearningRuleKeyword_4() { return cLearningRuleKeyword_4; }
+		//'activation'
+		public Keyword getActivationKeyword_4() { return cActivationKeyword_4; }
 		
-		//l_rule=LearningRule
+		//l_rule=[Activation]
 		public Assignment getL_ruleAssignment_5() { return cL_ruleAssignment_5; }
 		
-		//LearningRule
-		public RuleCall getL_ruleLearningRuleParserRuleCall_5_0() { return cL_ruleLearningRuleParserRuleCall_5_0; }
+		//[Activation]
+		public CrossReference getL_ruleActivationCrossReference_5_0() { return cL_ruleActivationCrossReference_5_0; }
+		
+		//ID
+		public RuleCall getL_ruleActivationIDTerminalRuleCall_5_0_1() { return cL_ruleActivationIDTerminalRuleCall_5_0_1; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
@@ -224,18 +238,19 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSizeKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cSizeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cSizeINTTerminalRuleCall_3_0 = (RuleCall)cSizeAssignment_3.eContents().get(0);
-		private final Keyword cLearningRuleKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cActivationKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cL_ruleAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cL_ruleLearningRuleParserRuleCall_5_0 = (RuleCall)cL_ruleAssignment_5.eContents().get(0);
+		private final CrossReference cL_ruleActivationCrossReference_5_0 = (CrossReference)cL_ruleAssignment_5.eContents().get(0);
+		private final RuleCall cL_ruleActivationIDTerminalRuleCall_5_0_1 = (RuleCall)cL_ruleActivationCrossReference_5_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Output:
 		//	'out' '{'
 		//	'size' size=INT
-		//	'learningRule' l_rule=LearningRule '}';
+		//	'activation' l_rule=[Activation] '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'out' '{' 'size' size=INT 'learningRule' l_rule=LearningRule '}'
+		//'out' '{' 'size' size=INT 'activation' l_rule=[Activation] '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'out'
@@ -253,78 +268,47 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getSizeINTTerminalRuleCall_3_0() { return cSizeINTTerminalRuleCall_3_0; }
 		
-		//'learningRule'
-		public Keyword getLearningRuleKeyword_4() { return cLearningRuleKeyword_4; }
+		//'activation'
+		public Keyword getActivationKeyword_4() { return cActivationKeyword_4; }
 		
-		//l_rule=LearningRule
+		//l_rule=[Activation]
 		public Assignment getL_ruleAssignment_5() { return cL_ruleAssignment_5; }
 		
-		//LearningRule
-		public RuleCall getL_ruleLearningRuleParserRuleCall_5_0() { return cL_ruleLearningRuleParserRuleCall_5_0; }
+		//[Activation]
+		public CrossReference getL_ruleActivationCrossReference_5_0() { return cL_ruleActivationCrossReference_5_0; }
+		
+		//ID
+		public RuleCall getL_ruleActivationIDTerminalRuleCall_5_0_1() { return cL_ruleActivationIDTerminalRuleCall_5_0_1; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
-	public class LearningRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.LearningRule");
+	public class ActivationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Activation");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cSigmoidParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cExternalParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cCustomParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cTansigParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cExternalParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCustomParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		//LearningRule:
-		//	Sigmoid | External | Custom;
+		//Activation:
+		//	Sigmoid | Tansig | External | Custom;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Sigmoid | External | Custom
+		//Sigmoid | Tansig | External | Custom
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Sigmoid
 		public RuleCall getSigmoidParserRuleCall_0() { return cSigmoidParserRuleCall_0; }
 		
+		//Tansig
+		public RuleCall getTansigParserRuleCall_1() { return cTansigParserRuleCall_1; }
+		
 		//External
-		public RuleCall getExternalParserRuleCall_1() { return cExternalParserRuleCall_1; }
+		public RuleCall getExternalParserRuleCall_2() { return cExternalParserRuleCall_2; }
 		
 		//Custom
-		public RuleCall getCustomParserRuleCall_2() { return cCustomParserRuleCall_2; }
-	}
-	public class SigmoidElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Sigmoid");
-		private final Assignment cRuleAssignment = (Assignment)rule.eContents().get(1);
-		private final Keyword cRuleSigmoidKeyword_0 = (Keyword)cRuleAssignment.eContents().get(0);
-		
-		//Sigmoid:
-		//	rule='sigmoid';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//rule='sigmoid'
-		public Assignment getRuleAssignment() { return cRuleAssignment; }
-		
-		//'sigmoid'
-		public Keyword getRuleSigmoidKeyword_0() { return cRuleSigmoidKeyword_0; }
-	}
-	public class ExternalElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.External");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Keyword cExternalKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//External:
-		//	name=ID 'external';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//name=ID 'external'
-		public Group getGroup() { return cGroup; }
-		
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
-		
-		//'external'
-		public Keyword getExternalKeyword_1() { return cExternalKeyword_1; }
+		public RuleCall getCustomParserRuleCall_3() { return cCustomParserRuleCall_3; }
 	}
 	public class CustomElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Custom");
@@ -390,6 +374,83 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+	}
+	public class ExternalElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.External");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cExternalKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//External:
+		//	name=ID 'external';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID 'external'
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//'external'
+		public Keyword getExternalKeyword_1() { return cExternalKeyword_1; }
+	}
+	public class SigmoidElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Sigmoid");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Assignment cRuleAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cRuleSigmoidKeyword_1_0 = (Keyword)cRuleAssignment_1.eContents().get(0);
+		
+		//Sigmoid:
+		//	name=ID rule='sigmoid';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID rule='sigmoid'
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//rule='sigmoid'
+		public Assignment getRuleAssignment_1() { return cRuleAssignment_1; }
+		
+		//'sigmoid'
+		public Keyword getRuleSigmoidKeyword_1_0() { return cRuleSigmoidKeyword_1_0; }
+	}
+	public class TansigElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Tansig");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Assignment cRuleAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cRuleTansigKeyword_1_0 = (Keyword)cRuleAssignment_1.eContents().get(0);
+		
+		//Tansig:
+		//	name=ID rule='tansig';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID rule='tansig'
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//rule='tansig'
+		public Assignment getRuleAssignment_1() { return cRuleAssignment_1; }
+		
+		//'tansig'
+		public Keyword getRuleTansigKeyword_1_0() { return cRuleTansigKeyword_1_0; }
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Expression");
@@ -604,10 +665,11 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	private final HiddenElements pHidden;
 	private final InputElements pInput;
 	private final OutputElements pOutput;
-	private final LearningRuleElements pLearningRule;
-	private final SigmoidElements pSigmoid;
-	private final ExternalElements pExternal;
+	private final ActivationElements pActivation;
 	private final CustomElements pCustom;
+	private final ExternalElements pExternal;
+	private final SigmoidElements pSigmoid;
+	private final TansigElements pTansig;
 	private final ExpressionElements pExpression;
 	private final SubstractionElements pSubstraction;
 	private final MultiplicationElements pMultiplication;
@@ -631,10 +693,11 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		this.pHidden = new HiddenElements();
 		this.pInput = new InputElements();
 		this.pOutput = new OutputElements();
-		this.pLearningRule = new LearningRuleElements();
-		this.pSigmoid = new SigmoidElements();
-		this.pExternal = new ExternalElements();
+		this.pActivation = new ActivationElements();
 		this.pCustom = new CustomElements();
+		this.pExternal = new ExternalElements();
+		this.pSigmoid = new SigmoidElements();
+		this.pTansig = new TansigElements();
 		this.pExpression = new ExpressionElements();
 		this.pSubstraction = new SubstractionElements();
 		this.pMultiplication = new MultiplicationElements();
@@ -675,7 +738,8 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	//	name=ID '{'
 	//	'alpha' alpha=DECIMAL
 	//	'epochs' epochs=INT
-	//	Layer+=Layer+ '}';
+	//	Activation+=Activation*
+	//	Layer+=Layer* '}';
 	public ANNModelElements getANNModelAccess() {
 		return pANNModel;
 	}
@@ -707,7 +771,7 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	//Hidden:
 	//	'hidden' '{'
 	//	'size' size=INT
-	//	'learningRule' l_rule=LearningRule '}';
+	//	'activation' l_rule=[Activation] '}';
 	public HiddenElements getHiddenAccess() {
 		return pHidden;
 	}
@@ -730,7 +794,7 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	//Output:
 	//	'out' '{'
 	//	'size' size=INT
-	//	'learningRule' l_rule=LearningRule '}';
+	//	'activation' l_rule=[Activation] '}';
 	public OutputElements getOutputAccess() {
 		return pOutput;
 	}
@@ -739,34 +803,14 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		return getOutputAccess().getRule();
 	}
 	
-	//LearningRule:
-	//	Sigmoid | External | Custom;
-	public LearningRuleElements getLearningRuleAccess() {
-		return pLearningRule;
+	//Activation:
+	//	Sigmoid | Tansig | External | Custom;
+	public ActivationElements getActivationAccess() {
+		return pActivation;
 	}
 	
-	public ParserRule getLearningRuleRule() {
-		return getLearningRuleAccess().getRule();
-	}
-	
-	//Sigmoid:
-	//	rule='sigmoid';
-	public SigmoidElements getSigmoidAccess() {
-		return pSigmoid;
-	}
-	
-	public ParserRule getSigmoidRule() {
-		return getSigmoidAccess().getRule();
-	}
-	
-	//External:
-	//	name=ID 'external';
-	public ExternalElements getExternalAccess() {
-		return pExternal;
-	}
-	
-	public ParserRule getExternalRule() {
-		return getExternalAccess().getRule();
+	public ParserRule getActivationRule() {
+		return getActivationAccess().getRule();
 	}
 	
 	//Custom:
@@ -779,6 +823,36 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getCustomRule() {
 		return getCustomAccess().getRule();
+	}
+	
+	//External:
+	//	name=ID 'external';
+	public ExternalElements getExternalAccess() {
+		return pExternal;
+	}
+	
+	public ParserRule getExternalRule() {
+		return getExternalAccess().getRule();
+	}
+	
+	//Sigmoid:
+	//	name=ID rule='sigmoid';
+	public SigmoidElements getSigmoidAccess() {
+		return pSigmoid;
+	}
+	
+	public ParserRule getSigmoidRule() {
+		return getSigmoidAccess().getRule();
+	}
+	
+	//Tansig:
+	//	name=ID rule='tansig';
+	public TansigElements getTansigAccess() {
+		return pTansig;
+	}
+	
+	public ParserRule getTansigRule() {
+		return getTansigAccess().getRule();
 	}
 	
 	//Expression:

@@ -95,13 +95,22 @@ public interface AnnPackage extends EPackage
   int ANN_MODEL__EPOCHS = 2;
 
   /**
+   * The feature id for the '<em><b>Activation</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANN_MODEL__ACTIVATION = 3;
+
+  /**
    * The feature id for the '<em><b>Layer</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ANN_MODEL__LAYER = 3;
+  int ANN_MODEL__LAYER = 4;
 
   /**
    * The number of structural features of the '<em>ANN Model</em>' class.
@@ -110,7 +119,7 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ANN_MODEL_FEATURE_COUNT = 4;
+  int ANN_MODEL_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.LayerImpl <em>Layer</em>}' class.
@@ -160,7 +169,7 @@ public interface AnnPackage extends EPackage
   int HIDDEN__SIZE = LAYER__SIZE;
 
   /**
-   * The feature id for the '<em><b>Lrule</b></em>' containment reference.
+   * The feature id for the '<em><b>Lrule</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -225,7 +234,7 @@ public interface AnnPackage extends EPackage
   int OUTPUT__SIZE = LAYER__SIZE;
 
   /**
-   * The feature id for the '<em><b>Lrule</b></em>' containment reference.
+   * The feature id for the '<em><b>Lrule</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -243,51 +252,78 @@ public interface AnnPackage extends EPackage
   int OUTPUT_FEATURE_COUNT = LAYER_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.LearningRuleImpl <em>Learning Rule</em>}' class.
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ActivationImpl <em>Activation</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.ann.ann.impl.LearningRuleImpl
-   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getLearningRule()
+   * @see dk.sdu.mdsd.ann.ann.impl.ActivationImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getActivation()
    * @generated
    */
-  int LEARNING_RULE = 5;
+  int ACTIVATION = 5;
 
   /**
-   * The number of structural features of the '<em>Learning Rule</em>' class.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LEARNING_RULE_FEATURE_COUNT = 0;
+  int ACTIVATION__NAME = 0;
 
   /**
-   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.SigmoidImpl <em>Sigmoid</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.ann.ann.impl.SigmoidImpl
-   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSigmoid()
-   * @generated
-   */
-  int SIGMOID = 6;
-
-  /**
-   * The feature id for the '<em><b>Rule</b></em>' attribute.
+   * The number of structural features of the '<em>Activation</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIGMOID__RULE = LEARNING_RULE_FEATURE_COUNT + 0;
+  int ACTIVATION_FEATURE_COUNT = 1;
 
   /**
-   * The number of structural features of the '<em>Sigmoid</em>' class.
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.CustomImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCustom()
+   * @generated
+   */
+  int CUSTOM = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIGMOID_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 1;
+  int CUSTOM__NAME = ACTIVATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CUSTOM__EXP = ACTIVATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Der</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CUSTOM__DER = ACTIVATION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Custom</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CUSTOM_FEATURE_COUNT = ACTIVATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ExternalImpl <em>External</em>}' class.
@@ -306,7 +342,7 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXTERNAL__NAME = LEARNING_RULE_FEATURE_COUNT + 0;
+  int EXTERNAL__NAME = ACTIVATION__NAME;
 
   /**
    * The number of structural features of the '<em>External</em>' class.
@@ -315,17 +351,17 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXTERNAL_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 1;
+  int EXTERNAL_FEATURE_COUNT = ACTIVATION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.SigmoidImpl <em>Sigmoid</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see dk.sdu.mdsd.ann.ann.impl.CustomImpl
-   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCustom()
+   * @see dk.sdu.mdsd.ann.ann.impl.SigmoidImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSigmoid()
    * @generated
    */
-  int CUSTOM = 8;
+  int SIGMOID = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -334,34 +370,62 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CUSTOM__NAME = LEARNING_RULE_FEATURE_COUNT + 0;
+  int SIGMOID__NAME = ACTIVATION__NAME;
 
   /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * The feature id for the '<em><b>Rule</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CUSTOM__EXP = LEARNING_RULE_FEATURE_COUNT + 1;
+  int SIGMOID__RULE = ACTIVATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Der</b></em>' containment reference.
+   * The number of structural features of the '<em>Sigmoid</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CUSTOM__DER = LEARNING_RULE_FEATURE_COUNT + 2;
+  int SIGMOID_FEATURE_COUNT = ACTIVATION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Custom</em>' class.
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.TansigImpl <em>Tansig</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.TansigImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getTansig()
+   * @generated
+   */
+  int TANSIG = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CUSTOM_FEATURE_COUNT = LEARNING_RULE_FEATURE_COUNT + 3;
+  int TANSIG__NAME = ACTIVATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Rule</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TANSIG__RULE = ACTIVATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Tansig</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TANSIG_FEATURE_COUNT = ACTIVATION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -371,7 +435,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 9;
+  int EXPRESSION = 10;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -390,7 +454,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getLetter()
    * @generated
    */
-  int LETTER = 10;
+  int LETTER = 11;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -418,7 +482,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getNumberLiteral()
    * @generated
    */
-  int NUMBER_LITERAL = 11;
+  int NUMBER_LITERAL = 12;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -446,7 +510,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getAdd()
    * @generated
    */
-  int ADD = 12;
+  int ADD = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -483,7 +547,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSub()
    * @generated
    */
-  int SUB = 13;
+  int SUB = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -520,7 +584,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getMulti()
    * @generated
    */
-  int MULTI = 14;
+  int MULTI = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -557,7 +621,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getDiv()
    * @generated
    */
-  int DIV = 15;
+  int DIV = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -631,6 +695,17 @@ public interface AnnPackage extends EPackage
   EAttribute getANNModel_Epochs();
 
   /**
+   * Returns the meta object for the containment reference list '{@link dk.sdu.mdsd.ann.ann.ANNModel#getActivation <em>Activation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Activation</em>'.
+   * @see dk.sdu.mdsd.ann.ann.ANNModel#getActivation()
+   * @see #getANNModel()
+   * @generated
+   */
+  EReference getANNModel_Activation();
+
+  /**
    * Returns the meta object for the containment reference list '{@link dk.sdu.mdsd.ann.ann.ANNModel#getLayer <em>Layer</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -673,10 +748,10 @@ public interface AnnPackage extends EPackage
   EClass getHidden();
 
   /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Hidden#getL_rule <em>Lrule</em>}'.
+   * Returns the meta object for the reference '{@link dk.sdu.mdsd.ann.ann.Hidden#getL_rule <em>Lrule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Lrule</em>'.
+   * @return the meta object for the reference '<em>Lrule</em>'.
    * @see dk.sdu.mdsd.ann.ann.Hidden#getL_rule()
    * @see #getHidden()
    * @generated
@@ -704,10 +779,10 @@ public interface AnnPackage extends EPackage
   EClass getOutput();
 
   /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Output#getL_rule <em>Lrule</em>}'.
+   * Returns the meta object for the reference '{@link dk.sdu.mdsd.ann.ann.Output#getL_rule <em>Lrule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Lrule</em>'.
+   * @return the meta object for the reference '<em>Lrule</em>'.
    * @see dk.sdu.mdsd.ann.ann.Output#getL_rule()
    * @see #getOutput()
    * @generated
@@ -715,14 +790,67 @@ public interface AnnPackage extends EPackage
   EReference getOutput_L_rule();
 
   /**
-   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.LearningRule <em>Learning Rule</em>}'.
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Activation <em>Activation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Learning Rule</em>'.
-   * @see dk.sdu.mdsd.ann.ann.LearningRule
+   * @return the meta object for class '<em>Activation</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Activation
    * @generated
    */
-  EClass getLearningRule();
+  EClass getActivation();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Activation#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Activation#getName()
+   * @see #getActivation()
+   * @generated
+   */
+  EAttribute getActivation_Name();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Custom <em>Custom</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Custom</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Custom
+   * @generated
+   */
+  EClass getCustom();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Custom#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Custom#getExp()
+   * @see #getCustom()
+   * @generated
+   */
+  EReference getCustom_Exp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Custom#getDer <em>Der</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Der</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Custom#getDer()
+   * @see #getCustom()
+   * @generated
+   */
+  EReference getCustom_Der();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.External <em>External</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>External</em>'.
+   * @see dk.sdu.mdsd.ann.ann.External
+   * @generated
+   */
+  EClass getExternal();
 
   /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Sigmoid <em>Sigmoid</em>}'.
@@ -746,68 +874,25 @@ public interface AnnPackage extends EPackage
   EAttribute getSigmoid_Rule();
 
   /**
-   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.External <em>External</em>}'.
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Tansig <em>Tansig</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>External</em>'.
-   * @see dk.sdu.mdsd.ann.ann.External
+   * @return the meta object for class '<em>Tansig</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Tansig
    * @generated
    */
-  EClass getExternal();
+  EClass getTansig();
 
   /**
-   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.External#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Tansig#getRule <em>Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see dk.sdu.mdsd.ann.ann.External#getName()
-   * @see #getExternal()
+   * @return the meta object for the attribute '<em>Rule</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Tansig#getRule()
+   * @see #getTansig()
    * @generated
    */
-  EAttribute getExternal_Name();
-
-  /**
-   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Custom <em>Custom</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Custom</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Custom
-   * @generated
-   */
-  EClass getCustom();
-
-  /**
-   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Custom#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Custom#getName()
-   * @see #getCustom()
-   * @generated
-   */
-  EAttribute getCustom_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Custom#getExp <em>Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Custom#getExp()
-   * @see #getCustom()
-   * @generated
-   */
-  EReference getCustom_Exp();
-
-  /**
-   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Custom#getDer <em>Der</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Der</em>'.
-   * @see dk.sdu.mdsd.ann.ann.Custom#getDer()
-   * @see #getCustom()
-   * @generated
-   */
-  EReference getCustom_Der();
+  EAttribute getTansig_Rule();
 
   /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Expression <em>Expression</em>}'.
@@ -1047,6 +1132,14 @@ public interface AnnPackage extends EPackage
     EAttribute ANN_MODEL__EPOCHS = eINSTANCE.getANNModel_Epochs();
 
     /**
+     * The meta object literal for the '<em><b>Activation</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ANN_MODEL__ACTIVATION = eINSTANCE.getANNModel_Activation();
+
+    /**
      * The meta object literal for the '<em><b>Layer</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1083,7 +1176,7 @@ public interface AnnPackage extends EPackage
     EClass HIDDEN = eINSTANCE.getHidden();
 
     /**
-     * The meta object literal for the '<em><b>Lrule</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Lrule</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1111,7 +1204,7 @@ public interface AnnPackage extends EPackage
     EClass OUTPUT = eINSTANCE.getOutput();
 
     /**
-     * The meta object literal for the '<em><b>Lrule</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Lrule</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1119,14 +1212,58 @@ public interface AnnPackage extends EPackage
     EReference OUTPUT__LRULE = eINSTANCE.getOutput_L_rule();
 
     /**
-     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.LearningRuleImpl <em>Learning Rule</em>}' class.
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ActivationImpl <em>Activation</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see dk.sdu.mdsd.ann.ann.impl.LearningRuleImpl
-     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getLearningRule()
+     * @see dk.sdu.mdsd.ann.ann.impl.ActivationImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getActivation()
      * @generated
      */
-    EClass LEARNING_RULE = eINSTANCE.getLearningRule();
+    EClass ACTIVATION = eINSTANCE.getActivation();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTIVATION__NAME = eINSTANCE.getActivation_Name();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.CustomImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCustom()
+     * @generated
+     */
+    EClass CUSTOM = eINSTANCE.getCustom();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CUSTOM__EXP = eINSTANCE.getCustom_Exp();
+
+    /**
+     * The meta object literal for the '<em><b>Der</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CUSTOM__DER = eINSTANCE.getCustom_Der();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ExternalImpl <em>External</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.ExternalImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getExternal()
+     * @generated
+     */
+    EClass EXTERNAL = eINSTANCE.getExternal();
 
     /**
      * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.SigmoidImpl <em>Sigmoid</em>}' class.
@@ -1147,56 +1284,22 @@ public interface AnnPackage extends EPackage
     EAttribute SIGMOID__RULE = eINSTANCE.getSigmoid_Rule();
 
     /**
-     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ExternalImpl <em>External</em>}' class.
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.TansigImpl <em>Tansig</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see dk.sdu.mdsd.ann.ann.impl.ExternalImpl
-     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getExternal()
+     * @see dk.sdu.mdsd.ann.ann.impl.TansigImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getTansig()
      * @generated
      */
-    EClass EXTERNAL = eINSTANCE.getExternal();
+    EClass TANSIG = eINSTANCE.getTansig();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Rule</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXTERNAL__NAME = eINSTANCE.getExternal_Name();
-
-    /**
-     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.CustomImpl <em>Custom</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see dk.sdu.mdsd.ann.ann.impl.CustomImpl
-     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCustom()
-     * @generated
-     */
-    EClass CUSTOM = eINSTANCE.getCustom();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CUSTOM__NAME = eINSTANCE.getCustom_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CUSTOM__EXP = eINSTANCE.getCustom_Exp();
-
-    /**
-     * The meta object literal for the '<em><b>Der</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CUSTOM__DER = eINSTANCE.getCustom_Der();
+    EAttribute TANSIG__RULE = eINSTANCE.getTansig_Rule();
 
     /**
      * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ExpressionImpl <em>Expression</em>}' class.
