@@ -342,10 +342,10 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRuleSigmoidKeyword_1_0 = (Keyword)cRuleAssignment_1.eContents().get(0);
 		
 		//Sigmoid:
-		//	name=ID rule='sigmoid';
+		//	name=ID rule='Sigmoid';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID rule='sigmoid'
+		//name=ID rule='Sigmoid'
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -354,10 +354,10 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
-		//rule='sigmoid'
+		//rule='Sigmoid'
 		public Assignment getRuleAssignment_1() { return cRuleAssignment_1; }
 		
-		//'sigmoid'
+		//'Sigmoid'
 		public Keyword getRuleSigmoidKeyword_1_0() { return cRuleSigmoidKeyword_1_0; }
 	}
 	public class TansigElements extends AbstractParserRuleElementFinder {
@@ -369,10 +369,10 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRuleTansigKeyword_1_0 = (Keyword)cRuleAssignment_1.eContents().get(0);
 		
 		//Tansig:
-		//	name=ID rule='tansig';
+		//	name=ID rule='Tansig';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID rule='tansig'
+		//name=ID rule='Tansig'
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -381,10 +381,10 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
-		//rule='tansig'
+		//rule='Tansig'
 		public Assignment getRuleAssignment_1() { return cRuleAssignment_1; }
 		
-		//'tansig'
+		//'Tansig'
 		public Keyword getRuleTansigKeyword_1_0() { return cRuleTansigKeyword_1_0; }
 	}
 	public class CustomElements extends AbstractParserRuleElementFinder {
@@ -1053,7 +1053,7 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Sigmoid:
-	//	name=ID rule='sigmoid';
+	//	name=ID rule='Sigmoid';
 	public SigmoidElements getSigmoidAccess() {
 		return pSigmoid;
 	}
@@ -1063,7 +1063,7 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Tansig:
-	//	name=ID rule='tansig';
+	//	name=ID rule='Tansig';
 	public TansigElements getTansigAccess() {
 		return pTansig;
 	}

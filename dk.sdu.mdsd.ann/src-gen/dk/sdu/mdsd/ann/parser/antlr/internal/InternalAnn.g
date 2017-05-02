@@ -595,7 +595,7 @@ ruleSigmoid returns [EObject current=null]
 		)
 		(
 			(
-				lv_rule_1_0='sigmoid'
+				lv_rule_1_0='Sigmoid'
 				{
 					newLeafNode(lv_rule_1_0, grammarAccess.getSigmoidAccess().getRuleSigmoidKeyword_1_0());
 				}
@@ -603,7 +603,7 @@ ruleSigmoid returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getSigmoidRule());
 					}
-					setWithLastConsumed($current, "rule", lv_rule_1_0, "sigmoid");
+					setWithLastConsumed($current, "rule", lv_rule_1_0, "Sigmoid");
 				}
 			)
 		)
@@ -646,7 +646,7 @@ ruleTansig returns [EObject current=null]
 		)
 		(
 			(
-				lv_rule_1_0='tansig'
+				lv_rule_1_0='Tansig'
 				{
 					newLeafNode(lv_rule_1_0, grammarAccess.getTansigAccess().getRuleTansigKeyword_1_0());
 				}
@@ -654,7 +654,7 @@ ruleTansig returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getTansigRule());
 					}
-					setWithLastConsumed($current, "rule", lv_rule_1_0, "tansig");
+					setWithLastConsumed($current, "rule", lv_rule_1_0, "Tansig");
 				}
 			)
 		)

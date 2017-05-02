@@ -3319,7 +3319,7 @@ rule__Sigmoid__RuleAssignment_1
 		{ before(grammarAccess.getSigmoidAccess().getRuleSigmoidKeyword_1_0()); }
 		(
 			{ before(grammarAccess.getSigmoidAccess().getRuleSigmoidKeyword_1_0()); }
-			'sigmoid'
+			'Sigmoid'
 			{ after(grammarAccess.getSigmoidAccess().getRuleSigmoidKeyword_1_0()); }
 		)
 		{ after(grammarAccess.getSigmoidAccess().getRuleSigmoidKeyword_1_0()); }
@@ -3353,7 +3353,7 @@ rule__Tansig__RuleAssignment_1
 		{ before(grammarAccess.getTansigAccess().getRuleTansigKeyword_1_0()); }
 		(
 			{ before(grammarAccess.getTansigAccess().getRuleTansigKeyword_1_0()); }
-			'tansig'
+			'Tansig'
 			{ after(grammarAccess.getTansigAccess().getRuleTansigKeyword_1_0()); }
 		)
 		{ after(grammarAccess.getTansigAccess().getRuleTansigKeyword_1_0()); }

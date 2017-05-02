@@ -422,7 +422,7 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Sigmoid returns Sigmoid
 	 *
 	 * Constraint:
-	 *     (name=ID rule='sigmoid')
+	 *     (name=ID rule='Sigmoid')
 	 */
 	protected void sequence_Sigmoid(ISerializationContext context, Sigmoid semanticObject) {
 		if (errorAcceptor != null) {
@@ -492,7 +492,7 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Tansig returns Tansig
 	 *
 	 * Constraint:
-	 *     (name=ID rule='tansig')
+	 *     (name=ID rule='Tansig')
 	 */
 	protected void sequence_Tansig(ISerializationContext context, Tansig semanticObject) {
 		if (errorAcceptor != null) {

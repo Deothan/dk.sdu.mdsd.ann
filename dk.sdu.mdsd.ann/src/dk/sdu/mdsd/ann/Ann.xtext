@@ -45,11 +45,11 @@ External:
 ;
 
 Sigmoid:
-	name=ID rule='sigmoid'
+	name=ID rule='Sigmoid'
 ;
 
 Tansig:
-	name=ID rule='tansig'
+	name=ID rule='Tansig'
 ;
 
 Custom:

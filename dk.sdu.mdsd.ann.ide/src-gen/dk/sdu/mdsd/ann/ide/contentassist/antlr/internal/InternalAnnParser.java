@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAnnParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'+'", "'-'", "'*'", "'/'", "'{'", "'alpha'", "'epochs'", "'}'", "'.'", "'hidden'", "'size'", "'activation'", "'in'", "'out'", "'external'", "'(x)'", "'function'", "'='", "'derivative'", "'('", "')'", "'e('", "'nlog('", "'sin('", "'cos('", "'sqrt('", "'pow('", "','", "'sigmoid'", "'tansig'", "'x'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'+'", "'-'", "'*'", "'/'", "'{'", "'alpha'", "'epochs'", "'}'", "'.'", "'hidden'", "'size'", "'activation'", "'in'", "'out'", "'external'", "'(x)'", "'function'", "'='", "'derivative'", "'('", "')'", "'e('", "'nlog('", "'sin('", "'cos('", "'sqrt('", "'pow('", "','", "'Sigmoid'", "'Tansig'", "'x'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -9890,21 +9890,21 @@ public class InternalAnnParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sigmoid__RuleAssignment_1"
-    // InternalAnn.g:3313:1: rule__Sigmoid__RuleAssignment_1 : ( ( 'sigmoid' ) ) ;
+    // InternalAnn.g:3313:1: rule__Sigmoid__RuleAssignment_1 : ( ( 'Sigmoid' ) ) ;
     public final void rule__Sigmoid__RuleAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnn.g:3317:1: ( ( ( 'sigmoid' ) ) )
-            // InternalAnn.g:3318:2: ( ( 'sigmoid' ) )
+            // InternalAnn.g:3317:1: ( ( ( 'Sigmoid' ) ) )
+            // InternalAnn.g:3318:2: ( ( 'Sigmoid' ) )
             {
-            // InternalAnn.g:3318:2: ( ( 'sigmoid' ) )
-            // InternalAnn.g:3319:3: ( 'sigmoid' )
+            // InternalAnn.g:3318:2: ( ( 'Sigmoid' ) )
+            // InternalAnn.g:3319:3: ( 'Sigmoid' )
             {
              before(grammarAccess.getSigmoidAccess().getRuleSigmoidKeyword_1_0()); 
-            // InternalAnn.g:3320:3: ( 'sigmoid' )
-            // InternalAnn.g:3321:4: 'sigmoid'
+            // InternalAnn.g:3320:3: ( 'Sigmoid' )
+            // InternalAnn.g:3321:4: 'Sigmoid'
             {
              before(grammarAccess.getSigmoidAccess().getRuleSigmoidKeyword_1_0()); 
             match(input,39,FOLLOW_2); 
@@ -9972,21 +9972,21 @@ public class InternalAnnParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Tansig__RuleAssignment_1"
-    // InternalAnn.g:3347:1: rule__Tansig__RuleAssignment_1 : ( ( 'tansig' ) ) ;
+    // InternalAnn.g:3347:1: rule__Tansig__RuleAssignment_1 : ( ( 'Tansig' ) ) ;
     public final void rule__Tansig__RuleAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnn.g:3351:1: ( ( ( 'tansig' ) ) )
-            // InternalAnn.g:3352:2: ( ( 'tansig' ) )
+            // InternalAnn.g:3351:1: ( ( ( 'Tansig' ) ) )
+            // InternalAnn.g:3352:2: ( ( 'Tansig' ) )
             {
-            // InternalAnn.g:3352:2: ( ( 'tansig' ) )
-            // InternalAnn.g:3353:3: ( 'tansig' )
+            // InternalAnn.g:3352:2: ( ( 'Tansig' ) )
+            // InternalAnn.g:3353:3: ( 'Tansig' )
             {
              before(grammarAccess.getTansigAccess().getRuleTansigKeyword_1_0()); 
-            // InternalAnn.g:3354:3: ( 'tansig' )
-            // InternalAnn.g:3355:4: 'tansig'
+            // InternalAnn.g:3354:3: ( 'Tansig' )
+            // InternalAnn.g:3355:4: 'Tansig'
             {
              before(grammarAccess.getTansigAccess().getRuleTansigKeyword_1_0()); 
             match(input,40,FOLLOW_2); 

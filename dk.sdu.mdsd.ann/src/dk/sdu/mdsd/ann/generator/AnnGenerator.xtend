@@ -43,17 +43,18 @@ class AnnGenerator extends AbstractGenerator {
 	
 	def generateANNFile(ANNModel m, IFileSystemAccess2 access2, Resource resource) {
 		access2.generateFile(m.name+".java", m.generateNetwork)
-		access2.generateFile("ITransfer.java", generateITransfer())
-		access2.generateFile("Helpers.java",generateHelpers())
-		access2.generateFile("ANN.java",generateJavaANN())
-		access2.generateFile("ITransferFactory.java",m.generateITransferFactory(resource))
+		access2.generateFile("transfers/ITransfer.java", generateITransfer())
+		access2.generateFile("helpers/Helpers.java",generateHelpers())
+		access2.generateFile("ann/ANN.java",generateJavaANN())
+		access2.generateFile("transfers/ITransferFactory.java",m.generateITransferFactory(resource))
 	}
 	
 	def generateCustomFunctionFile(Custom c, IFileSystemAccess2 access2, Resource resource) {
-		access2.generateFile(c.name + ".java", c.generateCustomFunction)
+		access2.generateFile("transfers/"+c.name + ".java", c.generateCustomFunction)
 	}
 
 	def generateITransfer() '''
+	package transfers;
 	public interface ITransfer {
 		double transfer(double x);
 		double derivative(double x);
@@ -61,15 +62,16 @@ class AnnGenerator extends AbstractGenerator {
 	'''
 	
 	def generateSigmoid(Sigmoid sig,IFileSystemAccess2 fsa ){
-		fsa.generateFile("Sigmoid.java", generateSigmoid())
+		fsa.generateFile("transfers/Sigmoid.java", generateSigmoid())
 	}
 		
 	
 	def generateTansig(Tansig tan,IFileSystemAccess2 fsa) {
-		fsa.generateFile("Tansig.java", generateTansig())
+		fsa.generateFile("transfers/Tansig.java", generateTansig())
 	}
 		
 	def generateSigmoid() '''
+	package transfers;
 	public class Sigmoid implements ITransfer {
 		public double transfer(double x){
 				return (1 / (1 + Math.exp(x)));		
@@ -81,6 +83,7 @@ class AnnGenerator extends AbstractGenerator {
 	'''
 	
 	def generateTansig() '''
+	package transfers;
 	public class Tansig implements ITransfer {
 		public double transfer(double x){
 				return 2/(1+Math.exp(-2*n))-1;
@@ -92,6 +95,7 @@ class AnnGenerator extends AbstractGenerator {
 	'''
 	
 	def generateHelpers()'''
+	package helpers;
 	public class Helpers {
 	    public static double dot(double[] a, double[] b) {
 	        int n = a.length;
@@ -118,10 +122,13 @@ class AnnGenerator extends AbstractGenerator {
 	'''
 	
 	def generateJavaANN() '''
+	package ann;
 	import java.util.ArrayList;
+	import transfers.*;
+	import helpers.*;
 
 	public class ANN {
-	    int[] l_size;
+	    Integer[] l_size;
 	    double[][] layers;
 	    ArrayList<double[][]> weights;
 	    double[][] errors;
@@ -131,7 +138,7 @@ class AnnGenerator extends AbstractGenerator {
 	    int[] y;
 	    double alpha;
 	    int epochs;
-	    public ANN(int[] sizes, ArrayList<ITransfer> transfers, double alpha, int epochs, ArrayList<double[]> input, int[] y) {
+	    public ANN(Integer[] sizes, ArrayList<ITransfer> transfers, double alpha, int epochs, ArrayList<double[]> input, int[] y) {
 	        this.weights = new ArrayList<>();
 	        this.layers = new double[sizes.length - 1][];
 	        this.deltas = new double[sizes.length][];
@@ -251,6 +258,7 @@ class AnnGenerator extends AbstractGenerator {
 	'''
 	
 	def CharSequence generateITransferFactory(ANNModel model, Resource resource) '''
+	package transfers;
 	public interface ITransferFactory {
 		«FOR l: model.layer»
 		«if(l instanceof Hidden){
@@ -268,28 +276,33 @@ class AnnGenerator extends AbstractGenerator {
 	
 	def CharSequence generateNetwork(ANNModel model) '''
 	import java.util.*;
+	import transfers.*;
+	import ann.*;
+
 
 	public class «model.name» {
 		private double alpha = «model.alpha»;
 		private int epochs = «model.epochs»;
-		private List<Double> layers;
-		private List<ITransfer> transfers;
+		private ArrayList<Integer> layers;
+		private ArrayList<ITransfer> transfers;
+		private ANN ann;
 		
 		public «model.name»(ITransferFactory factory) {
 			layers = new ArrayList<>();
 			transfers = new ArrayList<>();
 			init(factory);
+			run();
 		}
 		
-		public Double[] getLayers() {
-			return (Double[])this.layers.toArray();
+		public Integer[] getLayers() {
+			return (Integer[])this.layers.toArray();
 		}
 		
-		public String[] getTransfers() {
-			return (String[])this.transfers.toArray();
+		public ArrayList<ITransfer> getTransfers() {
+			return this.transfers;
 		}
 	
-		public void addLayerWithTransfer(double size, ITransfer transfer) {
+		public void addLayerWithTransfer(int size, ITransfer transfer) {
 			if(transfer == null) {
 				this.layers.add(size);
 			} else {
@@ -318,11 +331,27 @@ class AnnGenerator extends AbstractGenerator {
 			«FOR l: model.layer»
 			«l.generateLayer»
 			«ENDFOR»
+			
+			ArrayList<double[]> inputs = new ArrayList<>();
+			        inputs.add(new double[]{0,1});
+			        inputs.add(new double[]{0,1});
+			        inputs.add(new double[]{1,0});
+			        inputs.add(new double[]{1,0});
+			        int[] y = new int[]{0,0,1,1};
+			        
+			this.ann = new ANN(getLayers(),getTransfers(),getAlpha(),getEpochs(),inputs,y);
 		}
+		
+		private void run(){
+			this.ann.run();
+		}
+		
+		
 	}
 	'''
 	
 	def CharSequence generateCustomFunction(Custom customFunction) '''
+	package transfers;
 	public class «customFunction.name» implements ITransfer {
 		
 		public double transfer(double x) {

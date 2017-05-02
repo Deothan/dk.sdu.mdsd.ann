@@ -8,6 +8,8 @@
 '.'=19
 '/'=14
 '='=28
+'Sigmoid'=39
+'Tansig'=40
 'activation'=22
 'alpha'=16
 'cos('=35
@@ -21,11 +23,9 @@
 'nlog('=33
 'out'=24
 'pow('=37
-'sigmoid'=39
 'sin('=34
 'size'=21
 'sqrt('=36
-'tansig'=40
 'x'=41
 '{'=15
 '}'=18

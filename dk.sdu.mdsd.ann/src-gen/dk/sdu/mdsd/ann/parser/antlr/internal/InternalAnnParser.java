@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAnnParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'{'", "'alpha'", "'epochs'", "'}'", "'.'", "'hidden'", "'size'", "'activation'", "'in'", "'out'", "'external'", "'sigmoid'", "'tansig'", "'(x)'", "'function'", "'='", "'derivative'", "'('", "')'", "'e('", "'nlog('", "'sin('", "'cos('", "'sqrt('", "'pow('", "','", "'x'", "'+'", "'-'", "'*'", "'/'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'{'", "'alpha'", "'epochs'", "'}'", "'.'", "'hidden'", "'size'", "'activation'", "'in'", "'out'", "'external'", "'Sigmoid'", "'Tansig'", "'(x)'", "'function'", "'='", "'derivative'", "'('", "')'", "'e('", "'nlog('", "'sin('", "'cos('", "'sqrt('", "'pow('", "','", "'x'", "'+'", "'-'", "'*'", "'/'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -1390,7 +1390,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSigmoid"
-    // InternalAnn.g:570:1: ruleSigmoid returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'sigmoid' ) ) ) ;
+    // InternalAnn.g:570:1: ruleSigmoid returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'Sigmoid' ) ) ) ;
     public final EObject ruleSigmoid() throws RecognitionException {
         EObject current = null;
 
@@ -1401,11 +1401,11 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAnn.g:576:2: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'sigmoid' ) ) ) )
-            // InternalAnn.g:577:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'sigmoid' ) ) )
+            // InternalAnn.g:576:2: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'Sigmoid' ) ) ) )
+            // InternalAnn.g:577:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'Sigmoid' ) ) )
             {
-            // InternalAnn.g:577:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'sigmoid' ) ) )
-            // InternalAnn.g:578:3: ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'sigmoid' ) )
+            // InternalAnn.g:577:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'Sigmoid' ) ) )
+            // InternalAnn.g:578:3: ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'Sigmoid' ) )
             {
             // InternalAnn.g:578:3: ( (lv_name_0_0= RULE_ID ) )
             // InternalAnn.g:579:4: (lv_name_0_0= RULE_ID )
@@ -1433,11 +1433,11 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAnn.g:596:3: ( (lv_rule_1_0= 'sigmoid' ) )
-            // InternalAnn.g:597:4: (lv_rule_1_0= 'sigmoid' )
+            // InternalAnn.g:596:3: ( (lv_rule_1_0= 'Sigmoid' ) )
+            // InternalAnn.g:597:4: (lv_rule_1_0= 'Sigmoid' )
             {
-            // InternalAnn.g:597:4: (lv_rule_1_0= 'sigmoid' )
-            // InternalAnn.g:598:5: lv_rule_1_0= 'sigmoid'
+            // InternalAnn.g:597:4: (lv_rule_1_0= 'Sigmoid' )
+            // InternalAnn.g:598:5: lv_rule_1_0= 'Sigmoid'
             {
             lv_rule_1_0=(Token)match(input,22,FOLLOW_2); 
 
@@ -1447,7 +1447,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
             					if (current==null) {
             						current = createModelElement(grammarAccess.getSigmoidRule());
             					}
-            					setWithLastConsumed(current, "rule", lv_rule_1_0, "sigmoid");
+            					setWithLastConsumed(current, "rule", lv_rule_1_0, "Sigmoid");
             				
 
             }
@@ -1514,7 +1514,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTansig"
-    // InternalAnn.g:621:1: ruleTansig returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'tansig' ) ) ) ;
+    // InternalAnn.g:621:1: ruleTansig returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'Tansig' ) ) ) ;
     public final EObject ruleTansig() throws RecognitionException {
         EObject current = null;
 
@@ -1525,11 +1525,11 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAnn.g:627:2: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'tansig' ) ) ) )
-            // InternalAnn.g:628:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'tansig' ) ) )
+            // InternalAnn.g:627:2: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'Tansig' ) ) ) )
+            // InternalAnn.g:628:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'Tansig' ) ) )
             {
-            // InternalAnn.g:628:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'tansig' ) ) )
-            // InternalAnn.g:629:3: ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'tansig' ) )
+            // InternalAnn.g:628:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'Tansig' ) ) )
+            // InternalAnn.g:629:3: ( (lv_name_0_0= RULE_ID ) ) ( (lv_rule_1_0= 'Tansig' ) )
             {
             // InternalAnn.g:629:3: ( (lv_name_0_0= RULE_ID ) )
             // InternalAnn.g:630:4: (lv_name_0_0= RULE_ID )
@@ -1557,11 +1557,11 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAnn.g:647:3: ( (lv_rule_1_0= 'tansig' ) )
-            // InternalAnn.g:648:4: (lv_rule_1_0= 'tansig' )
+            // InternalAnn.g:647:3: ( (lv_rule_1_0= 'Tansig' ) )
+            // InternalAnn.g:648:4: (lv_rule_1_0= 'Tansig' )
             {
-            // InternalAnn.g:648:4: (lv_rule_1_0= 'tansig' )
-            // InternalAnn.g:649:5: lv_rule_1_0= 'tansig'
+            // InternalAnn.g:648:4: (lv_rule_1_0= 'Tansig' )
+            // InternalAnn.g:649:5: lv_rule_1_0= 'Tansig'
             {
             lv_rule_1_0=(Token)match(input,23,FOLLOW_2); 
 
@@ -1571,7 +1571,7 @@ public class InternalAnnParser extends AbstractInternalAntlrParser {
             					if (current==null) {
             						current = createModelElement(grammarAccess.getTansigRule());
             					}
-            					setWithLastConsumed(current, "rule", lv_rule_1_0, "tansig");
+            					setWithLastConsumed(current, "rule", lv_rule_1_0, "Tansig");
             				
 
             }
