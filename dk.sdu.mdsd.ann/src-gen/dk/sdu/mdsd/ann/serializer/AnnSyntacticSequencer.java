@@ -63,7 +63,7 @@ public class AnnSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'sqrt(' value=Expression
 	 *     (rule start) (ambiguity) operator=PartOperator
 	 *     (rule start) (ambiguity) value='x'
-	 *     (rule start) (ambiguity) value=DECIMAL
+	 *     (rule start) (ambiguity) value=NumberTypes
 	 *     (rule start) (ambiguity) {Fac.left=}
 	 *     (rule start) (ambiguity) {Part.left=}
 	 */

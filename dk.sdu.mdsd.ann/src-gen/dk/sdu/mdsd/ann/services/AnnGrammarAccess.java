@@ -850,14 +850,14 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cOperatorAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cOperatorPartOperatorParserRuleCall_0_0 = (RuleCall)cOperatorAssignment_0.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueDECIMALParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueNumberTypesParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//NumberLiteral:
 		//	operator=PartOperator?
-		//	value=DECIMAL;
+		//	value=NumberTypes;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//operator=PartOperator? value=DECIMAL
+		//operator=PartOperator? value=NumberTypes
 		public Group getGroup() { return cGroup; }
 		
 		//operator=PartOperator?
@@ -866,11 +866,30 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		//PartOperator
 		public RuleCall getOperatorPartOperatorParserRuleCall_0_0() { return cOperatorPartOperatorParserRuleCall_0_0; }
 		
-		//value=DECIMAL
+		//value=NumberTypes
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 		
+		//NumberTypes
+		public RuleCall getValueNumberTypesParserRuleCall_1_0() { return cValueNumberTypesParserRuleCall_1_0; }
+	}
+	public class NumberTypesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.NumberTypes");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cDECIMALParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//NumberTypes:
+		//	DECIMAL | INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DECIMAL | INT
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//DECIMAL
-		public RuleCall getValueDECIMALParserRuleCall_1_0() { return cValueDECIMALParserRuleCall_1_0; }
+		public RuleCall getDECIMALParserRuleCall_0() { return cDECIMALParserRuleCall_0; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
 	
 	
@@ -899,6 +918,7 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	private final PartOperatorElements pPartOperator;
 	private final FactorOperatorElements pFactorOperator;
 	private final NumberLiteralElements pNumberLiteral;
+	private final NumberTypesElements pNumberTypes;
 	
 	private final Grammar grammar;
 	
@@ -934,6 +954,7 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPartOperator = new PartOperatorElements();
 		this.pFactorOperator = new FactorOperatorElements();
 		this.pNumberLiteral = new NumberLiteralElements();
+		this.pNumberTypes = new NumberTypesElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1217,13 +1238,23 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//NumberLiteral:
 	//	operator=PartOperator?
-	//	value=DECIMAL;
+	//	value=NumberTypes;
 	public NumberLiteralElements getNumberLiteralAccess() {
 		return pNumberLiteral;
 	}
 	
 	public ParserRule getNumberLiteralRule() {
 		return getNumberLiteralAccess().getRule();
+	}
+	
+	//NumberTypes:
+	//	DECIMAL | INT;
+	public NumberTypesElements getNumberTypesAccess() {
+		return pNumberTypes;
+	}
+	
+	public ParserRule getNumberTypesRule() {
+		return getNumberTypesAccess().getRule();
 	}
 	
 	//terminal ID:
