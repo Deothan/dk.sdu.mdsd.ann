@@ -6,11 +6,14 @@ package dk.sdu.mdsd.ann.serializer;
 import com.google.inject.Inject;
 import dk.sdu.mdsd.ann.ann.ANNModel;
 import dk.sdu.mdsd.ann.ann.AnnPackage;
+import dk.sdu.mdsd.ann.ann.Condition;
+import dk.sdu.mdsd.ann.ann.Constraint;
 import dk.sdu.mdsd.ann.ann.Cos;
 import dk.sdu.mdsd.ann.ann.Custom;
 import dk.sdu.mdsd.ann.ann.Euler;
 import dk.sdu.mdsd.ann.ann.External;
 import dk.sdu.mdsd.ann.ann.Fac;
+import dk.sdu.mdsd.ann.ann.Field;
 import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Letter;
@@ -19,6 +22,7 @@ import dk.sdu.mdsd.ann.ann.NumberLiteral;
 import dk.sdu.mdsd.ann.ann.Output;
 import dk.sdu.mdsd.ann.ann.Part;
 import dk.sdu.mdsd.ann.ann.Power;
+import dk.sdu.mdsd.ann.ann.Restriction;
 import dk.sdu.mdsd.ann.ann.Sigmoid;
 import dk.sdu.mdsd.ann.ann.Sin;
 import dk.sdu.mdsd.ann.ann.Sqrt;
@@ -52,6 +56,12 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case AnnPackage.ANN_MODEL:
 				sequence_ANNModel(context, (ANNModel) semanticObject); 
 				return; 
+			case AnnPackage.CONDITION:
+				sequence_Condition(context, (Condition) semanticObject); 
+				return; 
+			case AnnPackage.CONSTRAINT:
+				sequence_Constraint(context, (Constraint) semanticObject); 
+				return; 
 			case AnnPackage.COS:
 				sequence_Cos(context, (Cos) semanticObject); 
 				return; 
@@ -66,6 +76,9 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case AnnPackage.FAC:
 				sequence_Factor(context, (Fac) semanticObject); 
+				return; 
+			case AnnPackage.FIELD:
+				sequence_Field(context, (Field) semanticObject); 
 				return; 
 			case AnnPackage.HIDDEN:
 				sequence_Hidden(context, (Hidden) semanticObject); 
@@ -91,6 +104,9 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case AnnPackage.POWER:
 				sequence_Power(context, (Power) semanticObject); 
 				return; 
+			case AnnPackage.RESTRICTION:
+				sequence_Restriction(context, (Restriction) semanticObject); 
+				return; 
 			case AnnPackage.SIGMOID:
 				sequence_Sigmoid(context, (Sigmoid) semanticObject); 
 				return; 
@@ -113,9 +129,49 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ANNModel returns ANNModel
 	 *
 	 * Constraint:
-	 *     (name=ID alpha=DECIMAL epochs=INT Activation+=Activation* Layer+=Layer*)
+	 *     (
+	 *         name=ID 
+	 *         alpha=DECIMAL 
+	 *         epochs=INT 
+	 *         constraints+=Constraint* 
+	 *         Activation+=Activation* 
+	 *         Layer+=Layer*
+	 *     )
 	 */
 	protected void sequence_ANNModel(ISerializationContext context, ANNModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Condition returns Condition
+	 *
+	 * Constraint:
+	 *     (condition=ConditionalOperator num2=NumberTypes)
+	 */
+	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CONDITION__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CONDITION__CONDITION));
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.CONDITION__NUM2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.CONDITION__NUM2));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConditionAccess().getConditionConditionalOperatorParserRuleCall_0_0(), semanticObject.getCondition());
+		feeder.accept(grammarAccess.getConditionAccess().getNum2NumberTypesParserRuleCall_1_0(), semanticObject.getNum2());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Constraint returns Constraint
+	 *
+	 * Constraint:
+	 *     (name=ID field=INT fields+=Field* condition=Condition)
+	 */
+	protected void sequence_Constraint(ISerializationContext context, Constraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -270,6 +326,24 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Field returns Field
+	 *
+	 * Constraint:
+	 *     field=INT
+	 */
+	protected void sequence_Field(ISerializationContext context, Field semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.FIELD__FIELD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.FIELD__FIELD));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFieldAccess().getFieldINTTerminalRuleCall_1_0(), semanticObject.getField());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Layer returns Hidden
 	 *     Hidden returns Hidden
 	 *
@@ -296,16 +370,10 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Input returns Input
 	 *
 	 * Constraint:
-	 *     size=INT
+	 *     (size=INT source=STRING restrictions=[Constraint|ID]? moreRestrictions+=Restriction*)
 	 */
 	protected void sequence_Input(ISerializationContext context, Input semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.LAYER__SIZE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.LAYER__SIZE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getInputAccess().getSizeINTTerminalRuleCall_3_0(), semanticObject.getSize());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -418,11 +486,29 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Restriction returns Restriction
+	 *
+	 * Constraint:
+	 *     constraint=[Constraint|ID]
+	 */
+	protected void sequence_Restriction(ISerializationContext context, Restriction semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AnnPackage.Literals.RESTRICTION__CONSTRAINT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnPackage.Literals.RESTRICTION__CONSTRAINT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRestrictionAccess().getConstraintConstraintIDTerminalRuleCall_1_0_1(), semanticObject.eGet(AnnPackage.Literals.RESTRICTION__CONSTRAINT, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Activation returns Sigmoid
 	 *     Sigmoid returns Sigmoid
 	 *
 	 * Constraint:
-	 *     (name=ID rule='Sigmoid')
+	 *     (name=ID rule='sigmoid')
 	 */
 	protected void sequence_Sigmoid(ISerializationContext context, Sigmoid semanticObject) {
 		if (errorAcceptor != null) {
@@ -492,7 +578,7 @@ public class AnnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Tansig returns Tansig
 	 *
 	 * Constraint:
-	 *     (name=ID rule='Tansig')
+	 *     (name=ID rule='tansig')
 	 */
 	protected void sequence_Tansig(ISerializationContext context, Tansig semanticObject) {
 		if (errorAcceptor != null) {

@@ -6,6 +6,7 @@ package dk.sdu.mdsd.ann.ann.impl;
 import dk.sdu.mdsd.ann.ann.ANNModel;
 import dk.sdu.mdsd.ann.ann.Activation;
 import dk.sdu.mdsd.ann.ann.AnnPackage;
+import dk.sdu.mdsd.ann.ann.Constraint;
 import dk.sdu.mdsd.ann.ann.Layer;
 
 import java.util.Collection;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ANNModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ANNModelImpl#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ANNModelImpl#getEpochs <em>Epochs</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ANNModelImpl#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ANNModelImpl#getActivation <em>Activation</em>}</li>
  *   <li>{@link dk.sdu.mdsd.ann.ann.impl.ANNModelImpl#getLayer <em>Layer</em>}</li>
  * </ul>
@@ -102,6 +104,16 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
    * @ordered
    */
   protected int epochs = EPOCHS_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConstraints()
+   * @generated
+   * @ordered
+   */
+  protected EList<Constraint> constraints;
 
   /**
    * The cached value of the '{@link #getActivation() <em>Activation</em>}' containment reference list.
@@ -218,6 +230,20 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Constraint> getConstraints()
+  {
+    if (constraints == null)
+    {
+      constraints = new EObjectContainmentEList<Constraint>(Constraint.class, this, AnnPackage.ANN_MODEL__CONSTRAINTS);
+    }
+    return constraints;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Activation> getActivation()
   {
     if (activation == null)
@@ -251,6 +277,8 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
   {
     switch (featureID)
     {
+      case AnnPackage.ANN_MODEL__CONSTRAINTS:
+        return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
       case AnnPackage.ANN_MODEL__ACTIVATION:
         return ((InternalEList<?>)getActivation()).basicRemove(otherEnd, msgs);
       case AnnPackage.ANN_MODEL__LAYER:
@@ -275,6 +303,8 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
         return getAlpha();
       case AnnPackage.ANN_MODEL__EPOCHS:
         return getEpochs();
+      case AnnPackage.ANN_MODEL__CONSTRAINTS:
+        return getConstraints();
       case AnnPackage.ANN_MODEL__ACTIVATION:
         return getActivation();
       case AnnPackage.ANN_MODEL__LAYER:
@@ -302,6 +332,10 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
         return;
       case AnnPackage.ANN_MODEL__EPOCHS:
         setEpochs((Integer)newValue);
+        return;
+      case AnnPackage.ANN_MODEL__CONSTRAINTS:
+        getConstraints().clear();
+        getConstraints().addAll((Collection<? extends Constraint>)newValue);
         return;
       case AnnPackage.ANN_MODEL__ACTIVATION:
         getActivation().clear();
@@ -334,6 +368,9 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
       case AnnPackage.ANN_MODEL__EPOCHS:
         setEpochs(EPOCHS_EDEFAULT);
         return;
+      case AnnPackage.ANN_MODEL__CONSTRAINTS:
+        getConstraints().clear();
+        return;
       case AnnPackage.ANN_MODEL__ACTIVATION:
         getActivation().clear();
         return;
@@ -360,6 +397,8 @@ public class ANNModelImpl extends MinimalEObjectImpl.Container implements ANNMod
         return ALPHA_EDEFAULT == null ? alpha != null : !ALPHA_EDEFAULT.equals(alpha);
       case AnnPackage.ANN_MODEL__EPOCHS:
         return epochs != EPOCHS_EDEFAULT;
+      case AnnPackage.ANN_MODEL__CONSTRAINTS:
+        return constraints != null && !constraints.isEmpty();
       case AnnPackage.ANN_MODEL__ACTIVATION:
         return activation != null && !activation.isEmpty();
       case AnnPackage.ANN_MODEL__LAYER:

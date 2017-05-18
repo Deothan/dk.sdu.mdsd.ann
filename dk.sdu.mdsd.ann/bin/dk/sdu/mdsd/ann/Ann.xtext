@@ -4,11 +4,12 @@ generate ann "http://www.sdu.dk/mdsd/ann/Ann"
 
 
 ANNModel:
-		name=ID '{' 
-			'alpha' alpha=DECIMAL 
-			'epochs' epochs=INT 
-			Activation+=Activation*
-			Layer+=Layer* '}'
+	name=ID '{' 
+		'alpha' alpha=DECIMAL 
+		'epochs' epochs=INT 
+		constraints+=Constraint*
+		Activation+=Activation*
+		Layer+=Layer* '}'
 ;    
 
 DECIMAL:
@@ -27,8 +28,33 @@ Hidden:
 
 Input:
 	'in' '{' 
-		'size' size=INT '}' 
+		'size' size=INT 
+		'source' source=STRING
+		'constraints' (restrictions=[Constraint])? moreRestrictions+=Restriction*  '}' 
 ;
+
+Restriction:
+	',' constraint=[Constraint]
+;
+
+Constraint:
+	'constraint' name=ID '(' field=INT fields+=Field* ')' '{'
+		condition = Condition
+	'}'		
+;
+
+Field:
+	',' field=INT
+;
+
+Condition:
+	condition=ConditionalOperator num2=NumberTypes
+;
+
+ConditionalOperator:
+ '==' | '<' | '>' | '<=' | '>='
+;
+
 
 Output:
 	'out' '{' 
@@ -45,11 +71,11 @@ External:
 ;
 
 Sigmoid:
-	name=ID rule='Sigmoid'
+	name=ID rule='sigmoid'
 ;
 
 Tansig:
-	name=ID rule='Tansig'
+	name=ID rule='tansig'
 ;
 
 Custom:

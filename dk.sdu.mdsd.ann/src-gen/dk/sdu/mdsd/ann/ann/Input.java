@@ -3,12 +3,21 @@
  */
 package dk.sdu.mdsd.ann.ann;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Input</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.Input#getSource <em>Source</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.Input#getRestrictions <em>Restrictions</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.Input#getMoreRestrictions <em>More Restrictions</em>}</li>
+ * </ul>
  *
  * @see dk.sdu.mdsd.ann.ann.AnnPackage#getInput()
  * @model
@@ -16,4 +25,72 @@ package dk.sdu.mdsd.ann.ann;
  */
 public interface Input extends Layer
 {
+  /**
+   * Returns the value of the '<em><b>Source</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Source</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Source</em>' attribute.
+   * @see #setSource(String)
+   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getInput_Source()
+   * @model
+   * @generated
+   */
+  String getSource();
+
+  /**
+   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.Input#getSource <em>Source</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Source</em>' attribute.
+   * @see #getSource()
+   * @generated
+   */
+  void setSource(String value);
+
+  /**
+   * Returns the value of the '<em><b>Restrictions</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Restrictions</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Restrictions</em>' reference.
+   * @see #setRestrictions(Constraint)
+   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getInput_Restrictions()
+   * @model
+   * @generated
+   */
+  Constraint getRestrictions();
+
+  /**
+   * Sets the value of the '{@link dk.sdu.mdsd.ann.ann.Input#getRestrictions <em>Restrictions</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Restrictions</em>' reference.
+   * @see #getRestrictions()
+   * @generated
+   */
+  void setRestrictions(Constraint value);
+
+  /**
+   * Returns the value of the '<em><b>More Restrictions</b></em>' containment reference list.
+   * The list contents are of type {@link dk.sdu.mdsd.ann.ann.Restriction}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>More Restrictions</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>More Restrictions</em>' containment reference list.
+   * @see dk.sdu.mdsd.ann.ann.AnnPackage#getInput_MoreRestrictions()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Restriction> getMoreRestrictions();
+
 } // Input

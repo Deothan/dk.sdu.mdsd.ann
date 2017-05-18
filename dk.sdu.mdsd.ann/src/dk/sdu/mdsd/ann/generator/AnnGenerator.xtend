@@ -25,6 +25,7 @@ import dk.sdu.mdsd.ann.ann.Sqrt
 import dk.sdu.mdsd.ann.ann.External
 import dk.sdu.mdsd.ann.ann.Sigmoid
 import dk.sdu.mdsd.ann.ann.Tansig
+import dk.sdu.mdsd.ann.ann.Constraint
 
 /**
  * Generates code from your model files on save.
@@ -32,386 +33,486 @@ import dk.sdu.mdsd.ann.ann.Tansig
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class AnnGenerator extends AbstractGenerator {
-	
+
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.filter(typeof(ANNModel)).forEach[generateANNFile(fsa, resource)]
 		resource.allContents.filter(typeof(Custom)).forEach[generateCustomFunctionFile(fsa, resource)]
 		resource.allContents.filter(typeof(Sigmoid)).forEach[generateSigmoid(fsa)]
 		resource.allContents.filter(typeof(Tansig)).forEach[generateTansig(fsa)]
+		resource.allContents.filter(typeof(Constraint)).forEach[generateConstraintFile(fsa)]
 	}
-	
-	
+
 	def generateANNFile(ANNModel m, IFileSystemAccess2 access2, Resource resource) {
-		access2.generateFile(m.name+".java", m.generateNetwork)
+		access2.generateFile(m.name + ".java", m.generateNetwork)
 		access2.generateFile("transfers/ITransfer.java", generateITransfer())
-		access2.generateFile("helpers/Helpers.java",generateHelpers())
-		access2.generateFile("ann/ANN.java",generateJavaANN())
-		access2.generateFile("transfers/ITransferFactory.java",m.generateITransferFactory(resource))
+		access2.generateFile("constraints/IConstraint.java", generateIConstraint())
+		access2.generateFile("helpers/Helpers.java", generateHelpers())
+		access2.generateFile("ann/ANN.java", generateJavaANN())
+		access2.generateFile("transfers/ITransferFactory.java", m.generateITransferFactory(resource))
 	}
-	
+
+	def CharSequence generateIConstraint() '''
+		package constraints;
+		import java.util.ArrayList;
+		public interface IConstraint {
+			boolean withinConstraint(double[] values);
+			ArrayList<Integer> getFields();
+		}
+	'''
+
+	def generateConstraintFile(Constraint constraint, IFileSystemAccess2 access2) {
+		access2.generateFile("constraints/" + constraint.name.toFirstUpper + ".java", constraint.generateConstraint)
+	}
+
+	def CharSequence generateConstraint(Constraint constraint) '''
+		package constraints;
+		import java.util.ArrayList;
+		public class «constraint.name.toFirstUpper» implements IConstraint {
+			private ArrayList<Integer> fields;
+			
+			public «constraint.name.toFirstUpper»(){
+				this.fields = new ArrayList<Integer>();
+				this.fields.add(«constraint.field»);
+				«FOR f : constraint.fields»
+					«generateAddField(f.field)»
+				«ENDFOR»
+			}
+			
+			public ArrayList<Integer> getFields(){
+				return fields;
+			}
+			
+			public boolean withinConstraint(double[] values) {
+				for(int i = 0; i < values.length; i++){
+					if(fields.contains(i) && values[i] «constraint.condition.condition» «constraint.condition.num2») {
+						return true;
+					}
+				}
+				return false;
+			}
+		}
+	'''
+
+	def CharSequence generateAddField(Integer value) '''
+		this.fields.add(«value»);
+	'''
+
 	def generateCustomFunctionFile(Custom c, IFileSystemAccess2 access2, Resource resource) {
-		access2.generateFile("transfers/"+c.name + ".java", c.generateCustomFunction)
+		access2.generateFile("transfers/" + c.name + ".java", c.generateCustomFunction)
 	}
 
 	def generateITransfer() '''
-	package transfers;
-	public interface ITransfer {
-		double transfer(double x);
-		double derivative(double x);
-	}
+		package transfers;
+		public interface ITransfer {
+			double transfer(double x);
+			double derivative(double x);
+		}
 	'''
-	
-	def generateSigmoid(Sigmoid sig,IFileSystemAccess2 fsa ){
+
+	def generateSigmoid(Sigmoid sig, IFileSystemAccess2 fsa) {
 		fsa.generateFile("transfers/Sigmoid.java", generateSigmoid())
 	}
-		
-	
-	def generateTansig(Tansig tan,IFileSystemAccess2 fsa) {
+
+	def generateTansig(Tansig tan, IFileSystemAccess2 fsa) {
 		fsa.generateFile("transfers/Tansig.java", generateTansig())
 	}
-		
-	def generateSigmoid() '''
-	package transfers;
-	public class Sigmoid implements ITransfer {
-		public double transfer(double x){
-				return (1 / (1 + Math.exp(x)));		
-			}
-		public double derivative(double x){
-				return x*(1-x);
-			}
-	}
-	'''
-	
-	def generateTansig() '''
-	package transfers;
-	public class Tansig implements ITransfer {
-		public double transfer(double x){
-				return 2/(1+Math.exp(-2*n))-1;
-			}
-		public double derivative(double x){
-				return 1-Math.pow(a,2);
-			}
-	}
-	'''
-	
-	def generateHelpers()'''
-	package helpers;
-	public class Helpers {
-	    public static double dot(double[] a, double[] b) {
-	        int n = a.length;
-	        double sum = 0;
-	        for (int i = 0; i < n; i++) {
-	            sum += a[i] * b[i];
-	        }
-	        return sum;
-	    }
-	    public static double[][] transpose(double[][] array) {
-	        if (array == null || array.length == 0)//empty or unset array, nothing do to here
-	            return array;
-	        int width = array.length - 1;
-	        int height = array[0].length;
-	        double[][] array_new = new double[height][width];
-	        for (int x = 0; x < width; x++) {
-	            for (int y = 0; y < height; y++) {
-	                array_new[y][x] = array[x][y];
-	            }
-	        }
-	        return array_new;
-	    }
-	}
-	'''
-	
-	def generateJavaANN() '''
-	package ann;
-	import java.util.ArrayList;
-	import transfers.*;
-	import helpers.*;
 
-	public class ANN {
-	    Integer[] l_size;
-	    double[][] layers;
-	    ArrayList<double[][]> weights;
-	    double[][] errors;
-	    double[][] deltas;
-	    ArrayList<ITransfer> transfers;
-	    ArrayList<double[]> input;
-	    int[] y;
-	    double alpha;
-	    int epochs;
-	    public ANN(Integer[] sizes, ArrayList<ITransfer> transfers, double alpha, int epochs, ArrayList<double[]> input, int[] y) {
-	        this.weights = new ArrayList<>();
-	        this.layers = new double[sizes.length - 1][];
-	        this.deltas = new double[sizes.length][];
-	        this.transfers = new ArrayList<>(transfers);
-	        this.errors = new double[sizes.length][];
-	        this.l_size = sizes;
-	        this.y = y;
-	        this.input = input;
-	        this.alpha = alpha;
-	        this.epochs = epochs;
-	    }
-	    //Random initialization of weights
-	    public void setupWeights() {
-	        for (int i = 0; i < layers.length; i++) {
-	            double[][] tmp = new double[l_size[i]][l_size[i + 1]];
-	            for (int j = 0; j < tmp.length; j++) {
-	                for (int k = 0; k < tmp[0].length; k++) {
-	                    tmp[j][k] = 2 * Math.random() - 1;
-	                }
-	            }
-	            weights.add(tmp);
-	        }
-	    }
-	    //taking the input through the layers
-	    public void runThroughLayers(double[] in) {
-	        double[] tmp = in;
-	        //Run through all layers, using weights
-	        for (int i = 0; i < l_size.length - 1; i++) {
-	            //Temporary array with layer results
-	            double[] t = new double[l_size[i + 1]];
-	            for (int k = 0; k < weights.get(i)[0].length; k++) {
-	                double sum = 0;
-	                for (int j = 0; j < tmp.length - 1; j++) {
-	                    sum += weights.get(i)[j][k] * tmp[j];
-	                }
-	                t[k] = transfers.get(i).transfer(sum);
-	            }
-	            layers[i] = t;
-	            tmp = layers[i];
-	        }
-	    }
-	    public void calcErrorAndDelta(int y) {
-	        //This is for the output layer
-	        double[] tmpError;
-	        double[] tmpDelta;
-	        tmpError = new double[]{layers[layers.length - 1][0] - y};
-	        errors[errors.length - 1] = tmpError;
-	        tmpDelta = new double[]{errors[errors.length - 1][0] * transfers.get(transfers.size() - 1).derivative(layers[layers.length - 1][0])};
-	        deltas[deltas.length - 1] = tmpDelta;
-	        //Now for the rest of the layers.
-	        for (int i = layers.length - 1; i >= 0; i--) {
-	            tmpDelta = new double[layers[i].length];
-	            tmpError = new double[layers[i].length];
-	            double[][] tmpLayer = Helpers.transpose(weights.get(i));
-	            int count = 0;
-	            for (double[] t : tmpLayer) {
-	                double sum = 0;
-	                for (double d : t) {
-	                    for (double s : deltas[i + 1]) {
-	                        sum += d * s;
-	                    }
-	                }
-	                tmpError[count] = sum;
-	                count++;
-	            }
-	            count = 0;
-	            for (double d : tmpError) {
-	                double sum = 0;
-	                for (double s : layers[i]) {
-	                    sum += d * (transfers.get(i).derivative(s));
-	                }
-	                tmpDelta[count] = sum;
-	                count++;
-	            }
-	            errors[i] = tmpError;
-	            deltas[i] = tmpDelta;
-	        }
-	    }
-	    public void updateWeights() {
-	        for (int i = layers.length - 1; i >= 1; i--) {
-	            double[][] full = new double[l_size[i]][];
-	            double sum = 0;
-	            for (int l = 0; l < layers[i - 1].length; l++) {
-	                double[] temp = new double[l_size[i + 1]];
-	                for (int t = 0; t < deltas[i + 1].length; t++) {
-	                    sum = weights.get(i)[l][t] + (alpha * (layers[i - 1][l] * deltas[i + 1][t]));
-	                    temp[t] = sum;
-	                }
-	                full[l] = temp;
-	            }
-	            weights.set(i, full);
-	        }
-	        double[][] full = new double[l_size[0]][];
-	        double sum = 0;
-	        for (int l = 0; l < l_size[0] - 1; l++) {
-	            double[] temp = new double[l_size[1]];
-	            for (int t = 0; t < deltas[0].length; t++) {
-	                sum = weights.get(0)[l][t] + (alpha * (layers[0][l] * deltas[0][t]));
-	                temp[t] = sum;
-	            }
-	            full[l] = temp;
-	        }
-	        weights.set(0, full);
-	    }
-	    public void run() {
-	        setupWeights();
-	        for (int j = 0; j < epochs; j++) {
-	            for (int i = 0; i < input.size(); i++) {
-	                runThroughLayers(input.get(i));
-	                calcErrorAndDelta(y[i]);
-	                updateWeights();
-	                System.out.println("Prediction = " + Math.round(layers[layers.length - 1][0]) + " Actual = " + y[i]);
-	            }
-	        }
-	    }
-	}
+	def generateSigmoid() '''
+		package transfers;
+		public class Sigmoid implements ITransfer {
+			public double transfer(double x){
+					return (1 / (1 + Math.exp(x)));		
+				}
+			public double derivative(double x){
+					return x*(1-x);
+				}
+		}
 	'''
-	
+
+	def generateTansig() '''
+		package transfers;
+		public class Tansig implements ITransfer {
+			public double transfer(double x){
+					return 2/(1+Math.exp(-2*n))-1;
+				}
+			public double derivative(double x){
+					return 1-Math.pow(a,2);
+				}
+		}
+	'''
+
+	def generateHelpers() '''
+		package helpers;
+		public class Helpers {
+		    public static double dot(double[] a, double[] b) {
+		        int n = a.length;
+		        double sum = 0;
+		        for (int i = 0; i < n; i++) {
+		            sum += a[i] * b[i];
+		        }
+		        return sum;
+		    }
+		    public static double[][] transpose(double[][] array) {
+		        if (array == null || array.length == 0)//empty or unset array, nothing do to here
+		            return array;
+		        int width = array.length - 1;
+		        int height = array[0].length;
+		        double[][] array_new = new double[height][width];
+		        for (int x = 0; x < width; x++) {
+		            for (int y = 0; y < height; y++) {
+		                array_new[y][x] = array[x][y];
+		            }
+		        }
+		        return array_new;
+		    }
+		}
+	'''
+
+	def generateJavaANN() '''
+		package ann;
+		import java.util.ArrayList;
+		import transfers.*;
+		import helpers.*;
+		 
+		public class ANN {
+		    Integer[] l_size;
+		    double[][] layers;
+		    ArrayList<double[][]> weights;
+		    double[][] errors;
+		    double[][] deltas;
+		    ArrayList<ITransfer> transfers;
+		    ArrayList<double[]> input;
+		    int[] y;
+		    double alpha;
+		    int epochs;
+		    public ANN(Integer[] sizes, ArrayList<ITransfer> transfers, double alpha, int epochs, ArrayList<double[]> input, int[] y) {
+		        this.weights = new ArrayList<>();
+		        this.layers = new double[sizes.length - 1][];
+		        this.deltas = new double[sizes.length][];
+		        this.transfers = new ArrayList<>(transfers);
+		        this.errors = new double[sizes.length][];
+		        this.l_size = sizes;
+		        this.y = y;
+		        this.input = input;
+		        this.alpha = alpha;
+		        this.epochs = epochs;
+		    }
+		    //Random initialization of weights
+		    public void setupWeights() {
+		        for (int i = 0; i < l_size.length-1; i++) {
+		            double[][] tmp = new double[l_size[i]][l_size[i + 1]];
+		            System.out.println(tmp.length + " " + tmp[0].length);
+		            for (int j = 0; j < tmp.length; j++) {
+		                for (int k = 0; k < tmp[0].length; k++) {
+		                    tmp[j][k] = 2 * Math.random() - 1;
+		                }
+		            }
+		            weights.add(tmp);
+		        }
+		    }
+		    //taking the input through the layers
+		    public void runThroughLayers(double[] in) {
+		        double[] tmp = in;
+		        //Run through all layers, using weights
+		        for (int i = 0; i < l_size.length - 1; i++) {
+		            //Temporary array with layer results
+		            double[] t = new double[l_size[i + 1]];
+		            for (int k = 0; k < weights.get(i)[0].length; k++) {
+		                double sum = 0;
+		                for (int j = 0; j < tmp.length; j++) {
+		                    sum += weights.get(i)[j][k] * tmp[j];
+		                }
+		                t[k] = transfers.get(i).transfer(sum);
+		            }
+		            layers[i] = t;
+		            tmp = layers[i];
+		        }
+		    }
+		    public void calcErrorAndDelta(int y) {
+		        //This is for the output layer
+		        double[] tmpError;
+		        double[] tmpDelta;
+		        tmpError = new double[]{layers[layers.length - 1][0] - y};
+		        errors[errors.length - 1] = tmpError;
+		        tmpDelta = new double[]{errors[errors.length - 1][0] * transfers.get(transfers.size() - 1).derivative(layers[layers.length - 1][0])};
+		        deltas[deltas.length - 1] = tmpDelta;
+		        //Now for the rest of the layers.
+		        for (int i = layers.length - 1; i >= 0; i--) {
+		            tmpDelta = new double[layers[i].length];
+		            tmpError = new double[layers[i].length];
+		            double[][] tmpLayer = Helpers.transpose(weights.get(i));
+		            int count = 0;
+		            for (double[] t : tmpLayer) {
+		                double sum = 0;
+		                for (double d : t) {
+		                    for (double s : deltas[i + 1]) {
+		                        sum += d * s;
+		                    }
+		                }
+		                tmpError[count] = sum;
+		                count++;
+		            }
+		            count = 0;
+		            for (double d : tmpError) {
+		                double sum = 0;
+		                for (double s : layers[i]) {
+		                    sum += d * (transfers.get(i).derivative(s));
+		                }
+		                tmpDelta[count] = sum;
+		                count++;
+		            }
+		            errors[i] = tmpError;
+		            deltas[i] = tmpDelta;
+		        }
+		    }
+		    public void updateWeights() {
+		        for (int i = layers.length - 1; i >= 1; i--) {
+		            double[][] full = new double[l_size[i]][];
+		            double sum = 0;
+		            for (int l = 0; l < l_size[i]; l++) {
+		                double[] temp = new double[l_size[i + 1]];
+		                for (int t = 0; t < deltas[i].length; t++) {
+		                    sum = weights.get(i)[l][t] + (alpha * (layers[i - 1][l] * deltas[i][t]));
+		                    temp[t] = sum;
+		                }
+		                full[l] = temp;
+		            }
+		            weights.set(i, full);
+		        }
+		        double[][] full = new double[l_size[0]][];
+		        double sum = 0;
+		        for (int l = 0; l < l_size[0]; l++) {
+		            double[] temp = new double[l_size[1]];
+		            for (int t = 0; t < deltas[0].length; t++) {
+		                sum = weights.get(0)[l][t] + (alpha * (layers[0][l] * deltas[0][t]));
+		                temp[t] = sum;
+		            }
+		            full[l] = temp;
+		        }
+		        weights.set(0, full);
+		    }
+		    public void run() {
+		        setupWeights();
+		        for (int j = 0; j < epochs; j++) {
+		            for (int i = 0; i < input.size(); i++) {
+		                runThroughLayers(input.get(i));
+		                calcErrorAndDelta(y[i]);
+		                updateWeights();
+		                System.out.println("Prediction = " + Math.round(layers[layers.length - 1][0]) + " Actual = " + y[i]);
+		            }
+		        }
+		        System.out.println("Done");
+		    }
+		}
+	'''
+
 	def CharSequence generateITransferFactory(ANNModel model, Resource resource) '''
-	package transfers;
-	public interface ITransferFactory {
-		«FOR l: model.layer»
-		«if(l instanceof Hidden){
+		package transfers;
+		public interface ITransferFactory {
+			«FOR l : model.layer»
+				«if(l instanceof Hidden){
 			if(l.l_rule instanceof External) {
 				(l.l_rule as External).generateGetLineForITransferFactory
 			}
 		}»
-		«ENDFOR»
-	}
+				«if(l instanceof Output){
+			if(l.l_rule instanceof External) {
+				(l.l_rule as External).generateGetLineForITransferFactory
+			}
+		}»
+			«ENDFOR»
+		}
 	'''
-	
+
 	def CharSequence generateGetLineForITransferFactory(External ext) '''
 		ITransfer get«ext.name.toFirstUpper»();
 	'''
-	
+
 	def CharSequence generateNetwork(ANNModel model) '''
-	import java.util.*;
-	import transfers.*;
-	import ann.*;
-
-
-	public class «model.name» {
-		private double alpha = «model.alpha»;
-		private int epochs = «model.epochs»;
-		private ArrayList<Integer> layers;
-		private ArrayList<ITransfer> transfers;
-		private ANN ann;
+		import java.util.*;
+		import transfers.*;
+		import ann.*;
+		import java.io.BufferedReader;
+		import java.io.FileReader;
+		import constraints.*;
+		import java.io.IOException;
 		
-		public «model.name»(ITransferFactory factory) {
-			layers = new ArrayList<>();
-			transfers = new ArrayList<>();
-			init(factory);
-			run();
-		}
+		public class «model.name.toFirstUpper» {
+			private double alpha = «model.alpha»;
+			private int epochs = «model.epochs»;
+			private ArrayList<Integer> layers;
+			private ArrayList<ITransfer> transfers;
+			private ArrayList<IConstraint> constraints;
+			private ANN ann;
+			private String source;
+			private ArrayList<double[]> inputs;
+			private int[] expected = new int[]{0,0,1,1};
+			
+			public «model.name.toFirstUpper»(ITransferFactory factory) {
+				layers = new ArrayList<>();
+				transfers = new ArrayList<>();
+				constraints = new ArrayList<>();
+				inputs = new ArrayList<>();
+				init(factory);
+				run();
+			}
+			
+			private void readCSV(){
+				inputs.clear();
+				try (BufferedReader br = new BufferedReader(new FileReader(source))) {			
+					String line;				
+					while ((line = br.readLine()) != null) {
+						double[] values = convertToDouble(line.split(","));
+						
+						boolean isValid = true;
+						for(IConstraint c : constraints){
+							if(!c.withinConstraint(values)){
+								isValid = false;
+							}
+						}
+						if(isValid) inputs.add(values);
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}	
+			}
+			
+			private double[] convertToDouble(String[] splitStrings) {
+			       double[] doublesForCurrentString = new double[splitStrings.length];
+			       for(int i=0; i<splitStrings.length; i++){
+			           try {
+			               doublesForCurrentString[i] = Double.valueOf(splitStrings[i]);
+			           } catch( NumberFormatException ex ) {
+			               // No action.
+			           }
+			       }
 		
-		public Integer[] getLayers() {
-			return (Integer[])this.layers.toArray();
-		}
+		        return doublesForCurrentString;
+			}
+			
+			public Integer[] getLayers() {
+				return this.layers.toArray(new Integer[this.transfers.size()]);
+			}
+			
+			public ArrayList<ITransfer> getTransfers() {
+				return this.transfers;
+			}
 		
-		public ArrayList<ITransfer> getTransfers() {
-			return this.transfers;
-		}
-	
-		public void addLayerWithTransfer(int size, ITransfer transfer) {
-			if(transfer == null) {
-				this.layers.add(size);
-			} else {
-				this.layers.add(size);
-				this.transfers.add(transfer);
+			public void addLayerWithTransfer(int size, ITransfer transfer) {
+				if(transfer == null) {
+					this.layers.add(size);
+				} else {
+					this.layers.add(size);
+					this.transfers.add(transfer);
+				}
+			}
+			
+			public double getAlpha() {
+				return this.alpha;
+			}
+			
+			public void setAlpha(double alpha) {
+				this.alpha = alpha;
+			}
+			
+			public int getEpochs() {
+				return this.epochs;
+			}
+			
+			public void setEpochs(int epochs) {
+				this.epochs = epochs;
+			}
+			
+			private void init(ITransferFactory factory) {
+				«FOR l : model.layer»
+					«l.generateLayer»
+				«ENDFOR»
+				
+				readCSV();
+				this.ann = new ANN(getLayers(), getTransfers(), getAlpha(), getEpochs(), inputs, expected);
+			}
+			
+			private void run(){
+				this.ann.run();
+			}
+			
+			public static void main(String[] args){
+				new Network(null);
 			}
 		}
-		
-		public double getAlpha() {
-			return this.alpha;
-		}
-		
-		public void setAlpha(double alpha) {
-			this.alpha = alpha;
-		}
-		
-		public int getEpochs() {
-			return this.epochs;
-		}
-		
-		public void setEpochs(int epochs) {
-			this.epochs = epochs;
-		}
-		
-		private void init(ITransferFactory factory) {
-			«FOR l: model.layer»
-			«l.generateLayer»
-			«ENDFOR»
-			
-			ArrayList<double[]> inputs = new ArrayList<>();
-			        inputs.add(new double[]{0,1});
-			        inputs.add(new double[]{0,1});
-			        inputs.add(new double[]{1,0});
-			        inputs.add(new double[]{1,0});
-			        int[] y = new int[]{0,0,1,1};
-			        
-			this.ann = new ANN(getLayers(),getTransfers(),getAlpha(),getEpochs(),inputs,y);
-		}
-		
-		private void run(){
-			this.ann.run();
-		}
-		
-		
-	}
 	'''
-	
+
 	def CharSequence generateCustomFunction(Custom customFunction) '''
-	package transfers;
-	public class «customFunction.name» implements ITransfer {
-		
-		public double transfer(double x) {
-			return «customFunction.generateCustomExp»
+		package transfers;
+		public class «customFunction.name» implements ITransfer {
+			
+			public double transfer(double x) {
+				return «customFunction.generateCustomExp»
+			}
+			public double derivative(double x) {
+				return «customFunction.generateCustomDer»
+			}
 		}
-		public double derivative(double x) {
-			return «customFunction.generateCustomDer»
-		}
-	}
 	'''
-	
+
 	def generateCustomExp(Custom custom) '''
 		«custom.exp.generateExp»;
 	'''
-	
+
 	def generateCustomDer(Custom custom) '''
 		«custom.der.generateExp»;
 	'''
-		
+
 	def dispatch CharSequence generateExp(Part exp) '''(«exp.left.generateExp»«exp.operator»«exp.right.generateExp»)'''
-	
+
 	def dispatch CharSequence generateExp(Fac exp) '''(«exp.left.generateExp»«exp.operator»«exp.right.generateExp»)'''
-	
+
 	def dispatch CharSequence generateExp(NumberLiteral exp) '''«exp.operator»«exp.value»'''
-	
+
 	def dispatch CharSequence generateExp(Euler exp) '''Math.exp(«exp.value.generateExp»)'''
-	
+
 	def dispatch CharSequence generateExp(NLog exp) '''Math.log(«exp.value.generateExp»)'''
-	
+
 	def dispatch CharSequence generateExp(Sin exp) '''Math.sin(«exp.value.generateExp»)'''
-	
+
 	def dispatch CharSequence generateExp(Cos exp) '''Math.cos(«exp.value.generateExp»)'''
-	
+
 	def dispatch CharSequence generateExp(Sqrt exp) '''Math.cos(«exp.value.generateExp»)'''
-	
+
 	def dispatch CharSequence generateExp(Power exp) '''Math.pow(«exp.base.generateExp», «exp.exponent.generateExp»)'''
-	
+
 	def dispatch CharSequence generateExp(Letter exp) '''«exp.operator»«exp.value»'''
-	
+
 	def dispatch generateLayer(Hidden layer) '''
 		addLayerWithTransfer(«layer.size», «layer.l_rule.generateRule»);
 	'''
-	
+
 	def dispatch generateLayer(Input layer) '''
+		this.source = "«layer.source»";
+		«IF layer.restrictions!= null»  
+		«addConstraints(layer.restrictions)»
+		«ENDIF»
+		«FOR r : layer.moreRestrictions»
+			«addConstraints(r.constraint)»
+		«ENDFOR»
+				
 		addLayerWithTransfer(«layer.size», null);
 	'''
-		
+
+	def CharSequence addConstraints(Constraint c) '''
+		this.constraints.add(new «c.name.toFirstUpper»());
+	'''
+
 	def dispatch generateLayer(Output layer) '''
 		addLayerWithTransfer(«layer.size», «layer.l_rule.generateRule»);
-
 	'''
-	
-	def dispatch generateRule(Sigmoid rule)'''new «rule.rule»()'''
-		
-	def dispatch generateRule(Tansig rule)'''new «rule.rule»()'''
-	
-	def dispatch generateRule(External rule)'''factory.get«rule.name.toFirstUpper»()''' 
-		
-	
-	def dispatch generateRule(Custom rule)'''new «rule.name»()'''
-	
-	
+
+	def dispatch generateRule(Sigmoid rule) '''new «rule.rule.toFirstUpper»()'''
+
+	def dispatch generateRule(Tansig rule) '''new «rule.rule.toFirstUpper»()'''
+
+	def dispatch generateRule(External rule) '''factory.get«rule.name.toFirstUpper»()'''
+
+	def dispatch generateRule(Custom rule) '''new «rule.name»()'''
+
 }

@@ -95,13 +95,22 @@ public interface AnnPackage extends EPackage
   int ANN_MODEL__EPOCHS = 2;
 
   /**
+   * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANN_MODEL__CONSTRAINTS = 3;
+
+  /**
    * The feature id for the '<em><b>Activation</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ANN_MODEL__ACTIVATION = 3;
+  int ANN_MODEL__ACTIVATION = 4;
 
   /**
    * The feature id for the '<em><b>Layer</b></em>' containment reference list.
@@ -110,7 +119,7 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ANN_MODEL__LAYER = 4;
+  int ANN_MODEL__LAYER = 5;
 
   /**
    * The number of structural features of the '<em>ANN Model</em>' class.
@@ -119,7 +128,7 @@ public interface AnnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ANN_MODEL_FEATURE_COUNT = 5;
+  int ANN_MODEL_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.LayerImpl <em>Layer</em>}' class.
@@ -206,13 +215,188 @@ public interface AnnPackage extends EPackage
   int INPUT__SIZE = LAYER__SIZE;
 
   /**
+   * The feature id for the '<em><b>Source</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT__SOURCE = LAYER_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Restrictions</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT__RESTRICTIONS = LAYER_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>More Restrictions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT__MORE_RESTRICTIONS = LAYER_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Input</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INPUT_FEATURE_COUNT = LAYER_FEATURE_COUNT + 0;
+  int INPUT_FEATURE_COUNT = LAYER_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.RestrictionImpl <em>Restriction</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.RestrictionImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getRestriction()
+   * @generated
+   */
+  int RESTRICTION = 4;
+
+  /**
+   * The feature id for the '<em><b>Constraint</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESTRICTION__CONSTRAINT = 0;
+
+  /**
+   * The number of structural features of the '<em>Restriction</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESTRICTION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ConstraintImpl <em>Constraint</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.ConstraintImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getConstraint()
+   * @generated
+   */
+  int CONSTRAINT = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__FIELD = 1;
+
+  /**
+   * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__FIELDS = 2;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__CONDITION = 3;
+
+  /**
+   * The number of structural features of the '<em>Constraint</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.FieldImpl <em>Field</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.FieldImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getField()
+   * @generated
+   */
+  int FIELD = 6;
+
+  /**
+   * The feature id for the '<em><b>Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD__FIELD = 0;
+
+  /**
+   * The number of structural features of the '<em>Field</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.ConditionImpl <em>Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mdsd.ann.ann.impl.ConditionImpl
+   * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCondition()
+   * @generated
+   */
+  int CONDITION = 7;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__CONDITION = 0;
+
+  /**
+   * The feature id for the '<em><b>Num2</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__NUM2 = 1;
+
+  /**
+   * The number of structural features of the '<em>Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link dk.sdu.mdsd.ann.ann.impl.OutputImpl <em>Output</em>}' class.
@@ -222,7 +406,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getOutput()
    * @generated
    */
-  int OUTPUT = 4;
+  int OUTPUT = 8;
 
   /**
    * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -259,7 +443,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getActivation()
    * @generated
    */
-  int ACTIVATION = 5;
+  int ACTIVATION = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -287,7 +471,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getExternal()
    * @generated
    */
-  int EXTERNAL = 6;
+  int EXTERNAL = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -315,7 +499,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSigmoid()
    * @generated
    */
-  int SIGMOID = 7;
+  int SIGMOID = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -352,7 +536,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getTansig()
    * @generated
    */
-  int TANSIG = 8;
+  int TANSIG = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -389,7 +573,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCustom()
    * @generated
    */
-  int CUSTOM = 9;
+  int CUSTOM = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -435,7 +619,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 10;
+  int EXPRESSION = 14;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -454,7 +638,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getMath()
    * @generated
    */
-  int MATH = 11;
+  int MATH = 15;
 
   /**
    * The number of structural features of the '<em>Math</em>' class.
@@ -473,7 +657,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getEuler()
    * @generated
    */
-  int EULER = 12;
+  int EULER = 16;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -501,7 +685,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getNLog()
    * @generated
    */
-  int NLOG = 13;
+  int NLOG = 17;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -529,7 +713,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSin()
    * @generated
    */
-  int SIN = 14;
+  int SIN = 18;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -557,7 +741,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCos()
    * @generated
    */
-  int COS = 15;
+  int COS = 19;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -585,7 +769,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getSqrt()
    * @generated
    */
-  int SQRT = 16;
+  int SQRT = 20;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -613,7 +797,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getPower()
    * @generated
    */
-  int POWER = 17;
+  int POWER = 21;
 
   /**
    * The feature id for the '<em><b>Base</b></em>' containment reference.
@@ -650,7 +834,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getLetter()
    * @generated
    */
-  int LETTER = 18;
+  int LETTER = 22;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -687,7 +871,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getNumberLiteral()
    * @generated
    */
-  int NUMBER_LITERAL = 19;
+  int NUMBER_LITERAL = 23;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -724,7 +908,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getPart()
    * @generated
    */
-  int PART = 20;
+  int PART = 24;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -770,7 +954,7 @@ public interface AnnPackage extends EPackage
    * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getFac()
    * @generated
    */
-  int FAC = 21;
+  int FAC = 25;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -853,6 +1037,17 @@ public interface AnnPackage extends EPackage
   EAttribute getANNModel_Epochs();
 
   /**
+   * Returns the meta object for the containment reference list '{@link dk.sdu.mdsd.ann.ann.ANNModel#getConstraints <em>Constraints</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Constraints</em>'.
+   * @see dk.sdu.mdsd.ann.ann.ANNModel#getConstraints()
+   * @see #getANNModel()
+   * @generated
+   */
+  EReference getANNModel_Constraints();
+
+  /**
    * Returns the meta object for the containment reference list '{@link dk.sdu.mdsd.ann.ann.ANNModel#getActivation <em>Activation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -925,6 +1120,167 @@ public interface AnnPackage extends EPackage
    * @generated
    */
   EClass getInput();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Input#getSource <em>Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Source</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Input#getSource()
+   * @see #getInput()
+   * @generated
+   */
+  EAttribute getInput_Source();
+
+  /**
+   * Returns the meta object for the reference '{@link dk.sdu.mdsd.ann.ann.Input#getRestrictions <em>Restrictions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Restrictions</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Input#getRestrictions()
+   * @see #getInput()
+   * @generated
+   */
+  EReference getInput_Restrictions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link dk.sdu.mdsd.ann.ann.Input#getMoreRestrictions <em>More Restrictions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>More Restrictions</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Input#getMoreRestrictions()
+   * @see #getInput()
+   * @generated
+   */
+  EReference getInput_MoreRestrictions();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Restriction <em>Restriction</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Restriction</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Restriction
+   * @generated
+   */
+  EClass getRestriction();
+
+  /**
+   * Returns the meta object for the reference '{@link dk.sdu.mdsd.ann.ann.Restriction#getConstraint <em>Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Constraint</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Restriction#getConstraint()
+   * @see #getRestriction()
+   * @generated
+   */
+  EReference getRestriction_Constraint();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Constraint <em>Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Constraint</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Constraint
+   * @generated
+   */
+  EClass getConstraint();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Constraint#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Constraint#getName()
+   * @see #getConstraint()
+   * @generated
+   */
+  EAttribute getConstraint_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Constraint#getField <em>Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Field</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Constraint#getField()
+   * @see #getConstraint()
+   * @generated
+   */
+  EAttribute getConstraint_Field();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link dk.sdu.mdsd.ann.ann.Constraint#getFields <em>Fields</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Fields</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Constraint#getFields()
+   * @see #getConstraint()
+   * @generated
+   */
+  EReference getConstraint_Fields();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mdsd.ann.ann.Constraint#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Constraint#getCondition()
+   * @see #getConstraint()
+   * @generated
+   */
+  EReference getConstraint_Condition();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Field <em>Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Field</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Field
+   * @generated
+   */
+  EClass getField();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Field#getField <em>Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Field</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Field#getField()
+   * @see #getField()
+   * @generated
+   */
+  EAttribute getField_Field();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Condition</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Condition
+   * @generated
+   */
+  EClass getCondition();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Condition#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Condition</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Condition#getCondition()
+   * @see #getCondition()
+   * @generated
+   */
+  EAttribute getCondition_Condition();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mdsd.ann.ann.Condition#getNum2 <em>Num2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Num2</em>'.
+   * @see dk.sdu.mdsd.ann.ann.Condition#getNum2()
+   * @see #getCondition()
+   * @generated
+   */
+  EAttribute getCondition_Num2();
 
   /**
    * Returns the meta object for class '{@link dk.sdu.mdsd.ann.ann.Output <em>Output</em>}'.
@@ -1417,6 +1773,14 @@ public interface AnnPackage extends EPackage
     EAttribute ANN_MODEL__EPOCHS = eINSTANCE.getANNModel_Epochs();
 
     /**
+     * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ANN_MODEL__CONSTRAINTS = eINSTANCE.getANNModel_Constraints();
+
+    /**
      * The meta object literal for the '<em><b>Activation</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1477,6 +1841,134 @@ public interface AnnPackage extends EPackage
      * @generated
      */
     EClass INPUT = eINSTANCE.getInput();
+
+    /**
+     * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INPUT__SOURCE = eINSTANCE.getInput_Source();
+
+    /**
+     * The meta object literal for the '<em><b>Restrictions</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INPUT__RESTRICTIONS = eINSTANCE.getInput_Restrictions();
+
+    /**
+     * The meta object literal for the '<em><b>More Restrictions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INPUT__MORE_RESTRICTIONS = eINSTANCE.getInput_MoreRestrictions();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.RestrictionImpl <em>Restriction</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.RestrictionImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getRestriction()
+     * @generated
+     */
+    EClass RESTRICTION = eINSTANCE.getRestriction();
+
+    /**
+     * The meta object literal for the '<em><b>Constraint</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RESTRICTION__CONSTRAINT = eINSTANCE.getRestriction_Constraint();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ConstraintImpl <em>Constraint</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.ConstraintImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getConstraint()
+     * @generated
+     */
+    EClass CONSTRAINT = eINSTANCE.getConstraint();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONSTRAINT__NAME = eINSTANCE.getConstraint_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Field</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONSTRAINT__FIELD = eINSTANCE.getConstraint_Field();
+
+    /**
+     * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTRAINT__FIELDS = eINSTANCE.getConstraint_Fields();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTRAINT__CONDITION = eINSTANCE.getConstraint_Condition();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.FieldImpl <em>Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.FieldImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getField()
+     * @generated
+     */
+    EClass FIELD = eINSTANCE.getField();
+
+    /**
+     * The meta object literal for the '<em><b>Field</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD__FIELD = eINSTANCE.getField_Field();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.ConditionImpl <em>Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mdsd.ann.ann.impl.ConditionImpl
+     * @see dk.sdu.mdsd.ann.ann.impl.AnnPackageImpl#getCondition()
+     * @generated
+     */
+    EClass CONDITION = eINSTANCE.getCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONDITION__CONDITION = eINSTANCE.getCondition_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>Num2</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONDITION__NUM2 = eINSTANCE.getCondition_Num2();
 
     /**
      * The meta object literal for the '{@link dk.sdu.mdsd.ann.ann.impl.OutputImpl <em>Output</em>}' class.

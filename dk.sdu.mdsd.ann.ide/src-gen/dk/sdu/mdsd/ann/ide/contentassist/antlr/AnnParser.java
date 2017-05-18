@@ -32,6 +32,7 @@ public class AnnParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getLayerAccess().getAlternatives(), "rule__Layer__Alternatives");
+					put(grammarAccess.getConditionalOperatorAccess().getAlternatives(), "rule__ConditionalOperator__Alternatives");
 					put(grammarAccess.getActivationAccess().getAlternatives(), "rule__Activation__Alternatives");
 					put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 					put(grammarAccess.getMathAccess().getAlternatives(), "rule__Math__Alternatives");
@@ -42,6 +43,10 @@ public class AnnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDECIMALAccess().getGroup(), "rule__DECIMAL__Group__0");
 					put(grammarAccess.getHiddenAccess().getGroup(), "rule__Hidden__Group__0");
 					put(grammarAccess.getInputAccess().getGroup(), "rule__Input__Group__0");
+					put(grammarAccess.getRestrictionAccess().getGroup(), "rule__Restriction__Group__0");
+					put(grammarAccess.getConstraintAccess().getGroup(), "rule__Constraint__Group__0");
+					put(grammarAccess.getFieldAccess().getGroup(), "rule__Field__Group__0");
+					put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 					put(grammarAccess.getOutputAccess().getGroup(), "rule__Output__Group__0");
 					put(grammarAccess.getExternalAccess().getGroup(), "rule__External__Group__0");
 					put(grammarAccess.getSigmoidAccess().getGroup(), "rule__Sigmoid__Group__0");
@@ -63,11 +68,23 @@ public class AnnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getANNModelAccess().getNameAssignment_0(), "rule__ANNModel__NameAssignment_0");
 					put(grammarAccess.getANNModelAccess().getAlphaAssignment_3(), "rule__ANNModel__AlphaAssignment_3");
 					put(grammarAccess.getANNModelAccess().getEpochsAssignment_5(), "rule__ANNModel__EpochsAssignment_5");
-					put(grammarAccess.getANNModelAccess().getActivationAssignment_6(), "rule__ANNModel__ActivationAssignment_6");
-					put(grammarAccess.getANNModelAccess().getLayerAssignment_7(), "rule__ANNModel__LayerAssignment_7");
+					put(grammarAccess.getANNModelAccess().getConstraintsAssignment_6(), "rule__ANNModel__ConstraintsAssignment_6");
+					put(grammarAccess.getANNModelAccess().getActivationAssignment_7(), "rule__ANNModel__ActivationAssignment_7");
+					put(grammarAccess.getANNModelAccess().getLayerAssignment_8(), "rule__ANNModel__LayerAssignment_8");
 					put(grammarAccess.getHiddenAccess().getSizeAssignment_3(), "rule__Hidden__SizeAssignment_3");
 					put(grammarAccess.getHiddenAccess().getL_ruleAssignment_5(), "rule__Hidden__L_ruleAssignment_5");
 					put(grammarAccess.getInputAccess().getSizeAssignment_3(), "rule__Input__SizeAssignment_3");
+					put(grammarAccess.getInputAccess().getSourceAssignment_5(), "rule__Input__SourceAssignment_5");
+					put(grammarAccess.getInputAccess().getRestrictionsAssignment_7(), "rule__Input__RestrictionsAssignment_7");
+					put(grammarAccess.getInputAccess().getMoreRestrictionsAssignment_8(), "rule__Input__MoreRestrictionsAssignment_8");
+					put(grammarAccess.getRestrictionAccess().getConstraintAssignment_1(), "rule__Restriction__ConstraintAssignment_1");
+					put(grammarAccess.getConstraintAccess().getNameAssignment_1(), "rule__Constraint__NameAssignment_1");
+					put(grammarAccess.getConstraintAccess().getFieldAssignment_3(), "rule__Constraint__FieldAssignment_3");
+					put(grammarAccess.getConstraintAccess().getFieldsAssignment_4(), "rule__Constraint__FieldsAssignment_4");
+					put(grammarAccess.getConstraintAccess().getConditionAssignment_7(), "rule__Constraint__ConditionAssignment_7");
+					put(grammarAccess.getFieldAccess().getFieldAssignment_1(), "rule__Field__FieldAssignment_1");
+					put(grammarAccess.getConditionAccess().getConditionAssignment_0(), "rule__Condition__ConditionAssignment_0");
+					put(grammarAccess.getConditionAccess().getNum2Assignment_1(), "rule__Condition__Num2Assignment_1");
 					put(grammarAccess.getOutputAccess().getSizeAssignment_3(), "rule__Output__SizeAssignment_3");
 					put(grammarAccess.getOutputAccess().getL_ruleAssignment_5(), "rule__Output__L_ruleAssignment_5");
 					put(grammarAccess.getExternalAccess().getNameAssignment_0(), "rule__External__NameAssignment_0");

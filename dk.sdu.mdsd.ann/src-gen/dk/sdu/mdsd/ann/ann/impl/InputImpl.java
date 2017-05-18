@@ -4,19 +4,82 @@
 package dk.sdu.mdsd.ann.ann.impl;
 
 import dk.sdu.mdsd.ann.ann.AnnPackage;
+import dk.sdu.mdsd.ann.ann.Constraint;
 import dk.sdu.mdsd.ann.ann.Input;
+import dk.sdu.mdsd.ann.ann.Restriction;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Input</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.InputImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.InputImpl#getRestrictions <em>Restrictions</em>}</li>
+ *   <li>{@link dk.sdu.mdsd.ann.ann.impl.InputImpl#getMoreRestrictions <em>More Restrictions</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class InputImpl extends LayerImpl implements Input
 {
+  /**
+   * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSource()
+   * @generated
+   * @ordered
+   */
+  protected static final String SOURCE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSource()
+   * @generated
+   * @ordered
+   */
+  protected String source = SOURCE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getRestrictions() <em>Restrictions</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRestrictions()
+   * @generated
+   * @ordered
+   */
+  protected Constraint restrictions;
+
+  /**
+   * The cached value of the '{@link #getMoreRestrictions() <em>More Restrictions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMoreRestrictions()
+   * @generated
+   * @ordered
+   */
+  protected EList<Restriction> moreRestrictions;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +99,208 @@ public class InputImpl extends LayerImpl implements Input
   protected EClass eStaticClass()
   {
     return AnnPackage.Literals.INPUT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getSource()
+  {
+    return source;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSource(String newSource)
+  {
+    String oldSource = source;
+    source = newSource;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.INPUT__SOURCE, oldSource, source));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Constraint getRestrictions()
+  {
+    if (restrictions != null && restrictions.eIsProxy())
+    {
+      InternalEObject oldRestrictions = (InternalEObject)restrictions;
+      restrictions = (Constraint)eResolveProxy(oldRestrictions);
+      if (restrictions != oldRestrictions)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnnPackage.INPUT__RESTRICTIONS, oldRestrictions, restrictions));
+      }
+    }
+    return restrictions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Constraint basicGetRestrictions()
+  {
+    return restrictions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRestrictions(Constraint newRestrictions)
+  {
+    Constraint oldRestrictions = restrictions;
+    restrictions = newRestrictions;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AnnPackage.INPUT__RESTRICTIONS, oldRestrictions, restrictions));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Restriction> getMoreRestrictions()
+  {
+    if (moreRestrictions == null)
+    {
+      moreRestrictions = new EObjectContainmentEList<Restriction>(Restriction.class, this, AnnPackage.INPUT__MORE_RESTRICTIONS);
+    }
+    return moreRestrictions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case AnnPackage.INPUT__MORE_RESTRICTIONS:
+        return ((InternalEList<?>)getMoreRestrictions()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case AnnPackage.INPUT__SOURCE:
+        return getSource();
+      case AnnPackage.INPUT__RESTRICTIONS:
+        if (resolve) return getRestrictions();
+        return basicGetRestrictions();
+      case AnnPackage.INPUT__MORE_RESTRICTIONS:
+        return getMoreRestrictions();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case AnnPackage.INPUT__SOURCE:
+        setSource((String)newValue);
+        return;
+      case AnnPackage.INPUT__RESTRICTIONS:
+        setRestrictions((Constraint)newValue);
+        return;
+      case AnnPackage.INPUT__MORE_RESTRICTIONS:
+        getMoreRestrictions().clear();
+        getMoreRestrictions().addAll((Collection<? extends Restriction>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case AnnPackage.INPUT__SOURCE:
+        setSource(SOURCE_EDEFAULT);
+        return;
+      case AnnPackage.INPUT__RESTRICTIONS:
+        setRestrictions((Constraint)null);
+        return;
+      case AnnPackage.INPUT__MORE_RESTRICTIONS:
+        getMoreRestrictions().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case AnnPackage.INPUT__SOURCE:
+        return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
+      case AnnPackage.INPUT__RESTRICTIONS:
+        return restrictions != null;
+      case AnnPackage.INPUT__MORE_RESTRICTIONS:
+        return moreRestrictions != null && !moreRestrictions.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (source: ");
+    result.append(source);
+    result.append(')');
+    return result.toString();
   }
 
 } //InputImpl

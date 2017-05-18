@@ -10,6 +10,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//ANNModel/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//ANNModel/alpha"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//ANNModel/epochs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//ANNModel/constraints"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//ANNModel/Activation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//ANNModel/Layer"/>
     </genClasses>
@@ -19,7 +20,27 @@
     <genClasses ecoreClass="Ann.ecore#//Hidden">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ann.ecore#//Hidden/l_rule"/>
     </genClasses>
-    <genClasses ecoreClass="Ann.ecore#//Input"/>
+    <genClasses ecoreClass="Ann.ecore#//Input">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Input/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ann.ecore#//Input/restrictions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Input/moreRestrictions"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Restriction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ann.ecore#//Restriction/constraint"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Constraint/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Constraint/field"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Constraint/fields"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ann.ecore#//Constraint/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Field">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Field/field"/>
+    </genClasses>
+    <genClasses ecoreClass="Ann.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Condition/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ann.ecore#//Condition/num2"/>
+    </genClasses>
     <genClasses ecoreClass="Ann.ecore#//Output">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ann.ecore#//Output/l_rule"/>
     </genClasses>

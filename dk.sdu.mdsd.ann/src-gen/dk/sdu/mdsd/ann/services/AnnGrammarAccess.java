@@ -36,21 +36,24 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEpochsKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cEpochsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cEpochsINTTerminalRuleCall_5_0 = (RuleCall)cEpochsAssignment_5.eContents().get(0);
-		private final Assignment cActivationAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cActivationActivationParserRuleCall_6_0 = (RuleCall)cActivationAssignment_6.eContents().get(0);
-		private final Assignment cLayerAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cLayerLayerParserRuleCall_7_0 = (RuleCall)cLayerAssignment_7.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cConstraintsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cConstraintsConstraintParserRuleCall_6_0 = (RuleCall)cConstraintsAssignment_6.eContents().get(0);
+		private final Assignment cActivationAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cActivationActivationParserRuleCall_7_0 = (RuleCall)cActivationAssignment_7.eContents().get(0);
+		private final Assignment cLayerAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cLayerLayerParserRuleCall_8_0 = (RuleCall)cLayerAssignment_8.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//ANNModel:
 		//	name=ID '{'
 		//	'alpha' alpha=DECIMAL
 		//	'epochs' epochs=INT
+		//	constraints+=Constraint*
 		//	Activation+=Activation*
 		//	Layer+=Layer* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID '{' 'alpha' alpha=DECIMAL 'epochs' epochs=INT Activation+=Activation* Layer+=Layer* '}'
+		//name=ID '{' 'alpha' alpha=DECIMAL 'epochs' epochs=INT constraints+=Constraint* Activation+=Activation* Layer+=Layer* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -80,20 +83,26 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getEpochsINTTerminalRuleCall_5_0() { return cEpochsINTTerminalRuleCall_5_0; }
 		
+		//constraints+=Constraint*
+		public Assignment getConstraintsAssignment_6() { return cConstraintsAssignment_6; }
+		
+		//Constraint
+		public RuleCall getConstraintsConstraintParserRuleCall_6_0() { return cConstraintsConstraintParserRuleCall_6_0; }
+		
 		//Activation+=Activation*
-		public Assignment getActivationAssignment_6() { return cActivationAssignment_6; }
+		public Assignment getActivationAssignment_7() { return cActivationAssignment_7; }
 		
 		//Activation
-		public RuleCall getActivationActivationParserRuleCall_6_0() { return cActivationActivationParserRuleCall_6_0; }
+		public RuleCall getActivationActivationParserRuleCall_7_0() { return cActivationActivationParserRuleCall_7_0; }
 		
 		//Layer+=Layer*
-		public Assignment getLayerAssignment_7() { return cLayerAssignment_7; }
+		public Assignment getLayerAssignment_8() { return cLayerAssignment_8; }
 		
 		//Layer
-		public RuleCall getLayerLayerParserRuleCall_7_0() { return cLayerLayerParserRuleCall_7_0; }
+		public RuleCall getLayerLayerParserRuleCall_8_0() { return cLayerLayerParserRuleCall_8_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class DECIMALElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.DECIMAL");
@@ -202,14 +211,26 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSizeKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cSizeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cSizeINTTerminalRuleCall_3_0 = (RuleCall)cSizeAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cSourceKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cSourceAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cSourceSTRINGTerminalRuleCall_5_0 = (RuleCall)cSourceAssignment_5.eContents().get(0);
+		private final Keyword cConstraintsKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cRestrictionsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final CrossReference cRestrictionsConstraintCrossReference_7_0 = (CrossReference)cRestrictionsAssignment_7.eContents().get(0);
+		private final RuleCall cRestrictionsConstraintIDTerminalRuleCall_7_0_1 = (RuleCall)cRestrictionsConstraintCrossReference_7_0.eContents().get(1);
+		private final Assignment cMoreRestrictionsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cMoreRestrictionsRestrictionParserRuleCall_8_0 = (RuleCall)cMoreRestrictionsAssignment_8.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Input:
 		//	'in' '{'
-		//	'size' size=INT '}';
+		//	'size' size=INT
+		//	'source' source=STRING
+		//	'constraints' restrictions=[Constraint]? moreRestrictions+=Restriction* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'in' '{' 'size' size=INT '}'
+		//'in' '{' 'size' size=INT 'source' source=STRING 'constraints' restrictions=[Constraint]? moreRestrictions+=Restriction*
+		//'}'
 		public Group getGroup() { return cGroup; }
 		
 		//'in'
@@ -227,8 +248,208 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getSizeINTTerminalRuleCall_3_0() { return cSizeINTTerminalRuleCall_3_0; }
 		
+		//'source'
+		public Keyword getSourceKeyword_4() { return cSourceKeyword_4; }
+		
+		//source=STRING
+		public Assignment getSourceAssignment_5() { return cSourceAssignment_5; }
+		
+		//STRING
+		public RuleCall getSourceSTRINGTerminalRuleCall_5_0() { return cSourceSTRINGTerminalRuleCall_5_0; }
+		
+		//'constraints'
+		public Keyword getConstraintsKeyword_6() { return cConstraintsKeyword_6; }
+		
+		//restrictions=[Constraint]?
+		public Assignment getRestrictionsAssignment_7() { return cRestrictionsAssignment_7; }
+		
+		//[Constraint]
+		public CrossReference getRestrictionsConstraintCrossReference_7_0() { return cRestrictionsConstraintCrossReference_7_0; }
+		
+		//ID
+		public RuleCall getRestrictionsConstraintIDTerminalRuleCall_7_0_1() { return cRestrictionsConstraintIDTerminalRuleCall_7_0_1; }
+		
+		//moreRestrictions+=Restriction*
+		public Assignment getMoreRestrictionsAssignment_8() { return cMoreRestrictionsAssignment_8; }
+		
+		//Restriction
+		public RuleCall getMoreRestrictionsRestrictionParserRuleCall_8_0() { return cMoreRestrictionsRestrictionParserRuleCall_8_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+	}
+	public class RestrictionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Restriction");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCommaKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cConstraintAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cConstraintConstraintCrossReference_1_0 = (CrossReference)cConstraintAssignment_1.eContents().get(0);
+		private final RuleCall cConstraintConstraintIDTerminalRuleCall_1_0_1 = (RuleCall)cConstraintConstraintCrossReference_1_0.eContents().get(1);
+		
+		//Restriction:
+		//	',' constraint=[Constraint];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//',' constraint=[Constraint]
+		public Group getGroup() { return cGroup; }
+		
+		//','
+		public Keyword getCommaKeyword_0() { return cCommaKeyword_0; }
+		
+		//constraint=[Constraint]
+		public Assignment getConstraintAssignment_1() { return cConstraintAssignment_1; }
+		
+		//[Constraint]
+		public CrossReference getConstraintConstraintCrossReference_1_0() { return cConstraintConstraintCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getConstraintConstraintIDTerminalRuleCall_1_0_1() { return cConstraintConstraintIDTerminalRuleCall_1_0_1; }
+	}
+	public class ConstraintElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Constraint");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cConstraintKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cFieldAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cFieldINTTerminalRuleCall_3_0 = (RuleCall)cFieldAssignment_3.eContents().get(0);
+		private final Assignment cFieldsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cFieldsFieldParserRuleCall_4_0 = (RuleCall)cFieldsAssignment_4.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cConditionAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cConditionConditionParserRuleCall_7_0 = (RuleCall)cConditionAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		
+		//Constraint:
+		//	'constraint' name=ID '(' field=INT fields+=Field* ')' '{'
+		//	condition=Condition
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'constraint' name=ID '(' field=INT fields+=Field* ')' '{' condition=Condition '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'constraint'
+		public Keyword getConstraintKeyword_0() { return cConstraintKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		
+		//field=INT
+		public Assignment getFieldAssignment_3() { return cFieldAssignment_3; }
+		
+		//INT
+		public RuleCall getFieldINTTerminalRuleCall_3_0() { return cFieldINTTerminalRuleCall_3_0; }
+		
+		//fields+=Field*
+		public Assignment getFieldsAssignment_4() { return cFieldsAssignment_4; }
+		
+		//Field
+		public RuleCall getFieldsFieldParserRuleCall_4_0() { return cFieldsFieldParserRuleCall_4_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
+		
+		//condition=Condition
+		public Assignment getConditionAssignment_7() { return cConditionAssignment_7; }
+		
+		//Condition
+		public RuleCall getConditionConditionParserRuleCall_7_0() { return cConditionConditionParserRuleCall_7_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+	}
+	public class FieldElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Field");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCommaKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cFieldAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFieldINTTerminalRuleCall_1_0 = (RuleCall)cFieldAssignment_1.eContents().get(0);
+		
+		//Field:
+		//	',' field=INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//',' field=INT
+		public Group getGroup() { return cGroup; }
+		
+		//','
+		public Keyword getCommaKeyword_0() { return cCommaKeyword_0; }
+		
+		//field=INT
+		public Assignment getFieldAssignment_1() { return cFieldAssignment_1; }
+		
+		//INT
+		public RuleCall getFieldINTTerminalRuleCall_1_0() { return cFieldINTTerminalRuleCall_1_0; }
+	}
+	public class ConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Condition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cConditionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cConditionConditionalOperatorParserRuleCall_0_0 = (RuleCall)cConditionAssignment_0.eContents().get(0);
+		private final Assignment cNum2Assignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNum2NumberTypesParserRuleCall_1_0 = (RuleCall)cNum2Assignment_1.eContents().get(0);
+		
+		//Condition:
+		//	condition=ConditionalOperator num2=NumberTypes;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//condition=ConditionalOperator num2=NumberTypes
+		public Group getGroup() { return cGroup; }
+		
+		//condition=ConditionalOperator
+		public Assignment getConditionAssignment_0() { return cConditionAssignment_0; }
+		
+		//ConditionalOperator
+		public RuleCall getConditionConditionalOperatorParserRuleCall_0_0() { return cConditionConditionalOperatorParserRuleCall_0_0; }
+		
+		//num2=NumberTypes
+		public Assignment getNum2Assignment_1() { return cNum2Assignment_1; }
+		
+		//NumberTypes
+		public RuleCall getNum2NumberTypesParserRuleCall_1_0() { return cNum2NumberTypesParserRuleCall_1_0; }
+	}
+	public class ConditionalOperatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.ConditionalOperator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cEqualsSignEqualsSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cLessThanSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cGreaterThanSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cLessThanSignEqualsSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		
+		//ConditionalOperator:
+		//	'==' | '<' | '>' | '<=' | '>=';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'==' | '<' | '>' | '<=' | '>='
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'=='
+		public Keyword getEqualsSignEqualsSignKeyword_0() { return cEqualsSignEqualsSignKeyword_0; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_1() { return cLessThanSignKeyword_1; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_2() { return cGreaterThanSignKeyword_2; }
+		
+		//'<='
+		public Keyword getLessThanSignEqualsSignKeyword_3() { return cLessThanSignEqualsSignKeyword_3; }
+		
+		//'>='
+		public Keyword getGreaterThanSignEqualsSignKeyword_4() { return cGreaterThanSignEqualsSignKeyword_4; }
 	}
 	public class OutputElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Output");
@@ -342,10 +563,10 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRuleSigmoidKeyword_1_0 = (Keyword)cRuleAssignment_1.eContents().get(0);
 		
 		//Sigmoid:
-		//	name=ID rule='Sigmoid';
+		//	name=ID rule='sigmoid';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID rule='Sigmoid'
+		//name=ID rule='sigmoid'
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -354,10 +575,10 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
-		//rule='Sigmoid'
+		//rule='sigmoid'
 		public Assignment getRuleAssignment_1() { return cRuleAssignment_1; }
 		
-		//'Sigmoid'
+		//'sigmoid'
 		public Keyword getRuleSigmoidKeyword_1_0() { return cRuleSigmoidKeyword_1_0; }
 	}
 	public class TansigElements extends AbstractParserRuleElementFinder {
@@ -369,10 +590,10 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRuleTansigKeyword_1_0 = (Keyword)cRuleAssignment_1.eContents().get(0);
 		
 		//Tansig:
-		//	name=ID rule='Tansig';
+		//	name=ID rule='tansig';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID rule='Tansig'
+		//name=ID rule='tansig'
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -381,10 +602,10 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
-		//rule='Tansig'
+		//rule='tansig'
 		public Assignment getRuleAssignment_1() { return cRuleAssignment_1; }
 		
-		//'Tansig'
+		//'tansig'
 		public Keyword getRuleTansigKeyword_1_0() { return cRuleTansigKeyword_1_0; }
 	}
 	public class CustomElements extends AbstractParserRuleElementFinder {
@@ -898,6 +1119,11 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	private final LayerElements pLayer;
 	private final HiddenElements pHidden;
 	private final InputElements pInput;
+	private final RestrictionElements pRestriction;
+	private final ConstraintElements pConstraint;
+	private final FieldElements pField;
+	private final ConditionElements pCondition;
+	private final ConditionalOperatorElements pConditionalOperator;
 	private final OutputElements pOutput;
 	private final ActivationElements pActivation;
 	private final ExternalElements pExternal;
@@ -934,6 +1160,11 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		this.pLayer = new LayerElements();
 		this.pHidden = new HiddenElements();
 		this.pInput = new InputElements();
+		this.pRestriction = new RestrictionElements();
+		this.pConstraint = new ConstraintElements();
+		this.pField = new FieldElements();
+		this.pCondition = new ConditionElements();
+		this.pConditionalOperator = new ConditionalOperatorElements();
 		this.pOutput = new OutputElements();
 		this.pActivation = new ActivationElements();
 		this.pExternal = new ExternalElements();
@@ -988,6 +1219,7 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	//	name=ID '{'
 	//	'alpha' alpha=DECIMAL
 	//	'epochs' epochs=INT
+	//	constraints+=Constraint*
 	//	Activation+=Activation*
 	//	Layer+=Layer* '}';
 	public ANNModelElements getANNModelAccess() {
@@ -1032,13 +1264,67 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Input:
 	//	'in' '{'
-	//	'size' size=INT '}';
+	//	'size' size=INT
+	//	'source' source=STRING
+	//	'constraints' restrictions=[Constraint]? moreRestrictions+=Restriction* '}';
 	public InputElements getInputAccess() {
 		return pInput;
 	}
 	
 	public ParserRule getInputRule() {
 		return getInputAccess().getRule();
+	}
+	
+	//Restriction:
+	//	',' constraint=[Constraint];
+	public RestrictionElements getRestrictionAccess() {
+		return pRestriction;
+	}
+	
+	public ParserRule getRestrictionRule() {
+		return getRestrictionAccess().getRule();
+	}
+	
+	//Constraint:
+	//	'constraint' name=ID '(' field=INT fields+=Field* ')' '{'
+	//	condition=Condition
+	//	'}';
+	public ConstraintElements getConstraintAccess() {
+		return pConstraint;
+	}
+	
+	public ParserRule getConstraintRule() {
+		return getConstraintAccess().getRule();
+	}
+	
+	//Field:
+	//	',' field=INT;
+	public FieldElements getFieldAccess() {
+		return pField;
+	}
+	
+	public ParserRule getFieldRule() {
+		return getFieldAccess().getRule();
+	}
+	
+	//Condition:
+	//	condition=ConditionalOperator num2=NumberTypes;
+	public ConditionElements getConditionAccess() {
+		return pCondition;
+	}
+	
+	public ParserRule getConditionRule() {
+		return getConditionAccess().getRule();
+	}
+	
+	//ConditionalOperator:
+	//	'==' | '<' | '>' | '<=' | '>=';
+	public ConditionalOperatorElements getConditionalOperatorAccess() {
+		return pConditionalOperator;
+	}
+	
+	public ParserRule getConditionalOperatorRule() {
+		return getConditionalOperatorAccess().getRule();
 	}
 	
 	//Output:
@@ -1074,7 +1360,7 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Sigmoid:
-	//	name=ID rule='Sigmoid';
+	//	name=ID rule='sigmoid';
 	public SigmoidElements getSigmoidAccess() {
 		return pSigmoid;
 	}
@@ -1084,7 +1370,7 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Tansig:
-	//	name=ID rule='Tansig';
+	//	name=ID rule='tansig';
 	public TansigElements getTansigAccess() {
 		return pTansig;
 	}

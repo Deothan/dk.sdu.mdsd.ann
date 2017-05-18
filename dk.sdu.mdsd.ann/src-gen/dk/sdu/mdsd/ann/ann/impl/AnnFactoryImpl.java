@@ -7,12 +7,15 @@ import dk.sdu.mdsd.ann.ann.ANNModel;
 import dk.sdu.mdsd.ann.ann.Activation;
 import dk.sdu.mdsd.ann.ann.AnnFactory;
 import dk.sdu.mdsd.ann.ann.AnnPackage;
+import dk.sdu.mdsd.ann.ann.Condition;
+import dk.sdu.mdsd.ann.ann.Constraint;
 import dk.sdu.mdsd.ann.ann.Cos;
 import dk.sdu.mdsd.ann.ann.Custom;
 import dk.sdu.mdsd.ann.ann.Euler;
 import dk.sdu.mdsd.ann.ann.Expression;
 import dk.sdu.mdsd.ann.ann.External;
 import dk.sdu.mdsd.ann.ann.Fac;
+import dk.sdu.mdsd.ann.ann.Field;
 import dk.sdu.mdsd.ann.ann.Hidden;
 import dk.sdu.mdsd.ann.ann.Input;
 import dk.sdu.mdsd.ann.ann.Layer;
@@ -22,6 +25,7 @@ import dk.sdu.mdsd.ann.ann.NumberLiteral;
 import dk.sdu.mdsd.ann.ann.Output;
 import dk.sdu.mdsd.ann.ann.Part;
 import dk.sdu.mdsd.ann.ann.Power;
+import dk.sdu.mdsd.ann.ann.Restriction;
 import dk.sdu.mdsd.ann.ann.Sigmoid;
 import dk.sdu.mdsd.ann.ann.Sin;
 import dk.sdu.mdsd.ann.ann.Sqrt;
@@ -91,6 +95,10 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
       case AnnPackage.LAYER: return createLayer();
       case AnnPackage.HIDDEN: return createHidden();
       case AnnPackage.INPUT: return createInput();
+      case AnnPackage.RESTRICTION: return createRestriction();
+      case AnnPackage.CONSTRAINT: return createConstraint();
+      case AnnPackage.FIELD: return createField();
+      case AnnPackage.CONDITION: return createCondition();
       case AnnPackage.OUTPUT: return createOutput();
       case AnnPackage.ACTIVATION: return createActivation();
       case AnnPackage.EXTERNAL: return createExternal();
@@ -156,6 +164,50 @@ public class AnnFactoryImpl extends EFactoryImpl implements AnnFactory
   {
     InputImpl input = new InputImpl();
     return input;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Restriction createRestriction()
+  {
+    RestrictionImpl restriction = new RestrictionImpl();
+    return restriction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Constraint createConstraint()
+  {
+    ConstraintImpl constraint = new ConstraintImpl();
+    return constraint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Field createField()
+  {
+    FieldImpl field = new FieldImpl();
+    return field;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition createCondition()
+  {
+    ConditionImpl condition = new ConditionImpl();
+    return condition;
   }
 
   /**
