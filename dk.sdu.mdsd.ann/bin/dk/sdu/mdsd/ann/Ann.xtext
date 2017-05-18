@@ -30,7 +30,7 @@ Input:
 	'in' '{' 
 		'size' size=INT 
 		'source' source=STRING
-		'constraints' (restrictions=[Constraint])? moreRestrictions+=Restriction*  '}' 
+		('constraints' restrictions=[Constraint]? moreRestrictions+=Restriction*)?  '}' 
 ;
 
 Restriction:

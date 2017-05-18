@@ -214,23 +214,23 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSourceKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cSourceAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cSourceSTRINGTerminalRuleCall_5_0 = (RuleCall)cSourceAssignment_5.eContents().get(0);
-		private final Keyword cConstraintsKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cRestrictionsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final CrossReference cRestrictionsConstraintCrossReference_7_0 = (CrossReference)cRestrictionsAssignment_7.eContents().get(0);
-		private final RuleCall cRestrictionsConstraintIDTerminalRuleCall_7_0_1 = (RuleCall)cRestrictionsConstraintCrossReference_7_0.eContents().get(1);
-		private final Assignment cMoreRestrictionsAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cMoreRestrictionsRestrictionParserRuleCall_8_0 = (RuleCall)cMoreRestrictionsAssignment_8.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cConstraintsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cRestrictionsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final CrossReference cRestrictionsConstraintCrossReference_6_1_0 = (CrossReference)cRestrictionsAssignment_6_1.eContents().get(0);
+		private final RuleCall cRestrictionsConstraintIDTerminalRuleCall_6_1_0_1 = (RuleCall)cRestrictionsConstraintCrossReference_6_1_0.eContents().get(1);
+		private final Assignment cMoreRestrictionsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cMoreRestrictionsRestrictionParserRuleCall_6_2_0 = (RuleCall)cMoreRestrictionsAssignment_6_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Input:
 		//	'in' '{'
 		//	'size' size=INT
-		//	'source' source=STRING
-		//	'constraints' restrictions=[Constraint]? moreRestrictions+=Restriction* '}';
+		//	'source' source=STRING ('constraints' restrictions=[Constraint]? moreRestrictions+=Restriction*)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'in' '{' 'size' size=INT 'source' source=STRING 'constraints' restrictions=[Constraint]? moreRestrictions+=Restriction*
-		//'}'
+		//'in' '{' 'size' size=INT 'source' source=STRING ('constraints' restrictions=[Constraint]?
+		//moreRestrictions+=Restriction*)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'in'
@@ -257,26 +257,29 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getSourceSTRINGTerminalRuleCall_5_0() { return cSourceSTRINGTerminalRuleCall_5_0; }
 		
+		//('constraints' restrictions=[Constraint]? moreRestrictions+=Restriction*)?
+		public Group getGroup_6() { return cGroup_6; }
+		
 		//'constraints'
-		public Keyword getConstraintsKeyword_6() { return cConstraintsKeyword_6; }
+		public Keyword getConstraintsKeyword_6_0() { return cConstraintsKeyword_6_0; }
 		
 		//restrictions=[Constraint]?
-		public Assignment getRestrictionsAssignment_7() { return cRestrictionsAssignment_7; }
+		public Assignment getRestrictionsAssignment_6_1() { return cRestrictionsAssignment_6_1; }
 		
 		//[Constraint]
-		public CrossReference getRestrictionsConstraintCrossReference_7_0() { return cRestrictionsConstraintCrossReference_7_0; }
+		public CrossReference getRestrictionsConstraintCrossReference_6_1_0() { return cRestrictionsConstraintCrossReference_6_1_0; }
 		
 		//ID
-		public RuleCall getRestrictionsConstraintIDTerminalRuleCall_7_0_1() { return cRestrictionsConstraintIDTerminalRuleCall_7_0_1; }
+		public RuleCall getRestrictionsConstraintIDTerminalRuleCall_6_1_0_1() { return cRestrictionsConstraintIDTerminalRuleCall_6_1_0_1; }
 		
 		//moreRestrictions+=Restriction*
-		public Assignment getMoreRestrictionsAssignment_8() { return cMoreRestrictionsAssignment_8; }
+		public Assignment getMoreRestrictionsAssignment_6_2() { return cMoreRestrictionsAssignment_6_2; }
 		
 		//Restriction
-		public RuleCall getMoreRestrictionsRestrictionParserRuleCall_8_0() { return cMoreRestrictionsRestrictionParserRuleCall_8_0; }
+		public RuleCall getMoreRestrictionsRestrictionParserRuleCall_6_2_0() { return cMoreRestrictionsRestrictionParserRuleCall_6_2_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class RestrictionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mdsd.ann.Ann.Restriction");
@@ -1265,8 +1268,7 @@ public class AnnGrammarAccess extends AbstractGrammarElementFinder {
 	//Input:
 	//	'in' '{'
 	//	'size' size=INT
-	//	'source' source=STRING
-	//	'constraints' restrictions=[Constraint]? moreRestrictions+=Restriction* '}';
+	//	'source' source=STRING ('constraints' restrictions=[Constraint]? moreRestrictions+=Restriction*)? '}';
 	public InputElements getInputAccess() {
 		return pInput;
 	}

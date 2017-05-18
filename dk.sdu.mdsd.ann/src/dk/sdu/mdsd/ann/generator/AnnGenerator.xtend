@@ -56,7 +56,6 @@ class AnnGenerator extends AbstractGenerator {
 		import java.util.ArrayList;
 		public interface IConstraint {
 			boolean withinConstraint(double[] values);
-			ArrayList<Integer> getFields();
 		}
 	'''
 
@@ -76,10 +75,6 @@ class AnnGenerator extends AbstractGenerator {
 				«FOR f : constraint.fields»
 					«generateAddField(f.field)»
 				«ENDFOR»
-			}
-			
-			public ArrayList<Integer> getFields(){
-				return fields;
 			}
 			
 			public boolean withinConstraint(double[] values) {
@@ -311,15 +306,15 @@ class AnnGenerator extends AbstractGenerator {
 		public interface ITransferFactory {
 			«FOR l : model.layer»
 				«if(l instanceof Hidden){
-			if(l.l_rule instanceof External) {
-				(l.l_rule as External).generateGetLineForITransferFactory
-			}
-		}»
+					if(l.l_rule instanceof External) {
+						(l.l_rule as External).generateGetLineForITransferFactory
+					}
+				}»
 				«if(l instanceof Output){
-			if(l.l_rule instanceof External) {
-				(l.l_rule as External).generateGetLineForITransferFactory
-			}
-		}»
+					if(l.l_rule instanceof External) {
+						(l.l_rule as External).generateGetLineForITransferFactory
+					}
+				}»
 			«ENDFOR»
 		}
 	'''

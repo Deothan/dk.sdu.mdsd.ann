@@ -43,6 +43,7 @@ public class AnnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDECIMALAccess().getGroup(), "rule__DECIMAL__Group__0");
 					put(grammarAccess.getHiddenAccess().getGroup(), "rule__Hidden__Group__0");
 					put(grammarAccess.getInputAccess().getGroup(), "rule__Input__Group__0");
+					put(grammarAccess.getInputAccess().getGroup_6(), "rule__Input__Group_6__0");
 					put(grammarAccess.getRestrictionAccess().getGroup(), "rule__Restriction__Group__0");
 					put(grammarAccess.getConstraintAccess().getGroup(), "rule__Constraint__Group__0");
 					put(grammarAccess.getFieldAccess().getGroup(), "rule__Field__Group__0");
@@ -75,8 +76,8 @@ public class AnnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getHiddenAccess().getL_ruleAssignment_5(), "rule__Hidden__L_ruleAssignment_5");
 					put(grammarAccess.getInputAccess().getSizeAssignment_3(), "rule__Input__SizeAssignment_3");
 					put(grammarAccess.getInputAccess().getSourceAssignment_5(), "rule__Input__SourceAssignment_5");
-					put(grammarAccess.getInputAccess().getRestrictionsAssignment_7(), "rule__Input__RestrictionsAssignment_7");
-					put(grammarAccess.getInputAccess().getMoreRestrictionsAssignment_8(), "rule__Input__MoreRestrictionsAssignment_8");
+					put(grammarAccess.getInputAccess().getRestrictionsAssignment_6_1(), "rule__Input__RestrictionsAssignment_6_1");
+					put(grammarAccess.getInputAccess().getMoreRestrictionsAssignment_6_2(), "rule__Input__MoreRestrictionsAssignment_6_2");
 					put(grammarAccess.getRestrictionAccess().getConstraintAssignment_1(), "rule__Restriction__ConstraintAssignment_1");
 					put(grammarAccess.getConstraintAccess().getNameAssignment_1(), "rule__Constraint__NameAssignment_1");
 					put(grammarAccess.getConstraintAccess().getFieldAssignment_3(), "rule__Constraint__FieldAssignment_3");

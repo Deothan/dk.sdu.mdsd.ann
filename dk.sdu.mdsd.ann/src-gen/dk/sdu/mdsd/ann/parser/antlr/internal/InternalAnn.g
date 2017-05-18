@@ -428,45 +428,47 @@ ruleInput returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_6='constraints'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getInputAccess().getConstraintsKeyword_6());
-		}
 		(
+			otherlv_6='constraints'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getInputAccess().getConstraintsKeyword_6_0());
+			}
 			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getInputRule());
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getInputRule());
+						}
 					}
-				}
-				otherlv_7=RULE_ID
-				{
-					newLeafNode(otherlv_7, grammarAccess.getInputAccess().getRestrictionsConstraintCrossReference_7_0());
-				}
-			)
+					otherlv_7=RULE_ID
+					{
+						newLeafNode(otherlv_7, grammarAccess.getInputAccess().getRestrictionsConstraintCrossReference_6_1_0());
+					}
+				)
+			)?
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getInputAccess().getMoreRestrictionsRestrictionParserRuleCall_6_2_0());
+					}
+					lv_moreRestrictions_8_0=ruleRestriction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getInputRule());
+						}
+						add(
+							$current,
+							"moreRestrictions",
+							lv_moreRestrictions_8_0,
+							"dk.sdu.mdsd.ann.Ann.Restriction");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
 		)?
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getInputAccess().getMoreRestrictionsRestrictionParserRuleCall_8_0());
-				}
-				lv_moreRestrictions_8_0=ruleRestriction
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getInputRule());
-					}
-					add(
-						$current,
-						"moreRestrictions",
-						lv_moreRestrictions_8_0,
-						"dk.sdu.mdsd.ann.Ann.Restriction");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
 		otherlv_9='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getInputAccess().getRightCurlyBracketKeyword_9());
+			newLeafNode(otherlv_9, grammarAccess.getInputAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
